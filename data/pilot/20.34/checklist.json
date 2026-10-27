@@ -1,0 +1,63 @@
+{
+ "ncd": "20.34",
+ "title": "Percutaneous Left Atrial Appendage Closure (LAAC)",
+ "service": "Percutaneous left atrial appendage closure (LAAC)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Non-valvular atrial fibrillation",
+   "span": "covers percutaneous LAAC for non-valvular atrial fibrillation (NVAF) through Coverage with Evidence Development (CED)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "FDA PMA device used for its approved indication",
+   "span": "LAAC devices are covered when the device has received Food and Drug Administration (FDA) Premarket Approval (PMA) for that device\u2019s FDA-approved indication",
+   "type": "device"
+  },
+  {
+   "id": "C3",
+   "text": "CHADS2 >= 2 or CHA2DS2-VASc >= 3",
+   "span": "A CHADS2 score \u2265 2 (Congestive heart failure, Hypertension, Age > 75, Diabetes, Stroke/transient ischemia attack/thromboembolism) or CHA2DS2-VASc score \u2265 3",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Formal shared decision making with an independent non-interventional physician using an evidence-based tool, documented",
+   "span": "A formal shared decision making interaction with an independent non-interventional physician using an evidence-based decision tool on oral anticoagulation in patients with NVAF prior to LAAC. Additionally, the shared decision making interaction must be documented in the medical record.",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Suitable for short-term warfarin but unable to take long-term oral anticoagulation (second-line only)",
+   "span": "A suitability for short-term warfarin but deemed unable to take long-term oral anticoagulation following the conclusion of shared decision making, as LAAC is only covered as a second line therapy to oral anticoagulants",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Multidisciplinary team; hospital with established SHD and/or EP program",
+   "span": "The procedure must be furnished in a hospital with an established structural heart disease (SHD) and/or electrophysiology (EP) program",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Operator: manufacturer training; >= 25 transseptal procedures; continuing >= 25 per 2 years incl. >= 12 LAAC",
+   "span": "Has performed \u2265 25 interventional cardiac procedures that involve transeptal puncture through an intact septum",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Patient enrolled in a CMS-approved prospective national audited registry",
+   "span": "The patient is enrolled in, and the MDT and hospital must participate in, a prospective, national, audited registry",
+   "type": "documentation"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered outside CED",
+   "span": "LAAC is non-covered for the treatment of NVAF when not furnished under CED according to the above-noted criteria",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "CHA2DS2-VASc: CHF 1, HTN 1, age >=75 2, DM 1, stroke/TIA 2, vascular 1, age 65-74 1, female 1. CHADS2: CHF 1, HTN 1, age >75 1, DM 1, stroke/TIA 2."
+}

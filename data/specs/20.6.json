@@ -1,0 +1,147 @@
+{
+ "ncd": "20.6",
+ "service": "Transmyocardial revascularization (TMR)",
+ "notes": "Spare used in place of 20.8.4. The NCD cites the laser safety standard as 'ANSIZ1363' (ANSI Z136.3); vignettes say ANSI Z136.3.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Severe angina, CCS class III or IV (stable or unstable)",
+   "span": "patients with severe (Canadian Cardiovascular Society classification Classes III or IV) angina (stable or unstable)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Refractory to standard medical therapy at maximum tolerated or maximum safe doses",
+   "span": "which has been found refractory to standard medical therapy, including drug therapy at the maximum tolerated or maximum safe dosages",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Angina from areas not amenable to PTCA, stenting, atherectomy, or bypass",
+   "span": "the angina symptoms must be caused by areas of the heart not amenable to surgical therapies such as percutaneous transluminal coronary angioplasty, stenting, coronary atherectomy or coronary bypass",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Laser use FDA approved for the purpose",
+   "span": "Coverage is further limited to those uses of the laser used in performing the procedure which have been approved by the Food and Drug Administration for the purpose for which they are being used.",
+   "type": "device"
+  },
+  {
+   "id": "C5",
+   "text": "Ejection fraction >= 25%",
+   "span": "An ejection fraction of 25% or greater",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Viable ischemic myocardium demonstrated by diagnostic study, not revascularizable by direct intervention",
+   "span": "Have areas of viable ischemic myocardium (as demonstrated by diagnostic study) which are not capable of being revascularized by direct coronary intervention",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Acute conditions stabilized or maximal efforts made to stabilize",
+   "span": "Have been stabilized, or have had maximal efforts to stabilize acute conditions such as severe ventricular arrhythmias, decompensated congestive heart failure or acute myocardial infarction.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Trained physician; provider documents training of all ancillary personnel",
+   "span": "Providers of this service must also document that all ancillary personnel, including physicians, nurses, operating room personnel and technicians, are trained in the procedure and the proper use of the equipment involved.",
+   "type": "documentation"
+  },
+  {
+   "id": "C9",
+   "text": "Provider has dedicated cardiac care units and meets ANSI laser safety standards",
+   "span": "Coverage is further limited to providers which have dedicated cardiac care units",
+   "type": "provider"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "CCS IV refractory to maximal therapy, diffuse non-revascularizable disease, EF 40%, PET viability, stable.",
+   "vignette": "69-year-old man with CCS class IV stable angina despite maximally tolerated metoprolol, amlodipine, isosorbide mononitrate, and ranolazine. Angiography reviewed by interventional cardiology and cardiac surgery shows diffuse distal disease not amenable to angioplasty, stenting, atherectomy, or bypass. LVEF is 40%. PET perfusion-metabolism imaging shows viable ischemic myocardium in the inferolateral wall that cannot be revascularized by direct coronary intervention. He has no arrhythmias, heart failure decompensation, or recent infarction. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: EF exactly 25%; CCS III unstable angina (stable or unstable allowed) after stabilization.",
+   "vignette": "72-year-old woman with CCS class III angina that became unstable 3 weeks ago; she was hospitalized, treated, and has been clinically stable for 2 weeks on maximally tolerated antianginal therapy, but angina persists. Her LVEF is exactly 25% by echocardiography. Angiography shows diffuse small-vessel disease not amenable to angioplasty, stenting, atherectomy, or bypass. Dobutamine stress echocardiography demonstrates viable ischemic myocardium in the anterior wall that cannot be revascularized by direct coronary intervention. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Two prior CABGs with failed grafts, age 82, diabetes are not exclusions.",
+   "vignette": "82-year-old man with diabetes and two prior coronary bypass operations, now with occluded grafts and native vessels unsuitable for further bypass, angioplasty, stenting, or atherectomy. He has CCS class IV angina despite maximum safe doses of beta blocker, nitrate, calcium channel blocker, and ranolazine. LVEF is 45%. Nuclear viability imaging shows viable ischemic myocardium in the lateral wall not capable of direct revascularization. He is clinically stable. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "CCS class II angina; TMR requires class III or IV.",
+   "vignette": "67-year-old man with CCS class II angina (symptoms only with brisk walking uphill) despite maximally tolerated antianginal therapy. Angiography shows diffuse distal disease not amenable to angioplasty, stenting, atherectomy, or bypass. LVEF is 50%. Stress perfusion imaging shows viable ischemic myocardium that cannot be revascularized by direct coronary intervention. He is clinically stable. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "LVEF 20%, below the 25% minimum.",
+   "vignette": "70-year-old woman with CCS class IV angina despite maximally tolerated antianginal therapy. Angiography shows diffuse disease not amenable to angioplasty, stenting, atherectomy, or bypass. Her LVEF is 20% by cardiac MRI. Viability imaging shows viable ischemic myocardium that cannot be revascularized by direct coronary intervention. She is clinically stable. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Culprit lesion is amenable to PCI; patient declined it.",
+   "vignette": "65-year-old man with CCS class III angina despite maximally tolerated antianginal therapy. Angiography shows a focal 90% proximal right coronary artery stenosis that interventional cardiology judges amenable to stenting, supplying the ischemic territory. He declines stenting and requests TMR. LVEF is 50%. Stress imaging shows viable ischemic myocardium in the inferior wall. He is clinically stable. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Medical therapy not at maximum tolerated doses; only low-dose beta blocker, never titrated.",
+   "vignette": "71-year-old woman with CCS class III angina. Her only antianginal medication is metoprolol tartrate 12.5 mg twice daily, which has never been titrated; she has no documented intolerance to higher doses or to other antianginal drugs, which have not been tried. Angiography shows diffuse disease not amenable to angioplasty, stenting, atherectomy, or bypass. LVEF is 45%. Viability imaging shows viable ischemic myocardium not capable of direct revascularization. She is clinically stable. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Currently decompensated heart failure with no attempt at stabilization before TMR.",
+   "vignette": "74-year-old man with CCS class IV angina despite maximally tolerated antianginal therapy, diffuse disease not amenable to angioplasty, stenting, atherectomy, or bypass, LVEF 30%, and viable ischemic myocardium on PET not capable of direct revascularization. He presented yesterday with decompensated congestive heart failure and pulmonary edema; the team plans TMR tomorrow without first treating or attempting to stabilize the heart failure. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C6"
+   ],
+   "note": "No diagnostic study demonstrating viable ischemic myocardium in the record.",
+   "vignette": "68-year-old woman with CCS class IV angina despite maximally tolerated antianginal therapy. Angiography shows diffuse disease not amenable to angioplasty, stenting, atherectomy, or bypass. LVEF is 40%. She is clinically stable. The record contains no stress perfusion, PET, MRI, or other diagnostic study assessing myocardial viability or ischemia. The procedure uses a laser FDA approved for transmyocardial revascularization. The cardiothoracic surgeon is trained in TMR, and the hospital documents that all ancillary personnel (physicians, nurses, operating room staff, technicians) are trained in the procedure and equipment. The hospital has a dedicated cardiac care unit with the necessary diagnostic and support services and conforms to ANSI Z136.3 laser safety standards."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C8"
+   ],
+   "note": "Surgeon trained, but no documentation of ancillary personnel training.",
+   "vignette": "73-year-old man with CCS class IV angina despite maximally tolerated antianginal therapy, diffuse disease not amenable to angioplasty, stenting, atherectomy, or bypass, LVEF 35%, and viable ischemic myocardium on stress perfusion imaging that cannot be revascularized by direct coronary intervention. He is clinically stable. The laser is FDA approved for transmyocardial revascularization, and the cardiothoracic surgeon completed TMR training. The hospital has a dedicated cardiac care unit and conforms to ANSI Z136.3 laser safety standards. The request contains no documentation of training in the procedure or equipment for the nurses, operating room staff, or technicians."
+  }
+ ]
+}

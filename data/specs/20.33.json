@@ -1,0 +1,156 @@
+{
+ "ncd": "20.33",
+ "service": "Mitral transcatheter edge-to-edge repair (TEER)",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Symptomatic moderate-to-severe/severe functional MR despite stable max GDMT (+CRT if appropriate), or significant symptomatic degenerative MR, per FDA indication",
+   "span": "For the treatment of symptomatic moderate-to-severe or severe functional mitral regurgitation (MR) when the patient remains symptomatic despite stable doses of maximally tolerated guideline-directed medical therapy (GDMT) plus cardiac resynchronization therapy, if appropriate, or for the treatment of significant symptomatic degenerative MR when furnished according to a Food and Drug Administration (FDA)-approved indication",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "FDA PMA mitral TEER system",
+   "span": "The procedure is furnished with a mitral valve TEER system that has received FDA premarket approval (PMA)",
+   "type": "device"
+  },
+  {
+   "id": "C3",
+   "text": "Functional MR: heart failure cardiologist documents persistent symptoms despite max GDMT/CRT",
+   "span": "for patients with functional MR, the heart team heart failure cardiologist must document that the patient has persistent symptoms despite maximally tolerated GDMT and cardiac resynchronization therapy, if appropriate",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Functional MR: interventional cardiologist and HF cardiologist independently evaluate face to face (HF cardiologist may use record review if established advanced-HF cardiologist relationship)",
+   "span": "For patients with functional MR: the heart team interventional cardiologist and heart team heart failure cardiologist independently evaluate the patient using information in the medical record and a face-to-face examination",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Degenerative MR: interventional cardiologist and cardiac surgeon independently evaluate face to face",
+   "span": "For patients with degenerative MR: the heart team interventional cardiologist and heart team cardiac surgeon must independently evaluate the patient using information in the medical record and a face-to-face examination",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Interventional echocardiographer may not also provide anesthesia",
+   "span": "The interventional echocardiographer may not also furnish anesthesiology during the same procedure",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Interventional cardiologist trans-septal experience (>= 20 career incl. 10 as primary)",
+   "span": "With participation in \u2265 20 career trans-septal interventions including 10 as primary or co-primary operator",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Heart team and hospital participate in a national audited registry",
+   "span": "The heart team and hospital are participating in a prospective, national, audited registry",
+   "type": "provider"
+  },
+  {
+   "id": "C9",
+   "text": "Not covered when comorbidities preclude expected benefit",
+   "span": "For patients in whom existing co-morbidities would preclude the expected benefit from a mitral valve TEER procedure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Not covered with untreated severe aortic stenosis",
+   "span": "In patients with untreated severe aortic stenosis",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "Suitability for surgical repair, TEER, or palliation evaluated, documented, and shared",
+   "span": "Each patient's suitability for surgical mitral valve repair, TEER, or palliative therapy must be evaluated, documented, and made available to other heart team members",
+   "type": "documentation"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Functional MR despite 4 months of stable max GDMT plus CRT.",
+   "vignette": "72-year-old man with ischemic cardiomyopathy (LVEF 30%) and severe functional mitral regurgitation, NYHA class III despite 4 months of stable maximally tolerated GDMT and a CRT device implanted a year ago. No aortic stenosis. The interventional cardiologist and the heart failure cardiologist each independently evaluated the patient face to face, and the heart failure cardiologist documents persistent symptoms despite maximally tolerated GDMT and CRT. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Significant symptomatic degenerative MR (flail leaflet).",
+   "vignette": "84-year-old woman with severe degenerative mitral regurgitation from a flail posterior leaflet, NYHA class III dyspnea, at high surgical risk. No aortic stenosis. The interventional cardiologist and the cardiac surgeon each independently evaluated the patient face to face. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "GDMT not stable/maximized: sacubitril-valsartan started 3 weeks ago and still being titrated.",
+   "vignette": "68-year-old man with non-ischemic cardiomyopathy (LVEF 28%) and severe functional mitral regurgitation, NYHA class III. Sacubitril-valsartan was started 3 weeks ago and is still being up-titrated; a beta-blocker dose was increased last week. No CRT indication. No aortic stenosis. The interventional cardiologist and heart failure cardiologist each evaluated him face to face. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C10"
+   ],
+   "missing": [],
+   "note": "Untreated severe aortic stenosis.",
+   "vignette": "79-year-old woman with severe degenerative mitral regurgitation, NYHA class III, who also has untreated severe aortic stenosis (valve area 0.7 cm2, mean gradient 45 mmHg). The interventional cardiologist and the cardiac surgeon each independently evaluated the patient face to face. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Aortic stenosis was treated with TAVR last year, so the AS exclusion does not apply.",
+   "vignette": "81-year-old man who had TAVR for severe aortic stenosis a year ago (well-functioning valve now). He has severe functional mitral regurgitation from ischemic cardiomyopathy (LVEF 32%), NYHA class III despite 6 months of stable maximally tolerated GDMT; CRT is not indicated. The interventional cardiologist and the heart failure cardiologist each independently evaluated the patient face to face, and the heart failure cardiologist documents persistent symptoms despite maximally tolerated GDMT and CRT. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Degenerative MR: cardiac surgeon did not examine the patient.",
+   "vignette": "77-year-old woman with severe degenerative mitral regurgitation (prolapse), NYHA class III. No aortic stenosis. The interventional cardiologist examined her face to face; the cardiac surgeon reviewed the echocardiogram but did not evaluate her in person. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "HF cardiologist record review allowed: established relationship with an advanced HF cardiologist.",
+   "vignette": "70-year-old woman with non-ischemic cardiomyopathy (LVEF 25%) and severe functional mitral regurgitation, NYHA class III despite 6 months of stable maximally tolerated GDMT and CRT. She has been followed for 3 years by an advanced heart failure cardiologist at another clinic. The heart team interventional cardiologist examined her face to face; the heart team heart failure cardiologist evaluated her through review of her records and images and documents persistent symptoms despite maximally tolerated GDMT and CRT. No aortic stenosis. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "The echocardiographer would also provide anesthesia.",
+   "vignette": "75-year-old man with severe degenerative mitral regurgitation, NYHA class III, high surgical risk. No aortic stenosis. The interventional cardiologist and the cardiac surgeon each independently evaluated the patient face to face. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE while also providing the anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C9"
+   ],
+   "missing": [],
+   "note": "Advanced dementia and bedbound; heart team documents no expected benefit.",
+   "vignette": "88-year-old woman with severe degenerative mitral regurgitation, bedbound with advanced dementia and end-stage renal disease declining dialysis. The heart team documents that her comorbidities would preclude any expected benefit from TEER. No aortic stenosis. The interventional cardiologist and the cardiac surgeon each independently evaluated the patient face to face. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "Functional MR: no heart failure cardiologist documentation of persistent symptoms despite GDMT/CRT.",
+   "vignette": "73-year-old man with ischemic cardiomyopathy (LVEF 30%) and severe functional mitral regurgitation, NYHA class III. His medication list shows GDMT and he has a CRT device. No aortic stenosis. The interventional cardiologist and heart failure cardiologist each saw him face to face, but there is no note from the heart failure cardiologist documenting that symptoms persist despite maximally tolerated GDMT and CRT. The planned mitral TEER system has FDA premarket approval and will be used for its FDA-approved indication. The heart team includes a board-certified cardiac surgeon (35 mitral surgeries per year, 60% repairs), a board-certified interventional cardiologist (120 career structural procedures, 45 trans-septal interventions including 30 as primary operator), a board-certified interventional echocardiographer (40 trans-septal guidance and 80 structural procedures), and an advanced heart failure cardiologist. Each patient's suitability for surgical repair, TEER, or palliative therapy is documented and shared with the team. The interventional cardiologist will perform the TEER with the interventional echocardiographer performing TEE and a separate anesthesiologist providing anesthesia; all have device-specific training. The hospital has on-site valve surgery, interventional cardiology, and a cardiovascular ICU; performs 30 mitral surgeries for severe MR per year (15 repairs); has 3 valve surgeons, 2 interventional cardiologists, and 500 PCIs per year; and participates with the heart team in a national audited TEER registry."
+  }
+ ]
+}

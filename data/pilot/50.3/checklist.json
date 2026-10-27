@@ -1,0 +1,39 @@
+{
+ "ncd": "50.3",
+ "title": "Cochlear Implantation",
+ "service": "Cochlear implantation",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Bilateral moderate-to-profound sensorineural hearing loss with limited benefit from appropriate aids",
+   "span": "Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Limited benefit = <= 60% correct best-aided on recorded open-set sentence recognition",
+   "span": "Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Cognitive ability to use auditory clues and willingness to undergo extended rehabilitation",
+   "span": "Cognitive ability to use auditory clues and a willingness to undergo an extended program of rehabilitation",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Freedom from middle ear infection, accessible cochlear lumen suited to implantation, no auditory nerve/CNS acoustic lesions",
+   "span": "Freedom from middle ear infection, an accessible cochlear lumen that is structurally suited to implantation, and freedom from lesions in the auditory nerve and acoustic areas of the central nervous system",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Exception: coverage in FDA-approved category B IDE trials or as routine costs in clinical trials (NCD 310.1)",
+   "span": "CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials",
+   "type": "exception"
+  }
+ ],
+ "notes": "Section D says CMS 'may' provide coverage in FDA-approved category B IDE trials; Section B also uses 'may be covered', so case 7 treats IDE-trial participation as covered (reviewer to confirm). Bilateral loss is required by the NCD text even though some devices carry FDA labeling for single-sided deafness."
+}

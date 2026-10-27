@@ -1,0 +1,159 @@
+{
+ "ncd": "280.8",
+ "service": "Air-fluidized bed for home use",
+ "notes": "Exceptions tested: part of the prerequisite month of conservative treatment may be in an institution if documented; wet-to-dry debridement continuing beyond 30 days does not preclude coverage (wet-to-dry does not need an occlusive covering), unlike moist dressings/wet soaks without an occlusive covering.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Stage 3 or stage 4 pressure sore",
+   "span": "The patient has a stage 3 (full thickness tissue loss) or stage 4 (deep tissue destruction) pressure sore;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Bedridden or chair bound from severely limited mobility",
+   "span": "The patient is bedridden or chair bound as a result of severely limited mobility;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Would require institutionalization without the bed",
+   "span": "In the absence of an air-fluidized bed, the patient would require institutionalization;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Conservative treatment for at least one month without progression toward healing (may include documented institutional time)",
+   "span": "This course of treatment must have been at least one month in duration without progression toward wound healing.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Conservative treatment included a Group II specialized support surface",
+   "span": "Use of a specialized support surface (Group II) designed to reduce pressure and shear forces on healing ulcers and to prevent new ulcer formation;",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Trained adult caregiver available",
+   "span": "A trained adult caregiver is available to assist the patient with activities of daily living",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Not covered with coexisting pulmonary disease",
+   "span": "The patient has coexisting pulmonary disease",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Not covered if wet soaks or moist dressings are not protected by an occlusive covering",
+   "span": "The patient requires treatment with wet soaks or moist wound dressings that are not protected with an impervious covering such as plastic wrap or other occlusive material;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Written order from the attending physician furnished to the supplier before delivery",
+   "span": "Payment for this covered item may only be made if the written order from the attending physician is furnished to the supplier prior to the delivery of the equipment.",
+   "type": "documentation"
+  },
+  {
+   "id": "C10",
+   "text": "Exception: institutional time may count toward the conservative month if documented",
+   "span": "This month of prerequisite conservative treatment may include some period in an institution as long as there is documentation available to verify that the necessary conservative treatment has been rendered.",
+   "type": "exception"
+  },
+  {
+   "id": "C11",
+   "text": "Exception: wet-to-dry debridement continuing beyond 30 days does not preclude coverage",
+   "span": "Use of wet-to-dry dressings for wound debridement, begun during the period of conservative treatment and which continue beyond 30 days, will not preclude coverage of air-fluidized bed.",
+   "type": "exception"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "All criteria met after 6 weeks of complete conservative treatment.",
+   "vignette": "79-year-old woman, bedridden after a large left hemispheric stroke, with a stage 4 sacral pressure ulcer (ICD-10-CM L89.154). For the past 6 weeks at home she has received a full conservative program: repositioning every 2 hours, a Group II powered pressure-reducing mattress, antibiotic treatment of a wound infection that has resolved, nutrition optimization with a dietitian, sharp debridement, and moist dressings under an occlusive film. The ulcer has not progressed toward healing. Her attending physician completed a comprehensive assessment, documented that she would need nursing-home placement without an air-fluidized bed, considered and ruled out other support surfaces, and gave the supplier a written order before delivery. Her daughter, a trained adult caregiver, lives with her and will provide all required care. The home has a concrete slab floor and electrical capacity confirmed adequate. She has no lung disease. The physician will direct the home regimen and recertify the need monthly."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Two exceptions: part of the conservative month was in a SNF (documented), and wet-to-dry debridement continues past 30 days.",
+   "vignette": "83-year-old man with advanced Parkinson's disease who is bedridden, with a stage 4 ischial pressure ulcer. His conservative treatment ran for 5 weeks: the first 2 weeks in a skilled nursing facility (whose records document repositioning every 2 hours, a Group II support surface, treatment of wound infection, nutrition optimization, and debridement) and the next 3 weeks at home with the same program. The ulcer has not progressed toward healing. Wet-to-dry dressings for debridement started in the SNF and are still being used 35 days later; other dressings are moist and covered with an occlusive film. His attending physician completed a comprehensive evaluation, documented that he would require readmission to a nursing facility without an air-fluidized bed, ruled out all other equipment, and sent the supplier a written order before delivery. His wife, a trained caregiver, provides all care at home. The home's floor structure and wiring are adequate. He has no pulmonary disease. The physician directs the home regimen and recertifies monthly."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: conservative treatment exactly one month; stage 3 ulcer.",
+   "vignette": "71-year-old man on Medicare through disability with T4 paraplegia who is chair bound, with a stage 3 pressure ulcer over the right greater trochanter. A complete conservative program was started exactly one month before the order: repositioning every 2 hours, a Group II air mattress, treatment of a resolved cellulitis, nutrition optimization, enzymatic debridement, and moist dressings under occlusive covering. At the end of that month the wound showed no progression toward healing. His attending physician completed a comprehensive assessment, documented that he would otherwise require institutional care, ruled out alternative equipment, and furnished the written order to the supplier before delivery. His adult son, trained in all required care, lives with him. Structural and electrical capacity of the home are adequate, and he has no pulmonary disease. The physician will recertify monthly."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Conservative treatment lasted only 3 weeks before the order.",
+   "vignette": "80-year-old woman, bedridden from end-stage dementia, with a stage 4 sacral pressure ulcer. A conservative program was started 3 weeks ago: repositioning every 2 hours, a Group II support surface, infection treatment, nutrition optimization, debridement, and occlusive moist dressings. Because the wound is large, her physician wrote an order for an air-fluidized bed now. He documented a comprehensive evaluation, that she would otherwise need nursing-home placement, and that alternative equipment was ruled out; the written order reached the supplier before delivery. Her husband is a trained caregiver. Home structure and electrical capacity are adequate. She has no lung disease. Monthly physician recertification is planned."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Coexisting COPD (pulmonary disease) is an explicit home-use exclusion, hidden among satisfied criteria.",
+   "vignette": "76-year-old man, bedridden after a spinal cord infarction, with a stage 4 sacral pressure ulcer. Six weeks of complete conservative treatment (repositioning every 2 hours, a Group II mattress, infection treatment, nutrition optimization, debridement, occlusive moist dressings) produced no progression toward healing. His attending physician documented a comprehensive assessment, that he would need institutional care without the bed, and that other equipment was ruled out, and furnished the written order to the supplier before delivery. His wife is a trained caregiver. The home is structurally and electrically adequate. His problem list includes moderate COPD for which he uses a long-acting bronchodilator inhaler daily. Monthly recertification is planned."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C9"
+   ],
+   "missing": [],
+   "note": "Bed delivered on a verbal order; the written order reached the supplier after delivery.",
+   "vignette": "84-year-old woman, bedridden after a hip fracture with failed repair, with a stage 4 sacral pressure ulcer. Seven weeks of complete conservative treatment (repositioning every 2 hours, a Group II support surface, infection treatment, nutrition optimization, debridement, occlusive moist dressings) produced no progression toward healing. Her attending physician completed a comprehensive evaluation, documented that she would otherwise need nursing-home placement, and ruled out alternatives. Her niece is a trained caregiver living with her; the home is structurally and electrically adequate; she has no pulmonary disease; monthly recertification is planned. The supplier delivered the air-fluidized bed on the physician's telephone order; the signed written order was faxed to the supplier 3 days after delivery."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Wound care requires wet saline soaks without an occlusive covering (not the wet-to-dry exception).",
+   "vignette": "78-year-old man, bedridden from advanced multiple sclerosis, with a stage 4 sacral pressure ulcer. Six weeks of conservative treatment (repositioning every 2 hours, a Group II mattress, infection treatment, nutrition optimization, debridement) produced no progression toward healing. His wound care plan requires continuous wet saline-soaked gauze packing changed three times daily, left open to air without any plastic wrap or occlusive covering because of periwound skin breakdown. The attending physician documented a comprehensive evaluation, that he would otherwise require institutional care, and that alternatives were ruled out, and sent a written order to the supplier before delivery. His wife is a trained caregiver; the home is structurally and electrically adequate; he has no pulmonary disease; monthly recertification is planned."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Conservative treatment used only a standard foam mattress; no Group II support surface.",
+   "vignette": "81-year-old woman, bedridden after multiple strokes, with a stage 3 sacral pressure ulcer. For 6 weeks she has been repositioned every 2 hours on her standard home foam mattress, with infection treatment, nutrition optimization, debridement, and occlusive moist dressings. No pressure-reducing support surface of any kind was used. The ulcer has not progressed toward healing. Her attending physician completed a comprehensive assessment, documented that she would otherwise need nursing-home placement, and furnished a written order for an air-fluidized bed to the supplier before delivery. Her son is a trained caregiver; the home is structurally and electrically adequate; she has no pulmonary disease; monthly recertification is planned."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C6"
+   ],
+   "note": "The record does not address who will care for the patient at home; nothing says no caregiver exists.",
+   "vignette": "77-year-old man, bedridden from ALS, with a stage 4 sacral pressure ulcer. Six weeks of complete conservative treatment (repositioning every 2 hours, a Group II mattress, infection treatment, nutrition optimization, debridement, occlusive moist dressings) produced no progression toward healing. His attending physician completed a comprehensive evaluation, documented that he would otherwise need institutional care, ruled out alternative equipment, and furnished the written order to the supplier before delivery. The home is structurally and electrically adequate, he has no pulmonary disease, and monthly recertification is planned. The caregiver section of the home assessment form is blank, and no note identifies anyone who will provide or be trained to provide his care at home."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "Conservative-treatment notes list every component except the support surface, which is not mentioned either way.",
+   "vignette": "74-year-old woman, chair bound and bedridden after a high spinal cord injury, with a stage 4 coccygeal pressure ulcer. The physician's notes describe 5 weeks of conservative treatment with repositioning every 2 hours, treatment of a wound infection, nutrition optimization with protein supplementation, sharp debridement, and moist dressings under an occlusive covering, with no progression toward healing. The notes do not state what mattress or support surface she used during that period. The attending physician documented a comprehensive evaluation, that she would otherwise need nursing-home care, that other equipment was considered and ruled out, and furnished a written order for an air-fluidized bed to the supplier before delivery. Her husband is a trained caregiver; home structure and electrical capacity are adequate; she has no pulmonary disease; monthly recertification is planned."
+  }
+ ]
+}

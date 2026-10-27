@@ -1,0 +1,86 @@
+{
+ "ncd": "220.6.1",
+ "service": "PET myocardial perfusion imaging (Rubidium-82 or ammonia N-13)",
+ "notes": "Coverage is limited to rest or pharmacological-stress PET; the NCD does not cover exercise-stress PET, and it names only Rb-82 and ammonia N-13 as radiopharmaceuticals. Cases do not use other PET perfusion tracers, whose status this NCD does not address. The pre-July 2001 claim-form requirements are obsolete and not tested.",
+ "criteria": [
+  {"id": "C1", "text": "Known or suspected coronary artery disease", "span": "noninvasive imaging of the perfusion of the heart for the diagnosis and management of patients with known or suspected coronary artery disease", "type": "eligibility"},
+  {"id": "C2", "text": "Performed at rest or with pharmacological stress", "span": "PET scans performed at rest or with pharmacological stress", "type": "eligibility"},
+  {"id": "C3", "text": "FDA-approved Rubidium 82", "span": "using the FDA-approved radiopharmaceutical Rubidium 82 (Rb 82) are covered", "type": "device"},
+  {"id": "C4", "text": "FDA-approved ammonia N-13", "span": "using the FDA-approved radiopharmaceutical ammonia N-13 are covered", "type": "device"},
+  {"id": "C5", "text": "Performed in place of, not in addition to, SPECT", "span": "The PET scan, whether at rest alone, or rest with stress, is performed in place of, but not in addition to, a single photon emission computed tomography (SPECT)", "type": "eligibility"},
+  {"id": "C6", "text": "Or following an inconclusive SPECT, where PET is necessary to determine the required medical or surgical intervention", "span": "The PET scan, whether at rest alone or rest with stress, is used following a SPECT that was found to be inconclusive. In these cases, the PET scan must have been considered necessary in order to determine what medical or surgical intervention is required to treat the patient.", "type": "eligibility"},
+  {"id": "C7", "text": "Inconclusive = equivocal, technically uninterpretable, or discordant with other clinical data; must be documented in the beneficiary's file", "span": "an inconclusive test is a test(s) whose results are equivocal, technically uninterpretable, or discordant with a patient's other clinical data and must be documented in the beneficiary's file", "type": "documentation"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Suspected CAD; rest/pharmacological-stress Rb-82 PET in place of SPECT (no SPECT done).",
+   "vignette": "67-year-old woman with diabetes and hypertension who reports 2 months of exertional chest pressure, suspected to be coronary artery disease. Her cardiologist orders a rest and regadenoson pharmacological-stress PET myocardial perfusion study using FDA-approved Rubidium-82 as her initial stress imaging test, instead of a SPECT study. No SPECT has been performed or is planned."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Ammonia N-13 PET after a SPECT that was technically uninterpretable (documented), with PET needed to decide between revascularization and medical therapy.",
+   "vignette": "71-year-old woman with obesity and suspected coronary artery disease. A pharmacological-stress SPECT study 3 weeks ago was reported as technically uninterpretable because of severe soft-tissue attenuation, and that report is in her file. Her cardiologist documents that a PET study is necessary to decide whether she needs coronary angiography and revascularization or medical therapy alone, and orders a rest and dipyridamole-stress PET perfusion study using FDA-approved ammonia N-13."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C5", "C6"],
+   "missing": [],
+   "note": "PET added to a conclusive SPECT only to confirm it: not in place of SPECT and not after an inconclusive SPECT.",
+   "vignette": "74-year-old man with exertional angina. A pharmacological-stress SPECT study 2 weeks ago was technically excellent and clearly showed a moderate reversible inferior perfusion defect, consistent with his symptoms and ECG findings; the report calls the study diagnostic. His cardiologist orders a rest and regadenoson-stress Rubidium-82 PET study 'to confirm the SPECT findings' before deciding on catheterization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C2"],
+   "missing": [],
+   "note": "Treadmill exercise-stress PET; the NCD covers only rest or pharmacological-stress PET.",
+   "vignette": "65-year-old man with suspected coronary artery disease and atypical chest pain. His cardiologist orders a PET myocardial perfusion study with FDA-approved Rubidium-82, performed at rest and with treadmill exercise stress, as his initial stress imaging test in place of SPECT. No SPECT has been performed."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C6"],
+   "missing": [],
+   "note": "Prior SPECT was documented as equivocal, but PET is not considered necessary to determine any intervention: the patient has declined all interventions and the cardiologist documents it will not change management.",
+   "vignette": "82-year-old man with known coronary artery disease treated medically. A pharmacological-stress SPECT study last month was reported as equivocal, and the report is in his file. He has repeatedly declined catheterization, revascularization and any change in his medications. His cardiologist documents that the PET result will not change his treatment and orders a rest and regadenoson-stress Rubidium-82 PET study 'for completeness of the record.'"
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Rest-only Rb-82 PET in known CAD after a SPECT discordant with angiography (inconclusive by definition), documented, with PET needed to decide on repeat revascularization.",
+   "vignette": "76-year-old man with known coronary artery disease and coronary artery bypass grafting 8 years ago, now with recurrent angina. A pharmacological-stress SPECT study 1 month ago showed no perfusion defect, which is discordant with a recent angiogram showing a severely narrowed vein graft; the cardiologist documents this discordance in his file. The cardiologist documents that PET is needed to decide whether repeat revascularization is required, and orders a Rubidium-82 PET perfusion study at rest followed by regadenoson pharmacological stress."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C7"],
+   "note": "PET ordered after a prior SPECT said to be unhelpful, but no SPECT report or documentation of an equivocal, uninterpretable or discordant result is in the file.",
+   "vignette": "69-year-old woman with suspected coronary artery disease. Her cardiologist's note states that a SPECT study at an outside facility 'was not helpful' and that a PET study is needed to decide whether she should undergo catheterization. The SPECT report is not in her file, and the file contains no description of the SPECT results. The cardiologist orders a rest and regadenoson-stress Rubidium-82 PET perfusion study."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C1"],
+   "missing": [],
+   "note": "Coronary artery disease is neither known nor suspected (normal coronary angiogram 3 months ago); the PET perfusion study is for suspected cardiac sarcoidosis, outside this NCD's indication.",
+   "vignette": "66-year-old woman with pulmonary sarcoidosis and new heart block. Coronary angiography 3 months ago showed normal coronary arteries, and her cardiologist documents that coronary artery disease is not suspected. To evaluate suspected cardiac sarcoidosis, the cardiologist orders a resting Rubidium-82 PET myocardial perfusion study. No SPECT has been performed."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Known CAD with a prior stent; pharmacological-stress Rb-82 PET in place of SPECT. Obesity and left bundle branch block are distractors.",
+   "vignette": "72-year-old man with known coronary artery disease and a drug-eluting stent placed 4 years ago, with a BMI of 42 kg/m2 and left bundle branch block, now with new exertional dyspnea. His cardiologist orders a rest and regadenoson pharmacological-stress PET myocardial perfusion study using FDA-approved Rubidium-82 instead of a SPECT study. No SPECT has been performed."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C3", "C4"],
+   "note": "The radiopharmaceutical is not specified anywhere, so use of an FDA-approved Rb-82 or ammonia N-13 agent cannot be confirmed.",
+   "vignette": "68-year-old man with suspected coronary artery disease and exertional chest discomfort. His cardiologist orders a 'cardiac PET perfusion study, rest and pharmacological stress' as his initial stress imaging test in place of SPECT. No SPECT has been performed. The order, the scheduling record and the imaging center's protocol sheet do not name the radiopharmaceutical to be used."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "ncd": "100.1",
+ "title": "Bariatric Surgery for Treatment of Co-Morbid Conditions Related to Morbid Obesity",
+ "service": "Bariatric surgery for co-morbid conditions related to morbid obesity",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Covered procedures: open/laparoscopic RYGBP, open/laparoscopic BPD/DS or BPD/GRDS, and LAGB",
+   "span": "Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "BMI >= 35",
+   "span": "have a body-mass index \u2265 35",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "At least one co-morbidity related to obesity (type 2 diabetes counts)",
+   "span": "have at least one co-morbidity related to obesity",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Previously unsuccessful with medical treatment for obesity",
+   "span": "have been previously unsuccessful with medical treatment for obesity",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Facility certification no longer required on/after September 24, 2013",
+   "span": "Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Treatments for obesity alone non-covered",
+   "span": "Treatments for obesity alone remain non-covered.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Non-covered: open adjustable gastric banding",
+   "span": "Open adjustable gastric banding;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered: open sleeve gastrectomy",
+   "span": "Open sleeve gastrectomy;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered: gastric balloon for treatment of obesity",
+   "span": "Gastric balloon for treatment of obesity.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Stand-alone laparoscopic sleeve gastrectomy (on/after June 27, 2012) and unlisted bariatric procedures are MAC discretion, so they are not tested. Supplemented fasting is not tested."
+}

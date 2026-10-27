@@ -1,0 +1,161 @@
+{
+ "ncd": "280.3",
+ "service": "Mobility assistive equipment (canes, walkers, manual wheelchairs, scooters/POVs, power wheelchairs)",
+ "notes": "The NCD is a sequential algorithm framed as 'clinical guidance'. Cases make each decision point explicit so the label does not depend on clinical judgment. Ambiguity for expert review: the non-compliance language ('can be grounds for denial') is discretionary and is not tested. A device trial is not required when the condition clearly and unambiguously precludes the device. Caregiver compensation: a manual wheelchair is appropriate if the beneficiary cannot self-propel but a caregiver is available, willing, and able.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Mobility limitation significantly impairs one or more MRADLs in the home",
+   "span": "Does the beneficiary have a mobility limitation that significantly impairs his/her ability to participate in one or more MRADLs in the home?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Other limiting conditions (e.g., cognition, vision) can be ameliorated or compensated so MAE will help",
+   "span": "If these other limitations exist, can they be ameliorated or compensated sufficiently such that the additional provision of MAE will be reasonably expected to significantly improve the beneficiary’s ability to perform or obtain assistance to participate in MRADLs in the home?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Beneficiary or caregiver demonstrates capability and willingness to operate the MAE safely",
+   "span": "Does the beneficiary or caregiver demonstrate the capability and the willingness to consistently operate the MAE safely?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "If a cane or walker resolves the deficit, more complex MAE is not appropriate",
+   "span": "Can the functional mobility deficit be sufficiently resolved by the prescription of a cane or walker?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Home environment supports use of the wheelchair/POV",
+   "span": "Does the beneficiary’s typical environment support the use of wheelchairs including scooters/power-operated vehicles (POVs)?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Manual wheelchair: sufficient upper extremity function to self-propel, or an available, willing, able caregiver",
+   "span": "Does the beneficiary have sufficient upper extremity function to propel a manual wheelchair in the home to participate in MRADLs during a typical day?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "POV: sufficient strength and postural stability",
+   "span": "Does the beneficiary have sufficient strength and postural stability to operate a POV/scooter?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Power wheelchair: its additional features are needed for MRADLs",
+   "span": "Are the additional features provided by a power wheelchair needed to allow the beneficiary to participate in one or more MRADLs?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Exception: no trial needed where the condition clearly precludes a device",
+   "span": "In individual cases where the beneficiary’s condition clearly and unambiguously precludes the reasonable use of a device, it is not necessary to undertake a trial of that device for that beneficiary.",
+   "type": "exception"
+  },
+  {
+   "id": "C10",
+   "text": "Caregiver may compensate for inability to self-propel a manual wheelchair",
+   "span": "If the beneficiary is unable to self-propel a manual wheelchair, and if there is a caregiver who is available, willing, and able to provide assistance, a manual wheelchair may be appropriate.",
+   "type": "exception"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Walker resolves an in-home mobility deficit safely; cognition intact.",
+   "vignette": "82-year-old woman with severe bilateral hip osteoarthritis. Without support she cannot walk safely to the bathroom or kitchen; she fell twice in the past month while trying to reach the toilet. Cognition and vision are intact. In a physical therapy evaluation, a properly fitted standard walker let her walk safely throughout her single-level home and complete toileting, dressing, grooming, and meal preparation in a reasonable time. She is willing and able to use it consistently. Her physician documents these findings and orders a standard walker."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Manual wheelchair: cane/walker trial unsafe, strong upper extremities, accessible home, safe operation shown.",
+   "vignette": "70-year-old man with a right above-knee amputation who cannot use a prosthesis because of a non-healing residual-limb wound. He cannot reach the bathroom or kitchen in his home without help. In a fitted walker trial he could hop only 3 meters before resting and lost balance twice; a cane is unsafe. Cognition and vision are intact. He has full upper-extremity strength and range of motion and, in a fitted lightweight manual wheelchair, propelled himself throughout his single-level home, which has wide doorways and hard floors, completing toileting, dressing, and meals safely. His physician documents this and orders a manual wheelchair."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Walker resolves all in-home MRADLs; the power wheelchair is wanted for community trips, which the NCD does not consider.",
+   "vignette": "75-year-old man with lumbar spinal stenosis who walks safely throughout his home with a rollator walker and independently completes toileting, bathing, dressing, grooming, and feeding in a reasonable time. Cognition and vision are intact. He becomes fatigued after walking about 150 meters outdoors and wants to be able to go to the grocery store and shopping mall. His physician orders a power wheelchair for community mobility."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Home environment cannot support the power wheelchair (confirmed by home evaluation).",
+   "vignette": "73-year-old woman with advanced multiple sclerosis who cannot walk, even with a walker, and cannot self-propel a manual wheelchair because of severe upper-extremity weakness and fatigue. She lacks the trunk control to sit safely on a scooter. Cognition and vision are intact and she safely operated a power wheelchair with a joystick in the clinic. She lives alone. A therapist's home evaluation found that her apartment's bathroom and bedroom doorways are too narrow for the power wheelchair, there are steps between rooms, and the chair could be used only in the entry hall; no modifications are planned. Her physician orders a power wheelchair."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2",
+    "C3"
+   ],
+   "missing": [],
+   "note": "Severe visual impairment prevents effective use, with no caregiver or other compensation. The failed clinic trial also shows he cannot operate it safely.",
+   "vignette": "86-year-old man with severe heart failure and knee arthritis who cannot walk more than a few steps even with a walker, and lacks the arm strength to propel a manual wheelchair. He is legally blind from end-stage macular degeneration and in a clinic trial repeatedly struck walls, furniture, and a staff member with a power wheelchair because he could not see obstacles. Low-vision rehabilitation has been tried without improvement. He lives alone; no family member or other caregiver is available. His physician orders a power wheelchair."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Power wheelchair: non-ambulatory (no cane/walker trial needed), cannot self-propel, no POV trunk stability, needs joystick features, accessible home, safe.",
+   "vignette": "63-year-old woman on Medicare through disability with amyotrophic lateral sclerosis. She has no functional use of her legs and cannot stand, so her physician documents that a cane or walker is clearly precluded and no trial was done. Grip strength is 2/5 and she cannot propel a manual wheelchair more than 1 meter. She cannot sit upright without trunk support and so cannot safely operate a scooter. She needs a power wheelchair with joystick control and a tilt-in-space seat to reach the bathroom, kitchen, and bedroom. Cognition is intact. She lives with her husband, who cannot push a manual wheelchair because of his own spinal condition. A home evaluation confirmed doorways, turning space, and floor surfaces accommodate the power wheelchair, and she drove it safely during a home trial. Her physician documents all of this and orders the power wheelchair."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Cannot self-propel, but a consistently available, willing, able caregiver makes a manual wheelchair appropriate.",
+   "vignette": "84-year-old woman with advanced Parkinson's disease who cannot walk safely even with a fitted walker (three falls in the trial) and cannot reach her bathroom or kitchen without help. Her arm strength and coordination are too poor to propel a manual wheelchair herself. Her husband, who lives with her and is home all day, is willing and able to push the wheelchair, transfer her safely to and from it, and has demonstrated this in therapy. Their single-level home has wide doorways and hard floors. Cognition is adequate to participate. Her physician documents this and orders a manual wheelchair to be operated by her husband."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Patient can safely operate a POV in the home; power wheelchair features are not needed.",
+   "vignette": "71-year-old man with severe COPD who cannot walk more than 10 meters even with a walker because of dyspnea and cannot self-propel a manual wheelchair for the same reason. Cognition and vision are intact. He has good trunk stability, strong arms, and in a home trial operated a scooter (POV) safely through every room needed for toileting, bathing, dressing, and meals; his home accommodates the scooter. He needs no joystick, special seating, or low seat height. He prefers a power wheelchair because it is smaller, and his physician orders a power wheelchair."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Manual wheelchair requested but the patient cannot self-propel and has no caregiver to push it.",
+   "vignette": "78-year-old woman with a right hemiparesis from stroke and severe left shoulder arthritis who cannot walk safely with a cane or hemi-walker. In a fitted manual wheelchair, including a one-arm-drive model, she could not propel herself more than a meter. She lives alone and has no family member or other caregiver available to push the chair. Her single-level home is wheelchair accessible. Her physician orders a standard manual wheelchair."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "Clinical need for a power wheelchair documented, but nothing in the record addresses the home environment.",
+   "vignette": "66-year-old man on Medicare through disability with a C6 incomplete spinal cord injury. He cannot walk and cannot use a cane or walker, cannot propel a manual wheelchair because of weak hands and arms, and lacks the trunk stability for a scooter. He needs a power wheelchair with joystick control to reach his bathroom and kitchen. Cognition and vision are intact, and he drove a power wheelchair safely during a clinic assessment. He lives with his wife. The physician's documentation and the therapy evaluation describe only the clinic assessment; there is no information about his home's layout, doorways, surfaces, or whether a power wheelchair can be used there."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "No assessment of the patient's ability to operate the power wheelchair safely is documented.",
+   "vignette": "69-year-old woman with spinal muscular atrophy who cannot walk with any device, cannot self-propel a manual wheelchair, and lacks the trunk control for a scooter; she needs a power wheelchair with joystick control to reach her bathroom, bedroom, and kitchen. Cognition and vision are intact. A home evaluation found her single-level home accessible for a power wheelchair. She lives with her daughter, who works full time. No trial or assessment of her operating a power wheelchair, in the clinic or at home, is documented. Her physician orders a power wheelchair."
+  }
+ ]
+}

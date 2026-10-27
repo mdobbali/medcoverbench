@@ -1,0 +1,51 @@
+{
+ "ncd": "260.3",
+ "title": "Pancreas Transplants",
+ "service": "Pancreas transplantation",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Whole-organ pancreas transplant covered simultaneous with or after a kidney transplant",
+   "span": "whole organ pancreas transplantation is nationally covered by Medicare when performed simultaneous with or after a kidney transplant",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Pancreas alone (PA): facility Medicare-approved for kidney transplantation",
+   "span": "PA will be limited to those facilities that are Medicare-approved for kidney transplantation.",
+   "type": "provider"
+  },
+  {
+   "id": "C3",
+   "text": "PA: type 1 diabetes shown by beta cell autoantibody positivity or insulinopenia (fasting C-peptide <= 110% of lab LLN with concurrent fasting glucose <= 225 mg/dL)",
+   "span": "Patient must demonstrate insulinopenia defined as a fasting C-peptide level that is less than or equal to 110% of the lower limit of normal of the laboratory's measurement method. Fasting C-peptide levels will only be considered valid with a concurrently obtained fasting glucose \u2264 225 mg/dL",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "PA: labile diabetes with documented recurrent, severe, acutely life-threatening metabolic complications requiring hospitalization",
+   "span": "Patients must have a history of medically-uncontrollable labile (brittle) insulin-dependent diabetes mellitus with documented recurrent, severe, acutely life-threatening metabolic complications that require hospitalization.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "PA: optimally and intensively managed by an endocrinologist for at least 12 months with advanced insulin formulations and delivery systems",
+   "span": "Patients must have been optimally and intensively managed by an endocrinologist for at least 12 months with the most medically-recognized advanced insulin formulations and delivery systems",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "PA: emotional and mental capacity to understand surgical risks and manage lifelong immunosuppression",
+   "span": "Patients must have the emotional and mental capacity to understand the significant risks associated with surgery and to effectively manage the lifelong need for immunosuppression",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Partial pancreatic tissue or islet cell transplantation non-covered outside a clinical trial",
+   "span": "Transplantation of partial pancreatic tissue or islet cells (except in the context of a clinical trial",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Simultaneous pancreas-kidney and pancreas-after-kidney coverage carries no diabetes-type or other patient criteria in the NCD text; the PA-specific criteria apply only to pancreas transplant alone. Case 2 (type 2 diabetes, pancreas after kidney) relies on this reading."
+}

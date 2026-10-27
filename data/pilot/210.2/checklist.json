@@ -1,0 +1,57 @@
+{
+ "ncd": "210.2",
+ "title": "Screening Pap Smears and Pelvic Examinations for Early Detection of Cervical or Vaginal Cancer",
+ "service": "Screening Pap smear and screening pelvic examination (including clinical breast examination)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Ordered by a physician or authorized practitioner",
+   "span": "are covered under Medicare Part B when ordered by a physician (or authorized practitioner) under one of the following conditions",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "No such test in the preceding two years, or a woman of childbearing age as described in \u00a71861(nn)",
+   "span": "She has not had such a test during the preceding two years or is a woman of childbearing age",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "More frequent testing: evidence of high risk from history/findings AND practitioner recommends testing more often than every two years",
+   "span": "There is evidence (on the basis of her medical history or other findings) that she is at high risk of developing cervical cancer and her physician (or authorized practitioner) recommends that she have the test performed more frequently than every two years.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "High-risk factor: early onset of sexual activity (under 16)",
+   "span": "Early onset of sexual activity (under 16 years of age)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "High-risk factor: five or more lifetime sexual partners",
+   "span": "Multiple sexual partners (five or more in a lifetime)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "\u00a71861(nn) woman: childbearing age with an abnormal Pap in any of the preceding 3 years, or high risk",
+   "span": "A woman as described in \u00a71861(nn) of the Act is a woman who is of childbearing age and has had a pap smear test during any of the preceding 3 years that indicated the presence of cervical or vaginal cancer or other abnormality, or is at high risk of developing cervical or vaginal cancer.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Childbearing age: premenopausal and so determined by a physician or qualified practitioner",
+   "span": "A woman of childbearing age is one who is premenopausal and has been determined by a physician or other qualified practitioner to be of childbearing age, based upon the medical history or other findings.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Screening pelvic exam should include at least 7 of 11 listed elements",
+   "span": "A screening pelvic examination (including a clinical breast examination) should include at least seven of the following eleven elements",
+   "type": "documentation"
+  }
+ ],
+ "notes": "AMBIGUITIES for expert review: (1) The first condition reads 'has not had such a test during the preceding two years or is a woman of childbearing age (\u00a71861(nn))', and the \u00a71861(nn) definition ('of childbearing age and has had [an abnormal] pap smear ... during any of the preceding 3 years ..., or is at high risk') can be parsed so that high risk alone qualifies even for a woman not of childbearing age. Cases therefore never rely on a high-risk woman who is not of childbearing age and lacks a physician recommendation. (2) The risk factor 'Fewer than three negative or any pap smears within the previous seven years' is garbled: read literally ('any pap smears'), every screened woman would be high risk; the plausible reading is 'fewer than three negative Pap smears, or no Pap smears, within the previous seven years' (possibly 'any abnormal'). Every short-interval not-covered case states at least four negative and no abnormal Pap smears in seven years so the factor does not apply under any sensible reading. (3) The NCD gives no frequency for the pelvic examination itself, so pelvic cases use a prior exam more than two years ago. (4) 'Should include at least seven of the following eleven elements' is advisory wording; only a case meeting exactly seven is used. Cases avoid an interval of exactly 24 months."
+}

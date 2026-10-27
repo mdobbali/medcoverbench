@@ -1,0 +1,129 @@
+{
+ "ncd": "20.39",
+ "service": "Cardiac contractility modulation (CCM) for heart failure",
+ "notes": "Source text defect: the CED subgroup list (B.2.d) is truncated at 'Age (Stratify' in the downloaded NCD; not tested. FDA labeling details are not in the NCD, so cases state labeled indications/contraindications explicitly.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication; patient meets FDA indications for use",
+   "span": "Patients must meet the FDA market-authorized indications for use",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Symptomatic despite >= 3 months of optimized GDMT, as determined by the heart team",
+   "span": "remain symptomatic despite at least 3 months of optimized guideline-directed medical therapy (GDMT) as determined by the heart team prior to CCM implantation",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Excluded: any contraindication in the FDA labeling",
+   "span": "Meet any of the contraindications in the FDA labeling",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "Excluded: prior heart transplant",
+   "span": "Have had a heart transplant",
+   "type": "exclusion"
+  },
+  {
+   "id": "C5",
+   "text": "Excluded: younger than 18",
+   "span": "Are younger than 18 years old",
+   "type": "exclusion"
+  },
+  {
+   "id": "C6",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "CCM for HF management is not covered for patients outside of a CMS-approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Symptomatic NYHA III after 10 months of optimized GDMT per heart team; labeled indication; CED study.",
+   "vignette": "68-year-old man with ischemic cardiomyopathy, LVEF 32%, and NYHA class III symptoms. The heart team documents that he remains symptomatic despite 10 months of optimized guideline-directed medical therapy at maximally tolerated doses. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: optimized GDMT for exactly 3 months, as determined by the heart team.",
+   "vignette": "72-year-old woman with non-ischemic cardiomyopathy, LVEF 38%, and NYHA class III symptoms. Guideline-directed medical therapy was optimized to target doses exactly 3 months before the planned implant date, and the heart team documents that she remains symptomatic despite 3 months of optimized therapy. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Existing ICD, age 85, and prior CABG are not exclusions under this NCD.",
+   "vignette": "85-year-old man with heart failure, LVEF 35%, prior coronary bypass surgery 12 years ago, and an ICD implanted 4 years ago. The heart team documents persistent NYHA class III symptoms despite 2 years of optimized guideline-directed medical therapy. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Only 10 weeks of optimized GDMT; at least 3 months required.",
+   "vignette": "66-year-old woman with heart failure diagnosed 4 months ago, LVEF 33%, NYHA class III. Guideline-directed medical therapy reached optimized doses 10 weeks ago; she remains symptomatic, and the heart team would like to implant now. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Prior heart transplant is an explicit exclusion.",
+   "vignette": "61-year-old man who received a heart transplant 9 years ago and now has chronic allograft dysfunction with LVEF 35% and NYHA class III symptoms despite 8 months of optimized guideline-directed medical therapy as documented by the heart team. The heart team documents that he meets the FDA market-authorized indications for the planned CCM system and has no labeled contraindications. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Age 17 (Medicare via ESRD); patients under 18 are excluded.",
+   "vignette": "17-year-old Medicare beneficiary (entitled through end-stage renal disease) with dilated cardiomyopathy, LVEF 30%, and NYHA class III symptoms despite 6 months of optimized guideline-directed medical therapy as documented by the heart team. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Patient has a condition listed as a contraindication in the device's FDA labeling.",
+   "vignette": "70-year-old woman with LVEF 30% and NYHA class III symptoms despite 7 months of optimized guideline-directed medical therapy as documented by the heart team. She has a mechanical tricuspid valve prosthesis, which the FDA labeling for the planned CCM system lists as a contraindication. The heart team otherwise considers her a candidate. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Clinically eligible but implanted outside any CMS-approved study.",
+   "vignette": "73-year-old man with LVEF 34% and NYHA class III symptoms despite 12 months of optimized guideline-directed medical therapy as documented by the heart team. The heart team documents that he meets the FDA market-authorized indications for use and has no labeled contraindications. The implanting hospital offers CCM as routine care and does not participate in a CMS-approved study; the patient is not enrolled in one."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Current symptoms documented, but no record of GDMT duration or heart team determination.",
+   "vignette": "69-year-old woman with LVEF 31% and NYHA class III symptoms at a visit last week. The record contains a current medication list but no start dates, titration history, or heart team assessment of how long she has been on optimized guideline-directed medical therapy. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "GDMT duration documented, but no current assessment of symptoms or functional class.",
+   "vignette": "74-year-old man with LVEF 33% who has been on optimized guideline-directed medical therapy for 9 months per the heart team's medication review. The record contains no assessment of his current symptoms or NYHA functional class since therapy was optimized. The heart team documents that the patient meets the FDA market-authorized indications for use of the planned CCM system and has none of the contraindications listed in its FDA labeling. The patient is enrolled in a CMS-approved CED study of CCM."
+  }
+ ]
+}

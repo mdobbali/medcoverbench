@@ -1,0 +1,85 @@
+{
+ "ncd": "210.13",
+ "service": "Screening for hepatitis C virus (HCV) infection",
+ "notes": "High risk is limited to current or past illicit injection drug use or a blood transfusion before 1992; other risk factors (tattoos, intranasal drug use, etc.) do not count under this NCD. Birth-cohort screening (born 1945 through 1965, inclusive) is a single lifetime test. 'Annually' for repeat screening is not defined in months, so repeat cases use intervals well over 12 months. Primary care physician/practitioner per §1833(u)(6) and §1833(x)(2)(A)(i).",
+ "criteria": [
+  {"id": "C1", "text": "Ordered by the beneficiary's primary care physician or practitioner within a primary care setting", "span": "when ordered by the beneficiary's primary care physician or practitioner within the context of a primary care setting", "type": "provider"},
+  {"id": "C2", "text": "High risk: current or past illicit injection drug use, or blood transfusion before 1992", "span": "\"High risk\" is defined as persons with a current or past history of illicit injection drug use; and persons who have a history of receiving a blood transfusion prior to 1992.", "type": "eligibility"},
+  {"id": "C3", "text": "Annual repeat screening only for continued illicit injection drug use since the prior negative test", "span": "Repeat screening for high risk persons is covered annually only for persons who have had continued illicit injection drug use since the prior negative screening test.", "type": "frequency"},
+  {"id": "C4", "text": "Not high risk: single screening test only if born 1945 through 1965", "span": "A single screening test is covered for adults who do not meet the high risk definition above, but who were born from 1945 through 1965.", "type": "eligibility"},
+  {"id": "C5", "text": "Settings not considered primary care (ED, inpatient, ASC, IDTF, SNF, IRF, limited-focus clinics, hospice)", "span": "Emergency departments, inpatient hospital settings, ambulatory surgical centers, independent diagnostic testing facilities, skilled nursing facilities, inpatient rehabilitation facilities, clinics providing a limited focus of health care services, and hospice are examples of settings not considered primary care settings under this definition.", "type": "exclusion"},
+  {"id": "C6", "text": "FDA-approved/cleared laboratory tests used per labeling and CLIA", "span": "CMS will cover screening for HCV with the appropriate U.S. Food and Drug Administration (FDA)-approved/cleared laboratory tests, used consistent with FDA-approved labeling and in compliance with the Clinical Laboratory Improvement Act regulations", "type": "device"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: born December 1965, inside the 1945-1965 cohort; never screened; no risk factors needed.",
+   "vignette": "60-year-old man born in December 1965, seen by his family physician at his primary care practice for an annual wellness visit. He has no history of injection drug use and has never received a blood transfusion. He has never been screened for hepatitis C. The physician orders an FDA-approved HCV antibody test, performed per its labeling by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C4"],
+   "missing": [],
+   "note": "Born January 1966, just outside the birth cohort; tattoos and past intranasal cocaine use are not high-risk factors under this NCD.",
+   "vignette": "60-year-old woman (Medicare through disability) born in January 1966, seen by her general internist at her primary care practice. She has several tattoos obtained at licensed parlors and used intranasal cocaine in her twenties. She has never injected drugs and has never received a blood transfusion. She has never been screened for hepatitis C. The internist orders an FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Born 1970 (outside the cohort) but high risk: blood transfusion in 1988, before 1992.",
+   "vignette": "55-year-old man (Medicare through disability) born in 1970, seen by his nurse practitioner at his primary care clinic. His history, documented at this visit, includes multiple blood transfusions after a motor vehicle accident in 1988. He has never injected drugs and has never been screened for hepatitis C. The nurse practitioner documents that he is at high risk and orders an FDA-approved HCV antibody test, performed by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C2"],
+   "missing": [],
+   "note": "Boundary: transfusion in March 1992 is not 'prior to 1992'; born 1975, so neither high risk nor in the birth cohort.",
+   "vignette": "50-year-old woman (Medicare through disability) born in 1975, seen by her family physician at her primary care practice. She received a blood transfusion in March 1992 after childbirth. She has never injected drugs and has never been screened for hepatitis C. The physician documents the transfusion history and orders an FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C4"],
+   "missing": [],
+   "note": "Birth-cohort screening is a single test; he already had a negative screening test 4 years ago and has no high-risk factors.",
+   "vignette": "72-year-old man born in 1953, seen by his general internist at his primary care practice for an annual wellness visit. He had a negative Medicare-covered HCV antibody screening test 4 years ago. He has never injected drugs and has never received a blood transfusion, and he reports no new exposures. The internist orders a repeat FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "High risk with continued illicit injection drug use since the prior negative screen 14 months ago: annual repeat is covered.",
+   "vignette": "44-year-old man (Medicare through disability) seen by his family physician at his primary care clinic. He had a negative HCV antibody screening test 14 months ago. He reports that he has continued to inject heroin regularly since that test, and the physician documents ongoing illicit injection drug use. The physician orders a repeat FDA-approved HCV antibody screening test, performed by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C3"],
+   "missing": [],
+   "note": "Past injection drug use stopped 10 years ago; no injection drug use since the prior negative screen 2 years ago, so repeat screening is not covered.",
+   "vignette": "47-year-old woman (Medicare through disability) born in 1978, seen by her nurse practitioner at her primary care practice. She injected drugs in her twenties but stopped 10 years ago and has been abstinent since, confirmed at each visit. She had a negative HCV antibody screening test 2 years ago. She has never received a blood transfusion. The nurse practitioner orders a repeat FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C1", "C5"],
+   "missing": [],
+   "note": "Ordered by an emergency physician in the emergency department, which is not a primary care setting, even though the patient is in the birth cohort.",
+   "vignette": "67-year-old man born in 1958, seen in a hospital emergency department for an ankle sprain. He has never injected drugs, never received a blood transfusion, and has never been screened for hepatitis C. The emergency physician orders an FDA-approved HCV antibody screening test during the visit as part of the department's opportunistic screening program, run by the hospital's CLIA-certified laboratory."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C3"],
+   "note": "Repeat screen for a person with past injection drug use, but the record does not say whether injection drug use has continued since the prior negative test.",
+   "vignette": "51-year-old man (Medicare through disability) born in 1974, seen by his family physician at his primary care practice. His problem list documents a history of illicit injection drug use. He had a negative HCV antibody screening test 18 months ago. The note does not document whether he has injected drugs at any time since that test; the substance-use section is blank. The physician orders a repeat FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C2"],
+   "note": "Born 1980, so outside the cohort; she reports a transfusion in childhood or adolescence but the year (before or after 1992) is not documented.",
+   "vignette": "45-year-old woman (Medicare through disability) born in 1980, seen by her general internist at her primary care practice. She has never injected drugs. She reports receiving a blood transfusion during surgery 'as a child or teenager' but does not know the year, and no records of the surgery are available. She has never been screened for hepatitis C. The internist orders an FDA-approved HCV antibody screening test, run by a CLIA-certified laboratory."
+  }
+ ]
+}

@@ -1,0 +1,99 @@
+{
+ "ncd": "160.24",
+ "title": "Deep Brain Stimulation for Essential Tremor and Parkinson\u2019s Disease",
+ "service": "Deep brain stimulation (DBS)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "FDA-approved DBS device (or Category B IDE trial protocol)",
+   "span": "Medicare will only consider DBS devices to be reasonable and necessary if they are Food and Drug Administration (FDA) approved devices for DBS",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "VIM: ET (postural/kinetic hand tremor without other neurologic signs) or tremor-dominant idiopathic PD",
+   "span": "Diagnosis of ET based on postural or kinetic tremors of hand(s) without other neurologic signs, or diagnosis of idiopathic PD (presence of at least 2 cardinal PD features (tremor, rigidity or bradykinesia)) which is of a tremor-dominant form",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "VIM: disabling tremor at least level 3 or 4 on Fahn-Tolosa-Marin despite optimal medical therapy",
+   "span": "Marked disabling tremor of at least level 3 or 4 on the Fahn-Tolosa-Marin Clinical Tremor Rating Scale (or equivalent scale) in the extremity intended for treatment, causing significant limitation in daily activities despite optimal medical therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Willing and able to cooperate during awake surgery and post-op adjustments",
+   "span": "Willingness and ability to cooperate during conscious operative procedure, as well as during post-surgical evaluations, adjustments of medications and stimulator settings",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "STN/GPi: advanced idiopathic PD by Hoehn and Yahr or UPDRS III",
+   "span": "Advanced idiopathic PD as determined by the use of Hoehn and Yahr stage or Unified Parkinson's Disease Rating Scale (UPDRS) part III motor subscale",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "STN/GPi: L-dopa responsive with clearly defined on periods",
+   "span": "L-dopa responsive with clearly defined \"on\" periods",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "STN/GPi: persistent disabling symptoms or drug side effects despite optimal medical therapy",
+   "span": "Persistent disabling Parkinson's symptoms or drug side effects (e.g., dyskinesias, motor fluctuations, or disabling \"off\" periods) despite optimal medical therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Exclusion: non-idiopathic PD or Parkinson-plus syndromes",
+   "span": "Non-idiopathic Parkinson's disease or \"Parkinson's Plus\" syndromes",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Exclusion: cognitive impairment, dementia or depression that would worsen or interfere",
+   "span": "Cognitive impairment, dementia or depression, which would be worsened by or would interfere with the patient's ability to benefit from DBS",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Exclusion: current psychosis, alcohol or drug abuse",
+   "span": "Current psychosis, alcohol abuse or other drug abuse",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "Exclusion: previous movement disorder surgery in the affected basal ganglion",
+   "span": "Previous movement disorder surgery within the affected basal ganglion",
+   "type": "exclusion"
+  },
+  {
+   "id": "C12",
+   "text": "Movement disorders specialist involved in patient selection and post-procedure care",
+   "span": "Physicians specializing in movement disorders must be involved in both patient selection and post-procedure care",
+   "type": "provider"
+  },
+  {
+   "id": "C13",
+   "text": "Exclusion: structural lesion (basal ganglionic stroke, tumor, vascular malformation) as etiology of the movement disorder",
+   "span": "Structural lesions such as basal ganglionic stroke, tumor or vascular malformation as etiology of the movement disorder",
+   "type": "exclusion"
+  },
+  {
+   "id": "C14",
+   "text": "STN/GPi: diagnosis of PD with at least 2 cardinal features",
+   "span": "Diagnosis of PD based on the presence of at least 2 cardinal PD features (tremor, rigidity or bradykinesia)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C15",
+   "text": "Exclusion: significant co-morbidities contraindicating DBS surgery or stimulation",
+   "span": "Significant medical, surgical, neurologic or orthopedic co-morbidities contraindicating DBS surgery or stimulation",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "VIM criteria (C2-C4) and STN/GPi criteria (C4-C7, C14) differ: VIM does not require L-dopa response or advanced PD staging; STN/GPi is covered only for PD. Pacemakers/other implants and MRI/diathermy appear only as cautions, not exclusions. Psychosis and substance exclusions apply only when current; cognitive/depression exclusion applies only when it would be worsened by or interfere with benefit from DBS."
+}

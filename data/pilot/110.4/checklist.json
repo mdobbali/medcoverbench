@@ -1,0 +1,33 @@
+{
+ "ncd": "110.4",
+ "title": "Extracorporeal Photopheresis",
+ "service": "Extracorporeal photopheresis",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Palliative treatment of skin manifestations of CTCL that has not responded to other therapy",
+   "span": "Palliative treatment of skin manifestations of cutaneous T-cell lymphoma that has not responded to other therapy.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Acute cardiac allograft rejection refractory to standard immunosuppressive drug treatment",
+   "span": "Patients with acute cardiac allograft rejection whose disease is refractory to standard immunosuppressive drug treatment",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Chronic GVHD refractory to standard immunosuppressive drug treatment",
+   "span": "Patients with chronic graft versus host disease whose disease is refractory to standard immunosuppressive drug treatment.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "All other indications non-covered",
+   "span": "All other indications for extracorporeal photopheresis not otherwise indicated above as covered remain non-covered.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "The BOS-after-lung-transplant CED indication required an approved study by April 30, 2014, and says the NCD would otherwise expire for BOS; its current status cannot be read from the text, so no case tests BOS."
+}

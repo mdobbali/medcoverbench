@@ -1,0 +1,45 @@
+{
+ "ncd": "70.2.1",
+ "title": "Services Provided for the Diagnosis and Treatment of Diabetic Sensory Neuropathy with Loss of Protective Sensation (aka Diabetic Peripheral Neuropathy)",
+ "service": "Foot evaluation and treatment for diabetic sensory neuropathy with loss of protective sensation (LOPS)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Documented diagnosis of diabetic sensory neuropathy and LOPS",
+   "span": "for individuals with a documented diagnosis of diabetic sensory neuropathy and LOPS",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "No more often than every six months",
+   "span": "an evaluation (examination and treatment) of the feet no more often than every six months",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "Beneficiary has not seen a foot care specialist for some other reason in the interim",
+   "span": "as long as the beneficiary has not seen a foot care specialist for some other reason in the interim",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "LOPS diagnosed with the 5.07 monofilament",
+   "span": "LOPS shall be diagnosed through sensory testing with the 5.07 monofilament",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Absent sensation at >= 2 of 5 sites on either foot, present and documented",
+   "span": "an absence of sensation at two or more sites out of 5 tested on either foot when tested with the 5.07 Semmes-Weinstein monofilament must be present and documented",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Required exam elements: inspection, protective sensation, structure/biomechanics, vascular status and skin integrity, footwear need, patient education",
+   "span": "A physical examination that must consist of at least the following elements",
+   "type": "documentation"
+  }
+ ],
+ "notes": "The NCD says testing 'should' use five random sites avoiding callus (guideline language), but the 2-of-5 absence on either foot 'must be present and documented'. Cases do not depend on the 'should' items. 'In the interim' is read as since the last covered LOPS evaluation."
+}

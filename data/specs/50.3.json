@@ -1,0 +1,123 @@
+{
+ "ncd": "50.3",
+ "service": "Cochlear implantation",
+ "notes": "Section D says CMS 'may' provide coverage in FDA-approved category B IDE trials; Section B also uses 'may be covered', so case 7 treats IDE-trial participation as covered (reviewer to confirm). Bilateral loss is required by the NCD text even though some devices carry FDA labeling for single-sided deafness.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Bilateral moderate-to-profound sensorineural hearing loss with limited benefit from appropriate aids",
+   "span": "Diagnosis of bilateral moderate-to-profound sensorineural hearing impairment with limited benefit from appropriate hearing (or vibrotactile) aids",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Limited benefit = <= 60% correct best-aided on recorded open-set sentence recognition",
+   "span": "Limited benefit from amplification is defined by test scores of less than or equal to 60% correct in the best-aided listening condition on recorded tests of open-set sentence recognition.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Cognitive ability to use auditory clues and willingness to undergo extended rehabilitation",
+   "span": "Cognitive ability to use auditory clues and a willingness to undergo an extended program of rehabilitation",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Freedom from middle ear infection, accessible cochlear lumen suited to implantation, no auditory nerve/CNS acoustic lesions",
+   "span": "Freedom from middle ear infection, an accessible cochlear lumen that is structurally suited to implantation, and freedom from lesions in the auditory nerve and acoustic areas of the central nervous system",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Exception: coverage in FDA-approved category B IDE trials or as routine costs in clinical trials (NCD 310.1)",
+   "span": "CMS may provide coverage of cochlear implants for beneficiaries not meeting the coverage criteria listed in Section B when performed in the context of FDA-approved category B investigational device exemption clinical trials",
+   "type": "exception"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: best-aided open-set sentence score exactly 60% meets the <= 60% definition.",
+   "vignette": "74-year-old man with bilateral, progressive, post-linguistic sensorineural hearing loss (ICD-10-CM H90.3), moderate-to-profound on audiometry in both ears. He has worn properly fitted bilateral hearing aids for 8 years. On recorded open-set sentence recognition testing in the best-aided condition, he scores 60% correct. A unilateral cochlear implant is requested. Cognitive screening is normal; he understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery, and the planned implant will be used in accordance with its FDA-approved labeling."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Score 38%; advanced age (89) and pre-linguistic onset are not exclusions under this NCD.",
+   "vignette": "89-year-old woman with bilateral profound sensorineural hearing loss present since early childhood (pre-linguistic, ICD-10-CM H90.3) who has used bilateral hearing aids throughout life with diminishing benefit. Recorded open-set sentence recognition in the best-aided condition is 38% correct. Cochlear implantation in the right ear is requested. Cognitive screening is normal; she understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery, and the planned implant will be used in accordance with its FDA-approved labeling."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Best-aided sentence score 64% exceeds 60%: not 'limited benefit'.",
+   "vignette": "70-year-old man with bilateral moderate-to-profound sensorineural hearing loss (ICD-10-CM H90.3) using bilateral hearing aids for 5 years. He reports difficulty in restaurants. On recorded open-set sentence recognition in the best-aided listening condition he scores 64% correct; word scores are lower at 44%. A cochlear implant is requested. Cognitive screening is normal; he understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery, and the planned implant will be used in accordance with its FDA-approved labeling."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Single-sided deafness: hearing loss is not bilateral.",
+   "vignette": "67-year-old woman with sudden profound sensorineural hearing loss in the left ear 1 year ago (ICD-10-CM H90.42) and normal hearing thresholds in the right ear. A hearing aid trial in the left ear gave no useful benefit; aided open-set sentence recognition in the left ear alone is 8% correct. Cochlear implantation in the left ear is requested. Cognitive screening is normal; she understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery, and the planned implant will be used in accordance with its FDA-approved labeling."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Active middle ear infection in the ear to be implanted.",
+   "vignette": "72-year-old man with bilateral profound sensorineural hearing loss (ICD-10-CM H90.3) using bilateral hearing aids, with best-aided recorded open-set sentence recognition of 22% correct. Cognitive screening is normal and he has committed to the rehabilitation program. Otoscopy today shows active chronic suppurative otitis media of the right ear, the ear selected for implantation, with purulent otorrhea; cultures are pending and surgery is to be scheduled now. Imaging shows patent cochleae and normal auditory nerves, there is no contraindication to anesthesia, and the device will be used per FDA-approved labeling."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Patient declines the extended rehabilitation program.",
+   "vignette": "69-year-old man with bilateral moderate-to-profound sensorineural hearing loss (ICD-10-CM H90.3), best-aided recorded open-set sentence recognition 30% correct with bilateral hearing aids. Cognitive screening is normal. During counseling he states he will not attend auditory rehabilitation or device programming visits after activation and expects the device to work on its own; the audiologist documents his refusal of the rehabilitation program. Otoscopy and tympanometry are normal, imaging shows patent cochleae and normal auditory nerves, there is no contraindication to surgery, and the device will be used per FDA-approved labeling."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Exception (Section D): fails the 60% criterion, but implanted within an FDA-approved category B IDE clinical trial.",
+   "vignette": "68-year-old woman with bilateral moderate-to-severe sensorineural hearing loss (ICD-10-CM H90.3) using bilateral hearing aids, with best-aided recorded open-set sentence recognition of 72% correct. She is enrolled in an FDA-approved category B investigational device exemption (IDE) clinical trial studying cochlear implantation for patients with better aided speech scores, and the implant will be placed under that trial protocol. Cognitive screening is normal; she understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery,."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "No aided speech recognition testing is documented, so limited benefit cannot be established.",
+   "vignette": "73-year-old man with bilateral profound sensorineural hearing loss on pure-tone audiometry (ICD-10-CM H90.3) who has worn bilateral hearing aids for 10 years and reports that they no longer help. The audiology report includes unaided pure-tone thresholds only; no aided speech or sentence recognition testing was performed or recorded. A cochlear implant is requested. Cognitive screening is normal; he understands the device and has committed in writing to the extended auditory rehabilitation program. Otoscopy and tympanometry are normal with no middle ear infection, and temporal bone CT and MRI show normally formed, patent cochleae and normal auditory nerves with no central auditory lesions. Anesthesia evaluation finds no contraindication to surgery, and the planned implant will be used in accordance with its FDA-approved labeling."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "No otologic examination or imaging documenting middle ear status, cochlear lumen, or auditory nerve.",
+   "vignette": "76-year-old woman with bilateral moderate-to-profound sensorineural hearing loss (ICD-10-CM H90.3) using bilateral hearing aids, with best-aided recorded open-set sentence recognition of 41% correct. Cognitive screening is normal and she has committed to the extended rehabilitation program. There is no contraindication to surgery, and the device will be used per FDA-approved labeling. The submitted record contains the audiology report only; there is no otoscopic examination, no tympanometry, and no CT or MRI of the temporal bones or auditory nerves."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Imaging shows a vestibular schwannoma (auditory nerve lesion) on the side planned for implantation.",
+   "vignette": "71-year-old man with bilateral moderate-to-profound sensorineural hearing loss (ICD-10-CM H90.3), best-aided recorded open-set sentence recognition 26% correct with bilateral hearing aids. Cognitive screening is normal and he has committed to rehabilitation. Otoscopy and tympanometry are normal. MRI shows a 9 mm left vestibular schwannoma involving the internal auditory canal and cochlear nerve; the left ear is the one planned for implantation, and the tumor will be observed rather than treated. There is no contraindication to surgery, and the device will be used per FDA-approved labeling."
+  }
+ ]
+}

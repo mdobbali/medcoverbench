@@ -1,0 +1,63 @@
+{
+ "ncd": "110.14",
+ "title": "Apheresis (Therapeutic Pheresis)",
+ "service": "Apheresis (therapeutic pheresis)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Plasma exchange for acquired myasthenia gravis",
+   "span": "Plasma exchange for acquired myasthenia gravis",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Plasmapheresis for primary macroglobulinemia (Waldenstrom)",
+   "span": "Plasmapheresis in the treatment of primary macroglobulinemia (Waldenstrom)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Plasma exchange/plasmapheresis for life-threatening rheumatoid vasculitis only as last resort",
+   "span": "Plasmapheresis or plasma exchange in the last resort treatment of life threatening rheumatoid vasculitis",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Chronic relapsing polyneuropathy: severe or life-threatening symptoms and failure of conventional therapy",
+   "span": "Treatment of chronic relapsing polyneuropathy for patients with severe or life threatening symptoms who have failed to respond to conventional therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Scleroderma/polymyositis: life-threatening and unresponsive to conventional therapy",
+   "span": "Treatment of life threatening scleroderma and polymyositis when the patient is unresponsive to conventional therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Guillain-Barre syndrome (no severity qualifier)",
+   "span": "Treatment of Guillain-Barre Syndrome",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "SLE: last resort for life-threatening disease when conventional therapy failed",
+   "span": "Treatment of last resort for life threatening systemic lupus erythematosus (SLE) when conventional therapy has failed to prevent clinical deterioration",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Nonhospital setting: physician present at all times during patient care hours",
+   "span": "A physician (or a number of physicians) is present to perform medical services and to respond to medical emergencies at all times during patient care hours",
+   "type": "provider"
+  },
+  {
+   "id": "C9",
+   "text": "Nonhospital setting: all nonphysician services under direct, personal physician supervision",
+   "span": "All nonphysician services are furnished under the direct, personal supervision of a physician.",
+   "type": "provider"
+  }
+ ],
+ "notes": "The NCD lists covered indications but has no explicit non-coverage section, so no case tests an unlisted indication; not-covered cases fail a stated qualifier (severity, last resort, unresponsiveness) or the nonhospital setting conditions. Hyperglobulinemias (including cryoglobulinemia) carry no qualifier. Reviewer to confirm: with no 'all other indications non-covered' clause, a MAC could arguably cover qualifier-failing cases locally; labels here treat a failed stated qualifier as not covered under this NCD."
+}

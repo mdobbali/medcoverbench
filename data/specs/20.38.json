@@ -1,0 +1,129 @@
+{
+ "ncd": "20.38",
+ "service": "Tricuspid transcatheter edge-to-edge repair (T-TEER)",
+ "notes": "CED study-design criteria (B.3) are study-level and not tested. The NCD gives no anatomic or severity thresholds; cases state the heart team's judgment explicitly.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication",
+   "span": "T-TEER is covered when furnished according to a Food and Drug Administration (FDA) market-authorized indication",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Symptomatic TR despite optimal medical therapy",
+   "span": "Despite optimal medical therapy (OMT), patients must have symptomatic TR",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Heart team considers tricuspid valve repair appropriate",
+   "span": "with tricuspid valve repair being considered as appropriate by a heart team",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Pre- and post-op care by a heart team with at least a cardiac surgeon, interventional cardiologist, HF cardiologist and interventional echocardiographer",
+   "span": "The patient (preoperatively and postoperatively) is under the care of a heart team, which includes, at minimum, the following",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "All listed specialists have experience in the care and treatment of TR",
+   "span": "All the specialists listed above must have experience in the care and treatment of TR.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "Tricuspid transcatheter edge-to-edge repair (T-TEER) is not covered for patients outside of a CMS-approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Symptomatic severe TR despite optimized diuretics; full heart team recommends repair; CED study.",
+   "vignette": "81-year-old woman with severe functional tricuspid regurgitation, NYHA class III dyspnea, ascites, and leg edema persisting despite 6 months of optimized loop diuretic and spironolactone therapy managed by her heart failure cardiologist. Before and after the procedure she is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. After reviewing imaging, the heart team concluded that transcatheter tricuspid valve repair is appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Distractors: pacemaker lead, prior mitral TEER, stage 3 CKD are study subgroups, not exclusions. No electrophysiologist needed for T-TEER.",
+   "vignette": "77-year-old man with severe tricuspid regurgitation and a transvenous pacemaker lead, prior transcatheter mitral edge-to-edge repair 3 years ago, and stage 3 chronic kidney disease. He has persistent fatigue, edema, and NYHA class III symptoms despite 9 months of optimized diuretic therapy. Before and after the procedure he is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The team does not include an electrophysiologist. The heart team recommends transcatheter tricuspid valve repair as appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Age 90, LVEF 35%, and high surgical risk do not exclude; all criteria met.",
+   "vignette": "90-year-old woman with severe tricuspid regurgitation and LVEF 35%, with right-sided congestion and NYHA class III symptoms despite 4 months of optimal medical therapy including guideline-directed heart failure medications and loop diuretics. The cardiac surgeon judges her at prohibitive risk for open surgery. Before and after the procedure she is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team agrees that transcatheter tricuspid valve repair is appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Severe TR found incidentally; patient is asymptomatic.",
+   "vignette": "73-year-old man with severe tricuspid regurgitation found incidentally on an echocardiogram ordered for a murmur. He has no dyspnea, edema, fatigue, or exercise limitation (NYHA class I) and takes no heart failure medications. Before and after the procedure he is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve repair technically appropriate, and the patient wishes to have it done before symptoms develop. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Heart team judged repair not appropriate (anatomy) and recommended replacement.",
+   "vignette": "79-year-old woman with severe tricuspid regurgitation and NYHA class III symptoms despite 8 months of optimized diuretic therapy. Before and after the procedure she is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. After imaging review, the heart team concluded that her large coaptation gap makes edge-to-edge repair inappropriate and recommended evaluation for valve replacement instead. The patient asks to proceed with T-TEER anyway. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "No cardiac surgeon on the heart team.",
+   "vignette": "80-year-old man with severe tricuspid regurgitation and NYHA class III symptoms with edema despite 5 months of optimized diuretic therapy. His care before and after the procedure is managed by an interventional cardiologist, a heart failure cardiologist, and an interventional echocardiographer, all experienced with tricuspid regurgitation; no cardiac surgeon is part of the team or has evaluated him. This team considers transcatheter tricuspid valve repair appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Clinically eligible but not enrolled in a CMS-approved study.",
+   "vignette": "76-year-old woman with severe tricuspid regurgitation and NYHA class III symptoms despite 7 months of optimized diuretic therapy. Before and after the procedure she is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve repair appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The hospital performs T-TEER as routine care outside of any study, and the patient is not enrolled in a CMS-approved study."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "The interventional echocardiographer has no TR experience; all listed specialists must have it.",
+   "vignette": "78-year-old man with severe tricuspid regurgitation and NYHA class III symptoms despite 6 months of optimized diuretic therapy. Before and after the procedure he is under the care of a heart team of a cardiac surgeon, an interventional cardiologist, a heart failure cardiologist, and an interventional echocardiographer. The surgeon and cardiologists have treated many patients with tricuspid regurgitation, but the interventional echocardiographer recently joined from a program without tricuspid work and has no experience in the care or treatment of tricuspid regurgitation. The heart team considers transcatheter tricuspid valve repair appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Symptoms documented but no record of any medical therapy tried for TR/HF.",
+   "vignette": "75-year-old woman with severe tricuspid regurgitation, exertional dyspnea, and ankle edema. The referral packet includes the echocardiogram and heart team note but no medication list or documentation of what medical therapy, if any, she has received for her symptoms. Before and after the procedure she is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve repair appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "Heart team members are named, but there is no documented heart team assessment that repair is appropriate.",
+   "vignette": "82-year-old man with severe tricuspid regurgitation and NYHA class III symptoms despite 10 months of optimized diuretic therapy. Before and after the procedure he is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The request was submitted by the interventional cardiologist; the record contains no heart team evaluation, conference note, or recommendation regarding whether tricuspid valve repair is appropriate. The T-TEER system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of T-TEER."
+  }
+ ]
+}

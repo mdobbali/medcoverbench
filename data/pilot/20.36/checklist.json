@@ -1,0 +1,69 @@
+{
+ "ncd": "20.36",
+ "title": "Implantable Pulmonary Artery Pressure Sensors for Heart Failure Management",
+ "service": "Implantable pulmonary artery pressure sensor (IPAPS) for heart failure management",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication",
+   "span": "Implantation of an IPAPS is covered for HF management when furnished according to a Food and Drug Administration (FDA) market-authorized indication",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Chronic HF >= 3 months and NYHA class II or III within the past 30 days, regardless of LVEF",
+   "span": "Diagnosis of chronic HF of at least 3 months duration and in New York Heart Association (NYHA) functional Class II or III within the past 30 days, prior to PAPS implantation, regardless of left ventricular ejection fraction (LVEF).",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "HF hospitalization or urgent IV-diuretic visit within 12 months, or elevated natriuretic peptides within 30 days",
+   "span": "History of HF hospitalization or urgent HF visit (emergency room (ER) or other outpatient (OP) visit requiring intravenous (IV) diuretic therapy) within the past 12 months, or elevated natriuretic peptides within the past 30 days.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "On GDMT for at least 3 months",
+   "span": "On guideline-directed medical therapy (GDMT) for at least 3 months with the goal of achieving optimal or maximally-tolerated GDMT prior to PAPS implantation.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Evaluated for (and received if appropriate) ICD/CRT-P/CRT-D; any such device implanted >= 3 months before",
+   "span": "Evaluated for, and received if appropriate, an implantable cardioverter defibrillator (ICD), cardiac resynchronization therapy (CRT)-Pacemaker (CRT-P), or CRT-Defibrillator (CRT-D). Implantation of the device must occur at least 3 months prior to PAPS implantation.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "No major cardiovascular event within the last 3 months",
+   "span": "No major cardiovascular event (e.g., unstable angina, myocardial infarction, percutaneous coronary intervention, open heart surgery, or stroke) within the last 3 months prior to PAPS implantation.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Access to reliable connectivity for daily data transmission",
+   "span": "Have access to reliable connectivity to ensure daily collection and submission of IPAPS data.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Implantation not during a hospital admission for an acute HF episode",
+   "span": "Must not have PAPS implantation occur during a hospital admission for an acute HF episode.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Referring/managing physician is a cardiologist with HF training; implanter trained in PA catheterization",
+   "span": "Physicians referring Medicare patients and managing them post implantation must be cardiologists with training and experience in HF management.",
+   "type": "provider"
+  },
+  {
+   "id": "C10",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "IPAPS for HF management is not covered for patients outside of a CMS-approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "All cases satisfy the physician criteria (B.2) and the CED study requirement unless stated. Study-protocol design criteria (B.3 a-f) are study-level and not tested."
+}

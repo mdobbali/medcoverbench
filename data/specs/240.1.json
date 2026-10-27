@@ -1,0 +1,165 @@
+{
+ "ncd": "240.1",
+ "service": "Lung volume reduction surgery (LVRS)",
+ "notes": "The pulmonary function row reads 'FEV1 ≤ 45% predicted ≥ 15% predicted if age ≥ 70 years)' (garbled; likely FEV1 <=45% and, if age >=70, >=15%); all cases keep FEV1 between 19% and 30% and the one patient >=70 has FEV1 30%. The cardiac assessment list is also garbled ('LVEF 5 premature ventricular contractions per minute'); only non-sinus rhythm is tested. Arterial blood gas altitude adjustments are not tested (all at sea level).",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "BMI <= 31.1 (men) or <= 32.3 (women)",
+   "span": "BMI, ≤31.1 kg/m2 (men) or ≤ 32.3 kg/m2 (women)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Stable on <= 20 mg prednisone daily",
+   "span": "Stable with ≤ 20 mg prednisone (or equivalent) qd",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Cardiologist approval if unstable angina, LVEF not estimable, non-sinus rhythm, PVCs, etc.",
+   "span": "Approval for surgery by cardiologist if any of the following are present",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "Post-rehabilitation approval by pulmonary physician, thoracic surgeon, and anesthesiologist",
+   "span": "Approval for surgery by pulmonary physician, thoracic surgeon, and anesthesiologist post-rehabilitation",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Plasma cotinine <= 13.7 ng/mL (or carboxyhemoglobin <= 2.5% if using nicotine products)",
+   "span": "Plasma cotinine level ≤13.7 ng/mL (or arterial carboxyhemoglobin ≤ 2.5% if using nicotine products)",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Nonsmoking for 4 months before the initial interview and throughout evaluation",
+   "span": "Nonsmoking for 4 months prior to initial interview and throughout evaluation for surgery",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Severe upper-lobe-predominant emphysema, or severe non-upper-lobe emphysema with low exercise capacity (<= 25 W women, <= 40 W men)",
+   "span": "Patients with low exercise capacity are those whose maximal exercise capacity is at or below 25 watts for women and 40 watts (w) for men",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Excluded: non-upper-lobe emphysema with high exercise capacity (> 25 W women, > 40 W men)",
+   "span": "has severe, non-upper lobe emphysema with high exercise capacity",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Excluded: FEV1 <= 20% predicted with homogeneous emphysema or DLCO <= 20% predicted",
+   "span": "The patient presents with FEV1 ≤ 20% of predicted value, and either homogeneous distribution of emphysema on CT scan, or carbon monoxide diffusing capacity of ≤ 20% of predicted value",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Facility: Joint Commission LVRS Disease Specific Care certified, or Medicare-approved lung/heart-lung transplant hospital",
+   "span": "certified by the Joint Commission on Accreditation of Healthcare Organizations (Joint Commission) under the LVRS Disease Specific Care Certification Program",
+   "type": "provider"
+  },
+  {
+   "id": "C11",
+   "text": "Preoperative program: 16-20 sessions over 6-10 weeks, each >= 2 hours",
+   "span": "The program must include a 6- to 10-week series of at least 16, and no more than 20, preoperative sessions, each lasting a minimum of 2 hours.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C12",
+   "text": "Signed consents for screening and rehabilitation",
+   "span": "Signed consents for screening and rehabilitation",
+   "type": "documentation"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "All criteria met; upper-lobe-predominant disease, so exercise capacity (45 W) does not matter.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: woman with non-upper-lobe emphysema and maximal workload exactly 25 W (low exercise capacity).",
+   "vignette": "64-year-old woman with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 29.8 kg/m2. She takes no systemic corticosteroids. HRCT shows bilateral severe emphysema that the radiologist reads as lower lobe predominant (non-upper lobe), with heterogeneous distribution. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 58%; she is in sinus rhythm with no premature ventricular contractions and no angina. She completed a 7-week preoperative program of 16 sessions of 2 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 6 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 210 m and she completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program (5 W/min ramp on 30% oxygen) was 25 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. She quit smoking 18 months ago; plasma cotinine is 2 ng/mL. Bilateral stapled lung volume reduction via median sternotomy is planned at a hospital certified by the Joint Commission under the LVRS Disease Specific Care Certification Program."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Man with non-upper-lobe emphysema and maximal workload 52 W (> 40 W): high exercise capacity is excluded.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral severe emphysema that the radiologist reads as non-upper lobe predominant (diffuse lower and mid zones). Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 330 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program (10 W/min ramp on 30% oxygen) was 52 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C9"
+   ],
+   "missing": [],
+   "note": "FEV1 19% with DLCO 18%: NETT high-risk group, excluded even with upper-lobe-predominant disease.",
+   "vignette": "66-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 19% predicted, DLCO 18% predicted, TLC 140% predicted and RV 260% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Quit smoking only 10 weeks before the initial interview; cotinine is acceptable but the 4-month nonsmoking period is not met.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He smoked until 10 weeks before his initial LVRS interview and has not smoked since; plasma cotinine is 6 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: man with BMI exactly 31.1; atrial fibrillation (non-sinus rhythm) is acceptable because a cardiologist approved surgery.",
+   "vignette": "71-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 31.1 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 30% predicted, DLCO 38% predicted, TLC 122% predicted and RV 198% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. He has rate-controlled permanent atrial fibrillation; echocardiogram shows LVEF 55% and no angina. His cardiologist evaluated him and documented approval for surgery. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C11"
+   ],
+   "missing": [],
+   "note": "Preoperative program was only 10 sessions over 4 weeks (requires 16-20 sessions over 6-10 weeks).",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. Because of scheduling pressure he completed a 4-week preoperative program of 10 sessions of 2 hours each, coordinated by the surgical facility under the treating physician's care plan; 6 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C10"
+   ],
+   "missing": [],
+   "note": "Surgery at a hospital that is neither Joint Commission LVRS-certified nor a Medicare-approved lung transplant hospital.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a community hospital with an experienced thoracic surgery group; the hospital holds general Joint Commission accreditation but no LVRS Disease Specific Care certification and is not a Medicare-approved lung or heart-lung transplantation hospital."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "Patient reports quitting 2 years ago, but no plasma cotinine or carboxyhemoglobin result is in the record.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist, thoracic surgeon and anesthesiologist each documented approval for surgery. Signed consents for screening and rehabilitation are on file. He reports quitting smoking 2 years ago; no plasma cotinine or carboxyhemoglobin test result is in the record. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "Pulmonologist and surgeon approvals present; no anesthesiologist assessment or approval is documented.",
+   "vignette": "67-year-old man with severe emphysema (ICD-10-CM J43.9) consistent with history and physical examination; BMI 26.4 kg/m2. He has been stable for 6 months on prednisone 5 mg daily. HRCT shows bilateral emphysema that the radiologist reads as severe and upper lobe predominant. Pre-rehabilitation pulmonary function: FEV1 27% predicted, DLCO 34% predicted, TLC 128% predicted and RV 215% predicted post-bronchodilator. Pre-rehabilitation room-air arterial blood gas at sea level: PCO2 44 mm Hg, PO2 63 mm Hg. Echocardiogram shows LVEF 60%; he is in sinus rhythm with no premature ventricular contractions on resting EKG and no angina. He completed an 8-week preoperative program of 18 sessions of 2.5 hours each, consistent with NETT, based on the treating physician's care plan after a comprehensive medical, psychosocial and nutritional evaluation and coordinated by the surgical facility; 7 postoperative sessions of 2 hours within 8 weeks after surgery are scheduled. Post-rehabilitation 6-minute walk is 265 m and he completed 3 minutes of unloaded pedaling before and after rehabilitation; maximal cycle ergometry workload after the program was 45 W. After rehabilitation, the pulmonologist and thoracic surgeon documented approval for surgery; the record contains no anesthesiology evaluation or anesthesiologist approval. Signed consents for screening and rehabilitation are on file. He quit smoking 3 years ago; plasma cotinine is 3 ng/mL. Bilateral stapled lung volume reduction via video-assisted thoracoscopic surgery is planned at a hospital approved by Medicare as a lung transplantation hospital."
+  }
+ ]
+}

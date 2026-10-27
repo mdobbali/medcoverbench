@@ -1,0 +1,93 @@
+{
+ "ncd": "110.23",
+ "title": "Stem Cell Transplantation (Formerly 110.8.1)",
+ "service": "Stem cell transplantation (allogeneic HSCT or autologous stem cell transplantation)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Allogeneic HSCT covered for leukemia, leukemia in remission, or aplastic anemia",
+   "span": "for the treatment of leukemia, leukemia in remission, or aplastic anemia when it is reasonable and necessary",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Allogeneic HSCT for MDS only with IPSS >= 1.5, IPSS-R >= 4.5, or IPSS-M >= 0.5",
+   "span": "\u2265 4.5 (high or very high) using the International Prognostic Scoring System - Revised (IPSS-R)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Allogeneic HSCT for multiple myeloma only for Durie-Salmon stage II/III or ISS stage II/III",
+   "span": "allogeneic HSCT for multiple myeloma is covered by Medicare only for beneficiaries with Durie-Salmon Stage II or III multiple myeloma, or International Staging System (ISS) Stage II or Stage III multiple myeloma",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Allogeneic HSCT for multiple myeloma requires participation in an approved prospective clinical study (CED)",
+   "span": "and participating in an approved prospective clinical study that meets the criteria below",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Allogeneic HSCT for myelofibrosis only for DIPSSplus Intermediate-2 or High primary/secondary MF in an approved prospective study",
+   "span": "allogeneic HSCT for myelofibrosis (MF) is covered by Medicare only for beneficiaries with Dynamic International Prognostic Scoring System (DIPSSplus) Intermediate-2 or High primary or secondary MF and participating in an approved prospective clinical study",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "AuSCT non-covered for acute leukemia not in remission",
+   "span": "Acute leukemia not in remission",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Single AuSCT for multiple myeloma only for Durie-Salmon stage II or III",
+   "span": "single AuSCT is only covered for Durie-Salmon Stage II or III patients that fit the following requirements",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Myeloma newly diagnosed or responsive (>= partial response: 50% decrease in paraprotein or marrow infiltration sustained >= 1 month, or responsive relapse)",
+   "span": "Newly diagnosed or responsive multiple myeloma. This includes those patients with previously untreated disease, those with at least a partial response to prior chemotherapy (defined as a 50% decrease either in measurable paraprotein [serum and/or urine] or in bone marrow infiltration, sustained for at least 1 month), and those in responsive relapse",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Adequate cardiac, renal, pulmonary, and hepatic function (AuSCT for myeloma)",
+   "span": "Adequate cardiac, renal, pulmonary, and hepatic function.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C10",
+   "text": "Tandem AuSCT for multiple myeloma non-covered",
+   "span": "Tandem transplantation (multiple rounds of AuSCT) for patients with multiple myeloma",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "HDM/AuSCT for primary AL amyloidosis: amyloid deposition in 2 or fewer organs",
+   "span": "Amyloid deposition in 2 or fewer organs",
+   "type": "eligibility"
+  },
+  {
+   "id": "C12",
+   "text": "HDM/AuSCT for primary AL amyloidosis: LVEF greater than 45%",
+   "span": "Cardiac left ventricular ejection fraction (EF) greater than 45%.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C13",
+   "text": "Primary AL amyloidosis covered for any age group (the age >= 64 exclusion ended March 14, 2005)",
+   "span": "high dose melphalan (HDM) together with AuSCT is reasonable and necessary for Medicare beneficiaries of any age group with primary amyloid light chain (AL) amyloidosis",
+   "type": "eligibility"
+  },
+  {
+   "id": "C14",
+   "text": "AuSCT non-covered for solid tumors other than neuroblastoma",
+   "span": "Solid tumors (other than neuroblastoma)",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Section D leaves indications not specified as covered or non-covered to MAC discretion, so cases avoid unlisted indications. Low-risk MDS (scores below the thresholds) is not explicitly listed as non-covered and could be read as falling to Section D, so no case tests a below-threshold MDS score. For primary AL amyloidosis the NCD lists criteria (<=2 organs, EF >45%) without an explicit 'only'; case 7 treats failing the EF criterion as not covered (reviewer to confirm). The section g CED study standards are not tested individually; cases state whether the study is CMS-approved."
+}

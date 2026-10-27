@@ -1,0 +1,63 @@
+{
+ "ncd": "20.7",
+ "title": "Percutaneous Transluminal Angioplasty (PTA)",
+ "service": "Percutaneous transluminal angioplasty (PTA)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Atherosclerotic obstructive lesion of lower-extremity (iliac, femoral, popliteal) or upper-extremity (innominate, subclavian, axillary, brachial) arteries",
+   "span": "In the lower extremities, i.e., the iliac, femoral, and popliteal arteries, or in the upper extremities, i.e., the innominate, subclavian, axillary, and brachial arteries. The upper extremities do not include head or neck vessels.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Coronary: a single coronary artery, in a patient whose likely alternative is CABG",
+   "span": "Of a single coronary artery for patients for whom the likely alternative treatment is coronary bypass surgery and who exhibit the following characteristics",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Coronary: angina refractory to optimal medical management",
+   "span": "Angina refractory to optimal medical management",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Coronary: objective evidence of myocardial ischemia",
+   "span": "Objective evidence of myocardial ischemia",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Renal: inadequate response to thorough medical management and surgery is the likely alternative",
+   "span": "Of the renal arteries for patients in whom there is an inadequate response to a thorough medical management of symptoms and for whom surgery is the likely alternative. PTA for this group of patients is an alternative to surgery, not simply an addition to medical management.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Carotid PTA with stenting: FDA-approved stent with embolic protection; symptomatic >= 50% or asymptomatic >= 70% stenosis",
+   "span": "Effective October 11, 2023, CMS covers PTA of the carotid artery concurrent with stenting with the placement of an FDA-approved carotid stent with an FDA-approved or cleared embolic protection device",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Intracranial PTA and stenting only for stenosis >= 50% from intracranial atherosclerosis, within a Category B IDE trial",
+   "span": "Medicare covers PTA and stenting of intracranial arteries for the treatment of cerebral artery stenosis \u226550% in patients with intracranial atherosclerotic disease when furnished in accordance with the FDA-approved protocols governing Category B IDE clinical trials.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered: other PTA (with or without stenting) of vertebral and cerebral arteries",
+   "span": "All other indications for PTA with or without stenting to treat obstructive lesions of the vertebral and cerebral arteries remain non-covered.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered: other PTA without stenting not specifically covered",
+   "span": "All other indications for PTA without stenting for which CMS has not specifically indicated coverage remain non-covered.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Non-carotid cases specify PTA without stenting, because PTA with stenting not addressed by the NCD is at MAC discretion (section D). No negative carotid cases: section D lets MACs decide for 'any other beneficiary' seeking carotid PTA with stenting, so failing the national CAS criteria is not clearly non-covered. AV fistula PTA is listed under 'Treatment of Atherosclerotic Obstructive Lesions', which is ambiguous for non-atherosclerotic access stenoses; not tested."
+}

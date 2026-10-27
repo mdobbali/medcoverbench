@@ -1,0 +1,129 @@
+{
+ "ncd": "20.37",
+ "service": "Transcatheter tricuspid valve replacement (TTVR)",
+ "notes": "CED study-design criteria (B.3) are study-level and not tested. The NCD gives no anatomic or severity thresholds; cases state the heart team's judgment explicitly. Unlike NCD 20.38 (T-TEER), the TTVR heart team must include an electrophysiologist and multi-modality imaging specialists.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication",
+   "span": "TTVR is covered when furnished according to a Food and Drug Administration (FDA) market-authorized indication",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Symptomatic TR despite optimal medical therapy",
+   "span": "Despite optimal medical therapy (OMT), patients must have symptomatic TR",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Heart team considers tricuspid valve replacement appropriate",
+   "span": "with tricuspid valve replacement being considered as appropriate by a heart team",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Pre- and post-op heart team with at least a cardiac surgeon, interventional cardiologist, HF cardiologist, electrophysiologist, multi-modality imaging specialists and interventional echocardiographer",
+   "span": "The patient (preoperatively and postoperatively) is under the care of a heart team, which includes, at minimum, the following",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "All listed specialists have experience in the care and treatment of TR",
+   "span": "All of the specialists listed above must have experience in the care and treatment of TR.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "Transcatheter tricuspid valve replacement (TTVR) is not covered for patients outside of a CMS approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Symptomatic TR despite OMT; full six-discipline heart team recommends replacement; CED study.",
+   "vignette": "80-year-old woman with severe tricuspid regurgitation, NYHA class III dyspnea, and hepatic congestion despite 7 months of optimized diuretic therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team concluded that transcatheter tricuspid valve replacement is appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Prior failed T-TEER and CKD are study subgroups, not exclusions.",
+   "vignette": "76-year-old man with recurrent severe tricuspid regurgitation 2 years after a transcatheter tricuspid edge-to-edge repair, with stage 3 chronic kidney disease. He has NYHA class III symptoms and edema despite 6 months of optimized diuretic and guideline-directed heart failure therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team concluded that repeat repair is not feasible and that transcatheter tricuspid valve replacement is appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Existing pacemaker lead and age 86 do not exclude; criteria met.",
+   "vignette": "86-year-old woman with lead-related severe tricuspid regurgitation from a dual-chamber pacemaker placed 5 years ago, with fatigue and NYHA class III symptoms despite 5 months of optimal medical therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The electrophysiologist has planned lead management, and the heart team considers transcatheter tricuspid valve replacement appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "No electrophysiologist on the team; TTVR (unlike T-TEER) requires one.",
+   "vignette": "78-year-old man with severe tricuspid regurgitation and NYHA class III symptoms despite 8 months of optimized diuretic therapy. Before and after the procedure he is under the care of a cardiac surgeon, an interventional cardiologist, a heart failure cardiologist, multi-modality imaging specialists, and an interventional echocardiographer, all experienced with tricuspid regurgitation. No electrophysiologist is part of the team. The team considers transcatheter tricuspid valve replacement appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Heart failure cardiologist has no TR experience; all specialists must.",
+   "vignette": "74-year-old woman with severe tricuspid regurgitation and NYHA class III symptoms despite 6 months of optimized diuretic therapy. Her heart team includes a cardiac surgeon, an interventional cardiologist, a heart failure cardiologist, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer. All have tricuspid regurgitation experience except the heart failure cardiologist, who has a heart failure practice but has never cared for or treated patients with tricuspid regurgitation. The heart team considers transcatheter tricuspid valve replacement appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Symptoms resolved on medical therapy; no longer symptomatic.",
+   "vignette": "79-year-old man with severe tricuspid regurgitation who had edema and dyspnea a year ago. After diuretic optimization his symptoms resolved; for the past 6 months he has had no dyspnea, edema, or fatigue (NYHA class I). Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve replacement anatomically feasible, and he requests it to prevent future decline. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Heart team recommended edge-to-edge repair rather than replacement.",
+   "vignette": "82-year-old woman with severe tricuspid regurgitation and NYHA class III symptoms despite 9 months of optimized diuretic therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team concluded that her anatomy is well suited to edge-to-edge repair and recommended T-TEER; it did not consider replacement appropriate. The referring physician submitted a request for TTVR. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Clinically eligible but not enrolled in a CMS-approved study.",
+   "vignette": "77-year-old man with severe tricuspid regurgitation and NYHA class III symptoms despite 6 months of optimized diuretic therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve replacement appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The hospital does not participate in a CMS-approved study, and the patient is not enrolled in one."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Symptomatic, but no documentation of any medical therapy.",
+   "vignette": "75-year-old woman with severe tricuspid regurgitation, abdominal distension, and leg edema. The referral includes imaging and the heart team note but no medication history or documentation of any medical therapy for her symptoms. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The heart team considers transcatheter tricuspid valve replacement appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "No documented heart team determination that replacement is appropriate.",
+   "vignette": "81-year-old man with severe tricuspid regurgitation and NYHA class III symptoms despite 7 months of optimized diuretic therapy. Before and after the procedure the patient is under the care of a heart team consisting of a cardiac surgeon, an interventional cardiologist, a cardiologist with training and experience in heart failure management, an electrophysiologist, multi-modality imaging specialists, and an interventional echocardiographer, each with experience treating tricuspid regurgitation. The request was submitted by the interventional cardiologist; the record does not contain any heart team evaluation or recommendation on whether tricuspid valve replacement is appropriate. The TTVR system is FDA market-authorized and will be used for its authorized indication. The patient is enrolled in a CMS-approved CED study of TTVR."
+  }
+ ]
+}

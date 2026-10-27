@@ -1,0 +1,86 @@
+{
+ "ncd": "90.1",
+ "service": "Pharmacogenomic testing of CYP2C9 or VKORC1 alleles to predict warfarin response",
+ "notes": "Coverage is CED only. 'Fewer than five days of warfarin' counts days in the current regimen only; warfarin taken in an earlier, separate regimen does not count. Cases avoid other alleles and non-warfarin purposes, which the NCD expressly does not address (section C).",
+ "criteria": [
+  {"id": "C1", "text": "Candidate for anticoagulation therapy with warfarin", "span": "covered only when provided to Medicare beneficiaries who are candidates for anticoagulation therapy with warfarin", "type": "eligibility"},
+  {"id": "C2", "text": "Not previously tested for CYP2C9 or VKORC1 alleles", "span": "Have not been previously tested for CYP2C9 or VKORC1 alleles", "type": "eligibility"},
+  {"id": "C3", "text": "Fewer than five days of warfarin in the regimen for which testing is ordered", "span": "Have received fewer than five days of warfarin in the anticoagulation regimen for which the testing is ordered", "type": "eligibility"},
+  {"id": "C4", "text": "Enrolled in a prospective, randomized, controlled clinical study meeting the CED standards", "span": "Are enrolled in a prospective, randomized, controlled clinical study when that study meets the following standards.", "type": "eligibility"},
+  {"id": "C5", "text": "Study registered on ClinicalTrials.gov before first subject enrolled", "span": "The clinical research study is registered on the www.ClinicalTrials.gov website by the principal sponsor/investigator prior to the enrollment of the first study subject.", "type": "documentation"},
+  {"id": "C6", "text": "Study has a written protocol addressing the Medicare standards", "span": "The research study has a written protocol that clearly addresses, or incorporates by reference, the Medicare standards.", "type": "documentation"},
+  {"id": "C7", "text": "Non-covered outside CED", "span": "pharmacogenomic testing of CYP2C9 or VKORC1 alleles to predict warfarin responsiveness improves health outcomes in Medicare beneficiaries outside the context of CED, and is therefore not reasonable and necessary", "type": "exclusion"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: 4 days of warfarin (fewer than five). Never genotyped; enrolled in a qualifying RCT.",
+   "vignette": "73-year-old woman with newly diagnosed atrial fibrillation who started warfarin 4 days ago; her cardiologist plans long-term warfarin therapy. She has never had CYP2C9 or VKORC1 genotyping. She has enrolled in a prospective, randomized, controlled trial comparing genotype-guided warfarin dosing with standard dosing in Medicare-aged adults; its outcomes are major and minor hemorrhage, thromboembolism and mortality. The trial was registered on ClinicalTrials.gov by its sponsor before the first subject was enrolled, has a written protocol that addresses the Medicare CED standards, is IRB-approved and complies with 45 CFR Part 46, and specifies public release of results within 24 months of the end of data collection. The test is ordered as part of the trial."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C3"],
+   "missing": [],
+   "note": "Exactly 5 days of warfarin in the current regimen; the NCD requires fewer than five.",
+   "vignette": "69-year-old man with a new proximal deep vein thrombosis, started on warfarin with heparin bridging 5 days ago; he has now completed his fifth day of warfarin in this regimen. He has never had CYP2C9 or VKORC1 genotyping. He is enrolled in a prospective, randomized, controlled trial of genotype-guided versus standard warfarin dosing in Medicare-aged adults, measuring major hemorrhage, minor hemorrhage, recurrent thromboembolism and mortality. The trial was registered on ClinicalTrials.gov before the first subject was enrolled, has a written protocol addressing the Medicare CED standards, and is IRB-approved. Genotyping is ordered today as part of the trial."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C2"],
+   "missing": [],
+   "note": "He was genotyped for CYP2C9 and VKORC1 three years ago; the test is once in a lifetime and the NCD requires no prior testing.",
+   "vignette": "77-year-old man with atrial fibrillation who is restarting warfarin after a 2-year break; warfarin was started 2 days ago in this new regimen. During a research study three years ago he had CYP2C9 and VKORC1 genotyping, with results in his chart. He has now enrolled in a different prospective, randomized, controlled trial of genotype-guided warfarin dosing, registered on ClinicalTrials.gov before the first subject was enrolled, with a written protocol addressing the Medicare CED standards and outcomes of hemorrhage, thromboembolism and mortality. The new trial protocol calls for repeat genotyping, and the test is ordered."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C4", "C7"],
+   "missing": [],
+   "note": "Not enrolled in any clinical study; outside CED the test is not reasonable and necessary.",
+   "vignette": "71-year-old woman with a new pulmonary embolism who will start warfarin tomorrow; she has received no warfarin yet. She has never had CYP2C9 or VKORC1 genotyping. Her hematologist orders CYP2C9 and VKORC1 genotyping through a CLIA-certified laboratory to help choose her starting dose. She is not enrolled in any clinical study, and none is available at her hospital."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C4"],
+   "missing": [],
+   "note": "Enrolled in a single-arm observational registry, not a prospective randomized controlled study.",
+   "vignette": "75-year-old man with atrial fibrillation who started warfarin 2 days ago; he has never had CYP2C9 or VKORC1 genotyping. He has enrolled in a prospective, single-arm observational registry in which all participants receive genotype-guided dosing and outcomes are compared with historical rates of hemorrhage and thromboembolism; there is no randomization and no concurrent control group. The registry is listed on ClinicalTrials.gov, was registered before the first participant enrolled, and has a written protocol. The genotyping test is ordered as part of the registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C5"],
+   "missing": [],
+   "note": "The RCT was registered on ClinicalTrials.gov four months after the first subject enrolled; registration must precede first enrollment.",
+   "vignette": "68-year-old woman with a left ventricular thrombus who started warfarin 3 days ago; she has never had CYP2C9 or VKORC1 genotyping. She has enrolled in a prospective, randomized, controlled trial comparing genotype-guided with standard warfarin dosing in Medicare-aged adults, measuring major and minor hemorrhage, thromboembolism and mortality. The trial is IRB-approved and has a written protocol that addresses the Medicare CED standards. According to the ClinicalTrials.gov record, the sponsor first registered the trial four months after its first subject was enrolled. The genotyping test is ordered as part of the trial."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Distractor: 3 months of warfarin two years ago was a separate regimen; in the current regimen he has had 1 day. Never genotyped.",
+   "vignette": "80-year-old man with newly diagnosed atrial fibrillation who took his first dose of warfarin yesterday. Two years ago he took warfarin for 3 months for a provoked calf vein thrombosis, then stopped; he was not genotyped then and has never had CYP2C9 or VKORC1 testing. He has enrolled in a prospective, randomized, controlled trial of genotype-guided versus standard warfarin dosing in Medicare-aged adults that measures major hemorrhage, minor hemorrhage, thromboembolism related to atrial fibrillation, and mortality. The trial was registered on ClinicalTrials.gov before the first subject enrolled, has a written protocol addressing the Medicare CED standards, and is IRB-approved. Genotyping is ordered as part of the trial."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Warfarin not yet started (zero days); never tested; qualifying RCT. Prior genotyping for clopidogrel (CYP2C19) is a distractor, not CYP2C9 or VKORC1.",
+   "vignette": "66-year-old woman (Medicare through disability) with antiphospholipid syndrome and a new venous thromboembolism, for whom warfarin is planned to start after genotyping; she has received no warfarin. Two years ago she had CYP2C19 genotyping before clopidogrel therapy; she has never been tested for CYP2C9 or VKORC1 alleles. She is enrolled in a prospective, randomized, controlled trial comparing genotype-guided with standard warfarin dosing in Medicare-aged adults, with outcomes of major hemorrhage, minor hemorrhage, thromboembolism and mortality. The trial was registered on ClinicalTrials.gov before the first subject enrolled, has a written protocol that addresses the Medicare CED standards, and is IRB-approved. The CYP2C9/VKORC1 test is ordered as part of the trial."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C3"],
+   "note": "The start date of the current warfarin regimen is not documented, so it cannot be confirmed that fewer than five days have been given.",
+   "vignette": "78-year-old woman transferred from an outside hospital with atrial fibrillation, taking warfarin. The transfer medication list shows warfarin 5 mg daily, but the start date is not recorded and the outside hospital's records have not arrived; the patient cannot recall when it was started. She has never had CYP2C9 or VKORC1 genotyping. She has enrolled in a prospective, randomized, controlled trial of genotype-guided versus standard warfarin dosing in Medicare-aged adults, registered on ClinicalTrials.gov before the first subject enrolled, with a written protocol addressing the Medicare CED standards and outcomes of hemorrhage, thromboembolism and mortality. Genotyping is ordered as part of the trial."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C5"],
+   "note": "The trial is a qualifying RCT in other respects, but its ClinicalTrials.gov registration is not documented anywhere.",
+   "vignette": "72-year-old man with a new deep vein thrombosis who started warfarin 2 days ago; he has never had CYP2C9 or VKORC1 genotyping. He has enrolled in a prospective, randomized, controlled trial at his academic medical center comparing genotype-guided with standard warfarin dosing in Medicare-aged adults, with outcomes of major and minor hemorrhage, thromboembolism and mortality. The study file contains the IRB approval and a written protocol that addresses the Medicare CED standards, but no ClinicalTrials.gov registration number or registration date is recorded in the protocol, the consent form or the order. Genotyping is ordered as part of the trial."
+  }
+ ]
+}

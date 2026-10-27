@@ -1,0 +1,169 @@
+{
+ "ncd": "20.4",
+ "service": "Implantable cardioverter defibrillator (ICD)",
+ "notes": "Shared decision making is required only for B2-B5 (primary prevention and genetic disorders), not for secondary prevention (B1) or replacements.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Secondary prevention: sustained VT or VF arrest not due to acute MI or a transient/reversible cause",
+   "span": "An episode of sustained VT, either spontaneous or induced by an electrophysiology (EP) study, not associated with an acute myocardial infarction (MI) and not due to a transient or reversible cause; or An episode of cardiac arrest due to VF, not due to a transient or reversible cause",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Prior MI with LVEF <= 0.30",
+   "span": "Patients with a prior MI and a measured left ventricular ejection fraction (LVEF) \u2264 0.30",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Prior MI pathway: not NYHA class IV",
+   "span": "New York Heart Association (NYHA) classification IV heart failure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "Ischemic dilated cardiomyopathy, NYHA II-III, LVEF <= 35%",
+   "span": "Patients who have severe, ischemic, dilated cardiomyopathy but no personal history of sustained VT or cardiac arrest due to VF, and have NYHA Class II or III heart failure, LVEF \u2264 35%",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Non-ischemic dilated cardiomyopathy, NYHA II-III, LVEF <= 35%, optimal medical therapy for at least 3 months",
+   "span": "Patients who have severe, non-ischemic, dilated cardiomyopathy but no personal history of sustained VT or cardiac arrest due to VF, and have NYHA Class II or III heart failure, LVEF \u2264 35%, been on optimal medical therapy for at least 3 months",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Waiting periods (primary prevention): no CABG/PCI in past 3 months, no MI in past 40 days, not a revascularization candidate",
+   "span": "Had an MI within the past 40 days",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "B2-B5: formal shared decision making with an evidence-based ICD tool before initial implant",
+   "span": "a formal shared decision making encounter must occur between the patient and a physician",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Familial/genetic high-risk disorder (e.g., long QT, HCM)",
+   "span": "Patients with documented, familial or genetic disorders with a high risk of life-threatening tachyarrhythmias (sustained VT or VF), to include, but not limited to, long QT syndrome or hypertrophic cardiomyopathy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Replacement for battery end of life, ERI, or device/lead malfunction",
+   "span": "Patients with an existing ICD may receive an ICD replacement if it is required due to the end of battery life, elective replacement indicator (ERI), or device/lead malfunction",
+   "type": "eligibility"
+  },
+  {
+   "id": "C10",
+   "text": "All indications: clinically stable",
+   "span": "Patients must be clinically stable (e.g., not in shock, from any etiology)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C11",
+   "text": "All indications: LVEF measured by echo, nuclear imaging, cardiac MRI or catheter angiography",
+   "span": "LVEF must be measured by echocardiography, radionuclide (nuclear medicine) imaging, cardiac magnetic resonance imaging (MRI), or catheter angiography",
+   "type": "documentation"
+  },
+  {
+   "id": "C12",
+   "text": "All indications: no non-cardiac disease with likely survival under 1 year",
+   "span": "Any disease, other than cardiac disease (e.g., cancer, renal failure, liver failure) associated with a likelihood of survival less than 1 year",
+   "type": "exclusion"
+  },
+  {
+   "id": "C13",
+   "text": "All indications: no SVT such as AF with poorly controlled rate",
+   "span": "Supraventricular tachycardia such as atrial fibrillation with a poorly controlled ventricular rate",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Secondary prevention after VF arrest; shared decision making is not required for B1.",
+   "vignette": "70-year-old man resuscitated from out-of-hospital cardiac arrest due to ventricular fibrillation. Serial troponins and coronary angiography showed no acute MI and no culprit lesion; electrolytes, drug levels and toxicology were normal and no other transient or reversible cause was found. Echocardiogram LVEF 45%. Requesting an initial ICD. He is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Ischemic cardiomyopathy, NYHA II, LVEF 30% by echo, MI 2 years ago.",
+   "vignette": "68-year-old woman with ischemic dilated cardiomyopathy after an anterior MI 2 years ago, NYHA class II heart failure, LVEF 30% on echocardiography. No CABG or PCI in the past year; recent angiography found no lesions suitable for revascularization. No history of sustained VT or cardiac arrest. Requesting a primary-prevention ICD. She is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "MI 21 days ago: inside the 40-day waiting period; no pacemaker indication.",
+   "vignette": "64-year-old man with a large anterior MI 21 days ago, now with LVEF 25% on echocardiography and NYHA class II symptoms; no revascularization targets remain and no pacemaker indication. No sustained VT or cardiac arrest. Requesting a primary-prevention ICD now. He is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Non-ischemic cardiomyopathy on GDMT for only 6 weeks (needs >= 3 months).",
+   "vignette": "55-year-old woman with newly diagnosed non-ischemic dilated cardiomyopathy, LVEF 30% on cardiac MRI, NYHA class III. Normal coronary angiogram. Guideline-directed medical therapy was started 6 weeks ago. No sustained VT or cardiac arrest. Requesting a primary-prevention ICD. She is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C7"
+   ],
+   "note": "Primary prevention without a documented shared decision-making encounter.",
+   "vignette": "61-year-old man with non-ischemic dilated cardiomyopathy, LVEF 28% on echocardiography, NYHA class II despite 5 months of optimal medical therapy. Normal coronary angiogram; no sustained VT or cardiac arrest. Requesting a primary-prevention ICD. The record contains no documentation of a shared decision-making encounter about the ICD. He is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C12"
+   ],
+   "missing": [],
+   "note": "Metastatic pancreatic cancer with expected survival of months.",
+   "vignette": "72-year-old man with ischemic dilated cardiomyopathy, LVEF 25% on echocardiography, NYHA class II, MI 3 years ago, no revascularization options. He was recently diagnosed with metastatic pancreatic cancer; his oncologist estimates survival of 4-6 months. Requesting a primary-prevention ICD. He is clinically stable with no poorly rate-controlled atrial fibrillation. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "VF arrest caused by severe hypokalemia: transient/reversible cause.",
+   "vignette": "66-year-old woman who had a ventricular fibrillation arrest with a potassium of 2.1 mmol/L after high-dose diuretic use; potassium was corrected and she has had no further arrhythmia. No acute MI; structurally normal heart with LVEF 60% on echocardiography. Requesting a secondary-prevention ICD. She is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Replacement at ERI; current LVEF 50% and absence of a new SDM encounter do not matter.",
+   "vignette": "74-year-old man with an ICD implanted 9 years ago for sustained ventricular tachycardia; the device has reached its elective replacement indicator. LVEF on his latest echocardiogram is 50%. Requesting ICD generator replacement. He is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Hypertrophic cardiomyopathy: genetic high-risk disorder with SDM.",
+   "vignette": "45-year-old woman with genetically confirmed hypertrophic cardiomyopathy, maximal wall thickness 31 mm, unexplained syncope, and a family history of sudden cardiac death; her cardiologist documents high risk of life-threatening ventricular arrhythmia. LVEF 65% on cardiac MRI. Requesting a primary-prevention ICD. She is clinically stable, not in shock, with no significant brain damage, no non-cardiac disease limiting survival to under a year, and no poorly rate-controlled atrial fibrillation or other supraventricular tachycardia. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Prior MI with LVEF 25% but NYHA class IV (excluded from B2; B3 also requires NYHA II-III).",
+   "vignette": "79-year-old man with an MI 4 years ago, LVEF 25% on echocardiography, and NYHA class IV heart failure with symptoms at rest despite therapy; he is not a transplant or LVAD candidate and angiography shows no revascularization targets. No sustained VT or cardiac arrest. Requesting a primary-prevention ICD. He is not in shock, has no non-cardiac life-limiting disease, and no poorly rate-controlled atrial fibrillation. Before implantation, a nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool."
+  }
+ ]
+}

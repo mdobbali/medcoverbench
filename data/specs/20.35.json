@@ -1,0 +1,141 @@
+{
+ "ncd": "20.35",
+ "service": "Supervised exercise therapy (SET) for symptomatic PAD",
+ "notes": "Sessions beyond 36 are at MAC discretion with a second referral (section D); not tested.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Intermittent claudication from symptomatic PAD",
+   "span": "cover SET for beneficiaries with IC for the treatment of symptomatic PAD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Up to 36 sessions over a 12-week period",
+   "span": "Up to 36 sessions over a 12-week period are covered if all of the following components of a SET program are met",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "Sessions of 30-60 minutes of therapeutic exercise training for PAD",
+   "span": "consist of sessions lasting 30-60 minutes comprising a therapeutic exercise-training program for PAD in patients with claudication",
+   "type": "service"
+  },
+  {
+   "id": "C4",
+   "text": "Hospital outpatient setting or physician's office",
+   "span": "be conducted in a hospital outpatient setting, or a physician\u2019s office",
+   "type": "setting"
+  },
+  {
+   "id": "C5",
+   "text": "Delivered by qualified auxiliary personnel trained in PAD exercise therapy",
+   "span": "be delivered by qualified auxiliary personnel necessary to ensure benefits exceed harms, and who are trained in exercise therapy for PAD",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Direct supervision by physician, PA, or NP/CNS trained in basic and advanced life support",
+   "span": "be under the direct supervision of a physician (as defined in 1861(r)(1)), physician assistant, or nurse practitioner/clinical nurse specialist (as identified in 1861(aa)(5)) who must be trained in both basic and advanced life support techniques",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Face-to-face referral visit with the PAD physician including risk-factor reduction information",
+   "span": "Beneficiaries must have a face-to-face visit with the physician responsible for PAD treatment to obtain the referral for SET. At this visit, the beneficiary must receive information regarding cardiovascular disease and PAD risk factor reduction",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered with absolute contraindications to exercise per primary physician",
+   "span": "SET is non-covered for beneficiaries with absolute contraindications to exercise as determined by their primary physician.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "IC with PAD, face-to-face referral with risk-factor counseling; program meets all components.",
+   "vignette": "71-year-old man with calf claudication after walking 2 blocks; ankle-brachial index 0.62 on the right. His primary physician has documented no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The program is in the hospital outpatient vascular rehabilitation department: 36 treadmill-based exercise-training sessions over 12 weeks, each lasting 45 minutes, delivered by exercise physiologists trained in exercise therapy for PAD, under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundaries: 60-minute sessions, 36th session in week 12; physician's office setting; PA supervisor.",
+   "vignette": "68-year-old woman with bilateral thigh and calf claudication; ankle-brachial index 0.70. Her primary physician reports no contraindication to exercise. At a face-to-face visit, the vascular surgeon responsible for her PAD treatment referred her for SET and gave her information on cardiovascular disease and PAD risk factor reduction. The SET program is held in the vascular surgeon's physician office, with 60-minute exercise-training sessions delivered by a physical therapist trained in PAD exercise therapy, under the direct supervision of a physician assistant trained in basic and advanced life support. She has completed 35 sessions over 11.5 weeks, and the 36th session is requested in week 12."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Active smoking, diabetes, and prior contralateral revascularization are not exclusions.",
+   "vignette": "74-year-old man with type 2 diabetes who still smokes, with left calf claudication at 1 block; ankle-brachial index 0.58. His right leg was revascularized 2 years ago. His primary physician has documented no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The program is in the hospital outpatient vascular rehabilitation department: 36 treadmill-based exercise-training sessions over 12 weeks, each lasting 45 minutes, delivered by exercise physiologists trained in exercise therapy for PAD, under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Community fitness center is not a hospital outpatient setting or physician's office.",
+   "vignette": "70-year-old woman with calf claudication; ankle-brachial index 0.66. Her primary physician reports no contraindication to exercise. At a face-to-face visit, the physician responsible for her PAD treatment referred her for SET and counseled her on cardiovascular and PAD risk factor reduction. The program is held at a community fitness center unaffiliated with any hospital or physician practice: 36 sessions of 45 minutes over 12 weeks, delivered by exercise physiologists trained in PAD exercise therapy and supervised on site by a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "20-minute sessions; sessions must last 30-60 minutes.",
+   "vignette": "73-year-old man with claudication after 1.5 blocks; ankle-brachial index 0.64. His primary physician has documented no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The hospital outpatient program provides 36 sessions over 12 weeks, each lasting 20 minutes, delivered by exercise physiologists trained in PAD exercise therapy under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Asymptomatic PAD; coverage requires intermittent claudication.",
+   "vignette": "67-year-old man with peripheral artery disease found on screening (ankle-brachial index 0.82). He reports no leg pain, cramping, or fatigue with walking and walks 3 miles daily without symptoms. His primary physician reports no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The program is in the hospital outpatient vascular rehabilitation department: 36 treadmill-based exercise-training sessions over 12 weeks, each lasting 45 minutes, delivered by exercise physiologists trained in exercise therapy for PAD, under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Primary physician documented an absolute contraindication to exercise.",
+   "vignette": "72-year-old woman with calf claudication; ankle-brachial index 0.60. She has severe symptomatic aortic stenosis awaiting valve replacement, and her primary physician has documented an absolute contraindication to exercise. At a face-to-face visit, the vascular physician responsible for her PAD treatment referred her for SET and provided cardiovascular and PAD risk factor reduction counseling. The program is in the hospital outpatient vascular rehabilitation department: 36 treadmill-based exercise-training sessions over 12 weeks, each lasting 45 minutes, delivered by exercise physiologists trained in exercise therapy for PAD, under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Supervising physician lacks advanced life support training.",
+   "vignette": "69-year-old man with calf claudication at 2 blocks; ankle-brachial index 0.68. His primary physician has documented no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The hospital outpatient program provides 36 sessions of 45 minutes over 12 weeks, delivered by exercise physiologists trained in PAD exercise therapy, under the direct supervision of a physician who holds current basic life support certification but has never been trained in advanced life support."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C7"
+   ],
+   "note": "Referral order present, but no face-to-face visit or risk-factor education documented.",
+   "vignette": "75-year-old woman with calf claudication; ankle-brachial index 0.63. Her primary physician reports no contraindication to exercise. The record contains a faxed SET order signed by her vascular surgeon, but no note of a face-to-face visit with the physician responsible for her PAD treatment and no documentation that she received information on cardiovascular disease and PAD risk factor reduction. The program is in the hospital outpatient vascular rehabilitation department: 36 treadmill-based exercise-training sessions over 12 weeks, each lasting 45 minutes, delivered by exercise physiologists trained in exercise therapy for PAD, under the direct supervision of a nurse practitioner trained in basic and advanced life support."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "No documentation of who delivers the sessions or their PAD exercise training.",
+   "vignette": "70-year-old man with calf claudication; ankle-brachial index 0.65. His primary physician has documented no contraindication to exercise. At a face-to-face visit, the vascular physician responsible for his PAD treatment referred him for SET and provided counseling on cardiovascular disease and PAD risk factor reduction, including smoking cessation, lipid and blood pressure control, and diabetes management. The hospital outpatient program provides 36 sessions of 45 minutes over 12 weeks under the direct supervision of a nurse practitioner trained in basic and advanced life support. The record does not identify the staff who deliver the exercise sessions or document their qualifications or training in exercise therapy for PAD."
+  }
+ ]
+}

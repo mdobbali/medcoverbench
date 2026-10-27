@@ -1,0 +1,120 @@
+{
+ "ncd": "70.2.1",
+ "service": "Foot evaluation and treatment for diabetic sensory neuropathy with loss of protective sensation (LOPS)",
+ "notes": "The NCD says testing 'should' use five random sites avoiding callus (guideline language), but the 2-of-5 absence on either foot 'must be present and documented'. Cases do not depend on the 'should' items. 'In the interim' is read as since the last covered LOPS evaluation.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Documented diagnosis of diabetic sensory neuropathy and LOPS",
+   "span": "for individuals with a documented diagnosis of diabetic sensory neuropathy and LOPS",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "No more often than every six months",
+   "span": "an evaluation (examination and treatment) of the feet no more often than every six months",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "Beneficiary has not seen a foot care specialist for some other reason in the interim",
+   "span": "as long as the beneficiary has not seen a foot care specialist for some other reason in the interim",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "LOPS diagnosed with the 5.07 monofilament",
+   "span": "LOPS shall be diagnosed through sensory testing with the 5.07 monofilament",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Absent sensation at >= 2 of 5 sites on either foot, present and documented",
+   "span": "an absence of sensation at two or more sites out of 5 tested on either foot when tested with the 5.07 Semmes-Weinstein monofilament must be present and documented",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Required exam elements: inspection, protective sensation, structure/biomechanics, vascular status and skin integrity, footwear need, patient education",
+   "span": "A physical examination that must consist of at least the following elements",
+   "type": "documentation"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: absent sensation at exactly 2 of 5 sites on one foot; last LOPS exam 7 months ago; no interim foot specialist visit.",
+   "vignette": "71-year-old man with type 2 diabetes (ICD-10-CM E11.42) and diabetic peripheral neuropathy. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 2 of 5 sites on the left foot and 1 of 5 on the right, documented in the note. His last foot evaluation for diabetic neuropathy with LOPS was 7 months ago, and he has not seen a podiatrist or other foot care specialist since. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Debridement of plantar calluses and trimming of thickened nails are performed."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Last covered LOPS foot evaluation was only 4 months ago.",
+   "vignette": "68-year-old woman with type 2 diabetes (ICD-10-CM E11.42) and established diabetic sensory neuropathy with LOPS. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 4 of 5 sites on each foot. Her last foot evaluation for diabetic neuropathy with LOPS, including callus debridement, was 4 months ago, and she has seen no other foot care specialist since. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Corns and calluses are debrided again."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Only 1 of 5 sites absent on each foot: the 2-of-5 threshold must be met on a single foot, not summed.",
+   "vignette": "66-year-old man with type 2 diabetes (ICD-10-CM E11.9) and numbness in his toes. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 1 of 5 sites on the right foot and 1 of 5 sites on the left foot; all other sites are sensate. This is his first foot evaluation for neuropathy and he has not seen a foot care specialist in the past year. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Nails are trimmed and debrided."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Saw a podiatrist for an ingrown toenail (another reason) in the interim since the last LOPS exam.",
+   "vignette": "74-year-old woman with type 1 diabetes (ICD-10-CM E10.42) and diabetic sensory neuropathy with LOPS. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 3 of 5 sites on the right foot. Her last foot evaluation for LOPS was 8 months ago; 2 months ago she saw a podiatrist for removal of an ingrown toenail. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Calluses are debrided."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "Neuropathy diagnosis listed, but no monofilament results are documented.",
+   "vignette": "70-year-old man with type 2 diabetes (ICD-10-CM E11.42); his problem list includes diabetic peripheral neuropathy with loss of protective sensation. The visit note states 'LOPS present' but records no monofilament testing, sites tested or results. His last foot evaluation for LOPS was 9 months ago and he has seen no foot care specialist since. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Thickened nails are trimmed and debrided."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "First LOPS evaluation; 4 of 5 sites absent on the right foot; peripheral arterial disease is a distractor.",
+   "vignette": "77-year-old woman with type 2 diabetes (ICD-10-CM E11.42) and peripheral arterial disease. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 4 of 5 sites on the right foot and none on the left, documented site by site. This is her first foot evaluation for diabetic neuropathy and she has never seen a foot care specialist. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. A superficial blister on the right heel receives local wound care, and corns are debrided."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "LOPS is from chemotherapy-induced neuropathy in a patient without diabetes; the NCD covers diabetic sensory neuropathy.",
+   "vignette": "69-year-old man without diabetes (HbA1c 5.3%, normal fasting glucose) who has chemotherapy-induced peripheral neuropathy after oxaliplatin for colon cancer. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 3 of 5 sites on both feet. He has not had a prior foot evaluation for neuropathy or seen a foot care specialist. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Calluses are debrided."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Interim visits to an endocrinologist and ophthalmologist are not foot care specialist visits; last LOPS exam 6 months and 3 weeks ago.",
+   "vignette": "72-year-old man with type 2 diabetes (ICD-10-CM E11.42) and diabetic sensory neuropathy with LOPS. Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 3 of 5 sites on the left foot and 2 of 5 on the right. His last foot evaluation for LOPS was 6 months and 3 weeks ago; since then he has seen his endocrinologist twice and his ophthalmologist once, but no podiatrist or other foot care specialist. Today's visit documents a patient history and a physical examination with visual inspection of the forefoot, hindfoot and toe web spaces, evaluation of protective sensation, foot structure and biomechanics, vascular status and skin integrity, evaluation of the need for special footwear, and patient education. Nails are trimmed and calluses debrided."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C6"
+   ],
+   "note": "Monofilament documented, but the exam note lacks vascular status/skin integrity, footwear need, and patient education.",
+   "vignette": "67-year-old woman with type 2 diabetes (ICD-10-CM E11.42). Testing with the 5.07 Semmes-Weinstein monofilament at five plantar sites per foot, in random order and avoiding callused areas, shows absent sensation at 3 of 5 sites on the left foot. Her last LOPS foot evaluation was 11 months ago and she has seen no foot care specialist since. The visit note documents a history, visual inspection of the forefoot, hindfoot and toe webs, and the sensory testing, then 'calluses debrided'; it does not record any evaluation of foot structure, vascular status or skin integrity, need for special footwear, or patient education."
+  }
+ ]
+}

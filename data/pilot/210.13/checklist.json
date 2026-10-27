@@ -1,0 +1,45 @@
+{
+ "ncd": "210.13",
+ "title": "Screening for Hepatitis C Virus (HCV) in Adults",
+ "service": "Screening for hepatitis C virus (HCV) infection",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Ordered by the beneficiary's primary care physician or practitioner within a primary care setting",
+   "span": "when ordered by the beneficiary's primary care physician or practitioner within the context of a primary care setting",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "High risk: current or past illicit injection drug use, or blood transfusion before 1992",
+   "span": "\"High risk\" is defined as persons with a current or past history of illicit injection drug use; and persons who have a history of receiving a blood transfusion prior to 1992.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Annual repeat screening only for continued illicit injection drug use since the prior negative test",
+   "span": "Repeat screening for high risk persons is covered annually only for persons who have had continued illicit injection drug use since the prior negative screening test.",
+   "type": "frequency"
+  },
+  {
+   "id": "C4",
+   "text": "Not high risk: single screening test only if born 1945 through 1965",
+   "span": "A single screening test is covered for adults who do not meet the high risk definition above, but who were born from 1945 through 1965.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Settings not considered primary care (ED, inpatient, ASC, IDTF, SNF, IRF, limited-focus clinics, hospice)",
+   "span": "Emergency departments, inpatient hospital settings, ambulatory surgical centers, independent diagnostic testing facilities, skilled nursing facilities, inpatient rehabilitation facilities, clinics providing a limited focus of health care services, and hospice are examples of settings not considered primary care settings under this definition.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C6",
+   "text": "FDA-approved/cleared laboratory tests used per labeling and CLIA",
+   "span": "CMS will cover screening for HCV with the appropriate U.S. Food and Drug Administration (FDA)-approved/cleared laboratory tests, used consistent with FDA-approved labeling and in compliance with the Clinical Laboratory Improvement Act regulations",
+   "type": "device"
+  }
+ ],
+ "notes": "High risk is limited to current or past illicit injection drug use or a blood transfusion before 1992; other risk factors (tattoos, intranasal drug use, etc.) do not count under this NCD. Birth-cohort screening (born 1945 through 1965, inclusive) is a single lifetime test. 'Annually' for repeat screening is not defined in months, so repeat cases use intervals well over 12 months. Primary care physician/practitioner per \u00a71833(u)(6) and \u00a71833(x)(2)(A)(i)."
+}

@@ -1,0 +1,57 @@
+{
+ "ncd": "20.35",
+ "title": "Supervised Exercise Therapy (SET) for Symptomatic Peripheral Artery Disease (PAD)",
+ "service": "Supervised exercise therapy (SET) for symptomatic PAD",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Intermittent claudication from symptomatic PAD",
+   "span": "cover SET for beneficiaries with IC for the treatment of symptomatic PAD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Up to 36 sessions over a 12-week period",
+   "span": "Up to 36 sessions over a 12-week period are covered if all of the following components of a SET program are met",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "Sessions of 30-60 minutes of therapeutic exercise training for PAD",
+   "span": "consist of sessions lasting 30-60 minutes comprising a therapeutic exercise-training program for PAD in patients with claudication",
+   "type": "service"
+  },
+  {
+   "id": "C4",
+   "text": "Hospital outpatient setting or physician's office",
+   "span": "be conducted in a hospital outpatient setting, or a physician\u2019s office",
+   "type": "setting"
+  },
+  {
+   "id": "C5",
+   "text": "Delivered by qualified auxiliary personnel trained in PAD exercise therapy",
+   "span": "be delivered by qualified auxiliary personnel necessary to ensure benefits exceed harms, and who are trained in exercise therapy for PAD",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Direct supervision by physician, PA, or NP/CNS trained in basic and advanced life support",
+   "span": "be under the direct supervision of a physician (as defined in 1861(r)(1)), physician assistant, or nurse practitioner/clinical nurse specialist (as identified in 1861(aa)(5)) who must be trained in both basic and advanced life support techniques",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Face-to-face referral visit with the PAD physician including risk-factor reduction information",
+   "span": "Beneficiaries must have a face-to-face visit with the physician responsible for PAD treatment to obtain the referral for SET. At this visit, the beneficiary must receive information regarding cardiovascular disease and PAD risk factor reduction",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered with absolute contraindications to exercise per primary physician",
+   "span": "SET is non-covered for beneficiaries with absolute contraindications to exercise as determined by their primary physician.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Sessions beyond 36 are at MAC discretion with a second referral (section D); not tested."
+}

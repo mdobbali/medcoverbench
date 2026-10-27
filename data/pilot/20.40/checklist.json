@@ -1,0 +1,63 @@
+{
+ "ncd": "20.40",
+ "title": "Renal Denervation (RDN) for Uncontrolled Hypertension",
+ "service": "Renal denervation (RDN) for uncontrolled hypertension",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Uncontrolled hypertension (>=140 systolic and >90 diastolic) despite active management",
+   "span": "Diagnosis of uncontrolled hypertension (\u2265 140 mm Hg systolic blood pressure and > 90 mm Hg diastolic blood pressure) despite active management by a clinician with primary responsibility for blood pressure management",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Diagnosed by ambulatory or serial home blood pressure monitoring",
+   "span": "Uncontrolled hypertension diagnosed using either ambulatory blood pressure monitoring or serial home blood pressure readings",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "Lifestyle changes and stable maximally tolerated GDMT with adherence assessment for at least 6 weeks",
+   "span": "On lifestyle modifications and stable doses of maximally tolerated guideline-directed medical therapy (GDMT), with assessment of adherence to the prescribed regimen, for at least six weeks before referral for RDN",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Screened for primary aldosteronism, OSA, and drug/alcohol-induced hypertension",
+   "span": "At a minimum, patients must be screened for primary aldosteronism, obstructive sleep apnea, and drug or alcohol induced hypertension before referral to RDN",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "No contraindications per the device's FDA labeling",
+   "span": "The patient has no contraindications to RDN, consistent with the FDA labeling of the device used",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Coordinated management for at least 6 months with at least 3 encounters, at most 2 virtual",
+   "span": "The primary clinicians must coordinate management of the patient for a minimum of six months before referral for RDN, during which the patient had at least three encounters, with no more than two of the three encounters being virtual",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "No prior RDN",
+   "span": "No prior RDN procedure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Only within a CMS-approved CED study",
+   "span": "RDN is not covered for patients outside of a CMS-approved study",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Operator completed at least five proctored RDN cases with each device used",
+   "span": "must complete at least five proctored RDN cases with each approved device used in their practice",
+   "type": "provider"
+  }
+ ],
+ "notes": "C1 literally requires >=140 systolic AND >90 diastolic; no pilot case depends on this wording (flag for expert review)."
+}

@@ -1,0 +1,160 @@
+{
+ "ncd": "220.6.13",
+ "service": "FDG PET scan of the brain for differential diagnosis of frontotemporal dementia versus Alzheimer's disease",
+ "notes": "Cases use the differential-diagnosis pathway (B.1) except one MCI case outside a clinical trial (B.2). The record-content list (onset date, syndrome, MMSE or similar score, presumptive cause, neuropsychological testing, structural imaging results, B12/thyroid labs, medications) is phrased as 'Providers should establish ... by ensuring', so a missing item is treated as insufficient documentation, not as a violation. Repeat-scan exception: allowed only if the prior SPECT/FDG PET was inconclusive, there are important changes in scope or severity, all other criteria are met, and at least one year has passed since the first scan. 'Recent diagnosis of dementia' is undefined; for the repeat-scan case (more than one year after a first scan) the exception's wording implies the original diagnosis still qualifies, which reviewers should confirm.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Recent dementia diagnosis, documented cognitive decline >= 6 months, meets diagnostic criteria for both AD and FTD",
+   "span": "in patients with a recent diagnosis of dementia and documented cognitive decline of at least 6 months, who meet diagnostic criteria for both AD and FTD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Onset, presentation or course makes FTD a suspected alternative cause",
+   "span": "The patient's onset, clinical presentation, or course of cognitive impairment is such that FTD is suspected as an alternative neurodegenerative cause of the cognitive decline.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Comprehensive clinical evaluation: history from patient and informant incl. ADLs, physical and mental status exam with cognitive scales or neuropsychological testing, labs, structural imaging (MRI/CT)",
+   "span": "The patient has had a comprehensive clinical evaluation (as defined by the American Academy of Neurology encompassing a medical history from the patient and a well-acquainted informant (including assessment of activities of daily living), physical and mental status examination (including formal documentation of cognitive decline occurring over at least 6 months) aided by cognitive scales or neuropsychological testing, laboratory tests, and structural imaging such as magnetic resonance imaging (MRI) or computed tomography (CT)",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Evaluation by a physician experienced in diagnosing dementia",
+   "span": "The evaluation of the patient has been conducted by a physician experienced in the diagnosis and assessment of dementia",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "Evaluation did not clearly determine the cause; PET expected to clarify FTD vs AD and guide treatment",
+   "span": "The evaluation of the patient did not clearly determine a specific neurodegenerative disease or other cause for the clinical symptoms, and information available through FDG PET is reasonably expected to help clarify the diagnosis between FTD and AD and help guide future treatment",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Facility has all accreditation needed to operate nuclear medicine equipment; read by experienced expert",
+   "span": "The FDG PET scan is performed in a facility that has all the accreditation necessary to operate nuclear medicine equipment.",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "No prior brain SPECT or FDG PET for the same indication (unless the repeat exception applies)",
+   "span": "A brain single photon emission computed tomography (SPECT) or FDG PET scan has not been obtained for the same indication.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Repeat exception: prior scan inconclusive, important change in scope/severity, and at least one year since the first scan",
+   "span": "In these instances, an FDG PET scan may be covered after one year has passed from the time the first SPECT or FDG PET scan was performed.",
+   "type": "frequency"
+  },
+  {
+   "id": "C9",
+   "text": "Medical record contains required items: onset date, syndrome diagnosis, MMSE or similar score, presumptive cause, neuropsychological testing, structural imaging results, B12/thyroid labs, number and names of medications",
+   "span": "Providers should establish the medical necessity of an FDG PET scan by ensuring that the following information has been collected and is maintained in the beneficiary medical record",
+   "type": "documentation"
+  },
+  {
+   "id": "C10",
+   "text": "MCI or early dementia outside B.1 circumstances: covered only in a CMS-approved clinical trial",
+   "span": "An FDG PET scan is considered reasonable and necessary in patients with MCI or early dementia (in clinical circumstances other than those specified in subparagraph 1) only in the context of an approved clinical trial",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "All other uses for presumptive dementia diagnoses (e.g., probable AD, clinically typical FTD) non-covered",
+   "span": "All other uses of FDG PET for patients with a presumptive diagnosis of dementia-causing neurodegenerative disease (e.g., possible or probable AD, clinically typical FTD, dementia of Lewy bodies, or Creutzfeld-Jacob disease) for which CMS has not specifically indicated coverage continue to be noncovered.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "All B.1 conditions met and all record items present; no prior SPECT or PET.",
+   "vignette": "68-year-old man diagnosed with dementia two months ago. His wife reports that 14 months ago he began making inappropriate comments to strangers and lost the ability to manage the household finances, followed by forgetfulness. A behavioral neurologist who specializes in dementia performed a comprehensive evaluation: history from the patient and his wife including activities of daily living, physical and neurological examination, Montreal Cognitive Assessment scores of 24 fourteen months ago and 19 now (formal documentation of decline over 14 months), neuropsychological testing showing both executive and memory deficits, normal B12 and thyroid-stimulating hormone, and a brain MRI with generalized atrophy and no stroke or mass. He meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the neurologist documents that early disinhibition makes FTD a suspected alternative cause, that the evaluation did not establish a specific cause, and that FDG PET is expected to distinguish FTD from AD and guide treatment. He has never had a brain SPECT or PET scan. The record documents the date of symptom onset, the clinical syndrome (mild dementia), the cognitive scores, the presumptive cause (uncertain AD), the neuropsychological results, the MRI report, the laboratory results, and his three prescribed medications by name. The scan will be performed at a hospital nuclear medicine department with all necessary accreditation and read by a nuclear medicine physician experienced in interpreting dementia PET scans."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: cognitive decline documented over exactly 6 months ('at least 6 months'). Early-onset age and treated hypertension are distractors.",
+   "vignette": "59-year-old woman with treated hypertension, diagnosed with dementia last month. Her husband reports progressive word-finding difficulty and poor planning, followed by forgetfulness. A geriatric psychiatrist experienced in dementia assessment performed a comprehensive evaluation: history from the patient and her husband including activities of daily living, physical and mental status examination, Mini-Mental State Examination scores of 27 exactly 6 months ago and 22 now (formal documentation of decline over 6 months), neuropsychological testing, normal B12 and thyroid studies, and a brain CT without stroke, hydrocephalus or mass. She meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the psychiatrist documents that early language difficulty raises suspicion of FTD, that the cause remains uncertain after evaluation, and that FDG PET is expected to clarify FTD versus AD and guide treatment. She has had no prior brain SPECT or PET. The record contains the onset date, clinical syndrome (mild dementia), MMSE scores, presumptive cause (possible AD), neuropsychological results, CT report, laboratory results, and the names of her two medications. The scan will be done at an imaging center with all accreditation required to operate nuclear medicine equipment and read by a neuroradiologist experienced with dementia PET."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Cognitive decline documented over only 4 months; the NCD requires at least 6 months.",
+   "vignette": "66-year-old man diagnosed with dementia three weeks ago. His daughter reports that 4 months ago he became socially disinhibited and began having trouble organizing tasks, then started forgetting appointments; she is certain there were no problems before that. A cognitive neurologist experienced in dementia performed a comprehensive evaluation: history from the patient and his daughter including activities of daily living, examination, MoCA scores of 25 four months ago and 20 now, neuropsychological testing, normal B12 and thyroid studies, and a brain MRI without stroke or mass. He meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the neurologist documents that FTD is suspected given early disinhibition, that the cause remains uncertain, and that FDG PET would help distinguish FTD from AD and guide treatment. He has had no prior brain SPECT or PET. The record contains all required elements, including onset date, syndrome, scores, presumptive cause, testing, imaging, labs and medication list. The scan will be done at an accredited nuclear medicine facility and read by an experienced nuclear medicine physician."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Repeat exception: prior FDG PET 15 months ago was inconclusive, there is an important change in severity, diagnosis remains uncertain, and more than one year has passed.",
+   "vignette": "72-year-old woman with dementia meeting diagnostic criteria for both Alzheimer's disease and frontotemporal dementia, with cognitive decline documented over 2 years. An FDG PET of the brain 15 months ago was read as inconclusive. Since then she has had a marked worsening, with new apathy, compulsive eating and loss of the ability to dress herself, and her MMSE has fallen from 24 to 16. Her dementia-specialist neurologist repeated a comprehensive evaluation: history from the patient and her son including activities of daily living, examination, serial cognitive scales, updated neuropsychological testing, normal B12 and thyroid studies, and a new brain MRI without stroke or mass. The neurologist documents that FTD is suspected as an alternative cause, that the specific cause remains uncertain, and that a new FDG PET is expected to clarify FTD versus AD and guide treatment. The record contains the onset date, clinical syndrome (moderate dementia), MMSE scores, presumptive cause (uncertain AD), neuropsychological results, MRI report, laboratory results, and the names of her four medications. The scan will be performed at an accredited hospital nuclear medicine department and read by an experienced nuclear medicine physician."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Prior FDG PET was inconclusive and there is a change in severity, but only 8 months have passed; the exception requires one year.",
+   "vignette": "70-year-old man with dementia meeting diagnostic criteria for both Alzheimer's disease and frontotemporal dementia, with cognitive decline documented over 20 months. An FDG PET of the brain 8 months ago was read as inconclusive. Since then he has developed prominent disinhibition and his MoCA has fallen from 22 to 15. His dementia-specialist neurologist repeated a comprehensive evaluation: history from the patient and his wife including activities of daily living, examination, serial cognitive scales, neuropsychological testing, normal B12 and thyroid studies, and a repeat MRI without new findings. The neurologist documents that FTD is suspected as an alternative cause, that the cause remains uncertain, and that a new FDG PET would help clarify FTD versus AD and guide treatment. The record contains all required elements, including onset date, syndrome, scores, presumptive cause, testing, imaging, labs and medication list. The scan would be done at an accredited nuclear medicine facility and read by an experienced nuclear medicine physician."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2",
+    "C11"
+   ],
+   "missing": [],
+   "note": "Clinically typical probable AD with no features suggesting FTD; PET requested only to confirm AD, which is a non-covered use.",
+   "vignette": "79-year-old woman diagnosed with dementia three months ago after 2 years of gradually worsening short-term memory loss; her family reports no change in personality, behavior, language or social conduct. A memory-clinic neurologist experienced in dementia performed a comprehensive evaluation including informant history with activities of daily living, examination, serial MMSE scores of 25 and 21 over 2 years, neuropsychological testing showing an amnestic pattern, normal B12 and thyroid studies, and an MRI with hippocampal atrophy. The neurologist's assessment is 'probable Alzheimer's disease, clinically typical; no features to suggest frontotemporal dementia.' An FDG PET is requested to confirm the Alzheimer's diagnosis before starting a new medication. She has had no prior brain SPECT or PET. The record contains all of the listed documentation elements. The scan would be performed at an accredited nuclear medicine facility and read by an experienced nuclear medicine physician."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C10"
+   ],
+   "missing": [],
+   "note": "Mild cognitive impairment, not dementia meeting AD and FTD criteria; outside B.1, FDG PET is covered only in an approved clinical trial, and he is not enrolled in one.",
+   "vignette": "74-year-old man with mild cognitive impairment diagnosed 8 months ago; he remains fully independent in activities of daily living and does not meet criteria for dementia. His neurologist, who is experienced in dementia, documented mild memory and executive decline over 10 months on serial MoCA testing, with normal B12 and thyroid studies and an unremarkable MRI. The neurologist requests an FDG PET to estimate his risk of progressing to Alzheimer's disease or frontotemporal dementia. He is not enrolled in any clinical trial. He has had no prior brain SPECT or PET. The scan would be performed at an accredited nuclear medicine facility."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Every clinical criterion is met, but the mobile imaging unit lacks the accreditation needed to operate nuclear medicine equipment.",
+   "vignette": "64-year-old woman diagnosed with dementia two months ago, with early loss of executive function and socially inappropriate behavior followed by memory loss over the past 11 months. A behavioral neurologist experienced in dementia performed a comprehensive evaluation: history from the patient and her sister including activities of daily living, examination, MoCA scores of 26 eleven months ago and 20 now, neuropsychological testing, normal B12 and thyroid studies, and an MRI without stroke or mass. She meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the neurologist documents that FTD is suspected, that the cause remains uncertain, and that FDG PET is expected to clarify FTD versus AD and guide treatment. She has had no prior brain SPECT or PET. The record contains all of the listed documentation elements. The scan is scheduled on a mobile PET unit whose nuclear medicine accreditation lapsed four months ago and has not been renewed; the images would be read by a nuclear medicine physician experienced with dementia scans."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C9"
+   ],
+   "note": "Clinical criteria are met, but the record lacks the number and names of prescribed medications, one of the items providers must maintain.",
+   "vignette": "67-year-old man diagnosed with dementia six weeks ago, with early language difficulty and poor judgment followed by forgetfulness over the past 12 months. A dementia-specialist neurologist performed a comprehensive evaluation: history from the patient and his wife including activities of daily living, examination, MMSE scores of 26 twelve months ago and 21 now, neuropsychological testing, normal B12 and thyroid-stimulating hormone, and an MRI without stroke or mass. He meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the neurologist documents that FTD is suspected, that the cause remains uncertain, and that FDG PET is expected to distinguish FTD from AD and guide treatment. He has had no prior brain SPECT or PET. The record contains the onset date, clinical syndrome (mild dementia), MMSE scores, presumptive cause (uncertain AD), neuropsychological results, MRI report and laboratory results; the medication section of the record is blank and no medication list appears anywhere in the chart. The scan will be performed at an accredited nuclear medicine facility and read by an experienced nuclear medicine physician."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "The comprehensive evaluation must include structural imaging; no MRI or CT report or mention appears in the record, and nothing indicates it was refused or contraindicated.",
+   "vignette": "71-year-old woman diagnosed with dementia last month, with early apathy and loss of executive function followed by memory loss over the past 9 months. A geriatric neurologist experienced in dementia evaluated her: history from the patient and her daughter including activities of daily living, examination, MoCA scores of 25 nine months ago and 19 now, neuropsychological testing, and normal B12 and thyroid studies. She meets diagnostic criteria for both Alzheimer's disease and frontotemporal dementia; the neurologist documents that FTD is suspected, that the cause remains uncertain, and that FDG PET is expected to clarify FTD versus AD and guide treatment. She has had no prior brain SPECT or PET. The record contains the onset date, syndrome, scores, presumptive cause, neuropsychological results, laboratory results and her medication list, but contains no brain MRI or CT report and no mention of whether structural imaging was performed. The scan will be done at an accredited nuclear medicine facility and read by an experienced nuclear medicine physician."
+  }
+ ]
+}

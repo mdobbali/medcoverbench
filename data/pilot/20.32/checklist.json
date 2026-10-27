@@ -1,0 +1,68 @@
+{
+ "ncd": "20.32",
+ "title": "Transcatheter Aortic Valve Replacement (TAVR)",
+ "service": "Transcatheter aortic valve replacement (TAVR)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Symptomatic aortic stenosis treated per an FDA-approved indication",
+   "span": "TAVR is covered for the treatment of symptomatic aortic valve stenosis when furnished according to a Food and Drug Administration (FDA)-approved indication",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Complete valve and implantation system with FDA PMA",
+   "span": "The procedure is furnished with a complete aortic valve and implantation system that has received FDA premarket approval (PMA) for that system's FDA approved indication",
+   "type": "device"
+  },
+  {
+   "id": "C3",
+   "text": "Cardiac surgeon and interventional cardiologist each independently examined the patient face to face",
+   "span": "independently examined the patient face-to-face, evaluated the patient\u2019s suitability for surgical aortic valve replacement (SAVR), TAVR or medical or palliative therapy",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Rationale documented and shared with the heart team",
+   "span": "documented and made available to the other heart team members the rationale for their clinical judgment",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Interventional cardiologist and cardiac surgeon jointly participate intra-operatively",
+   "span": "The heart team's interventional cardiologist(s) and cardiac surgeon(s) must jointly participate in the intra-operative technical aspects of TAVR",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Hospital with on-site valve surgery and interventional cardiology programs and post-procedure ICU",
+   "span": "On-site heart valve surgery and interventional cardiology programs",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Experienced program volumes: >= 50 AVR/yr incl >= 20 TAVR, or >= 100 AVR per 2 yrs incl >= 40 TAVR; >= 2 surgeons, >= 1 IC, >= 300 PCI/yr",
+   "span": "\u2265 50 AVRs (TAVR or SAVR) per year including \u2265 20 TAVR procedures in the prior year",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Heart team and hospital participate in a national audited registry",
+   "span": "The heart team and hospital are participating in a prospective, national, audited registry",
+   "type": "provider"
+  },
+  {
+   "id": "C9",
+   "text": "Not covered when comorbidities preclude expected benefit",
+   "span": "TAVR is not covered for patients in whom existing co-morbidities would preclude the expected benefit from correction of the aortic stenosis",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Uses outside the FDA-approved indication covered only within a qualifying clinical study",
+   "span": "TAVR is covered for uses that are not expressly listed as an FDA-approved indication when performed within a clinical study",
+   "type": "setting"
+  }
+ ]
+}

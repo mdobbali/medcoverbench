@@ -1,0 +1,142 @@
+{
+ "ncd": "280.6",
+ "service": "Pneumatic compression devices (home use)",
+ "notes": "Lymphedema requires a 4-week conservative trial (compression, exercise, elevation); CVI requires venous stasis ulcer(s) unhealed after a 6-month trial (compression, wound dressings, exercise, elevation). General criteria: physician prescription and oversight, plus a physician determination documenting diagnosis/prognosis, objective measurements, failed treatments, and clinical response to an initial treatment with the device. E0652 needs unique characteristics preventing satisfactory treatment with the simpler devices.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Covered only for lymphedema or CVI with venous stasis ulcers",
+   "span": "Pneumatic devices are covered for the treatment of lymphedema or for the treatment of chronic venous insufficiency with venous stasis ulcers.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Lymphedema: four-week conservative trial with no significant improvement or significant remaining symptoms",
+   "span": "Pneumatic compression devices are covered in the home setting for the treatment of lymphedema if the patient has undergone a four-week trial of conservative therapy and the treating physician determines that there has been no significant improvement or if significant symptoms remain after the trial.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Lymphedema trial includes compression bandage/garment, exercise, and limb elevation",
+   "span": "The trial of conservative therapy must include use of an appropriate compression bandage system or compression garment, exercise, and elevation of the limb.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "CVI: venous stasis ulcer(s) failed to heal after a 6-month physician-directed conservative trial",
+   "span": "only if the patient has one or more venous stasis ulcer(s) which have failed to heal after a 6 month trial of conservative therapy directed by the treating physician.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Physician prescription and oversight (evaluation, instruction, treatment plan, monitoring)",
+   "span": "Pneumatic compression devices are covered only when prescribed by a physician and when they are used with appropriate physician oversight",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Physician determination includes objective findings with measurements of severity",
+   "span": "Symptoms and objective findings, including measurements which establish the severity of the condition;",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Physician determination includes clinical response to an initial treatment with the device",
+   "span": "The clinical response to an initial treatment with the device.",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Segmented calibrated gradient device (E0652) only with unique characteristics preventing satisfactory treatment with simpler devices",
+   "span": "The only time that a segmented, calibrated gradient pneumatic compression device (HCPCs code E0652) would be covered is when the individual has unique characteristics that prevent them from receiving satisfactory pneumatic compression treatment using a nonsegmented device in conjunction with a segmented appliance or a segmented compression device without manual control of pressure in each chamber.",
+   "type": "device"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: exactly four-week lymphedema trial with all three components; all physician documentation present.",
+   "vignette": "67-year-old woman with secondary lymphedema of the left arm (ICD-10-CM I97.2) after mastectomy and axillary node dissection 3 years ago. She completed exactly 4 weeks of conservative therapy: daily wear of a graduated compression sleeve, a prescribed arm exercise program, and elevation of the limb. Her physician documents that significant swelling and heaviness remain, with arm circumference 5 cm greater than the right side at three measured points. The physician's determination records her diagnosis and prognosis, these measurements, the failed trial, and her response to an initial in-office session with a nonsegmented pneumatic compression pump: circumference reduced 1.5 cm, the session was well tolerated at the planned pressure, and she applied the sleeve herself. The physician prescribes the device with a written plan for pressure, frequency, and duration, arranges instruction, and will monitor use and response."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "CVI with a venous ulcer unhealed after 7 months of complete physician-directed conservative therapy.",
+   "vignette": "73-year-old man with chronic venous insufficiency of the right leg and a venous stasis ulcer above the medial malleolus (ICD-10-CM I87.311) present for 9 months. For the past 7 months his physician has directed conservative therapy: multilayer compression bandaging, moist wound dressings appropriate to the ulcer, a calf-muscle exercise program, and leg elevation. The ulcer remains open, measuring 3.2 x 2.5 cm. The physician's determination records his diagnosis and prognosis, the ulcer and limb measurements, the failed treatments, and his response to an initial treatment with a nonsegmented pneumatic compression device (tolerated, edema reduced, his wife can apply it). The physician prescribes the device with a treatment plan defining pressure, frequency, and duration and will monitor his use and response."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1",
+    "C4"
+   ],
+   "missing": [],
+   "note": "CVI signs (pigmentation, edema, dermatitis) but no venous stasis ulcer.",
+   "vignette": "70-year-old woman with chronic venous insufficiency of both legs, with hyperpigmentation, stasis dermatitis, and chronic ankle edema, but no ulcers now or in the past. Over 8 months her physician directed compression stockings, exercise, and leg elevation with only partial relief. The physician's determination records her diagnosis, prognosis, ankle circumference measurements, failed treatments, and a good response to an initial treatment with a pneumatic compression device. The physician prescribes the device for home use with a treatment plan and ongoing monitoring."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Venous ulcer, but conservative trial only 4 months; the 4-week lymphedema rule does not apply to CVI.",
+   "vignette": "76-year-old man with chronic venous insufficiency and a venous stasis ulcer of the left lower leg. Four months ago his physician started conservative therapy with compression bandaging, wound dressings, exercise, and leg elevation; the ulcer is smaller but not healed. He has no lymphedema. The physician's determination records diagnosis, prognosis, ulcer measurements, treatments tried, and his response to an initial treatment with a pneumatic compression device. The physician prescribes the device for home use with a treatment plan and monitoring."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Lymphedema trial lasted 6 weeks but omitted compression (patient declined garments and bandages).",
+   "vignette": "69-year-old woman with primary lymphedema of both legs. Over 6 weeks she followed an exercise program and elevated her legs several times a day, but she declined compression garments and bandages because she finds them uncomfortable, so none were used. Significant swelling remains. The physician's determination records diagnosis, prognosis, calf and thigh circumference measurements, treatments tried, and her response to an initial treatment with a nonsegmented pneumatic compression device. The physician prescribes the device with a treatment plan and monitoring."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "E0652 requested without any unique characteristics; a simpler device was never shown unsatisfactory.",
+   "vignette": "72-year-old woman with secondary lymphedema of the right leg after pelvic lymph node dissection. She completed a 6-week trial of a compression garment, exercise, and elevation, with significant swelling remaining. The physician's determination records diagnosis, prognosis, limb measurements, the failed trial, and a good response to an initial treatment with a nonsegmented pump and segmented appliance. Her physician nonetheless orders a segmented, calibrated gradient pneumatic compression device (HCPCS E0652) because he considers it the most advanced model; the record identifies no characteristic of the patient that would prevent satisfactory treatment with a nonsegmented device with a segmented appliance or a segmented device without manual pressure control."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "E0652 exception: documented unique characteristics prevented satisfactory treatment with both simpler device types.",
+   "vignette": "64-year-old man on Medicare through disability with secondary lymphedema of the left leg after groin dissection and radiation. A 4-week trial of compression bandaging, exercise, and elevation left significant swelling. His leg has a dense radiation-fibrosis band at the upper thigh with fragile skin grafts below it. His physician documents trials of a nonsegmented device with a segmented appliance and of a segmented device without manual pressure control: both pushed fluid against the fibrotic band, causing genital edema and graft breakdown, and treatment had to stop. The physician concludes these characteristics require individually set pressures per chamber and orders a segmented, calibrated gradient device (HCPCS E0652). His response to an initial session with it (reduced circumference, no genital edema, tolerated) is recorded with his diagnosis, prognosis, and measurements. There is a written treatment plan, instruction, and ongoing monitoring."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C7"
+   ],
+   "note": "All criteria met except that no response to an initial treatment with the device is documented.",
+   "vignette": "71-year-old woman with secondary lymphedema of the right arm after breast cancer treatment. She completed 5 weeks of a compression sleeve, exercise, and elevation; her physician documents that significant swelling remains, with circumference 4 cm greater than the left arm at the forearm and upper arm. The physician's determination records her diagnosis and prognosis, the measurements, and the failed trial, and the physician prescribes a nonsegmented pneumatic compression device with a treatment plan, instruction, and monitoring. The record contains no initial treatment session with the device or any description of her response to one."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C6"
+   ],
+   "note": "No objective measurements of severity documented; narrative only.",
+   "vignette": "74-year-old man with secondary lymphedema of the left leg after prostate cancer surgery and radiation. He completed a 6-week trial of a compression garment, exercise, and leg elevation, and his physician documents that significant swelling and heaviness remain. The physician's note records his diagnosis and prognosis, the failed trial, and that an initial treatment with a nonsegmented pump was tolerated, reduced swelling, and can be applied by his wife. The physician prescribes the device with a treatment plan and monitoring. The physical examination describes the leg only as 'swollen'; no circumference, volume, or other measurements are recorded anywhere."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "DVT prophylaxis after knee replacement is neither lymphedema nor CVI with ulcer.",
+   "vignette": "68-year-old woman discharged home 2 days after a total knee replacement. Her surgeon prescribes a pneumatic compression device for both legs for 3 weeks at home to prevent deep vein thrombosis. She has no lymphedema, no chronic venous insufficiency, and no leg ulcers. The surgeon documents the indication and gives instructions for use."
+  }
+ ]
+}

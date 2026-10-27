@@ -1,0 +1,74 @@
+{
+ "ncd": "20.33",
+ "title": "Transcatheter Edge-to-Edge Repair (TEER) for Mitral Valve Regurgitation",
+ "service": "Mitral transcatheter edge-to-edge repair (TEER)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Symptomatic moderate-to-severe/severe functional MR despite stable max GDMT (+CRT if appropriate), or significant symptomatic degenerative MR, per FDA indication",
+   "span": "For the treatment of symptomatic moderate-to-severe or severe functional mitral regurgitation (MR) when the patient remains symptomatic despite stable doses of maximally tolerated guideline-directed medical therapy (GDMT) plus cardiac resynchronization therapy, if appropriate, or for the treatment of significant symptomatic degenerative MR when furnished according to a Food and Drug Administration (FDA)-approved indication",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "FDA PMA mitral TEER system",
+   "span": "The procedure is furnished with a mitral valve TEER system that has received FDA premarket approval (PMA)",
+   "type": "device"
+  },
+  {
+   "id": "C3",
+   "text": "Functional MR: heart failure cardiologist documents persistent symptoms despite max GDMT/CRT",
+   "span": "for patients with functional MR, the heart team heart failure cardiologist must document that the patient has persistent symptoms despite maximally tolerated GDMT and cardiac resynchronization therapy, if appropriate",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Functional MR: interventional cardiologist and HF cardiologist independently evaluate face to face (HF cardiologist may use record review if established advanced-HF cardiologist relationship)",
+   "span": "For patients with functional MR: the heart team interventional cardiologist and heart team heart failure cardiologist independently evaluate the patient using information in the medical record and a face-to-face examination",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Degenerative MR: interventional cardiologist and cardiac surgeon independently evaluate face to face",
+   "span": "For patients with degenerative MR: the heart team interventional cardiologist and heart team cardiac surgeon must independently evaluate the patient using information in the medical record and a face-to-face examination",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Interventional echocardiographer may not also provide anesthesia",
+   "span": "The interventional echocardiographer may not also furnish anesthesiology during the same procedure",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Interventional cardiologist trans-septal experience (>= 20 career incl. 10 as primary)",
+   "span": "With participation in \u2265 20 career trans-septal interventions including 10 as primary or co-primary operator",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Heart team and hospital participate in a national audited registry",
+   "span": "The heart team and hospital are participating in a prospective, national, audited registry",
+   "type": "provider"
+  },
+  {
+   "id": "C9",
+   "text": "Not covered when comorbidities preclude expected benefit",
+   "span": "For patients in whom existing co-morbidities would preclude the expected benefit from a mitral valve TEER procedure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Not covered with untreated severe aortic stenosis",
+   "span": "In patients with untreated severe aortic stenosis",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "Suitability for surgical repair, TEER, or palliation evaluated, documented, and shared",
+   "span": "Each patient's suitability for surgical mitral valve repair, TEER, or palliative therapy must be evaluated, documented, and made available to other heart team members",
+   "type": "documentation"
+  }
+ ]
+}

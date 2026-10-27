@@ -1,0 +1,75 @@
+{
+ "ncd": "220.6.13",
+ "title": "FDG PET for Dementia and Neurodegenerative Diseases",
+ "service": "FDG PET scan of the brain for differential diagnosis of frontotemporal dementia versus Alzheimer's disease",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Recent dementia diagnosis, documented cognitive decline >= 6 months, meets diagnostic criteria for both AD and FTD",
+   "span": "in patients with a recent diagnosis of dementia and documented cognitive decline of at least 6 months, who meet diagnostic criteria for both AD and FTD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Onset, presentation or course makes FTD a suspected alternative cause",
+   "span": "The patient's onset, clinical presentation, or course of cognitive impairment is such that FTD is suspected as an alternative neurodegenerative cause of the cognitive decline.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Comprehensive clinical evaluation: history from patient and informant incl. ADLs, physical and mental status exam with cognitive scales or neuropsychological testing, labs, structural imaging (MRI/CT)",
+   "span": "The patient has had a comprehensive clinical evaluation (as defined by the American Academy of Neurology encompassing a medical history from the patient and a well-acquainted informant (including assessment of activities of daily living), physical and mental status examination (including formal documentation of cognitive decline occurring over at least 6 months) aided by cognitive scales or neuropsychological testing, laboratory tests, and structural imaging such as magnetic resonance imaging (MRI) or computed tomography (CT)",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Evaluation by a physician experienced in diagnosing dementia",
+   "span": "The evaluation of the patient has been conducted by a physician experienced in the diagnosis and assessment of dementia",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "Evaluation did not clearly determine the cause; PET expected to clarify FTD vs AD and guide treatment",
+   "span": "The evaluation of the patient did not clearly determine a specific neurodegenerative disease or other cause for the clinical symptoms, and information available through FDG PET is reasonably expected to help clarify the diagnosis between FTD and AD and help guide future treatment",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Facility has all accreditation needed to operate nuclear medicine equipment; read by experienced expert",
+   "span": "The FDG PET scan is performed in a facility that has all the accreditation necessary to operate nuclear medicine equipment.",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "No prior brain SPECT or FDG PET for the same indication (unless the repeat exception applies)",
+   "span": "A brain single photon emission computed tomography (SPECT) or FDG PET scan has not been obtained for the same indication.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Repeat exception: prior scan inconclusive, important change in scope/severity, and at least one year since the first scan",
+   "span": "In these instances, an FDG PET scan may be covered after one year has passed from the time the first SPECT or FDG PET scan was performed.",
+   "type": "frequency"
+  },
+  {
+   "id": "C9",
+   "text": "Medical record contains required items: onset date, syndrome diagnosis, MMSE or similar score, presumptive cause, neuropsychological testing, structural imaging results, B12/thyroid labs, number and names of medications",
+   "span": "Providers should establish the medical necessity of an FDG PET scan by ensuring that the following information has been collected and is maintained in the beneficiary medical record",
+   "type": "documentation"
+  },
+  {
+   "id": "C10",
+   "text": "MCI or early dementia outside B.1 circumstances: covered only in a CMS-approved clinical trial",
+   "span": "An FDG PET scan is considered reasonable and necessary in patients with MCI or early dementia (in clinical circumstances other than those specified in subparagraph 1) only in the context of an approved clinical trial",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "All other uses for presumptive dementia diagnoses (e.g., probable AD, clinically typical FTD) non-covered",
+   "span": "All other uses of FDG PET for patients with a presumptive diagnosis of dementia-causing neurodegenerative disease (e.g., possible or probable AD, clinically typical FTD, dementia of Lewy bodies, or Creutzfeld-Jacob disease) for which CMS has not specifically indicated coverage continue to be noncovered.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Cases use the differential-diagnosis pathway (B.1) except one MCI case outside a clinical trial (B.2). The record-content list (onset date, syndrome, MMSE or similar score, presumptive cause, neuropsychological testing, structural imaging results, B12/thyroid labs, medications) is phrased as 'Providers should establish ... by ensuring', so a missing item is treated as insufficient documentation, not as a violation. Repeat-scan exception: allowed only if the prior SPECT/FDG PET was inconclusive, there are important changes in scope or severity, all other criteria are met, and at least one year has passed since the first scan. 'Recent diagnosis of dementia' is undefined; for the repeat-scan case (more than one year after a first scan) the exception's wording implies the original diagnosis still qualifies, which reviewers should confirm."
+}

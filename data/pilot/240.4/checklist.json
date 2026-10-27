@@ -1,0 +1,63 @@
+{
+ "ncd": "240.4",
+ "title": "Continuous Positive Airway Pressure (CPAP) Therapy For Obstructive Sleep Apnea (OSA)",
+ "service": "CPAP device for obstructive sleep apnea",
+ "review_status": "draft_unreviewed",
+ "notes": "The 4-hours/night-on-70%-of-nights adherence rule comes from the DME MAC LCD, not this NCD. Cases must not depend on it.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Adult patient with OSA",
+   "span": "The use of CPAP is covered under Medicare when used in adult patients with OSA",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Provider educates the beneficiary on proper device use before use (a consistently available, willing and able caregiver may compensate)",
+   "span": "The provider of CPAP must conduct education of the beneficiary prior to the use of the CPAP device to ensure that the beneficiary has been educated in the proper use of the device",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "Diagnosis includes a clinical evaluation",
+   "span": "A positive diagnosis of OSA for the coverage of CPAP must include a clinical evaluation",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Positive attended PSG, or unattended HST with Type II, Type III, or Type IV (at least 3 channels) device",
+   "span": "attended PSG performed in a sleep laboratory; or unattended HST with a Type II home sleep monitoring device; or unattended HST with a Type III home sleep monitoring device; or unattended HST with a Type IV home sleep monitoring device that measures at least 3 channels",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Sleep test ordered by the treating physician and furnished under appropriate physician supervision",
+   "span": "The sleep test must have been previously ordered by the beneficiary's treating physician and furnished under appropriate physician supervision",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "AHI/RDI >= 15, or 5-14 with documented excessive daytime sleepiness, impaired cognition, mood disorder, insomnia, hypertension, ischemic heart disease, or history of stroke",
+   "span": "AHI or RDI greater than or equal to 15 events per hour, or AHI or RDI greater than or equal to 5 events and less than or equal to 14 events per hour with documented symptoms of excessive daytime sleepiness, impaired cognition, mood disorders or insomnia, or documented hypertension, ischemic heart disease, or history of stroke",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "If under 2 hours of continuous recorded sleep, total events must be at least the number required in a 2-hour period",
+   "span": "If the AHI or RDI is calculated based on less than 2 hours of continuous recorded sleep, the total number of recorded events to calculate the AHI or RDI during sleep testing must be at a minimum the number of events that would have been required in a 2-hour period",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Initial coverage limited to 12 weeks; continued coverage only if the beneficiary benefits from CPAP during that period",
+   "span": "Coverage of CPAP is initially limited to a 12-week period to identify beneficiaries diagnosed with OSA as subsequently described who benefit from CPAP. CPAP is subsequently covered only for those beneficiaries diagnosed with OSA who benefit from CPAP during this 12-week period",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Other diagnostic tests (not listed) are not sufficient for CPAP coverage",
+   "span": "other diagnostic tests for the diagnosis of OSA, other than those noted above for prescribing CPAP, are not sufficient for the coverage of CPAP",
+   "type": "exclusion"
+  }
+ ]
+}

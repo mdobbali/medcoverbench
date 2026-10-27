@@ -1,0 +1,63 @@
+{
+ "ncd": "150.2",
+ "title": "Osteogenic Stimulators",
+ "service": "Osteogenic stimulators (electrical and ultrasonic)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Electrical: nonunion only after >= 6 months without healing",
+   "span": "nonunion of long bone fractures is considered to exist only after 6 or more months have elapsed without healing of the fracture.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Electrical: serial radiographs, >= 2 sets with multiple views, >= 90 days apart, showing healing ceased >= 3 months",
+   "span": "Serial radiographs must include a minimum of 2 sets of radiographs, each including multiple views of the fracture site, separated by a minimum of 90 days.",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "Noninvasive electrical: failed fusion with >= 9 months since last surgery",
+   "span": "Failed fusion, where a minimum of 9 months has elapsed since the last surgery;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Electrical adjunct to spinal fusion: prior failed fusion at the same site, or multilevel fusion of >= 3 vertebrae",
+   "span": "as an adjunct to spinal fusion surgery for patients at high risk of pseudarthrosis due to previously failed spinal fusion at the same site or for those undergoing multiple level fusion. A multiple level fusion involves 3 or more vertebrae",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Invasive (implantable) stimulator covered only for long bone nonunion and spinal fusion adjunct",
+   "span": "The invasive stimulator device is covered only for the following indications:",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Ultrasonic: >= 2 radiograph sets >= 90 days apart, multiple views, with physician written interpretation of no healing",
+   "span": "Each radiograph set must include multiple views of the fracture site accompanied with a written interpretation by a physician stating that there has been no clinically significant evidence of fracture healing between the 2 sets of radiographs",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Exclusion: nonunion of skull, vertebrae, or tumor-related",
+   "span": "Nonunion fractures of the skull, vertebrae and those that are tumor-related are excluded from coverage.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Ultrasonic not used concurrently with other non-invasive osteogenic devices",
+   "span": "Ultrasonic osteogenic stimulators may not be used concurrently with other non-invasive osteogenic devices.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Ultrasonic prior to surgical intervention is covered (2005)",
+   "span": "noninvasive ultrasound stimulation for the treatment of nonunion bone fractures prior to surgical intervention is reasonable and necessary",
+   "type": "exception"
+  }
+ ],
+ "notes": "Electrical nonunion = >= 6 months without healing AND serial radiographs (>= 2 sets, multiple views, >= 90 days apart) showing healing ceased >= 3 months. Ultrasonic: since April 2005 a prior failed surgery is not required, and the NCD does not limit ultrasonic coverage to long bones. Ambiguity for expert review: the skull/vertebrae/tumor-related exclusion sits in the ultrasonic section's Non-Covered list; it is tested only with an ultrasonic device here. Failed-fusion and congenital pseudarthrosis indications appear only under the noninvasive electrical device."
+}

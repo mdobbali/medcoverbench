@@ -1,0 +1,69 @@
+{
+ "ncd": "280.3",
+ "title": "Mobility Assistive Equipment (MAE)",
+ "service": "Mobility assistive equipment (canes, walkers, manual wheelchairs, scooters/POVs, power wheelchairs)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Mobility limitation significantly impairs one or more MRADLs in the home",
+   "span": "Does the beneficiary have a mobility limitation that significantly impairs his/her ability to participate in one or more MRADLs in the home?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Other limiting conditions (e.g., cognition, vision) can be ameliorated or compensated so MAE will help",
+   "span": "If these other limitations exist, can they be ameliorated or compensated sufficiently such that the additional provision of MAE will be reasonably expected to significantly improve the beneficiary\u2019s ability to perform or obtain assistance to participate in MRADLs in the home?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Beneficiary or caregiver demonstrates capability and willingness to operate the MAE safely",
+   "span": "Does the beneficiary or caregiver demonstrate the capability and the willingness to consistently operate the MAE safely?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "If a cane or walker resolves the deficit, more complex MAE is not appropriate",
+   "span": "Can the functional mobility deficit be sufficiently resolved by the prescription of a cane or walker?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Home environment supports use of the wheelchair/POV",
+   "span": "Does the beneficiary\u2019s typical environment support the use of wheelchairs including scooters/power-operated vehicles (POVs)?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Manual wheelchair: sufficient upper extremity function to self-propel, or an available, willing, able caregiver",
+   "span": "Does the beneficiary have sufficient upper extremity function to propel a manual wheelchair in the home to participate in MRADLs during a typical day?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "POV: sufficient strength and postural stability",
+   "span": "Does the beneficiary have sufficient strength and postural stability to operate a POV/scooter?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Power wheelchair: its additional features are needed for MRADLs",
+   "span": "Are the additional features provided by a power wheelchair needed to allow the beneficiary to participate in one or more MRADLs?",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Exception: no trial needed where the condition clearly precludes a device",
+   "span": "In individual cases where the beneficiary\u2019s condition clearly and unambiguously precludes the reasonable use of a device, it is not necessary to undertake a trial of that device for that beneficiary.",
+   "type": "exception"
+  },
+  {
+   "id": "C10",
+   "text": "Caregiver may compensate for inability to self-propel a manual wheelchair",
+   "span": "If the beneficiary is unable to self-propel a manual wheelchair, and if there is a caregiver who is available, willing, and able to provide assistance, a manual wheelchair may be appropriate.",
+   "type": "exception"
+  }
+ ],
+ "notes": "The NCD is a sequential algorithm framed as 'clinical guidance'. Cases make each decision point explicit so the label does not depend on clinical judgment. Ambiguity for expert review: the non-compliance language ('can be grounds for denial') is discretionary and is not tested. A device trial is not required when the condition clearly and unambiguously precludes the device. Caregiver compensation: a manual wheelchair is appropriate if the beneficiary cannot self-propel but a caregiver is available, willing, and able."
+}

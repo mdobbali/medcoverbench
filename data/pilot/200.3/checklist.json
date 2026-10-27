@@ -1,0 +1,45 @@
+{
+ "ncd": "200.3",
+ "title": "Monoclonal Antibodies Directed Against Amyloid for the Treatment of Alzheimer's Disease (AD)",
+ "service": "Anti-amyloid monoclonal antibody for Alzheimer's disease",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Clinical diagnosis of MCI due to AD or mild AD dementia",
+   "span": "for patients who have a clinical diagnosis of mild cognitive impairment (MCI) due to AD or mild AD dementia",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Confirmed amyloid beta pathology",
+   "span": "both with confirmed presence of amyloid beta pathology consistent with AD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Traditional-approval drugs: only in CMS-approved prospective comparative studies (registry allowed)",
+   "span": "Monoclonal antibodies directed against amyloid that are approved by the FDA for the treatment of AD based upon evidence of efficacy from a direct measure of clinical benefit may be covered in CMS-approved prospective comparative studies",
+   "type": "setting"
+  },
+  {
+   "id": "C4",
+   "text": "Accelerated-approval (surrogate endpoint) drugs: only in an RCT under an IND",
+   "span": "based upon evidence of efficacy from a change in a surrogate endpoint (e.g., amyloid reduction) considered as reasonably likely to predict clinical benefit may be covered in a randomized controlled trial conducted under an investigational new drug (IND) application",
+   "type": "setting"
+  },
+  {
+   "id": "C5",
+   "text": "NIH-supported trials, per FDA indication",
+   "span": "Monoclonal antibodies directed against amyloid indicated for the treatment of AD are covered when furnished according to the FDA approved indication in National Institutes of Health (NIH)-supported trials",
+   "type": "setting"
+  },
+  {
+   "id": "C6",
+   "text": "Non-covered outside FDA RCTs, CMS-approved studies, or NIH-supported studies",
+   "span": "provided outside of an FDAapproved randomized controlled trial, CMS-approved studies, or studies supported by the NIH, are nationally non-covered",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Traditional approval (direct clinical benefit) -> CMS-approved prospective comparative study/registry; accelerated approval (surrogate) -> RCT under IND only; NIH-supported trials also covered."
+}

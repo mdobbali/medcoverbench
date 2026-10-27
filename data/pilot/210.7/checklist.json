@@ -1,0 +1,51 @@
+{
+ "ncd": "210.7",
+ "title": "Screening for the Human Immunodeficiency Virus (HIV) Infection",
+ "service": "Screening for HIV infection",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Ages 15-65: one annual voluntary screening without regard to risk",
+   "span": "a maximum of one, annual, voluntary screening for all adolescents and adults between the age of 15 and 65, without regard to perceived risk",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Under 15 or over 65: one annual screening only if at increased risk (per the NCD's list, including persons who request the test)",
+   "span": "a maximum of one, annual, voluntary screening for adolescents younger than 15 and adults older than 65 who are at increased risk for HIV infection",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Annual limit: at least 11 full months after the month of the previous test",
+   "span": "at least 11 full months must have elapsed following the month in which the previous test was performed in order for the subsequent test to be covered",
+   "type": "frequency"
+  },
+  {
+   "id": "C4",
+   "text": "Pregnancy: up to three screenings, at diagnosis of pregnancy, in the third trimester, and at labor",
+   "span": "A maximum of three, voluntary, HIV screenings of pregnant Medicare beneficiaries: (1) when the diagnosis of pregnancy is known, (2) during the third trimester, and, (3) at labor, if ordered by the woman's clinician.",
+   "type": "frequency"
+  },
+  {
+   "id": "C5",
+   "text": "Known diagnosis of HIV-related illness excludes screening",
+   "span": "Medicare beneficiaries with any known diagnosis of an HIV-related illness are not eligible for this screening test.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C6",
+   "text": "Ordered by the beneficiary's physician or practitioner in a healthcare setting, performed by an eligible Medicare provider",
+   "span": "when ordered by the beneficiary's physician or practitioner within the context of a healthcare setting and performed by an eligible Medicare provider for these services",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Increased risk determined by the practitioner from the patient's history",
+   "span": "The determination of \"increased risk\" for HIV infection is identified by the health care practitioner who assesses the patient's history",
+   "type": "documentation"
+  }
+ ],
+ "notes": "Annual frequency: at least 11 full months must elapse following the month of the previous test (e.g., prior test any day in February 2025 -> eligible from February 2026). Cases avoid age exactly 65, since 'between the age of 15 and 65' versus 'older than 65' leaves the inclusive boundary to interpretation. 'Persons who request an HIV test despite reporting no individual risk factors' are within the increased-risk definition, so a patient over 65 who requests the test qualifies. Pregnancy screening allows up to three specified tests (at diagnosis of pregnancy, during the third trimester, at labor) regardless of the annual limit."
+}

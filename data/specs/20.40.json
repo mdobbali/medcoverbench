@@ -1,0 +1,149 @@
+{
+ "ncd": "20.40",
+ "service": "Renal denervation (RDN) for uncontrolled hypertension",
+ "notes": "C1 literally requires >=140 systolic AND >90 diastolic; no pilot case depends on this wording (flag for expert review).",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Uncontrolled hypertension (>=140 systolic and >90 diastolic) despite active management",
+   "span": "Diagnosis of uncontrolled hypertension (\u2265 140 mm Hg systolic blood pressure and > 90 mm Hg diastolic blood pressure) despite active management by a clinician with primary responsibility for blood pressure management",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Diagnosed by ambulatory or serial home blood pressure monitoring",
+   "span": "Uncontrolled hypertension diagnosed using either ambulatory blood pressure monitoring or serial home blood pressure readings",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "Lifestyle changes and stable maximally tolerated GDMT with adherence assessment for at least 6 weeks",
+   "span": "On lifestyle modifications and stable doses of maximally tolerated guideline-directed medical therapy (GDMT), with assessment of adherence to the prescribed regimen, for at least six weeks before referral for RDN",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Screened for primary aldosteronism, OSA, and drug/alcohol-induced hypertension",
+   "span": "At a minimum, patients must be screened for primary aldosteronism, obstructive sleep apnea, and drug or alcohol induced hypertension before referral to RDN",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "No contraindications per the device's FDA labeling",
+   "span": "The patient has no contraindications to RDN, consistent with the FDA labeling of the device used",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Coordinated management for at least 6 months with at least 3 encounters, at most 2 virtual",
+   "span": "The primary clinicians must coordinate management of the patient for a minimum of six months before referral for RDN, during which the patient had at least three encounters, with no more than two of the three encounters being virtual",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "No prior RDN",
+   "span": "No prior RDN procedure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Only within a CMS-approved CED study",
+   "span": "RDN is not covered for patients outside of a CMS-approved study",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Operator completed at least five proctored RDN cases with each device used",
+   "span": "must complete at least five proctored RDN cases with each approved device used in their practice",
+   "type": "provider"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Typical qualifying resistant hypertension.",
+   "vignette": "62-year-old woman with 24-hour ambulatory monitoring showing daytime average 158/96 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. Her primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Diagnosed from office readings only.",
+   "vignette": "59-year-old man whose office blood pressure readings over the past year average 162/98 mm Hg; no ambulatory or home blood pressure monitoring has been performed. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. His primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Only 4 months of coordinated management with 2 encounters.",
+   "vignette": "57-year-old woman with home blood pressure readings over 4 weeks averaging 155/95 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives for 10 weeks with adherence confirmed by refill records. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. She established care with her primary care physician 4 months ago and has had two visits. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Three encounters, all virtual (max two virtual allowed).",
+   "vignette": "64-year-old man with ambulatory monitoring showing daytime average 160/97 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. His primary care physician has co-managed his blood pressure for 8 months; all three encounters during that time were video visits. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "No documented screening for obstructive sleep apnea.",
+   "vignette": "66-year-old woman with ambulatory monitoring showing daytime average 157/95 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Aldosterone-renin ratio is normal and she takes no NSAIDs, decongestants or alcohol. The record contains no screening for obstructive sleep apnea. Her primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Prior RDN 3 years ago.",
+   "vignette": "61-year-old man with ambulatory monitoring showing daytime average 159/96 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. His primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. He underwent radiofrequency renal denervation 3 years ago with an initial response that has since waned."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Not enrolled in a CMS-approved study.",
+   "vignette": "63-year-old woman with home blood pressure readings over 4 weeks averaging 156/95 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. Her primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient declined participation in any research study, and the procedure would be performed outside a CMS-approved study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Medication regimen changed 3 weeks ago: not stable for 6 weeks.",
+   "vignette": "60-year-old man with ambulatory monitoring showing daytime average 161/98 mm Hg. Spironolactone was added and amlodipine increased 3 weeks ago; he is on lifestyle modification and adherence is confirmed by refill records. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. His primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: three encounters with exactly two virtual is allowed.",
+   "vignette": "58-year-old woman with ambulatory monitoring showing daytime average 154/94 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. Her primary care physician has co-managed her blood pressure for 8 months with three encounters: one in person and two video visits. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows anatomy suitable for RDN and there are no contraindications in the device labeling. No prior RDN."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Renal artery stenosis >50%, a contraindication in the device labeling.",
+   "vignette": "67-year-old man with ambulatory monitoring showing daytime average 163/97 mm Hg. On lifestyle modification and stable maximally tolerated doses of four antihypertensives (including a diuretic and spironolactone) for 4 months, with adherence confirmed by pharmacy refill records and pill counts. Screening was negative for primary aldosteronism (normal aldosterone-renin ratio), obstructive sleep apnea (home sleep test), and drug- or alcohol-induced hypertension. His primary care physician has co-managed her blood pressure for 14 months with five encounters, four in person. The planned FDA market-authorized RDN device will be used per its labeled indication. The patient will be enrolled in a CMS-approved CED study. The operator is an interventional cardiologist with active endovascular experience who completed five proctored cases with this device; the facility runs a hypertension program with a hypertension navigator and specialist access, has CT angiography, and a cardiac catheterization lab. Referral is by the primary care physician who manages the patient's hypertension longitudinally. Renal CT angiography shows 60% stenosis of the right renal artery; the device's FDA labeling lists renal artery stenosis over 50% as a contraindication. No prior RDN."
+  }
+ ]
+}

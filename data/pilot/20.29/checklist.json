@@ -1,0 +1,63 @@
+{
+ "ncd": "20.29",
+ "title": "Hyperbaric Oxygen Therapy",
+ "service": "Hyperbaric oxygen (HBO) therapy",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Administered in a chamber (including one-man unit)",
+   "span": "Program reimbursement for HBO therapy will be limited to that which is administered in a chamber (including the one man unit)",
+   "type": "setting"
+  },
+  {
+   "id": "C2",
+   "text": "Condition must be on the covered list; all others not covered",
+   "span": "All other indications not specified under \u00a7270.4(A) are not covered under the Medicare program.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C3",
+   "text": "Diabetic wound: type 1 or 2 diabetes with a lower-extremity wound due to diabetes",
+   "span": "Patient has type I or type II diabetes and has a lower extremity wound that is due to diabetes",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Diabetic wound: Wagner grade III or higher",
+   "span": "Patient has a wound classified as Wagner grade III or higher",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Diabetic wound: failed >= 30 consecutive days of standard wound care with no measurable healing",
+   "span": "Failure to respond to standard wound care occurs when there are no measurable signs of healing for at least 30 consecutive days.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Diabetic wound: continued HBO not covered if no measurable healing within any 30-day treatment period",
+   "span": "Continued treatment with HBO therapy is not covered if measurable signs of healing have not been demonstrated within any 30-day period of treatment.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Explicitly non-covered conditions (e.g., decubitus/stasis ulcers, chronic peripheral vascular insufficiency)",
+   "span": "No program payment may be made for HBO in the treatment of the following conditions",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Covered: acute carbon monoxide intoxication",
+   "span": "Acute carbon monoxide intoxication",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Covered: osteoradionecrosis as an adjunct to conventional treatment",
+   "span": "Osteoradionecrosis as an adjunct to conventional treatment",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Topical oxygen is left to MACs (section C) and is not tested. Diabetic-wound criteria apply only to that indication."
+}

@@ -1,0 +1,87 @@
+{
+ "ncd": "20.4",
+ "title": "Implantable Cardioverter Defibrillators (ICDs)",
+ "service": "Implantable cardioverter defibrillator (ICD)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Secondary prevention: sustained VT or VF arrest not due to acute MI or a transient/reversible cause",
+   "span": "An episode of sustained VT, either spontaneous or induced by an electrophysiology (EP) study, not associated with an acute myocardial infarction (MI) and not due to a transient or reversible cause; or An episode of cardiac arrest due to VF, not due to a transient or reversible cause",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Prior MI with LVEF <= 0.30",
+   "span": "Patients with a prior MI and a measured left ventricular ejection fraction (LVEF) \u2264 0.30",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Prior MI pathway: not NYHA class IV",
+   "span": "New York Heart Association (NYHA) classification IV heart failure",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "Ischemic dilated cardiomyopathy, NYHA II-III, LVEF <= 35%",
+   "span": "Patients who have severe, ischemic, dilated cardiomyopathy but no personal history of sustained VT or cardiac arrest due to VF, and have NYHA Class II or III heart failure, LVEF \u2264 35%",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Non-ischemic dilated cardiomyopathy, NYHA II-III, LVEF <= 35%, optimal medical therapy for at least 3 months",
+   "span": "Patients who have severe, non-ischemic, dilated cardiomyopathy but no personal history of sustained VT or cardiac arrest due to VF, and have NYHA Class II or III heart failure, LVEF \u2264 35%, been on optimal medical therapy for at least 3 months",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Waiting periods (primary prevention): no CABG/PCI in past 3 months, no MI in past 40 days, not a revascularization candidate",
+   "span": "Had an MI within the past 40 days",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "B2-B5: formal shared decision making with an evidence-based ICD tool before initial implant",
+   "span": "a formal shared decision making encounter must occur between the patient and a physician",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Familial/genetic high-risk disorder (e.g., long QT, HCM)",
+   "span": "Patients with documented, familial or genetic disorders with a high risk of life-threatening tachyarrhythmias (sustained VT or VF), to include, but not limited to, long QT syndrome or hypertrophic cardiomyopathy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Replacement for battery end of life, ERI, or device/lead malfunction",
+   "span": "Patients with an existing ICD may receive an ICD replacement if it is required due to the end of battery life, elective replacement indicator (ERI), or device/lead malfunction",
+   "type": "eligibility"
+  },
+  {
+   "id": "C10",
+   "text": "All indications: clinically stable",
+   "span": "Patients must be clinically stable (e.g., not in shock, from any etiology)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C11",
+   "text": "All indications: LVEF measured by echo, nuclear imaging, cardiac MRI or catheter angiography",
+   "span": "LVEF must be measured by echocardiography, radionuclide (nuclear medicine) imaging, cardiac magnetic resonance imaging (MRI), or catheter angiography",
+   "type": "documentation"
+  },
+  {
+   "id": "C12",
+   "text": "All indications: no non-cardiac disease with likely survival under 1 year",
+   "span": "Any disease, other than cardiac disease (e.g., cancer, renal failure, liver failure) associated with a likelihood of survival less than 1 year",
+   "type": "exclusion"
+  },
+  {
+   "id": "C13",
+   "text": "All indications: no SVT such as AF with poorly controlled rate",
+   "span": "Supraventricular tachycardia such as atrial fibrillation with a poorly controlled ventricular rate",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Shared decision making is required only for B2-B5 (primary prevention and genetic disorders), not for secondary prevention (B1) or replacements."
+}

@@ -1,0 +1,131 @@
+{
+ "ncd": "240.9",
+ "service": "Home noninvasive ventilation for chronic respiratory failure due to COPD",
+ "notes": "Unlike CPAP NCD 240.4, this NCD itself states the 4 hours/24h on 70% of days usage rule.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Awake PaCO2 >= 52 mmHg on ABG while on prescribed FiO2",
+   "span": "The patient exhibits persistent hypercapnia as demonstrated by PaCO2 \u2265 52 mmHg by arterial blood gas during awake hours while breathing his/her prescribed FiO2",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Sleep apnea not the predominant cause of hypercapnia (formal sleep test not required if the clinician so determines)",
+   "span": "Sleep apnea is not the predominant cause of the hypercapnia",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "RAD with backup rate: stable COPD (no >1 worsening symptom >= 2 days and no medication change in prior 2 weeks) or hypercapnia >= 2 weeks after an exacerbation requiring acute NIV",
+   "span": "Stable COPD, without increase in or new onset of more than one respiratory symptom (cough, sputum production, sputum purulence, wheezing, or dyspnea) lasting 2 or more days and no change of pharmacological treatment during the 2-week period before initiation of NIV",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "At discharge: required RAD or ventilator in the 24 h before discharge and clinician documents risk of rapid worsening",
+   "span": "if the patient required either a RAD or ventilator within the 24-hour period prior to hospital discharge and the treating clinician determines that the patient is at risk of rapid symptom exacerbation or rise in PaCO2 after discharge",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Continued RAD coverage (first evaluation by 6 months): use >= 4 h per 24 h on >= 70% of days in a 30-day period",
+   "span": "the patient must be determined by a clinician to use the RAD at least 4 hours per 24-hour period, on at least 70% of days in a 30-day period",
+   "type": "continuation"
+  },
+  {
+   "id": "C6",
+   "text": "Continued RAD coverage: at least one outcome (PaCO2 normalization, stabilization of rising PaCO2, 20% reduction, or improved hypercapnia symptom)",
+   "span": "20% reduction in PaCO2 from baseline value",
+   "type": "continuation"
+  },
+  {
+   "id": "C7",
+   "text": "Home mechanical ventilator: additionally needs FiO2 >= 36% or >= 4 L O2, > 8 h/day support, alarms/battery need, or needs exceeding a RAD",
+   "span": "Requires oxygen therapy at an FiO2 \u2265 36% or \u2265 4L nasally",
+   "type": "eligibility"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Stable hypercapnic COPD; clinician excludes sleep apnea without a formal sleep study (allowed).",
+   "vignette": "68-year-old woman with severe COPD (FEV1 32% predicted). Awake arterial blood gas on her prescribed 2 L/min oxygen shows PaCO2 58 mmHg. No respiratory symptom change and no medication change for the past 6 weeks. Her pulmonologist documents that sleep apnea is not the predominant cause of her hypercapnia; no formal sleep study was done. Requesting a respiratory assist device with backup rate for an initial 6-month period."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "PaCO2 49 is below 52.",
+   "vignette": "71-year-old man with severe COPD. Awake arterial blood gas on his prescribed 2 L/min oxygen shows PaCO2 49 mmHg. Stable without symptom or medication changes for 2 months; his pulmonologist documents that sleep apnea is not the predominant cause of his hypercapnia. Requesting a respiratory assist device with backup rate for an initial 6-month period."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Active exacerbation: increased dyspnea and purulent sputum, prednisone started 5 days ago.",
+   "vignette": "66-year-old woman with severe COPD. Over the past 5 days she has had increased dyspnea and new purulent sputum, and her clinician started prednisone and an antibiotic 5 days ago; she was not hospitalized. Awake arterial blood gas on prescribed 2 L/min oxygen today shows PaCO2 57 mmHg. Sleep apnea is not the predominant cause of her hypercapnia per her pulmonologist. Requesting a respiratory assist device with backup rate for an initial 6-month period."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Severe OSA with obesity hypoventilation is the predominant cause.",
+   "vignette": "62-year-old man with mild COPD (FEV1 68% predicted), BMI 46, and severe obstructive sleep apnea (AHI 64) on polysomnography. Awake arterial blood gas on room air shows PaCO2 55 mmHg. His pulmonologist documents that sleep apnea and obesity hypoventilation are the predominant cause of his hypercapnia. Stable for 2 months. Requesting a respiratory assist device with backup rate for COPD."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Discharge pathway: on BiPAP within 24 h of discharge with documented risk.",
+   "vignette": "73-year-old woman hospitalized for acute-on-chronic hypercapnic respiratory failure due to COPD. She required noninvasive ventilation with a respiratory assist device through the night before discharge, and her treating clinician documents a high risk of rapid symptom exacerbation and rising PaCO2 after discharge. Requesting a respiratory assist device in the home immediately upon discharge for an initial 6-month period."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Continuation: 5.5 h/night on 80% of days, improved headache and sleep quality.",
+   "vignette": "69-year-old man with COPD and chronic hypercapnic respiratory failure who began a respiratory assist device with backup rate 6 months ago (IPAP 18 cm H2O, backup rate 16). At his 6-month evaluation, device download shows an average of 5.5 hours per night on 80% of days over the last 30 days. PaCO2 fell from 58 to 52 mmHg, and his morning headaches and sleep quality have improved. Requesting continued coverage."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Continuation: 4+ hours on only 55% of days.",
+   "vignette": "70-year-old woman with COPD who began a respiratory assist device with backup rate 6 months ago. At her 6-month evaluation, device download shows use of at least 4 hours per 24 hours on 55% of days over the last 30 days. Her fatigue has improved somewhat. Requesting continued coverage."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Continuation: good usage but PaCO2 still rising and no symptom improvement.",
+   "vignette": "72-year-old man with COPD who began a respiratory assist device with backup rate 6 months ago. Device download shows 6 hours per night on 85% of days over the last 30 days. PaCO2 has continued to rise, from 56 to 61 mmHg, and his headache, fatigue, dyspnea, confusion and sleep quality are unchanged. Requesting continued coverage."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Home mechanical ventilator: hypercapnic, stable, and needs 5 L/min oxygen (>= 4 L).",
+   "vignette": "67-year-old woman with very severe COPD. Awake arterial blood gas on her prescribed 5 L/min nasal oxygen shows PaCO2 63 mmHg. Stable without symptom or medication changes for 1 month; her pulmonologist documents that sleep apnea is not the predominant cause. Requesting a home mechanical ventilator in a volume-targeted mode for an initial 6-month period."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: PaCO2 exactly 52 meets >= 52.",
+   "vignette": "74-year-old man with severe COPD. Awake arterial blood gas on his prescribed 1 L/min oxygen shows PaCO2 52 mmHg. No symptom or medication changes for 3 months; his pulmonologist documents that sleep apnea is not the predominant cause of his hypercapnia. Requesting a respiratory assist device with backup rate for an initial 6-month period."
+  }
+ ]
+}

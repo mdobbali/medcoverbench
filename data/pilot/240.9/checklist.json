@@ -1,0 +1,51 @@
+{
+ "ncd": "240.9",
+ "title": "Noninvasive Positive Pressure Ventilation (NIPPV) in the Home for the Treatment of Chronic Respiratory Failure (CRF) Consequent to Chronic Obstructive Pulmonary Disease (COPD)",
+ "service": "Home noninvasive ventilation for chronic respiratory failure due to COPD",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Awake PaCO2 >= 52 mmHg on ABG while on prescribed FiO2",
+   "span": "The patient exhibits persistent hypercapnia as demonstrated by PaCO2 \u2265 52 mmHg by arterial blood gas during awake hours while breathing his/her prescribed FiO2",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Sleep apnea not the predominant cause of hypercapnia (formal sleep test not required if the clinician so determines)",
+   "span": "Sleep apnea is not the predominant cause of the hypercapnia",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "RAD with backup rate: stable COPD (no >1 worsening symptom >= 2 days and no medication change in prior 2 weeks) or hypercapnia >= 2 weeks after an exacerbation requiring acute NIV",
+   "span": "Stable COPD, without increase in or new onset of more than one respiratory symptom (cough, sputum production, sputum purulence, wheezing, or dyspnea) lasting 2 or more days and no change of pharmacological treatment during the 2-week period before initiation of NIV",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "At discharge: required RAD or ventilator in the 24 h before discharge and clinician documents risk of rapid worsening",
+   "span": "if the patient required either a RAD or ventilator within the 24-hour period prior to hospital discharge and the treating clinician determines that the patient is at risk of rapid symptom exacerbation or rise in PaCO2 after discharge",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Continued RAD coverage (first evaluation by 6 months): use >= 4 h per 24 h on >= 70% of days in a 30-day period",
+   "span": "the patient must be determined by a clinician to use the RAD at least 4 hours per 24-hour period, on at least 70% of days in a 30-day period",
+   "type": "continuation"
+  },
+  {
+   "id": "C6",
+   "text": "Continued RAD coverage: at least one outcome (PaCO2 normalization, stabilization of rising PaCO2, 20% reduction, or improved hypercapnia symptom)",
+   "span": "20% reduction in PaCO2 from baseline value",
+   "type": "continuation"
+  },
+  {
+   "id": "C7",
+   "text": "Home mechanical ventilator: additionally needs FiO2 >= 36% or >= 4 L O2, > 8 h/day support, alarms/battery need, or needs exceeding a RAD",
+   "span": "Requires oxygen therapy at an FiO2 \u2265 36% or \u2265 4L nasally",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Unlike CPAP NCD 240.4, this NCD itself states the 4 hours/24h on 70% of days usage rule."
+}

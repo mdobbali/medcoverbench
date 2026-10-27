@@ -1,0 +1,154 @@
+{
+ "ncd": "20.29",
+ "service": "Hyperbaric oxygen (HBO) therapy",
+ "notes": "Topical oxygen is left to MACs (section C) and is not tested. Diabetic-wound criteria apply only to that indication.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Administered in a chamber (including one-man unit)",
+   "span": "Program reimbursement for HBO therapy will be limited to that which is administered in a chamber (including the one man unit)",
+   "type": "setting"
+  },
+  {
+   "id": "C2",
+   "text": "Condition must be on the covered list; all others not covered",
+   "span": "All other indications not specified under \u00a7270.4(A) are not covered under the Medicare program.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C3",
+   "text": "Diabetic wound: type 1 or 2 diabetes with a lower-extremity wound due to diabetes",
+   "span": "Patient has type I or type II diabetes and has a lower extremity wound that is due to diabetes",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Diabetic wound: Wagner grade III or higher",
+   "span": "Patient has a wound classified as Wagner grade III or higher",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Diabetic wound: failed >= 30 consecutive days of standard wound care with no measurable healing",
+   "span": "Failure to respond to standard wound care occurs when there are no measurable signs of healing for at least 30 consecutive days.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Diabetic wound: continued HBO not covered if no measurable healing within any 30-day treatment period",
+   "span": "Continued treatment with HBO therapy is not covered if measurable signs of healing have not been demonstrated within any 30-day period of treatment.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Explicitly non-covered conditions (e.g., decubitus/stasis ulcers, chronic peripheral vascular insufficiency)",
+   "span": "No program payment may be made for HBO in the treatment of the following conditions",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Covered: acute carbon monoxide intoxication",
+   "span": "Acute carbon monoxide intoxication",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Covered: osteoradionecrosis as an adjunct to conventional treatment",
+   "span": "Osteoradionecrosis as an adjunct to conventional treatment",
+   "type": "eligibility"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Type 2 DM, Wagner III foot ulcer, 6 weeks of standard care without measurable healing; HBO in chamber adjunctive to ongoing wound care.",
+   "vignette": "64-year-old man with type 2 diabetes and a plantar forefoot ulcer due to diabetic neuropathy, classified Wagner grade III (deep abscess). For the past 6 weeks standard wound care has included vascular assessment (adequate perfusion, no correctable vascular disease), optimization of nutrition and glucose control, serial sharp debridement, moist dressings maintaining a clean granulation bed, total-contact cast off-loading, and treatment of infection; serial measurements show no measurable signs of healing over that period. HBO therapy in a multiplace chamber is requested as an adjunct, with standard wound care continuing and wound re-evaluation at least every 30 days."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundaries: Wagner grade III exactly; exactly 30 consecutive days without measurable healing.",
+   "vignette": "71-year-old woman with type 1 diabetes and a heel ulcer due to diabetes, classified Wagner grade III. For exactly 30 consecutive days standard wound care has included vascular assessment (adequate perfusion, no correctable vascular disease), optimization of nutrition and glucose control, serial sharp debridement, moist dressings maintaining a clean granulation bed, total-contact cast off-loading, and treatment of infection, with weekly measurements showing no measurable signs of healing during those 30 days. Adjunctive HBO therapy in a monoplace chamber is requested, in addition to continued standard wound care, with wound evaluation at least every 30 days."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Acute CO intoxication in a monoplace (one-man) chamber; diabetic-wound criteria irrelevant.",
+   "vignette": "68-year-old woman brought to the emergency department 2 hours after exposure to a malfunctioning furnace, with headache, confusion, and a carboxyhemoglobin level of 28%. She has type 2 diabetes. HBO therapy in a monoplace chamber is requested for acute carbon monoxide intoxication."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Osteoradionecrosis as an adjunct to conventional treatment.",
+   "vignette": "73-year-old man treated with radiation for oropharyngeal cancer 3 years ago, now with osteoradionecrosis of the mandible confirmed on imaging. He is receiving conventional treatment including surgical debridement, antibiotics, and oral care. HBO therapy in a multiplace chamber is requested as an adjunct to this conventional treatment."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Wagner grade II; requires grade III or higher.",
+   "vignette": "66-year-old man with type 2 diabetes and a neuropathic plantar ulcer due to diabetes, classified Wagner grade II (deep to tendon, no abscess or osteomyelitis). For 8 weeks standard wound care has included vascular assessment (adequate perfusion, no correctable vascular disease), optimization of nutrition and glucose control, serial sharp debridement, moist dressings maintaining a clean granulation bed, total-contact cast off-loading, and treatment of infection, with no measurable signs of healing. Adjunctive HBO therapy in a chamber is requested with continued standard wound care."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Decubitus (pressure) ulcer is explicitly non-covered, even though the patient has diabetes.",
+   "vignette": "79-year-old woman with type 2 diabetes and a stage 4 sacral pressure ulcer after a prolonged hospitalization. The wound has shown no measurable improvement after 10 weeks of debridement, negative-pressure wound therapy, nutrition optimization, glucose control, and pressure off-loading. HBO therapy in a multiplace chamber is requested as an adjunct to wound care."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "No measurable healing during the last 30-day period of HBO; continued treatment is not covered.",
+   "vignette": "70-year-old man with type 2 diabetes and a Wagner grade IV forefoot wound due to diabetes. He began adjunctive HBO therapy in a chamber 35 days ago after 6 weeks of standard wound care without measurable healing, and standard care has continued. Wound evaluations 30 days apart during HBO show identical wound dimensions and no measurable signs of healing. Continuation of HBO therapy for another 30 days is requested."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Only 2 weeks of standard wound care before HBO; requires >= 30 days without measurable healing.",
+   "vignette": "62-year-old woman with type 2 diabetes and a Wagner grade III foot ulcer due to diabetes, discovered 16 days ago. Since then she has had debridement, off-loading, moist dressings, glucose optimization, and treatment of infection. The wound surgeon requests adjunctive HBO therapy in a chamber now to accelerate healing, in addition to standard wound care."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Chronic peripheral vascular insufficiency is explicitly non-covered (acute peripheral arterial insufficiency would be covered).",
+   "vignette": "76-year-old man with long-standing peripheral artery disease and chronic ischemic rest pain in the left foot, with no open wound and no acute change. He is not a candidate for revascularization. HBO therapy in a multiplace chamber is requested to improve tissue oxygenation for his chronic peripheral vascular insufficiency."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "Wound severity not documented; no Wagner grade or depth recorded.",
+   "vignette": "67-year-old man with type 2 diabetes and a plantar foot ulcer due to diabetes measuring 2.5 x 2.0 cm. For 7 weeks standard wound care has included vascular assessment (adequate perfusion, no correctable vascular disease), optimization of nutrition and glucose control, serial sharp debridement, moist dressings maintaining a clean granulation bed, total-contact cast off-loading, and treatment of infection, with no measurable signs of healing. The record does not give a Wagner grade or describe wound depth or whether tendon, bone, or abscess is involved. Adjunctive HBO therapy in a chamber is requested with continued standard wound care."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "Wound present for months, but no documentation of the standard wound care given or wound measurements.",
+   "vignette": "72-year-old woman with type 2 diabetes and a Wagner grade III ulcer of the lateral foot due to diabetes, which the referral says has been present for 3 months. The record contains no wound care notes, measurements, or description of the standard wound therapy provided during that time. Adjunctive HBO therapy in a chamber is requested."
+  }
+ ]
+}

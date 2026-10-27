@@ -1,0 +1,39 @@
+{
+ "ncd": "260.9",
+ "title": "Heart Transplants",
+ "service": "Heart transplantation",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Performed in a Medicare-approved heart transplant facility",
+   "span": "Cardiac transplantation is covered under Medicare when performed in a facility which is approved by Medicare as meeting institutional coverage criteria.",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "No exceptions for programs < 2 years old; consortia not approved",
+   "span": "Under no circumstances will exceptions be made for facilities whose transplant programs have been in existence for less than 2 years, and applications from consortia will not be approved.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C3",
+   "text": "Pediatric hospital: covered only if CMS approved its application (joint program with an approved facility, shared surgeons/QA, specialized resources)",
+   "span": "Cardiac transplantation is covered for Medicare beneficiaries when performed in a pediatric hospital that performs pediatric heart transplants if the hospital submits an application which CMS approves",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "Follow-up care covered even after a noncovered transplant",
+   "span": "Follow-up care is also covered for patients who have been discharged from a hospital after receiving a noncovered heart transplant.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Follow-up care after covered transplant, if reasonable and necessary",
+   "span": "Follow-up care required as a result of a covered heart transplant is covered, provided such services are otherwise reasonable and necessary.",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Coverage turns on facility approval (CMS Ruling 87-1), which is not reproduced in the NCD; cases state approval status explicitly. Patient-selection criteria are not in the NCD text and are not tested. Immunosuppressive drugs and artificial hearts are cross-referenced elsewhere and not tested."
+}

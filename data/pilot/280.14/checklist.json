@@ -1,0 +1,81 @@
+{
+ "ncd": "280.14",
+ "title": "Infusion Pumps",
+ "service": "Infusion pumps (external CSII insulin pumps and implantable intrathecal pumps)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "CSII: insulinopenia (fasting C-peptide <= 110% of LLN) or beta cell autoantibody positive",
+   "span": "Insulinopenia is defined as a fasting C-peptide level that is less than or equal to 110% of the lower limit of normal of the laboratory's measurement method.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "CSII: with creatinine clearance <= 50 mL/min, insulinopenia threshold is <= 200% of LLN",
+   "span": "For patients with renal insufficiency and creatinine clearance (actual or calculated from age, gender, weight, and serum creatinine) \u2264 50 ml/minute, insulinopenia is defined as a fasting C-peptide level that is less than or equal to 200% of the lower limit of normal of the laboratory's measurement method.",
+   "type": "exception"
+  },
+  {
+   "id": "C3",
+   "text": "CSII Criterion A: diabetes education, MDI >= 3 injections/day with self-adjustment for >= 6 months",
+   "span": "The patient has completed a comprehensive diabetes education program, and has been on a program of multiple daily injections of insulin (i.e., at least 3 injections per day), with frequent self-adjustments of insulin doses for at least 6 months prior to initiation of the insulin pump",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "CSII Criterion A: documented self-testing averaging >= 4 times/day during the 2 months before pump",
+   "span": "has documented frequency of glucose self-testing an average of at least 4 times per day during the 2 months prior to initiation of the insulin pump",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "CSII Criterion A: on MDI, meets >= 1 of HbA1c > 7.0%, recurring hypoglycemia, wide pre-meal fluctuations, dawn phenomenon with FBS often > 200, severe glycemic excursions",
+   "span": "meets one or more of the following criteria while on the multiple daily injection regimen",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "CSII Criterion B: on a pump before Medicare enrollment with self-testing averaging >= 4/day in the month before enrollment",
+   "span": "The patient with diabetes has been on a pump prior to enrollment in Medicare and has documented frequency of glucose self-testing an average of at least 4 times per day during the month prior to Medicare enrollment.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "CSII ordered and managed by a physician experienced with multiple CSII patients and a CSII team",
+   "span": "The pump must be ordered by and follow-up care of the patient must be managed by a physician who manages multiple patients with CSII",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Intrathecal antispasmodic pump: >= 6-week trial of non-invasive spasm control failed or not tolerated",
+   "span": "As indicated by at least a 6-week trial, the patient cannot be maintained on non-invasive methods of spasm control",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Intrathecal antispasmodic pump: favorable response to a trial intrathecal dose before implantation",
+   "span": "prior to pump implantation, the patient must have responded favorably to a trial intrathecal dose of the anti-spasmodic drug",
+   "type": "eligibility"
+  },
+  {
+   "id": "C10",
+   "text": "Implantable opioid pump: life expectancy >= 3 months",
+   "span": "in patients who have a life expectancy of at least 3 months",
+   "type": "eligibility"
+  },
+  {
+   "id": "C11",
+   "text": "Implantable opioid pump: preliminary trial with temporary intrathecal/epidural catheter",
+   "span": "a preliminary trial of intraspinal opioid drug administration must be undertaken with a temporary intrathecal/epidural catheter",
+   "type": "documentation"
+  },
+  {
+   "id": "C12",
+   "text": "Implantation contraindicated with other implanted programmable devices",
+   "span": "With other implanted programmable devices since crosstalk between devices may inadvertently change the prescription.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "CSII = (C-peptide insulinopenia OR beta cell autoantibody positive) AND (Criterion A OR B) AND the ordering-physician requirement. Insulinopenia threshold is <= 110% of LLN, or <= 200% of LLN when creatinine clearance <= 50 mL/min; valid only with concurrent fasting glucose <= 225 mg/dL. HbA1c must be > 7.0% (strictly greater). Cases avoid section B.1.f and B.2.d (MAC-discretion 'other uses')."
+}

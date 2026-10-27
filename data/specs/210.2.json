@@ -1,0 +1,130 @@
+{
+ "ncd": "210.2",
+ "service": "Screening Pap smear and screening pelvic examination (including clinical breast examination)",
+ "notes": "AMBIGUITIES for expert review: (1) The first condition reads 'has not had such a test during the preceding two years or is a woman of childbearing age (§1861(nn))', and the §1861(nn) definition ('of childbearing age and has had [an abnormal] pap smear ... during any of the preceding 3 years ..., or is at high risk') can be parsed so that high risk alone qualifies even for a woman not of childbearing age. Cases therefore never rely on a high-risk woman who is not of childbearing age and lacks a physician recommendation. (2) The risk factor 'Fewer than three negative or any pap smears within the previous seven years' is garbled: read literally ('any pap smears'), every screened woman would be high risk; the plausible reading is 'fewer than three negative Pap smears, or no Pap smears, within the previous seven years' (possibly 'any abnormal'). Every short-interval not-covered case states at least four negative and no abnormal Pap smears in seven years so the factor does not apply under any sensible reading. (3) The NCD gives no frequency for the pelvic examination itself, so pelvic cases use a prior exam more than two years ago. (4) 'Should include at least seven of the following eleven elements' is advisory wording; only a case meeting exactly seven is used. Cases avoid an interval of exactly 24 months.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Ordered by a physician or authorized practitioner",
+   "span": "are covered under Medicare Part B when ordered by a physician (or authorized practitioner) under one of the following conditions",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "No such test in the preceding two years, or a woman of childbearing age as described in §1861(nn)",
+   "span": "She has not had such a test during the preceding two years or is a woman of childbearing age",
+   "type": "frequency"
+  },
+  {
+   "id": "C3",
+   "text": "More frequent testing: evidence of high risk from history/findings AND practitioner recommends testing more often than every two years",
+   "span": "There is evidence (on the basis of her medical history or other findings) that she is at high risk of developing cervical cancer and her physician (or authorized practitioner) recommends that she have the test performed more frequently than every two years.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "High-risk factor: early onset of sexual activity (under 16)",
+   "span": "Early onset of sexual activity (under 16 years of age)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "High-risk factor: five or more lifetime sexual partners",
+   "span": "Multiple sexual partners (five or more in a lifetime)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "§1861(nn) woman: childbearing age with an abnormal Pap in any of the preceding 3 years, or high risk",
+   "span": "A woman as described in §1861(nn) of the Act is a woman who is of childbearing age and has had a pap smear test during any of the preceding 3 years that indicated the presence of cervical or vaginal cancer or other abnormality, or is at high risk of developing cervical or vaginal cancer.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Childbearing age: premenopausal and so determined by a physician or qualified practitioner",
+   "span": "A woman of childbearing age is one who is premenopausal and has been determined by a physician or other qualified practitioner to be of childbearing age, based upon the medical history or other findings.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Screening pelvic exam should include at least 7 of 11 listed elements",
+   "span": "A screening pelvic examination (including a clinical breast examination) should include at least seven of the following eleven elements",
+   "type": "documentation"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Low-risk postmenopausal woman whose last Pap smear was 36 months ago: no such test in the preceding two years.",
+   "vignette": "71-year-old postmenopausal woman seen by her nurse practitioner for a preventive visit. Her last Pap smear, 36 months ago, was negative, as were all prior Pap smears. She has had two lifetime sexual partners, began sexual activity at age 20, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Last Pap 13 months ago; she is low risk, postmenopausal (not of childbearing age), and no high-risk recommendation exists.",
+   "vignette": "68-year-old postmenopausal woman seen by her family physician for her annual visit. She had a negative Pap smear 13 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had one lifetime sexual partner, began sexual activity at age 22, has no history of sexually transmitted disease, and no DES exposure. The physician documents her as low risk and orders a repeat screening Pap smear as part of a routine annual exam."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Six lifetime partners (five or more) is a listed high-risk factor, and the physician recommends annual testing, so a Pap 12 months after the last is covered.",
+   "vignette": "66-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. Her documented history includes six lifetime sexual partners. She began sexual activity at age 18, has no history of sexually transmitted disease, and no DES exposure. Based on her history, the internist documents that she is at high risk for cervical cancer, recommends Pap smears more frequently than every two years, and orders a screening Pap smear today."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Near miss: four lifetime partners is below the five-or-more threshold and no other risk factor applies, so the physician's recommendation of annual testing does not meet the high-risk condition; last Pap 14 months ago.",
+   "vignette": "69-year-old postmenopausal woman seen by her family physician. She had a negative Pap smear 14 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had four lifetime sexual partners, began sexual activity at age 19, has no history of sexually transmitted disease, and no DES exposure. The physician recommends annual Pap smears 'to be safe' and orders a screening Pap smear today."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Near miss: onset of sexual activity at 17 is not under 16; no other risk factor applies; last Pap 12 months ago.",
+   "vignette": "73-year-old postmenopausal woman seen by her nurse practitioner. She had a negative Pap smear 12 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She began sexual activity at age 17, has had two lifetime sexual partners, has no history of sexually transmitted disease, and no DES exposure. Citing her early start of sexual activity, the nurse practitioner documents her as high risk, recommends annual testing, and orders a screening Pap smear."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Premenopausal woman of childbearing age (as determined by her physician) with an abnormal Pap 2 years ago, i.e., within the preceding 3 years; covered despite a Pap 11 months ago.",
+   "vignette": "42-year-old premenopausal woman entitled to Medicare through disability, seen by her gynecologist, who documents from her history that she is of childbearing age. A Pap smear 2 years ago showed a low-grade squamous intraepithelial lesion; her most recent Pap smear, 11 months ago, was negative. The gynecologist orders and collects a screening Pap smear today."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Screening pelvic exam with clinical breast exam including exactly seven of the eleven elements; last pelvic exam and Pap 30 months ago.",
+   "vignette": "75-year-old postmenopausal woman seen by her family physician for a screening Pap smear and pelvic examination. Her last Pap smear and pelvic examination were 30 months ago and were normal. She is low risk, with one lifetime sexual partner and no history of sexually transmitted disease. The physician orders and performs both. The documented examination includes: inspection and palpation of both breasts; external genitalia; urethral meatus; vagina; cervix; uterus; and adnexa/parametria. A digital rectal examination, examination of the urethra, bladder, and anus and perineum were not performed."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Low-risk postmenopausal woman; the date of her last Pap smear is unknown, so it cannot be confirmed that none occurred in the preceding two years.",
+   "vignette": "70-year-old postmenopausal woman, new to the practice, seen by a nurse practitioner. She cannot recall when she last had a Pap smear and thinks it may have been 'a year or two ago' at a clinic that has since closed; no prior cervical cytology records are available. She has had one lifetime sexual partner, began sexual activity at age 21, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "The physician labels her high risk and recommends annual testing, but the record contains no history or findings supporting high risk; last Pap 12 months ago.",
+   "vignette": "67-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. The note reads 'High risk - annual Pap recommended' and the internist orders a screening Pap smear. The record contains no sexual history, no history of sexually transmitted disease, no prior Pap smear history beyond last year's result, and no information on DES exposure, and gives no reason for the high-risk label."
+  }
+ ]
+}

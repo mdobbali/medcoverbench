@@ -1,0 +1,92 @@
+{
+ "ncd": "210.3",
+ "service": "Colorectal cancer screening: fecal occult blood test (FOBT) or non-invasive biomarker test",
+ "notes": "This NCD version covers only FOBT (gFOBT/iFOBT) and non-invasive biomarker tests; it does not address colonoscopy, sigmoidoscopy, CT colonography or stool DNA tests, so no case uses them. FOBT frequency is counted by month: at least 11 full months must pass after the month of the last covered FOBT (e.g., last test any day in March 2025 -> eligible from March 2026). FOBT has no upper age limit and no average-risk or asymptomatic requirement in this NCD; those patient criteria apply to biomarker tests only. 'Once every 3 years' for biomarker tests is not defined in months, so cases use intervals far from 36 months.",
+ "criteria": [
+  {"id": "C1", "text": "FOBT: one per 12 months, i.e., at least 11 months after the month of the last covered screening FOBT", "span": "Medicare will cover one gFOBT or one iFOBT at a frequency of every 12 months; i.e., at least 11 months have passed following the month in which the last covered screening FOBT was performed", "type": "frequency"},
+  {"id": "C2", "text": "FOBT: age 45 or older", "span": "The minimum age for FOBT is reduced to 45 years and older.", "type": "eligibility"},
+  {"id": "C3", "text": "FOBT: written order from the attending physician/PA/NP/CNS", "span": "This screening requires a written order from the beneficiary's attending physician", "type": "documentation"},
+  {"id": "C4", "text": "Biomarker: once every 3 years", "span": "Non-Invasive Biomarker tests are covered once every 3 years", "type": "frequency"},
+  {"id": "C5", "text": "Biomarker: ordered by physician/PA/NP/CNS who will use results in management", "span": "When ordered by the physician, physician assistant, nurse practitioner, or clinical nurse specialist who will use the results in the management of the patient.", "type": "provider"},
+  {"id": "C6", "text": "Biomarker: age 45 to 85", "span": "Age 45 to 85 years", "type": "eligibility"},
+  {"id": "C7", "text": "Biomarker: asymptomatic (no lower GI pain, blood in stool, positive biomarker test, etc.)", "span": "Asymptomatic (no signs or symptoms of colorectal disease including but not limited to lower gastrointestinal pain, blood in stool, positive non-invasive biomarker colorectal cancer screening test)", "type": "eligibility"},
+  {"id": "C8", "text": "Biomarker: average risk (no personal history of adenomatous polyps, CRC, IBD; no family history of CRC, adenomatous polyps, FAP, HNPCC)", "span": "At average risk of developing colorectal cancer (no personal history of adenomatous polyps, colorectal cancer, or inflammatory bowel disease, including Crohn's Disease and ulcerative colitis; no family history of colorectal cancers or adenomatous polyps, familial adenomatous polyposis, or hereditary nonpolyposis colorectal cancer)", "type": "eligibility"},
+  {"id": "C9", "text": "Biomarker: patient given information on test performance and need for follow-on colonoscopy if positive", "span": "Provided with information about the test performance and the importance of a follow-on colonoscopy if the test returns a positive result.", "type": "documentation"},
+  {"id": "C10", "text": "Biomarker: FDA market authorized and indicated for CRC screening", "span": "The test must be Food and Drug Administration (FDA) market authorized and indicated for colorectal cancer screening", "type": "device"},
+  {"id": "C11", "text": "Biomarker: processed in a CLIA-certified laboratory", "span": "The test must be processed in a CLIA certified laboratory", "type": "provider"},
+  {"id": "C12", "text": "Biomarker: sensitivity >= 90% and specificity >= 87%, OR sensitivity >= 79% and specificity >= 90%", "span": "a sensitivity of greater than or equal to 90% and a specificity greater than or equal to 87%, OR Criteria 2, a sensitivity of greater than or equal to 79% and a specificity of greater than or equal to 90%", "type": "device"},
+  {"id": "C13", "text": "All other CRC screening indications non-covered", "span": "All other indications for colorectal cancer screening not otherwise specified in the Act and regulations, or otherwise specified above remain nationally non-covered.", "type": "exclusion"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: last covered FOBT in March 2025, request in March 2026, so 11 full months (April-February) have passed even though fewer than 12 calendar months by date. Age 88 and family history of colon cancer are distractors: FOBT has no upper age limit or average-risk requirement.",
+   "vignette": "88-year-old woman seen for a routine primary care visit on March 3, 2026. She has hypertension and osteoarthritis and no gastrointestinal symptoms. Her brother was diagnosed with colon cancer at age 70. Her last screening immunochemical FOBT, covered by Medicare, was performed on March 24, 2025 and was negative. Her nurse practitioner, who manages her care and will act on the result, signs a written order for a screening iFOBT kit, to be completed according to the manufacturer's instructions."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C1"],
+   "missing": [],
+   "note": "Last covered FOBT in March 2025; request in February 2026 leaves only 10 full months (April-January) after the month of the last test.",
+   "vignette": "62-year-old man with type 2 diabetes and hyperlipidemia, seen for a primary care visit on February 26, 2026. He has no gastrointestinal symptoms, no personal history of polyps or colorectal cancer, and no relevant family history. His last screening guaiac FOBT, covered by Medicare, was performed on March 2, 2025 and was negative. His attending internist, who manages his care, writes a written order for a screening immunochemical FOBT to be collected per the manufacturer's instructions and processed by the hospital laboratory."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: age exactly 45; test meets Criteria 2 exactly (sensitivity 83% >= 79%, specificity exactly 90%) even though it fails Criteria 1.",
+   "vignette": "45-year-old man (Medicare through disability) who turned 45 last month, seen by his primary care physician. He has no abdominal pain, rectal bleeding, change in bowel habits or other signs of colorectal disease, and no prior colorectal cancer screening of any kind. He has no personal history of adenomatous polyps, colorectal cancer, Crohn's disease or ulcerative colitis, and no family history of colorectal cancer, adenomatous polyps, familial adenomatous polyposis or hereditary nonpolyposis colorectal cancer. The physician, who will use the result to manage his care, orders a blood-based non-invasive biomarker screening test and documents that she gave him information about the test's performance and the importance of a follow-on colonoscopy if the result is positive. The test is FDA market authorized and indicated for colorectal cancer screening, has an FDA label reporting 83% sensitivity and 90% specificity for colorectal cancer versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C12"],
+   "missing": [],
+   "note": "Sensitivity 88% / specificity 89% fails both performance options (Criteria 1 needs sensitivity >= 90%; Criteria 2 needs specificity >= 90%).",
+   "vignette": "67-year-old woman seen by her family physician for an annual visit. She is asymptomatic, with no abdominal pain, blood in stool or prior positive screening test. She has no personal history of adenomatous polyps, colorectal cancer or inflammatory bowel disease, and no family history of colorectal cancer, adenomatous polyps, familial adenomatous polyposis or hereditary nonpolyposis colorectal cancer. She has never had a non-invasive biomarker screening test. The physician, who will use the result in her management, orders a non-invasive biomarker colorectal cancer screening test and documents counseling about the test's performance and the need for a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening and is processed in a CLIA-certified laboratory; its FDA labeling reports a sensitivity of 88% and a specificity of 89% for colorectal cancer compared with colonoscopy."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C6"],
+   "missing": [],
+   "note": "Age 86 exceeds the 45-85 range for biomarker tests; all other biomarker criteria are met.",
+   "vignette": "86-year-old man in good health, seen by his primary care nurse practitioner. He has no gastrointestinal symptoms, no personal history of adenomatous polyps, colorectal cancer or inflammatory bowel disease, and no family history of colorectal cancer or polyposis syndromes. He has never had a non-invasive biomarker screening test. The nurse practitioner, who will use the result in his management, orders a blood-based non-invasive biomarker colorectal cancer screening test and documents that she explained the test's performance and the importance of a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 91% and specificity of 88% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C7"],
+   "missing": [],
+   "note": "Reported blood in stool is a sign of colorectal disease, so the patient is not asymptomatic as the biomarker criteria require.",
+   "vignette": "58-year-old woman seen by her family physician. At this visit she reports noticing blood in her stool on several occasions over the past three weeks; she is otherwise well. She has no personal history of adenomatous polyps, colorectal cancer or inflammatory bowel disease, and no family history of colorectal cancer or polyposis syndromes. She has never had colorectal cancer screening. The physician, who will use the result in her management, orders a blood-based non-invasive biomarker colorectal cancer screening test and documents counseling about the test's performance and the need for a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 90% and specificity of 88% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C8"],
+   "missing": [],
+   "note": "Personal history of adenomatous polyps removed 6 years ago means the patient is not at average risk.",
+   "vignette": "71-year-old man seen by his internist for a wellness visit. He is asymptomatic, with no abdominal pain or blood in stool. A colonoscopy 6 years ago found two tubular adenomas, which were removed; he has no family history of colorectal cancer. He has never had a non-invasive biomarker screening test. The internist, who will use the result in his management, orders a blood-based non-invasive biomarker colorectal cancer screening test and documents counseling about the test's performance and the importance of a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 92% and specificity of 90% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C9"],
+   "note": "All other biomarker criteria are met, but the record contains no documentation that the patient was given information about test performance and follow-on colonoscopy.",
+   "vignette": "63-year-old woman seen by her primary care physician assistant. She is asymptomatic, with no abdominal pain, blood in stool or prior positive screening test. She has no personal history of adenomatous polyps, colorectal cancer or inflammatory bowel disease, and no family history of colorectal cancer, adenomatous polyps, familial adenomatous polyposis or hereditary nonpolyposis colorectal cancer. She has never had a non-invasive biomarker screening test. The physician assistant, who will use the result in her management, orders a blood-based non-invasive biomarker colorectal cancer screening test. The visit note records the order and the risk assessment but contains no documentation of any discussion of the test's performance or of follow-on colonoscopy if the result is positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 90% and specificity of 90% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C8"],
+   "note": "Family history was not obtained, so average-risk status cannot be confirmed; nothing in the record shows elevated risk.",
+   "vignette": "69-year-old man, new to the practice, seen by a family physician. He is asymptomatic, with no abdominal pain or blood in stool. He reports no personal history of colorectal cancer, polyps or inflammatory bowel disease. The family history section of the note reads 'not obtained - patient adopted, no information available.' He has never had a non-invasive biomarker screening test. The physician, who will use the result in his management, orders a blood-based non-invasive biomarker colorectal cancer screening test and documents counseling about the test's performance and the importance of a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 91% and specificity of 89% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: age exactly 85; Criteria 1 met at the threshold (sensitivity 90%, specificity 87%); prior biomarker test 38 months ago (more than 3 years). A normal colonoscopy 9 years ago and well-controlled hypothyroidism are distractors.",
+   "vignette": "85-year-old woman who turned 85 two months ago, seen by her geriatrician.She has well-controlled hypothyroidism and no gastrointestinal symptoms. A colonoscopy 9 years ago was normal. She had a negative blood-based non-invasive biomarker screening test 38 months ago. She has no personal history of adenomatous polyps, colorectal cancer or inflammatory bowel disease, and no family history of colorectal cancer, adenomatous polyps, familial adenomatous polyposis or hereditary nonpolyposis colorectal cancer. The geriatrician, who will use the result in her management, orders a repeat non-invasive biomarker screening test and documents that she reviewed the test's performance and the importance of a follow-on colonoscopy if positive. The test is FDA market authorized and indicated for colorectal cancer screening, has FDA-labeled sensitivity of 90% and specificity of 87% versus colonoscopy, and is processed in a CLIA-certified laboratory."
+  }
+ ]
+}

@@ -1,0 +1,81 @@
+{
+ "ncd": "240.1",
+ "title": "Lung Volume Reduction Surgery (Reduction Pneumoplasty)",
+ "service": "Lung volume reduction surgery (LVRS)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "BMI <= 31.1 (men) or <= 32.3 (women)",
+   "span": "BMI, \u226431.1 kg/m2 (men) or \u2264 32.3 kg/m2 (women)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Stable on <= 20 mg prednisone daily",
+   "span": "Stable with \u2264 20 mg prednisone (or equivalent) qd",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Cardiologist approval if unstable angina, LVEF not estimable, non-sinus rhythm, PVCs, etc.",
+   "span": "Approval for surgery by cardiologist if any of the following are present",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "Post-rehabilitation approval by pulmonary physician, thoracic surgeon, and anesthesiologist",
+   "span": "Approval for surgery by pulmonary physician, thoracic surgeon, and anesthesiologist post-rehabilitation",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Plasma cotinine <= 13.7 ng/mL (or carboxyhemoglobin <= 2.5% if using nicotine products)",
+   "span": "Plasma cotinine level \u226413.7 ng/mL (or arterial carboxyhemoglobin \u2264 2.5% if using nicotine products)",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Nonsmoking for 4 months before the initial interview and throughout evaluation",
+   "span": "Nonsmoking for 4 months prior to initial interview and throughout evaluation for surgery",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Severe upper-lobe-predominant emphysema, or severe non-upper-lobe emphysema with low exercise capacity (<= 25 W women, <= 40 W men)",
+   "span": "Patients with low exercise capacity are those whose maximal exercise capacity is at or below 25 watts for women and 40 watts (w) for men",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Excluded: non-upper-lobe emphysema with high exercise capacity (> 25 W women, > 40 W men)",
+   "span": "has severe, non-upper lobe emphysema with high exercise capacity",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Excluded: FEV1 <= 20% predicted with homogeneous emphysema or DLCO <= 20% predicted",
+   "span": "The patient presents with FEV1 \u2264 20% of predicted value, and either homogeneous distribution of emphysema on CT scan, or carbon monoxide diffusing capacity of \u2264 20% of predicted value",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Facility: Joint Commission LVRS Disease Specific Care certified, or Medicare-approved lung/heart-lung transplant hospital",
+   "span": "certified by the Joint Commission on Accreditation of Healthcare Organizations (Joint Commission) under the LVRS Disease Specific Care Certification Program",
+   "type": "provider"
+  },
+  {
+   "id": "C11",
+   "text": "Preoperative program: 16-20 sessions over 6-10 weeks, each >= 2 hours",
+   "span": "The program must include a 6- to 10-week series of at least 16, and no more than 20, preoperative sessions, each lasting a minimum of 2 hours.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C12",
+   "text": "Signed consents for screening and rehabilitation",
+   "span": "Signed consents for screening and rehabilitation",
+   "type": "documentation"
+  }
+ ],
+ "notes": "The pulmonary function row reads 'FEV1 \u2264 45% predicted \u2265 15% predicted if age \u2265 70 years)' (garbled; likely FEV1 <=45% and, if age >=70, >=15%); all cases keep FEV1 between 19% and 30% and the one patient >=70 has FEV1 30%. The cardiac assessment list is also garbled ('LVEF 5 premature ventricular contractions per minute'); only non-sinus rhythm is tested. Arterial blood gas altitude adjustments are not tested (all at sea level)."
+}

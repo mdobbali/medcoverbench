@@ -1,0 +1,63 @@
+{
+ "ncd": "190.14",
+ "title": "Human Immunodeficiency Virus (HIV) Testing (Diagnosis)",
+ "service": "Diagnostic HIV testing (antibody immunoassay, Western blot, antigen or viral RNA)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Strong clinical suspicion supported by one or more listed clinical findings",
+   "span": "Diagnostic testing to establish HIV infection may be indicated when there is a strong clinical suspicion supported by one or more of the following clinical findings",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Western blot only after documentation that initial EIA tests are repeatedly positive or equivocal on a single sample",
+   "span": "The Western Blot test should be performed only after documentation that the initial EIA tests are repeatedly positive or equivocal on a single sample.",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "HIV antigen tests have no defined diagnostic usage",
+   "span": "The HIV antigen tests currently have no defined diagnostic usage.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "Viral RNA when serology does not establish the diagnosis but strong suspicion persists",
+   "span": "Direct viral RNA detection may be performed in those situations where serologic testing does not establish a diagnosis but strong clinical suspicion persists",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "No repeat testing once initial serology confirms HIV infection",
+   "span": "If initial serologic tests confirm an HIV infection, repeat testing is not indicated.",
+   "type": "frequency"
+  },
+  {
+   "id": "C6",
+   "text": "After a negative EIA with no indication for RNA testing, retest interval is 3-6 months",
+   "span": "If initial serologic tests are HIV EIA negative and there is no indication for confirmation of infection by viral RNA detection, the interval prior to retesting is 3-6 months.",
+   "type": "frequency"
+  },
+  {
+   "id": "C7",
+   "text": "Indication: blood/body-fluid exposure with antiviral therapy initiated or anticipated",
+   "span": "The patient has documented exposure to blood or body fluids known to be capable of transmitting HIV (for example, needle sticks and other significant blood exposures) and antiviral therapy is initiated or anticipated to be initiated.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Indication: documented, otherwise unexplained AIDS-defining or AIDS-associated opportunistic infection",
+   "span": "The patient has a documented, otherwise unexplained, AIDS-defining or AIDS-associated opportunistic infection.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Indication: signs and symptoms of acute retroviral syndrome",
+   "span": "The patient has signs and symptoms of acute retroviral syndrome with fever, malaise, lymphadenopathy, and skin rash.",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Indications are phrased permissively ('may be indicated'), and a limitation adds that serologic testing 'may be medically appropriate in situations where there is a risk of exposure to HIV', so cases do not test 'no indication' denials. HIV-2 testing is not tested because the NCD also allows it based on regional prevalence. Denials rest on the explicit limitations: Western blot only after repeatedly positive/equivocal EIA on a single sample, antigen tests have no defined diagnostic use, no repeat after confirmed infection, and a 3-6 month interval before retesting after a negative EIA when RNA confirmation is not indicated. The modern combination antigen/antibody immunoassay is not addressed; cases name a standalone p24 antigen assay for the antigen limitation."
+}

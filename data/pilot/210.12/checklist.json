@@ -1,0 +1,57 @@
+{
+ "ncd": "210.12",
+ "title": "Intensive Behavioral Therapy for Obesity",
+ "service": "Intensive behavioral therapy (IBT) for obesity, face-to-face counseling visit",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Obesity defined as BMI >= 30 kg/m2",
+   "span": "CMS covers intensive behavioral therapy for obesity, defined as a body mass index (BMI) \u2265 30 kg/m2",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Beneficiary competent and alert at the time of counseling",
+   "span": "who are competent and alert at the time that counseling is provided",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Counseling by a qualified primary care physician or practitioner in a primary care setting",
+   "span": "whose counseling is furnished by a qualified primary care physician or other primary care practitioner and in a primary care setting",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "Weekly visits in month 1",
+   "span": "One face-to-face visit every week for the first month;",
+   "type": "frequency"
+  },
+  {
+   "id": "C5",
+   "text": "Every-other-week visits in months 2-6",
+   "span": "One face-to-face visit every other week for months 2-6;",
+   "type": "frequency"
+  },
+  {
+   "id": "C6",
+   "text": "Months 7-12 monthly visits require >= 3 kg weight loss over the first six months",
+   "span": "To be eligible for additional face-to-face visits occurring once a month for an additional six months, beneficiaries must have achieved a reduction in weight of at least 3kg over the course of the first six months of intensive therapy.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "The 3 kg determination is documented in the physician office records",
+   "span": "This determination must be documented in the physician office records for applicable beneficiaries consistent with usual practice.",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Settings not considered primary care (ED, inpatient, ASC, IDTF, SNF, IRF, hospice)",
+   "span": "Emergency departments, inpatient hospital settings, ambulatory surgical centers, independent diagnostic testing facilities, skilled nursing facilities, inpatient rehabilitation facilities and hospices are not considered primary care settings under this definition.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Visit schedule counts months from the start of intensive therapy: weekly in month 1, every other week in months 2-6, monthly in months 7-12 only with documented weight loss of at least 3 kg over the first six months. Primary care physician/practitioner per \u00a71833(u)(6) and \u00a71833(x)(2)(A)(i): general practice, family practice/medicine, internal medicine, geriatric medicine, pediatric medicine, OB/GYN, or NP/CNS/PA. 'Every other week' is read as no more than one visit per two-week period."
+}

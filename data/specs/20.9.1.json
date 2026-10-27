@@ -1,0 +1,154 @@
+{
+ "ncd": "20.9.1",
+ "service": "Ventricular assist device (VAD)",
+ "notes": "Source text defect: the cardiac index threshold is missing in the downloaded NCD ('have a Cardiac Index (CI)' with no value), and as rendered it is unclear whether the OMM 45/60-day and IABP sub-bullets apply to inotrope-dependent patients. All LVAD cases therefore describe inotrope-dependent patients who also meet the OMM or IABP branch, and no case relies on cardiac index. Whether the team and credentialing requirements apply to post-cardiotomy VADs is also unclear; the post-cardiotomy case satisfies them. Section D (RV/BiV support, age < 18, congenital disease, acute HF without chronic HF) is left to MACs and is not tested.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "LVAD is FDA approved for short-term or long-term mechanical circulatory support",
+   "span": "Left ventricular assist devices (LVADs) are covered if they are FDA approved for short-term (e.g., bridge-to-recovery and bridge-to-transplant) or long-term (e.g., destination therapy) mechanical circulatory support for heart failure patients",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "NYHA class IV heart failure",
+   "span": "Have New York Heart Association (NYHA) Class IV heart failure",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "LVEF <= 25%",
+   "span": "Have a left ventricular ejection fraction (LVEF) \u2264 25%",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Inotrope dependent (or low cardiac index)",
+   "span": "Are inotrope dependent",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "OMM for >= 45 of last 60 days and failing, or advanced HF >= 14 days with IABP/temporary MCS dependence >= 7 days",
+   "span": "Are on optimal medical management (OMM), based on current heart failure practice guidelines for at least 45 out of the last 60 days and are failing to respond",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Team surgeon has implanted >= 10 durable intracorporeal LVADs in the previous 36 months with activity in the last year",
+   "span": "At least one physician with cardiothoracic surgery privileges and individual experience implanting at least 10 durable, intracorporeal, left ventricular assist devices over the course of the previous 36 months with activity in the last year.",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Facility-based multidisciplinary team incl. advanced HF cardiologist, VAD coordinator, social worker, palliative care specialist",
+   "span": "The team members must be based at the facility and must include individuals with experience working with patients before and after placement of a VAD.",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Facility credentialed by a CMS-approved organization",
+   "span": "Facilities must be credentialed by an organization approved by CMS.",
+   "type": "provider"
+  },
+  {
+   "id": "C9",
+   "text": "Post-cardiotomy VAD FDA approved for that purpose and used per labeling",
+   "span": "VADs used for support of blood circulation post-cardiotomy are covered only if they have received approval from the Food and Drug Administration (FDA) for that purpose, and the VADs are used according to the FDA-approved labeling instructions.",
+   "type": "eligibility"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "NYHA IV, LVEF 15%, inotrope dependent, OMM 58/60 days failing; full team, credentialed facility.",
+   "vignette": "67-year-old man with ischemic cardiomyopathy, NYHA class IV symptoms, and LVEF 15% by echocardiography. He has been on guideline-based optimal medical management for 58 of the last 60 days without response and is dependent on continuous milrinone after two failed weaning attempts. He is not a transplant candidate. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundaries: LVEF exactly 25%, OMM exactly 45 of last 60 days, surgeon exactly 10 LVADs in 36 months with 2 in the last year.",
+   "vignette": "70-year-old woman with non-ischemic cardiomyopathy, NYHA class IV, LVEF 25% by cardiac MRI. She has been on guideline-based optimal medical management for 45 of the last 60 days and is failing to respond, and she is dependent on continuous dobutamine. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted exactly 10 durable intracorporeal LVADs over the previous 36 months, 2 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "IABP branch: advanced HF for 20 days and IABP-dependent for 9 days; bridge to transplant.",
+   "vignette": "58-year-old man listed for heart transplant with NYHA class IV heart failure and LVEF 10%. He has had advanced heart failure for 20 days, has been dependent on an intra-aortic balloon pump for the last 9 days, and requires continuous milrinone. The requested device is a durable LVAD FDA approved for short-term mechanical circulatory support as a bridge to transplant. The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Post-cardiotomy indication: device FDA approved for post-cardiotomy support per labeling. LVEF 35% and NYHA criteria apply to the LVAD heart failure indication, not this one.",
+   "vignette": "73-year-old woman who underwent aortic valve replacement and coronary bypass surgery today and could not be weaned from cardiopulmonary bypass despite inotropes. Her pre-operative LVEF was 35% and she had NYHA class II symptoms. The surgeon requests a temporary VAD that is FDA approved for post-cardiotomy circulatory support, to be used according to its FDA-approved labeling. The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "NYHA class III, not IV.",
+   "vignette": "66-year-old man with dilated cardiomyopathy, LVEF 18%, and NYHA class III symptoms; he walks one block before stopping and has no symptoms at rest. He is on continuous outpatient milrinone and has been on optimal medical management for all of the last 60 days. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "LVEF 30% exceeds the 25% threshold.",
+   "vignette": "71-year-old woman with NYHA class IV heart failure and LVEF 30% on two echocardiograms. She is inotrope dependent and has been on optimal medical management for 52 of the last 60 days without response. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "The team's only implanting surgeon has 7 LVADs in 36 months (needs >= 10).",
+   "vignette": "64-year-old man with NYHA class IV heart failure, LVEF 14%, inotrope dependent, and on optimal medical management for 50 of the last 60 days without response. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The program's only cardiothoracic surgeon with implant privileges has implanted 7 durable intracorporeal LVADs over the previous 36 months, 3 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Team lacks a palliative care specialist.",
+   "vignette": "69-year-old woman with NYHA class IV heart failure, LVEF 17%, inotrope dependent, and on optimal medical management for 55 of the last 60 days without response. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD care, a VAD program coordinator, and a social worker; the program has no palliative care specialist on the team. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Facility credentialing lapsed; not credentialed by a CMS-approved organization.",
+   "vignette": "62-year-old man with NYHA class IV heart failure, LVEF 12%, inotrope dependent, and on optimal medical management for 60 of the last 60 days without response. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital's LVAD credential from a CMS-approved organization lapsed 8 months ago and has not been renewed; it is not currently credentialed."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "No LVEF measurement in the record.",
+   "vignette": "68-year-old woman with NYHA class IV heart failure, dependent on continuous milrinone, and on optimal medical management for 49 of the last 60 days without response. The record describes 'severely reduced systolic function' but contains no echocardiogram, MRI, or other report giving a measured LVEF. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management before and after implant, a VAD program coordinator, a social worker, and a palliative care specialist. The hospital is credentialed as an LVAD facility by a CMS-approved credentialing organization."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C8"
+   ],
+   "note": "Facility credentialing status not documented; nothing indicates it is lacking.",
+   "vignette": "65-year-old man with NYHA class IV heart failure, LVEF 16%, inotrope dependent, and on optimal medical management for 54 of the last 60 days without response. The requested device is a durable LVAD FDA approved for long-term mechanical circulatory support (destination therapy). The implanting cardiothoracic surgeon has implanted 34 durable intracorporeal LVADs in the previous 36 months, 11 of them in the last year. The facility-based VAD team includes an advanced heart failure cardiologist experienced in VAD management, a VAD program coordinator, a social worker, and a palliative care specialist. The request contains no information on whether the hospital is credentialed as an LVAD facility by any organization."
+  }
+ ]
+}

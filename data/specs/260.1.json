@@ -1,0 +1,148 @@
+{
+ "ncd": "260.1",
+ "service": "Adult liver transplantation",
+ "notes": "Extrahepatic unresectable cholangiocarcinoma, NET liver metastases and hemangioendothelioma are left to MAC discretion and are not tested. The NCD sets HCC size as 'tumor(s) ... less than or equal to 5 cm' without a tumor-count rule; multi-nodule cases keep every nodule well under 5 cm.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "End-stage liver disease other than malignancy (hepatitis B no longer excluded since Dec 10, 1999) in a CMS-approved facility",
+   "span": "adult liver transplantation when performed on beneficiaries with end-stage liver disease other than malignancies is covered under Medicare when performed in a facility which is approved by CMS as meeting institutional coverage criteria",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "HCC: patient not a candidate for subtotal liver resection",
+   "span": "The patient is not a candidate for subtotal liver resection",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "HCC: tumor(s) <= 5 cm in diameter",
+   "span": "The patient's tumor(s) is less than or equal to 5 cm in diameter",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "HCC: no macrovascular involvement",
+   "span": "There is no macrovascular involvement",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "HCC: no identifiable extrahepatic spread to lymph nodes, lungs, abdominal organs or bone",
+   "span": "There is no identifiable extrahepatic spread of tumor to surrounding lymph nodes, lungs, abdominal organs or bone",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "HCC: CMS-approved liver transplant facility",
+   "span": "The transplant is furnished in a facility that is approved by CMS as meeting institutional coverage criteria for liver transplants",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Re-transplantation required as a result of a covered liver transplant is covered",
+   "span": "Follow-up care or re-transplantation required as a result of a covered liver transplant is covered",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Other malignancies (not HCC per criteria; CCA/NET/HAE at MAC discretion) excluded",
+   "span": "Adult liver transplantation for other malignancies remains excluded from coverage.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Non-malignant end-stage liver disease at a CMS-approved center.",
+   "vignette": "61-year-old man with decompensated alcohol-associated cirrhosis (ICD-10-CM K70.31) with refractory ascites, two episodes of hepatic encephalopathy and a MELD-Na score of 27. He has been abstinent from alcohol for 14 months. He is listed for deceased-donor liver transplantation at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "End-stage liver disease from hepatitis B: the pre-December 1999 hepatitis B exclusion no longer applies.",
+   "vignette": "57-year-old woman with end-stage liver disease due to chronic hepatitis B (ICD-10-CM B18.1) with cirrhosis, variceal bleeding and jaundice despite tenofovir therapy; imaging shows no liver mass. Liver transplantation is requested at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "HCC boundary: single 5.0 cm tumor meets <= 5 cm; not a resection candidate; no macrovascular or extrahepatic disease; approved center.",
+   "vignette": "66-year-old man with hepatitis C cirrhosis and a single hepatocellular carcinoma (ICD-10-CM C22.0) measuring 5.0 cm in greatest diameter. Because of portal hypertension and Child-Pugh class B liver function, the hepatobiliary surgeon documents that he is not a candidate for subtotal liver resection. Triple-phase CT of the abdomen and CT of the chest and bone scan 3 weeks ago show no macrovascular invasion and no spread to lymph nodes, lungs, other abdominal organs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "HCC 5.6 cm exceeds the 5 cm limit.",
+   "vignette": "63-year-old woman with NASH cirrhosis and a single hepatocellular carcinoma (ICD-10-CM C22.0) measuring 5.6 cm. The hepatobiliary surgeon documents that she is not a candidate for subtotal liver resection because of portal hypertension. Triple-phase CT of the abdomen and CT of the chest and bone scan 3 weeks ago show no macrovascular invasion and no spread to lymph nodes, lungs, other abdominal organs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Tumor thrombus in the right portal vein is macrovascular involvement.",
+   "vignette": "68-year-old man with alcohol-associated cirrhosis and two hepatocellular carcinoma nodules (ICD-10-CM C22.0) of 2.8 cm and 1.9 cm. The hepatobiliary surgeon documents that he is not a candidate for subtotal liver resection. Triple-phase CT shows enhancing tumor thrombus in the right portal vein; chest CT and bone scan show no spread to lymph nodes, lungs, other abdominal organs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Patient is a candidate for resection (well-compensated, peripheral tumor) but prefers transplant.",
+   "vignette": "62-year-old man with compensated Child-Pugh A cirrhosis from hepatitis C (sustained virologic response), normal bilirubin, no portal hypertension, and a single 3.2 cm peripheral hepatocellular carcinoma (ICD-10-CM C22.0) in segment 6. The hepatobiliary surgeon documents that he is a good candidate for a segmental (subtotal) liver resection with adequate future liver remnant, but the patient prefers transplantation. Triple-phase CT of the abdomen and CT of the chest and bone scan 3 weeks ago show no macrovascular invasion and no spread to lymph nodes, lungs, other abdominal organs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Colorectal cancer liver metastases are an 'other malignancy' and excluded.",
+   "vignette": "59-year-old woman with unresectable liver-only metastases from colon adenocarcinoma (ICD-10-CM C78.7), stable for 12 months on chemotherapy after resection of the primary tumor; no extrahepatic disease on PET-CT. Her oncologist requests liver transplantation at a CMS-approved liver transplant center."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Non-malignant ESLD, but the transplant hospital is not CMS-approved for liver transplantation.",
+   "vignette": "54-year-old man with end-stage liver disease from primary sclerosing cholangitis (ICD-10-CM K83.01) with recurrent cholangitis and a MELD-Na of 24. Transplantation is requested at a university hospital that recently started a liver transplant program; the hospital has not been approved by CMS as meeting institutional coverage criteria for liver transplantation."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Re-transplantation needed as a result of a covered liver transplant is covered.",
+   "vignette": "60-year-old woman who received a Medicare-covered deceased-donor liver transplant for autoimmune hepatitis cirrhosis 9 days ago at a CMS-approved liver transplant center. She developed hepatic artery thrombosis with graft failure, rising transaminases and coagulopathy. Urgent liver re-transplantation at the same center is requested."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "HCC within size, not resectable, no macrovascular involvement on liver imaging, but no chest or bone staging documented to exclude extrahepatic spread.",
+   "vignette": "64-year-old man with hepatitis B cirrhosis and a single 3.5 cm hepatocellular carcinoma (ICD-10-CM C22.0). The hepatobiliary surgeon documents that he is not a candidate for subtotal liver resection because of portal hypertension. Triple-phase abdominal MRI shows no macrovascular invasion and no abdominal lymphadenopathy. No chest imaging or bone imaging has been performed, and the record does not address the lungs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "HCC otherwise within criteria, but the record contains no surgical assessment of resectability.",
+   "vignette": "67-year-old woman with NASH cirrhosis and two hepatocellular carcinoma nodules (ICD-10-CM C22.0) of 2.1 cm and 1.6 cm. Triple-phase CT of the abdomen and CT of the chest and bone scan 3 weeks ago show no macrovascular invasion and no spread to lymph nodes, lungs, other abdominal organs or bone. The transplant would be performed at a liver transplant center approved by CMS as meeting institutional coverage criteria. The referral is from her hepatologist; no surgical consultation has taken place and the record does not address whether she is a candidate for liver resection."
+  }
+ ]
+}

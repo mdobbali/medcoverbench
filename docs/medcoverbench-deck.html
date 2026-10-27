@@ -1,0 +1,607 @@
+<title>MedCoverBench</title>
+<meta name="description" content="An open benchmark for whether language models can decide Medicare coverage from real CMS National Coverage Determination text.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: the manojdobbali.com talk deck. A 16:9 stage sized in cqw (1% of slide width,
+   1920px reference) at md and up; below md every slide stacks and the page scrolls.
+   Dark-first, matching the site; light follows the viewer's theme or the toggle. */
+:root {
+  color-scheme: dark;
+  --paper: #000000;
+  --paper-raised: #0e1114;
+  --ink: #f1f4f7;
+  --ink-soft: #a7afb8;
+  --ink-faint: #78808a;
+  --rule: #23282e;
+  --accent: #7fb0e8;
+  --accent-soft: #101f2e;
+  --on-accent: #061220;
+  --accent-hover: #eaf4ff;
+  --band: #0a0c0e;
+  --deep: #122b49;
+  --warn: #e0a458;
+  --ok: #7fb0e8;
+  --font-display: "Fraunces", Georgia, "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --paper: #ffffff; --paper-raised: #ffffff; --ink: #111417; --ink-soft: #4b5158;
+    --ink-faint: #7b838b; --rule: #e3e7eb; --accent: #1d4e89; --accent-soft: #eaf0f8;
+    --on-accent: #ffffff; --accent-hover: #0a2444; --band: #f5f7f9; --deep: #16375f;
+    --warn: #8a4f08; --ok: #1d4e89;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #ffffff; --paper-raised: #ffffff; --ink: #111417; --ink-soft: #4b5158;
+  --ink-faint: #7b838b; --rule: #e3e7eb; --accent: #1d4e89; --accent-soft: #eaf0f8;
+  --on-accent: #ffffff; --accent-hover: #0a2444; --band: #f5f7f9; --deep: #16375f;
+  --warn: #8a4f08; --ok: #1d4e89;
+}
+
+* { box-sizing: border-box; }
+html, body { background: var(--paper); color: var(--ink); }
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+p, h1, h2, h3, ul, ol { margin: 0; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* Top bar */
+.top { border-bottom: 1px solid var(--rule); }
+.top-inner {
+  max-width: 64rem; margin: 0 auto; padding: 0.75rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand { font-family: var(--font-display); font-size: 0.875rem; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; white-space: nowrap; }
+.top-meta { font-size: 0.75rem; color: var(--ink-faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn-theme {
+  font: inherit; font-size: 0.75rem; color: var(--ink-soft); background: transparent;
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.8rem; cursor: pointer;
+}
+.btn-theme:hover { color: var(--accent); border-color: var(--accent); }
+
+/* Stage */
+main { flex: 1; }
+.stage { width: 100%; margin: 0 auto; }
+.slide {
+  container-type: inline-size;
+  position: relative; width: 100%; overflow: hidden;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper); color: var(--ink);
+}
+.slide.band { background: var(--band); }
+.slide.deep {
+  --paper: var(--deep); --paper-raised: rgb(255 255 255 / 0.055); --ink: #f3f7fc;
+  --ink-soft: #c4d5ea; --ink-faint: #9db3cc; --rule: rgb(255 255 255 / 0.16);
+  --accent: #a9c9f0; --accent-soft: rgb(255 255 255 / 0.08); --on-accent: #0f2340; --warn: #f0bd79;
+  background: var(--deep); color: var(--ink);
+}
+.in { display: flex; flex-direction: column; gap: 1.25rem; height: 100%; padding: 3rem 1.25rem; }
+.spacer { display: none; }
+
+/* Type */
+.eyebrow { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.display { font-family: var(--font-display); font-weight: 400; font-size: 2.4rem; line-height: 1.06; letter-spacing: -0.02em; text-wrap: balance; }
+.statement { font-family: var(--font-display); font-weight: 400; font-size: 1.75rem; line-height: 1.12; letter-spacing: -0.015em; text-wrap: balance; }
+.title { font-family: var(--font-display); font-weight: 400; font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.01em; text-wrap: balance; }
+.body { font-size: 1rem; line-height: 1.6; color: var(--ink-soft); max-width: 65ch; }
+.body.strong { color: var(--ink); }
+.kicker { font-size: 1.1rem; line-height: 1.35; font-weight: 500; color: var(--accent); }
+.mono { font-family: var(--font-mono); }
+.faint { color: var(--ink-faint); }
+.warn-t { color: var(--warn); }
+.acc-t { color: var(--accent); }
+hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; width: 100%; }
+
+/* Cards */
+.row { display: flex; flex-direction: column; gap: 0.75rem; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+.card {
+  display: flex; flex-direction: column; gap: 0.5rem; min-width: 0;
+  background: var(--paper-raised); border: 1px solid var(--rule); border-radius: 0.75rem; padding: 1rem 1.1rem;
+}
+.card.accent { border-color: var(--accent); }
+.card.warn { border-color: var(--warn); }
+.card h3 { font-size: 1rem; line-height: 1.3; font-weight: 600; color: var(--ink); }
+.card.accent h3 { color: var(--accent); }
+.card.warn h3 { color: var(--warn); }
+.card .c { font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+.num { font-family: var(--font-display); font-size: 1.5rem; line-height: 1; color: var(--accent); }
+.pull { border-left: 4px solid var(--accent); background: var(--paper-raised); padding: 1rem 1rem 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+.pull.warn { border-left-color: var(--warn); }
+
+/* Flow */
+.flow { display: flex; flex-direction: column; align-items: stretch; gap: 0.5rem; }
+.node { flex: 1; text-align: center; background: var(--accent-soft); border: 1px solid var(--rule); border-radius: 0.7rem; padding: 0.75rem; }
+.node p { font-size: 0.95rem; line-height: 1.3; font-weight: 600; color: var(--accent); }
+.node small { display: block; margin-top: 0.25rem; font-size: 0.8rem; font-weight: 400; color: var(--ink-soft); }
+.arrow { display: none; color: var(--accent); flex: none; }
+
+/* Stats */
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.stat { display: flex; flex-direction: column; gap: 0.35rem; border-top: 1px solid var(--rule); padding-top: 0.75rem; min-width: 0; }
+.stat b { font-family: var(--font-display); font-weight: 400; font-size: 2.2rem; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+.stat span { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.4; }
+.stat.hl b { color: var(--warn); }
+
+/* Bars */
+.mix { display: flex; height: 2.2rem; border-radius: 0.5rem; overflow: hidden; border: 1px solid var(--rule); }
+.mix div { display: flex; align-items: center; padding: 0 0.6rem; font-size: 0.8rem; font-weight: 600; white-space: nowrap; overflow: hidden; font-variant-numeric: tabular-nums; }
+.mix .m-cov { background: var(--accent); color: var(--on-accent); }
+.mix .m-nc { background: var(--ink-soft); color: var(--paper); }
+.mix .m-id { background: var(--warn); color: var(--paper); }
+.legend { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; font-size: 0.85rem; color: var(--ink-soft); }
+.legend i { display: inline-block; width: 0.7rem; height: 0.7rem; border-radius: 2px; margin-right: 0.4rem; vertical-align: -1px; }
+.bars { display: flex; flex-direction: column; gap: 0.45rem; }
+.bar { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 2rem; align-items: center; gap: 0.6rem; font-size: 0.85rem; color: var(--ink-soft); }
+.bar .track { height: 0.7rem; background: var(--accent-soft); border-radius: 999px; overflow: hidden; }
+.bar .fill { height: 100%; background: var(--accent); border-radius: 999px; }
+.bar b { font-weight: 600; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Case example */
+.case { font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
+.case mark { background: transparent; color: var(--warn); font-weight: 600; }
+.json { font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.55; color: var(--ink-soft); white-space: pre-wrap; overflow-wrap: anywhere; }
+.json .k { color: var(--accent); }
+.json .bad { color: var(--warn); }
+.tag { display: inline-block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 999px; border: 1px solid currentColor; }
+
+/* Table */
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 0.6rem; }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+th, td { text-align: left; padding: 0.45rem 0.75rem; vertical-align: top; }
+th { background: var(--accent); color: var(--on-accent); font-weight: 600; white-space: nowrap; }
+tbody tr:nth-child(odd) { background: var(--paper-raised); }
+td { color: var(--ink-soft); }
+td:first-child { color: var(--ink); font-weight: 500; }
+td.n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+
+/* Byline */
+.byline { border-top: 1px solid var(--rule); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.25rem; }
+.byline p:first-child { font-weight: 600; font-size: 1rem; }
+.byline p:last-child { font-size: 0.85rem; color: var(--ink-faint); }
+
+/* Deck chrome */
+.chrome { display: none; position: sticky; bottom: 0; z-index: 40; border-top: 1px solid var(--rule); background: color-mix(in srgb, var(--paper) 90%, transparent); backdrop-filter: blur(12px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.progress { height: 2px; background: var(--accent); width: 0; transition: width 0.2s ease-out; }
+.chrome-inner { max-width: 64rem; margin: 0 auto; padding: 0.6rem 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.count { font-family: var(--font-display); font-size: 0.875rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.count span { color: var(--ink-faint); }
+.hint { font-size: 0.75rem; color: var(--ink-faint); }
+.nav { display: flex; gap: 0.5rem; }
+.nav button { font: inherit; font-size: 0.875rem; cursor: pointer; border-radius: 999px; padding: 0.35rem 0.9rem; }
+.prev { background: transparent; color: var(--ink-soft); border: 1px solid var(--rule); }
+.prev:hover { color: var(--accent); border-color: var(--accent); }
+.next { background: var(--accent); color: var(--on-accent); border: 1px solid var(--accent); font-weight: 500; }
+.next:hover { background: var(--accent-hover); border-color: var(--accent-hover); }
+.nav button:disabled { opacity: 0.35; pointer-events: none; }
+
+@media (min-width: 640px) {
+  .row { flex-direction: row; }
+  .row > * { flex: 1; }
+  .grid.c2, .grid.c3, .grid.c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .flow { flex-direction: row; align-items: center; }
+  .arrow { display: block; }
+}
+
+/* Deck mode: every size is cqw of the 16:9 slide. */
+@media (min-width: 768px) {
+  .stage { max-width: calc((100dvh - 7rem) * 16 / 9); }
+  .deck .slide { display: none; aspect-ratio: 16 / 9; border-bottom: 0; }
+  .deck .slide[data-active="true"] { display: block; }
+  .chrome.on { display: block; }
+  .in { gap: 2.2cqw; padding: 5.6cqw 6.7cqw; }
+  .spacer { display: block; flex: 1; }
+  .eyebrow { font-size: 1.15cqw; letter-spacing: 0.18em; }
+  .display { font-size: 6.4cqw; }
+  .statement { font-size: 4.8cqw; }
+  .title { font-size: 3.2cqw; }
+  .body { font-size: 1.55cqw; line-height: 1.5; max-width: 70cqw; }
+  .kicker { font-size: 2cqw; }
+  .row { gap: 1.4cqw; }
+  .grid { gap: 1.2cqw; }
+  .grid.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .card { gap: 0.6cqw; padding: 1.7cqw 1.9cqw; border-radius: 0.8cqw; }
+  .card h3 { font-size: 1.55cqw; }
+  .card .c { font-size: 1.28cqw; line-height: 1.45; }
+  .num { font-size: 3cqw; }
+  .pull { border-left-width: 0.3cqw; padding: 1.6cqw 2cqw 1.6cqw 2.4cqw; gap: 0.7cqw; }
+  .flow { gap: 0.8cqw; }
+  .node { padding: 1.4cqw; border-radius: 0.7cqw; }
+  .node p { font-size: 1.45cqw; }
+  .node small { font-size: 1.1cqw; margin-top: 0.3cqw; }
+  .arrow { width: 2.2cqw; height: 1.1cqw; }
+  .stats { gap: 2cqw; }
+  .stat { gap: 0.5cqw; padding-top: 1.2cqw; }
+  .stat b { font-size: 5.2cqw; }
+  .stat span { font-size: 1.3cqw; }
+  .mix { height: 3.6cqw; border-radius: 0.6cqw; }
+  .mix div { font-size: 1.25cqw; padding: 0 1cqw; }
+  .legend { font-size: 1.25cqw; gap: 0.6cqw 2cqw; }
+  .legend i { width: 1cqw; height: 1cqw; }
+  .bars { gap: 0.75cqw; }
+  .bar { grid-template-columns: 24cqw 1fr 3cqw; gap: 1.2cqw; font-size: 1.3cqw; }
+  .bar .track { height: 1.1cqw; }
+  .case { font-size: 1.35cqw; }
+  .json { font-size: 1.15cqw; }
+  .tag { font-size: 0.95cqw; padding: 0.3cqw 0.7cqw; }
+  .tbl-wrap { border-radius: 0.6cqw; }
+  table { font-size: 1.2cqw; }
+  th, td { padding: 0.6cqw 1.2cqw; }
+  .byline { padding-top: 2cqw; gap: 0.4cqw; }
+  .byline p:first-child { font-size: 1.7cqw; }
+  .byline p:last-child { font-size: 1.25cqw; }
+  .w60 { max-width: 60cqw; }
+  .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2cqw; align-items: start; }
+}
+@media (max-width: 767px) { .hint { display: none; } .split { display: flex; flex-direction: column; gap: 1rem; } }
+@media (prefers-reduced-motion: reduce) { .progress { transition: none; } }
+</style>
+
+<header class="top">
+  <div class="top-inner">
+    <span class="brand">MedCoverBench</span>
+    <span class="top-meta">Open benchmark · Medicare coverage reasoning</span>
+    <button type="button" class="btn-theme" id="theme">Light</button>
+  </div>
+</header>
+
+<main>
+<h1 style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">MedCoverBench</h1>
+<div class="stage" id="stage">
+
+<section class="slide" id="cover"><div class="in">
+  <div class="spacer"></div>
+  <p class="eyebrow">Open benchmark · Healthcare AI</p>
+  <h2 class="display">MedCoverBench</h2>
+  <p class="body">Can a language model decide Medicare coverage from the real policy text, cite the rule that decides it, and notice when documentation is missing?</p>
+  <div class="spacer"></div>
+  <div class="byline"><p>Manoj Dobbali</p><p>Project overview · October 2026 · draft, pre-release</p></div>
+</div></section>
+
+<section class="slide" id="context"><div class="in">
+  <p class="eyebrow">The domain</p>
+  <h2 class="title">Medicare decides what it pays for through written coverage policy</h2>
+  <div class="grid c3">
+    <div class="card"><h3>National Coverage Determinations</h3><div class="c">CMS publishes one NCD per item or service: who qualifies, under what conditions, with what documentation. They apply nationwide. There are 345 current NCDs.</div></div>
+    <div class="card"><h3>Long and conditional</h3><div class="c">A typical NCD runs 2,000 to 15,000 characters of nested criteria: waiting periods, score thresholds, provider volume requirements, exceptions and exclusions.</div></div>
+    <div class="card"><h3>AI is arriving here</h3><div class="c">Prior authorization and utilization review are being automated. Errors in either direction hurt patients or providers, and the policy text is the ground truth both sides cite.</div></div>
+  </div>
+  <div class="spacer"></div>
+</div></section>
+
+<section class="slide band" id="gap"><div class="in">
+  <p class="eyebrow">The gap</p>
+  <h2 class="title">No public benchmark tests models on real CMS coverage policy</h2>
+  <div class="row">
+    <div class="card"><h3>What exists</h3><div class="c">Benchmarks built on synthetic insurance handbooks, and prior-authorization studies on small private document sets that were never released.</div></div>
+    <div class="card"><h3>What is missing</h3><div class="c">Real, full-length federal policy, cases with labels traceable to exact policy sentences, and a metric for the failure that matters most: approving what the policy does not cover.</div></div>
+    <div class="card accent"><h3>MedCoverBench</h3><div class="c">Real NCD text from the CMS Coverage API, synthetic patients, verbatim-cited criteria and an open harness. Name checked free on Hugging Face, GitHub and arXiv.</div></div>
+  </div>
+  <div class="spacer"></div>
+</div></section>
+
+<section class="slide deep" id="thesis"><div class="in">
+  <div class="spacer"></div>
+  <p class="eyebrow">The principle</p>
+  <h2 class="statement">A wrong approval and a wrong denial are different failures. A benchmark should count them separately.</h2>
+  <hr class="rule">
+  <p class="body strong">MedCoverBench reports accuracy, but its headline number is the unsafe approval rate: how often a model says "covered" when the policy says otherwise.</p>
+  <div class="spacer"></div>
+</div></section>
+
+<section class="slide" id="task"><div class="in">
+  <p class="eyebrow">The task</p>
+  <h2 class="title">One policy, one patient, one structured decision</h2>
+  <div class="flow">
+    <div class="node"><p>Full NCD text</p><small>description, indications and limitations, reasons for denial</small></div>
+    <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h20M16 1l5 5-5 5"/></svg>
+    <div class="node"><p>Patient case</p><small>synthetic vignette with the requested service</small></div>
+    <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h20M16 1l5 5-5 5"/></svg>
+    <div class="node"><p>Model</p><small>any OpenAI-compatible endpoint, temperature 0</small></div>
+    <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h20M16 1l5 5-5 5"/></svg>
+    <div class="node"><p>JSON answer</p><small>decision, policy quotes, missing documentation, rationale</small></div>
+  </div>
+  <div class="grid c3">
+    <div class="card"><h3 class="acc-t">covered</h3><div class="c">Every applicable criterion is met and documented.</div></div>
+    <div class="card"><h3>not_covered</h3><div class="c">The facts show at least one applicable criterion is not met.</div></div>
+    <div class="card warn"><h3>insufficient_documentation</h3><div class="c">Nothing is shown to be violated, but documentation the policy requires is missing.</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="example"><div class="in">
+  <p class="eyebrow">A real case from the set · NCD 20.4, implantable defibrillators</p>
+  <div class="split">
+    <div class="pull">
+      <p class="case">64-year-old man with a large anterior MI <mark>21 days ago</mark>, now with LVEF 25% and NYHA class II symptoms; no revascularization targets remain. Requesting a primary-prevention ICD. He is clinically stable, with no non-cardiac disease limiting survival. A nurse practitioner held a shared decision-making encounter using an evidence-based ICD decision tool.</p>
+    </div>
+    <div class="card">
+      <p class="json"><span class="k">"decision"</span>: "not_covered",
+<span class="k">"violated"</span>: ["C6"],
+<span class="k">"policy span"</span>: "Had an MI within the past 40 days"</p>
+      <hr class="rule">
+      <p class="c">Every other criterion is satisfied and stated. The one disqualifier is a date inside a 40-day exclusion window.</p>
+      <p class="c"><span class="warn-t">Qwen 2.5 7B approved it.</span></p>
+    </div>
+  </div>
+  <div class="spacer"></div>
+  <p class="body">Gold labels come from a per-policy checklist. Each criterion carries a span copied verbatim from the NCD, so citations can be scored automatically.</p>
+</div></section>
+
+<section class="slide band" id="method"><div class="in">
+  <p class="eyebrow">How a policy becomes test cases</p>
+  <h2 class="title">Controlled perturbation of a verified checklist</h2>
+  <div class="grid c4">
+    <div class="card"><p class="num">1</p><h3>Read the NCD</h3><div class="c">The same three fields the model sees, pulled from the CMS Coverage API.</div></div>
+    <div class="card"><p class="num">2</p><h3>Extract criteria</h3><div class="c">Atomic requirements, each typed and anchored to a verbatim span.</div></div>
+    <div class="card"><p class="num">3</p><h3>Perturb one thing</h3><div class="c">All met gives covered. One contradicted gives not covered. One absent gives insufficient documentation.</div></div>
+    <div class="card"><p class="num">4</p><h3>Validate</h3><div class="c">A script rejects any spec whose spans or labels don't check out.</div></div>
+  </div>
+  <div class="pull">
+    <p class="body strong">Cases are written to discriminate: exact boundary values, violations buried among satisfied details, exceptions the policy grants, and distractors that sound disqualifying but aren't.</p>
+  </div>
+</div></section>
+
+<section class="slide" id="guardrails"><div class="in">
+  <p class="eyebrow">Guardrails</p>
+  <h2 class="title">What every case must satisfy</h2>
+  <div class="grid c3">
+    <div class="card"><h3>Verbatim spans</h3><div class="c">Each criterion's span must appear in the NCD text, normalized only for quotes, whitespace and hyphens.</div></div>
+    <div class="card"><h3>Consistent labels</h3><div class="c">Covered cites nothing. Not covered cites a violated criterion. Insufficient documentation cites only missing items.</div></div>
+    <div class="card"><h3>NCD text only</h3><div class="c">No rules from local policies (LCDs) and no clinical knowledge the policy doesn't state. LCD rules appear only as distractors.</div></div>
+    <div class="card"><h3>Unambiguous or dropped</h3><div class="c">If the policy wording is unclear, no case may depend on it. The ambiguity is logged for reviewers.</div></div>
+    <div class="card"><h3>Synthetic patients</h3><div class="c">No real people, no PHI. ICD-10-CM and HCPCS Level II only; no CPT codes or descriptors.</div></div>
+    <div class="card warn"><h3>Disclosed provenance</h3><div class="c">Cases were drafted with AI assistance. Every label stays "draft_unreviewed" until a clinician or certified coder signs off.</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="scale"><div class="in">
+  <p class="eyebrow">The dataset today</p>
+  <h2 class="title">From a 10-policy pilot to 50 policies in one pass</h2>
+  <div class="stats">
+    <div class="stat"><b>50</b><span>NCDs with cases</span></div>
+    <div class="stat"><b>513</b><span>labeled cases</span></div>
+    <div class="stat"><b>434</b><span>verbatim-anchored criteria</span></div>
+    <div class="stat"><b>345</b><span>NCDs downloaded and indexed</span></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="eyebrow">Decision mix</p>
+  <div class="mix" role="img" aria-label="174 covered, 249 not covered, 90 insufficient documentation">
+    <div class="m-cov" style="width:33.9%">174</div>
+    <div class="m-nc" style="width:48.5%">249</div>
+    <div class="m-id" style="width:17.6%">90</div>
+  </div>
+  <div class="legend">
+    <span><i style="background:var(--accent)"></i>Covered</span>
+    <span><i style="background:var(--ink-soft)"></i>Not covered</span>
+    <span><i style="background:var(--warn)"></i>Insufficient documentation (up from 9 in the pilot)</span>
+  </div>
+</div></section>
+
+<section class="slide band" id="areas"><div class="in">
+  <p class="eyebrow">Coverage across medicine</p>
+  <h2 class="title">Policies by clinical area</h2>
+  <div class="bars">
+    <div class="bar"><span>Cardiovascular procedures</span><div class="track"><div class="fill" style="width:100%"></div></div><b>13</b></div>
+    <div class="bar"><span>DME and implanted devices</span><div class="track"><div class="fill" style="width:53.8%"></div></div><b>7</b></div>
+    <div class="bar"><span>Other procedures and drugs</span><div class="track"><div class="fill" style="width:53.8%"></div></div><b>7</b></div>
+    <div class="bar"><span>Screening and prevention</span><div class="track"><div class="fill" style="width:46.2%"></div></div><b>6</b></div>
+    <div class="bar"><span>Labs, genetics and imaging</span><div class="track"><div class="fill" style="width:38.5%"></div></div><b>5</b></div>
+    <div class="bar"><span>Neurostimulation</span><div class="track"><div class="fill" style="width:30.8%"></div></div><b>4</b></div>
+    <div class="bar"><span>Respiratory and sleep</span><div class="track"><div class="fill" style="width:30.8%"></div></div><b>4</b></div>
+    <div class="bar"><span>Transplant and cell therapy</span><div class="track"><div class="fill" style="width:30.8%"></div></div><b>4</b></div>
+  </div>
+  <p class="body">Examples: TAVR and mitral TEER, left atrial appendage closure, deep brain stimulation, anti-amyloid antibodies for Alzheimer's, lung cancer screening, home oxygen, stem cell transplantation, cochlear implants.</p>
+</div></section>
+
+<section class="slide" id="metrics"><div class="in">
+  <p class="eyebrow">Scoring</p>
+  <h2 class="title">Six numbers per model</h2>
+  <div class="grid c3">
+    <div class="card warn"><h3>Unsafe approval rate</h3><div class="c">Predicted covered when the gold answer is not covered or insufficient documentation. The headline safety metric.</div></div>
+    <div class="card"><h3>Over-denial rate</h3><div class="c">Gold covered, predicted anything else. The cost to patients who qualify.</div></div>
+    <div class="card"><h3>Citation recall</h3><div class="c">Share of gold criteria the model quoted, matched by at least 50% token overlap with the criterion's span.</div></div>
+    <div class="card"><h3>Accuracy</h3><div class="c">Exact match on the three-way decision.</div></div>
+    <div class="card"><h3>Macro-F1</h3><div class="c">Averaged over the three classes, so a model can't score well by never choosing the rare one.</div></div>
+    <div class="card"><h3>Parse failure rate</h3><div class="c">Replies with no valid JSON decision. Counted as wrong.</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="results"><div class="in">
+  <p class="eyebrow">Smoke test · Qwen 2.5 7B Instruct · 506 of 513 cases</p>
+  <h2 class="title">The pipeline works end to end, and a small model is easy to fool</h2>
+  <div class="stats">
+    <div class="stat"><b>62.8%</b><span>accuracy</span></div>
+    <div class="stat hl"><b>22.0%</b><span>unsafe approval rate</span></div>
+    <div class="stat"><b>27.6%</b><span>over-denial rate</span></div>
+    <div class="stat"><b>70.7%</b><span>citation recall</span></div>
+  </div>
+  <div class="spacer"></div>
+  <p class="body">Macro-F1 0.55. Parse failures 0.6% (3 replies). One small open model, run only to prove the harness; the paper's baselines will span open and frontier models.</p>
+</div></section>
+
+<section class="slide band" id="errors"><div class="in">
+  <p class="eyebrow">What the model gets wrong</p>
+  <h2 class="title">The errors are the kind a reviewer would catch</h2>
+  <div class="grid c2">
+    <div class="card warn"><h3>Missing documentation becomes denial</h3><div class="c">Of 88 missing-documentation cases scored, it called 65 not covered and got only 16 right.</div></div>
+    <div class="card warn"><h3>Waiting periods ignored</h3><div class="c">Approved a defibrillator 21 days after a heart attack, against the policy's 40-day exclusion.</div></div>
+    <div class="card"><h3>Exact boundaries denied</h3><div class="c">Rejected a CHA₂DS₂-VASc score of exactly 3 and an AHI of exactly 15, both of which qualify.</div></div>
+    <div class="card"><h3>Exceptions missed</h3><div class="c">Demanded shared decision-making for a cardiac arrest survivor, where the policy waives it.</div></div>
+  </div>
+</div></section>
+
+<section class="slide" id="build"><div class="in">
+  <p class="eyebrow">How it was built</p>
+  <h2 class="title">Six independent jobs ran in parallel, each owning its own files</h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Job</th><th>Output</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>Cardiovascular</td><td class="n">103 cases</td><td>Swapped leadless pacemakers, whose only criterion is study enrollment</td></tr>
+      <tr><td>Neuro, MSK, DME</td><td class="n">106 cases</td><td>Swapped two policies that are study-only or a blanket non-coverage</td></tr>
+      <tr><td>Screening, labs, imaging</td><td class="n">98 cases</td><td>Dropped cases whose labels would have been ambiguous</td></tr>
+      <tr><td>Transplant and other</td><td class="n">105 cases</td><td>Logged 9 policy ambiguities for expert review</td></tr>
+      <tr><td>Harder DBS cases</td><td class="n">13 cases</td><td>The old set scored 10/10; violations were stated up front</td></tr>
+      <tr><td>Release packaging</td><td class="n">3 files</td><td>Hugging Face export, dataset card, licenses</td></tr>
+    </tbody>
+  </table></div>
+  <p class="body">Every job worked from the same written rules and the same validator. Nothing merged unless it passed.</p>
+</div></section>
+
+<section class="slide" id="bug"><div class="in">
+  <p class="eyebrow">A bug the process caught</p>
+  <h2 class="title">Policy text was silently losing every phrase that began with "&lt;"</h2>
+  <div class="split">
+    <div class="pull warn">
+      <p class="json">CMS sends:   Cardiac Index (CI) &amp;amp;lt; 2.2 L/min/m2, while not on inotropes, and also meet one of the following:&amp;lt;ul&amp;gt;
+We stored:   Cardiac Index (CI)
+Now stored:  Cardiac Index (CI) &lt; 2.2 L/min/m2, while not on inotropes, and also meet one of the following:</p>
+    </div>
+    <div class="row" style="flex-direction:column">
+      <div class="card"><h3>Cause</h3><div class="c">Double-escaped HTML was unescaped twice before tags were stripped, so a literal "&lt;" became a tag opener and everything up to the next "&gt;" was deleted.</div></div>
+      <div class="card"><h3>Impact</h3><div class="c">12 of 345 NCDs, 4 of them in the benchmark. All 434 spans still matched the corrected text, and no gold label depended on the lost text.</div></div>
+    </div>
+  </div>
+  <p class="body">Found because case authors reported sentences that stopped mid-thought. The fix unescapes once, strips tags, then unescapes text, and now keeps the original HTML.</p>
+</div></section>
+
+<section class="slide band" id="license"><div class="in">
+  <p class="eyebrow">Licensing and scope</p>
+  <h2 class="title">Only what can be shared freely</h2>
+  <div class="grid c3">
+    <div class="card"><h3>In: NCDs</h3><div class="c">National policy text is a US government work. Downloaded from the CMS Coverage API without a license token.</div></div>
+    <div class="card warn"><h3>Out: LCDs and billing articles</h3><div class="c">956 local policies contain AMA CPT content that needs a license and can't be redistributed.</div></div>
+    <div class="card"><h3>Release terms</h3><div class="c">Data under CC BY 4.0, code under Apache 2.0. Each release records its CMS snapshot date, since CMS updates weekly.</div></div>
+  </div>
+  <div class="pull"><p class="body strong">Not medical or billing advice. The benchmark measures reasoning over policy text; it doesn't decide anyone's coverage.</p></div>
+</div></section>
+
+<section class="slide" id="roadmap"><div class="in">
+  <p class="eyebrow">Roadmap</p>
+  <h2 class="title">From draft labels to a public leaderboard</h2>
+  <div class="grid c3">
+    <div class="card accent"><p class="num">1</p><h3>Expert review</h3><div class="c">A clinician or certified coder reviews every label, starting with the logged ambiguities. This gates everything after it.</div></div>
+    <div class="card"><p class="num">2</p><h3>Baselines</h3><div class="c">Open models at several sizes plus frontier APIs, including Claude through a native Anthropic SDK backend.</div></div>
+    <div class="card"><p class="num">3</p><h3>Release</h3><div class="c">Hugging Face dataset and card (already prepared), GitHub harness, arXiv paper.</div></div>
+    <div class="card"><p class="num">4</p><h3>Held-out test set</h3><div class="c">Private labels scored through a leaderboard, to limit training-data contamination.</div></div>
+    <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">The target NCD buried among 10 to 50 other policies, from 32k to 200k tokens.</div></div>
+    <div class="card"><p class="num">6</p><h3>Domain models</h3><div class="c">Long-context models adapted to coverage policy, evaluated on the same harness.</div></div>
+  </div>
+</div></section>
+
+<section class="slide deep" id="close"><div class="in">
+  <div class="spacer"></div>
+  <p class="eyebrow">Get involved</p>
+  <h2 class="statement">Coverage decisions are written down. Models should be able to read them.</h2>
+  <hr class="rule">
+  <div class="row">
+    <div class="card"><h3>Reviewers</h3><div class="c">Clinicians and certified coders who can check labels against NCD text.</div></div>
+    <div class="card"><h3>Contributors</h3><div class="c">A research engineering internship is open at manojdobbali.com/careers.</div></div>
+    <div class="card"><h3>Model builders</h3><div class="c">The harness runs against any OpenAI-compatible endpoint.</div></div>
+  </div>
+  <div class="spacer"></div>
+</div></section>
+
+</div>
+</main>
+
+<div class="chrome" id="chrome">
+  <div class="progress" id="progress"></div>
+  <div class="chrome-inner">
+    <span class="count" id="count">1 <span>/ 1</span></span>
+    <span class="hint">← → to move · F for fullscreen</span>
+    <div class="nav">
+      <button type="button" class="prev" id="prev" aria-label="Previous slide">Prev</button>
+      <button type="button" class="next" id="next" aria-label="Next slide">Next</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var themeBtn = document.getElementById("theme");
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t === "dark";
+    return !window.matchMedia("(prefers-color-scheme: light)").matches;
+  }
+  function label() { themeBtn.textContent = isDark() ? "Light" : "Dark"; }
+  try { var saved = localStorage.getItem("mcb-theme"); if (saved) root.setAttribute("data-theme", saved); } catch (e) {}
+  label();
+  themeBtn.addEventListener("click", function () {
+    var next = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    try { localStorage.setItem("mcb-theme", next); } catch (e) {}
+    label();
+  });
+
+  var stage = document.getElementById("stage");
+  var slides = Array.prototype.slice.call(stage.querySelectorAll(".slide"));
+  var ids = slides.map(function (s) { return s.id; });
+  var chrome = document.getElementById("chrome");
+  var count = document.getElementById("count");
+  var progress = document.getElementById("progress");
+  var prev = document.getElementById("prev");
+  var next = document.getElementById("next");
+  var index = Math.max(0, ids.indexOf(location.hash.slice(1)));
+  var mq = window.matchMedia("(min-width: 768px)");
+
+  function paint() {
+    slides.forEach(function (s, i) { s.setAttribute("data-active", String(i === index)); });
+    count.innerHTML = (index + 1) + " <span>/ " + slides.length + "</span>";
+    progress.style.width = ((index + 1) / slides.length * 100) + "%";
+    prev.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+  }
+  function go(i) {
+    var c = Math.max(0, Math.min(i, slides.length - 1));
+    if (c === index) return;
+    index = c;
+    try { history.replaceState(null, "", "#" + ids[index]); } catch (e) {}
+    paint();
+  }
+  function sync() {
+    stage.classList.toggle("deck", mq.matches);
+    chrome.classList.toggle("on", mq.matches);
+  }
+  mq.addEventListener ? mq.addEventListener("change", sync) : mq.addListener(sync);
+  sync();
+  paint();
+
+  prev.addEventListener("click", function () { go(index - 1); });
+  next.addEventListener("click", function () { go(index + 1); });
+  window.addEventListener("keydown", function (e) {
+    if (!mq.matches) return;
+    var t = e.target;
+    if (t && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName))) return;
+    switch (e.key) {
+      case "ArrowRight": case "PageDown": case " ": e.preventDefault(); go(index + 1); break;
+      case "ArrowLeft": case "PageUp": e.preventDefault(); go(index - 1); break;
+      case "Home": e.preventDefault(); go(0); break;
+      case "End": e.preventDefault(); go(slides.length - 1); break;
+      case "f": case "F":
+        e.preventDefault();
+        try {
+          if (document.fullscreenElement) document.exitFullscreen();
+          else if (root.requestFullscreen) root.requestFullscreen().catch(function () {});
+        } catch (err) {}
+        break;
+    }
+  });
+})();
+</script>

@@ -1,0 +1,148 @@
+{
+ "ncd": "100.1",
+ "service": "Bariatric surgery for co-morbid conditions related to morbid obesity",
+ "notes": "Stand-alone laparoscopic sleeve gastrectomy (on/after June 27, 2012) and unlisted bariatric procedures are MAC discretion, so they are not tested. Supplemented fasting is not tested.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Covered procedures: open/laparoscopic RYGBP, open/laparoscopic BPD/DS or BPD/GRDS, and LAGB",
+   "span": "Open and laparoscopic Roux-en-Y gastric bypass (RYGBP), open and laparoscopic Biliopancreatic Diversion with Duodenal Switch (BPD/DS) or Gastric Reduction Duodenal Switch (BPD/GRDS), and laparoscopic adjustable gastric banding (LAGB) are covered",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "BMI >= 35",
+   "span": "have a body-mass index ≥ 35",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "At least one co-morbidity related to obesity (type 2 diabetes counts)",
+   "span": "have at least one co-morbidity related to obesity",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Previously unsuccessful with medical treatment for obesity",
+   "span": "have been previously unsuccessful with medical treatment for obesity",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Facility certification no longer required on/after September 24, 2013",
+   "span": "Effective for dates of service on and after September 24, 2013, facilities are no longer required to be certified.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Treatments for obesity alone non-covered",
+   "span": "Treatments for obesity alone remain non-covered.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Non-covered: open adjustable gastric banding",
+   "span": "Open adjustable gastric banding;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered: open sleeve gastrectomy",
+   "span": "Open sleeve gastrectomy;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered: gastric balloon for treatment of obesity",
+   "span": "Gastric balloon for treatment of obesity.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: BMI exactly 35.0 meets >= 35; type 2 diabetes is a qualifying co-morbidity.",
+   "vignette": "58-year-old woman with class II obesity, BMI 35.0 kg/m2 (height 165 cm, weight 95.3 kg), and type 2 diabetes mellitus (ICD-10-CM E11.9) with HbA1c 8.4% on metformin and insulin. She completed a 6-month physician-supervised weight management program with dietitian counseling and a trial of anti-obesity medication, losing only 2% of body weight and regaining it. Laparoscopic Roux-en-Y gastric bypass is requested."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Open BPD/DS, BMI 48, OSA; lack of Center of Excellence certification is irrelevant (not required since Sept 24, 2013).",
+   "vignette": "66-year-old man with BMI 48.2 kg/m2 (ICD-10-CM E66.01, Z68.41) and severe obstructive sleep apnea on CPAP. Over the past 2 years he failed a medically supervised low-calorie diet program and 9 months of a GLP-1 receptor agonist with minimal sustained weight loss. Open biliopancreatic diversion with duodenal switch is requested at a community hospital whose bariatric program is not certified by the American College of Surgeons or the American Society for Bariatric Surgery."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "BMI 34.6 is below 35, despite qualifying diabetes and failed medical therapy.",
+   "vignette": "61-year-old woman with BMI 34.6 kg/m2 and type 2 diabetes mellitus (ICD-10-CM E11.65) with HbA1c 9.1% and hypertension. She completed a 6-month physician-supervised weight management program with dietitian counseling and a trial of anti-obesity medication, losing only 2% of body weight and regaining it. Laparoscopic Roux-en-Y gastric bypass is requested."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3",
+    "C6"
+   ],
+   "missing": [],
+   "note": "BMI 41 but no obesity-related co-morbidity: treatment of obesity alone.",
+   "vignette": "67-year-old woman with BMI 41.3 kg/m2 (ICD-10-CM E66.01, Z68.41). She has normal blood pressure, normal fasting glucose and HbA1c, no sleep apnea on a sleep study, normal lipids and no joint disease, and takes no medications. She completed a 6-month physician-supervised weight management program with dietitian counseling and a trial of anti-obesity medication, losing only 2% of body weight and regaining it. Laparoscopic adjustable gastric banding is requested to treat her obesity."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Open adjustable gastric banding is non-covered for all beneficiaries.",
+   "vignette": "64-year-old man with BMI 43 kg/m2, type 2 diabetes and hypertension. Over 1 year he failed a supervised diet and exercise program and anti-obesity medication. Because of extensive adhesions from prior abdominal surgery, his surgeon requests an open (not laparoscopic) adjustable gastric band placement."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C9"
+   ],
+   "missing": [],
+   "note": "Gastric balloon for obesity is non-covered.",
+   "vignette": "59-year-old woman with BMI 38 kg/m2 and obstructive sleep apnea, who has failed a supervised dietary program and anti-obesity medication. She prefers to avoid surgery, and her physician requests endoscopic placement of an intragastric balloon for weight loss."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Open sleeve gastrectomy is non-covered for all beneficiaries.",
+   "vignette": "62-year-old man with BMI 46 kg/m2, type 2 diabetes and hypertension, who has failed a 6-month medically supervised weight-loss program. Because of a large ventral hernia requiring concurrent repair, his surgeon requests an open sleeve gastrectomy."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "LAGB, BMI 39, hypertension, failed medical therapy.",
+   "vignette": "60-year-old woman with BMI 39.4 kg/m2 and hypertension (ICD-10-CM I10) treated with two agents. She completed a 6-month physician-supervised weight management program with dietitian counseling and a trial of anti-obesity medication, losing only 2% of body weight and regaining it. Laparoscopic adjustable gastric banding is requested."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "BMI and co-morbidity documented, but no record of any prior medical treatment for obesity.",
+   "vignette": "63-year-old man with BMI 40.5 kg/m2 and hypertension and type 2 diabetes. The surgical referral note documents his weight, BMI and co-morbidities and requests laparoscopic Roux-en-Y gastric bypass. The record contains no information about any prior diet program, supervised weight management, medication or other medical treatment for obesity, or its outcome."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Weight documented without height or BMI, so BMI >= 35 cannot be confirmed.",
+   "vignette": "57-year-old woman with obesity, type 2 diabetes mellitus (ICD-10-CM E11.9) and osteoarthritis of both knees. Her weight is recorded as 98 kg; no height, BMI or other measure of adiposity appears anywhere in the record. She completed a 6-month physician-supervised weight management program with dietitian counseling and a trial of anti-obesity medication, losing only 2% of body weight and regaining it. Laparoscopic Roux-en-Y gastric bypass is requested."
+  }
+ ]
+}

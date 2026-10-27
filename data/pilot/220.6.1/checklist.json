@@ -1,0 +1,51 @@
+{
+ "ncd": "220.6.1",
+ "title": "PET for Perfusion of the Heart",
+ "service": "PET myocardial perfusion imaging (Rubidium-82 or ammonia N-13)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Known or suspected coronary artery disease",
+   "span": "noninvasive imaging of the perfusion of the heart for the diagnosis and management of patients with known or suspected coronary artery disease",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Performed at rest or with pharmacological stress",
+   "span": "PET scans performed at rest or with pharmacological stress",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "FDA-approved Rubidium 82",
+   "span": "using the FDA-approved radiopharmaceutical Rubidium 82 (Rb 82) are covered",
+   "type": "device"
+  },
+  {
+   "id": "C4",
+   "text": "FDA-approved ammonia N-13",
+   "span": "using the FDA-approved radiopharmaceutical ammonia N-13 are covered",
+   "type": "device"
+  },
+  {
+   "id": "C5",
+   "text": "Performed in place of, not in addition to, SPECT",
+   "span": "The PET scan, whether at rest alone, or rest with stress, is performed in place of, but not in addition to, a single photon emission computed tomography (SPECT)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Or following an inconclusive SPECT, where PET is necessary to determine the required medical or surgical intervention",
+   "span": "The PET scan, whether at rest alone or rest with stress, is used following a SPECT that was found to be inconclusive. In these cases, the PET scan must have been considered necessary in order to determine what medical or surgical intervention is required to treat the patient.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Inconclusive = equivocal, technically uninterpretable, or discordant with other clinical data; must be documented in the beneficiary's file",
+   "span": "an inconclusive test is a test(s) whose results are equivocal, technically uninterpretable, or discordant with a patient's other clinical data and must be documented in the beneficiary's file",
+   "type": "documentation"
+  }
+ ],
+ "notes": "Coverage is limited to rest or pharmacological-stress PET; the NCD does not cover exercise-stress PET, and it names only Rb-82 and ammonia N-13 as radiopharmaceuticals. Cases do not use other PET perfusion tracers, whose status this NCD does not address. The pre-July 2001 claim-form requirements are obsolete and not tested."
+}

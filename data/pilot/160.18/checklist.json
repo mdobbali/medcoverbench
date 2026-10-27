@@ -1,0 +1,63 @@
+{
+ "ncd": "160.18",
+ "title": "Vagus Nerve Stimulation (VNS)",
+ "service": "Vagus nerve stimulation (VNS)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Epilepsy: medically refractory partial onset seizures and surgery not recommended or failed",
+   "span": "VNS is reasonable and necessary for patients with medically refractory partial onset seizures for whom surgery is not recommended or for whom surgery has failed",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "All other seizure types are non-covered",
+   "span": "VNS is not reasonable and necessary for all other types of seizure disorders which are medically refractory and for whom surgery is not recommended or for whom surgery has failed",
+   "type": "exclusion"
+  },
+  {
+   "id": "C3",
+   "text": "TRD covered only within a CMS-approved CED study",
+   "span": "VNS is non-covered for the treatment of TRD when furnished outside of a CMS-approved CED study.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "TRD: current MDD episode >= 2 years or >= 4 MDD episodes including current",
+   "span": "The patient must be in a major depressive disorder (MDD) episode for \u2265 two years or have had at least four episodes of MDD, including the current episode.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "TRD: at least four prior failed treatments of adequate dose and duration, measured by a tool",
+   "span": "The patient\u2019s depressive illness meets a minimum criterion of four prior failed treatments of adequate dose and duration as measured by a tool designed for this purpose.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "TRD: MDE measured by a guideline-recommended scale on two visits within 45 days before implant",
+   "span": "The patient is experiencing a major depressive episode (MDE) as measured by a guideline recommended depression scale assessment tool on two visits, within a 45-day span prior to implantation of the VNS device.",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "TRD: stable medication regimen for at least four weeks before implant",
+   "span": "Patients must maintain a stable medication regimen for at least four weeks before device implantation.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "TRD exclusion: current or lifetime psychotic features in any MDE",
+   "span": "Current or lifetime history of psychotic features in any MDE",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Replacement for TRD patients at battery end of life or device malfunction",
+   "span": "Patients implanted with a VNS device for TRD may receive a VNS device replacement if it is required due to the end of battery life, or any other device-related malfunction.",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Epilepsy coverage is national (no CED). TRD coverage only inside a CMS-approved CED trial. Ambiguity for expert review: Section D (replacement for TRD patients) does not say whether the replacement must also be furnished within the CED study; the replacement case is built so the patient is still enrolled in the CMS-approved extension study, so it is covered under either reading."
+}

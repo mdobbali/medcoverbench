@@ -1,0 +1,16 @@
+{
+ "ncd": "210.14",
+ "title": "Lung Cancer Screening with Low Dose Computed Tomography (LDCT)",
+ "service": "Annual lung cancer screening with LDCT (Medicare Part B preventive service)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {"id": "C1", "text": "Age 50-77 years", "span": "Age 50 - 77 years", "type": "eligibility"},
+  {"id": "C2", "text": "Asymptomatic (no signs or symptoms of lung cancer)", "span": "Asymptomatic (no signs or symptoms of lung cancer)", "type": "eligibility"},
+  {"id": "C3", "text": "Tobacco smoking history of at least 20 pack-years", "span": "Tobacco smoking history of at least 20 pack-years (one pack-year = smoking one pack per day for one year; 1 pack =20 cigarettes)", "type": "eligibility"},
+  {"id": "C4", "text": "Current smoker or quit within the last 15 years", "span": "Current smoker or one who has quit smoking within the last 15 years", "type": "eligibility"},
+  {"id": "C5", "text": "Order for lung cancer screening with LDCT", "span": "Receive an order for lung cancer screening with LDCT", "type": "documentation"},
+  {"id": "C6", "text": "Before the first screening: counseling and shared decision-making visit (eligibility determination, decision aid, adherence/comorbidity counseling, smoking cessation/abstinence counseling), documented in the medical record", "span": "Before the beneficiary's first lung cancer LDCT screening, the beneficiary must receive a counseling and shared decision-making visit that meets all of the following criteria, and is appropriately documented in the beneficiary's medical records", "type": "documentation", "applies_if": "first screening"},
+  {"id": "C7", "text": "Reading radiologist board-certified or board-eligible (ABR or equivalent)", "span": "The reading radiologist must have board certification or board eligibility with the American Board of Radiology or equivalent organization.", "type": "provider"},
+  {"id": "C8", "text": "Facility uses a standardized lung nodule identification, classification, and reporting system", "span": "must be furnished in a radiology imaging facility that utilizes a standardized lung nodule identification, classification, and reporting system", "type": "provider"}
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "ncd": "240.2",
+ "title": "Home Use of Oxygen",
+ "service": "Home oxygen therapy and equipment",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Initial claim based on a clinical test ordered and evaluated by the treating practitioner",
+   "span": "Initial claims for oxygen therapy for hypoxemic patients must be based on the results of a clinical test that has been ordered and evaluated by the treating practitioner.",
+   "type": "documentation"
+  },
+  {
+   "id": "C2",
+   "text": "Group I: PaO2 <= 55 mm Hg or SaO2 <= 88% at rest on room air",
+   "span": "An arterial PO2 at or below 55 mm Hg, or an arterial oxygen saturation at or below 88%, taken at rest, breathing room air",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Group II: PaO2 56-59 or SaO2 89% with edema suggesting CHF, pulmonary hypertension/cor pulmonale, or hematocrit > 56%",
+   "span": "Coverage is available for patients whose arterial PO2 is 56-59 mm Hg or whose arterial blood oxygen saturation is 89%, if there is:",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Inpatients: qualifying test within 2 days of discharge",
+   "span": "For an inpatient hospital patient the time of need is within 2 days of discharge.",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "When ABG and oximetry conflict, ABG is preferred",
+   "span": "When the arterial blood gas and the oximetry studies are both used to document the need for home oxygen therapy and the results are conflicting, the arterial blood gas study is the preferred source of documenting medical need.",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Non-covered: angina without hypoxemia",
+   "span": "Angina pectoris in the absence of hypoxemia.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C7",
+   "text": "Non-covered: breathlessness without cor pulmonale or evidence of hypoxemia",
+   "span": "Breathlessness without cor pulmonale or evidence of hypoxemia.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Non-covered: severe PVD with desaturation in an extremity",
+   "span": "Severe peripheral vascular disease resulting in clinically evident desaturation in one or more extremities.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered: terminal illness unless it affects the ability to breathe",
+   "span": "Terminal illnesses unless they affect the ability to breathe.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Ambiguity for expert review: Section D lets the MAC cover patients 'not described in subsection B or precluded by subsection C', so a patient who simply misses the Group I/II thresholds is not clearly 'not_covered' under the NCD. Not-covered cases therefore use only Section C exclusions, which D does not reach. Also, the sleep-only rule says portable oxygen 'would not be covered', while D lets MACs allow portable systems for patients mobile in the home; no case depends on portable coverage. Testing details that live in LCDs (e.g., oximetry duration, retesting) are not tested."
+}

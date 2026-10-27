@@ -1,0 +1,45 @@
+{
+ "ncd": "20.39",
+ "title": "Cardiac Contractility Modulation (CCM) for Heart Failure (HF)",
+ "service": "Cardiac contractility modulation (CCM) for heart failure",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication; patient meets FDA indications for use",
+   "span": "Patients must meet the FDA market-authorized indications for use",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Symptomatic despite >= 3 months of optimized GDMT, as determined by the heart team",
+   "span": "remain symptomatic despite at least 3 months of optimized guideline-directed medical therapy (GDMT) as determined by the heart team prior to CCM implantation",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Excluded: any contraindication in the FDA labeling",
+   "span": "Meet any of the contraindications in the FDA labeling",
+   "type": "exclusion"
+  },
+  {
+   "id": "C4",
+   "text": "Excluded: prior heart transplant",
+   "span": "Have had a heart transplant",
+   "type": "exclusion"
+  },
+  {
+   "id": "C5",
+   "text": "Excluded: younger than 18",
+   "span": "Are younger than 18 years old",
+   "type": "exclusion"
+  },
+  {
+   "id": "C6",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "CCM for HF management is not covered for patients outside of a CMS-approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Source text defect: the CED subgroup list (B.2.d) is truncated at 'Age (Stratify' in the downloaded NCD; not tested. FDA labeling details are not in the NCD, so cases state labeled indications/contraindications explicitly."
+}

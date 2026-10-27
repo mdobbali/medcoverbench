@@ -1,0 +1,63 @@
+{
+ "ncd": "160.12",
+ "title": "Neuromuscular Electrical Stimulation (NMES)",
+ "service": "Neuromuscular electrical stimulation (NMES), including NMES/FES for walking after spinal cord injury",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Atrophy: disuse atrophy with intact nerve supply to the muscle",
+   "span": "Coverage of NMES to treat muscle atrophy is limited to the treatment of disuse atrophy where nerve supply to the muscle is intact",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "FES: SCI patient for walking who completed >= 32 PT sessions with the device over three months",
+   "span": "Coverage for the use of NMES/FES is limited to SCI patients for walking, who have completed a training program which consists of at least 32 physical therapy sessions with the device over a period of three months.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "FES training directly performed by the physical therapist, one-on-one",
+   "span": "Physical therapy necessary to perform this training must be directly performed by the physical therapist as part of a one-on-one training program.",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "FES: intact lower motor units (L1 and below)",
+   "span": "Persons with intact lower motor units (L1 and below) (both muscle and peripheral nerve);",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "FES: independent transfers and independent standing tolerance >= 3 minutes",
+   "span": "Persons that can transfer independently and can demonstrate independent standing tolerance for at least 3 minutes;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "FES: at least 6 months post recovery from SCI and restorative surgery",
+   "span": "Persons with at least 6-month post recovery spinal cord injury and restorative surgery;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "FES: brisk muscle contraction to NMES and sufficient sensory perception",
+   "span": "Persons that demonstrate brisk muscle contraction to NMES and have sensory perception electrical stimulation sufficient for muscle contraction;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "FES exclusion: cardiac pacemaker",
+   "span": "Persons with cardiac pacemakers;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "FES: goal is walking, not reversing muscle atrophy",
+   "span": "The goal of physical therapy must be to train SCI patients on the use of NMES/FES devices to achieve walking, not to reverse or retard muscle atrophy.",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Ambiguity for expert review: the atrophy sentence 'where nerve supply to the muscle is intact, including brain, spinal cord and peripheral nerves' can be read as listing the parts of the nerve supply that must be intact, or as listing etiologies of disuse atrophy. No case relies on NMES for atrophy in a CNS-injury patient. The settings sentence (inpatient/outpatient hospital, CORF, ORF) is phrased descriptively, so no case depends on it; all FES training cases occur in an outpatient hospital."
+}

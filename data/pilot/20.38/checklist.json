@@ -1,0 +1,45 @@
+{
+ "ncd": "20.38",
+ "title": "Transcatheter Edge-to-Edge Repair for Tricuspid Valve Regurgitation (T-TEER)",
+ "service": "Tricuspid transcatheter edge-to-edge repair (T-TEER)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Furnished according to an FDA market-authorized indication",
+   "span": "T-TEER is covered when furnished according to a Food and Drug Administration (FDA) market-authorized indication",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "Symptomatic TR despite optimal medical therapy",
+   "span": "Despite optimal medical therapy (OMT), patients must have symptomatic TR",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Heart team considers tricuspid valve repair appropriate",
+   "span": "with tricuspid valve repair being considered as appropriate by a heart team",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Pre- and post-op care by a heart team with at least a cardiac surgeon, interventional cardiologist, HF cardiologist and interventional echocardiographer",
+   "span": "The patient (preoperatively and postoperatively) is under the care of a heart team, which includes, at minimum, the following",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "All listed specialists have experience in the care and treatment of TR",
+   "span": "All the specialists listed above must have experience in the care and treatment of TR.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Furnished in a CMS-approved CED study; not covered outside one",
+   "span": "Tricuspid transcatheter edge-to-edge repair (T-TEER) is not covered for patients outside of a CMS-approved study.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "CED study-design criteria (B.3) are study-level and not tested. The NCD gives no anatomic or severity thresholds; cases state the heart team's judgment explicitly."
+}

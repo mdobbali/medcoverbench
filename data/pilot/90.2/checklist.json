@@ -1,0 +1,75 @@
+{
+ "ncd": "90.2",
+ "title": "Next Generation Sequencing (NGS)",
+ "service": "Diagnostic laboratory test using next generation sequencing (NGS) for cancer",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "CLIA-certified laboratory and ordered by the treating physician",
+   "span": "when performed in a Clinical Laboratory Improvement Amendments (CLIA)-certified laboratory, when ordered by a treating physician",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "Somatic: recurrent, relapsed, refractory, metastatic, or advanced stage III or IV cancer",
+   "span": "either recurrent, relapsed, refractory, metastatic, or advanced stage III or IV cancer",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Somatic: not previously tested with the same NGS test for the same cancer genetic content",
+   "span": "not been previously tested with the same test using NGS for the same cancer genetic content",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Somatic: patient has decided to seek further cancer treatment",
+   "span": "decided to seek further cancer treatment (e.g., therapeutic chemotherapy).",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Somatic: FDA-approved/cleared companion diagnostic with an FDA indication for the patient's cancer",
+   "span": "an FDA-approved or -cleared indication for use in that patient's cancer",
+   "type": "device"
+  },
+  {
+   "id": "C6",
+   "text": "Results provided to the treating physician using a report template specifying treatment options",
+   "span": "results provided to the treating physician for management of the patient using a report template to specify treatment options.",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Somatic: non-covered if the patient does not meet the B.1 criteria",
+   "span": "NGS as a diagnostic laboratory test for patients with acquired (somatic) cancer are non-covered if the cancer patient does not meet the criteria noted in section B.1., above.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Germline: ovarian or breast cancer",
+   "span": "ovarian or breast cancer; and,",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Germline: clinical indication for hereditary breast or ovarian cancer testing",
+   "span": "a clinical indication for germline (inherited) testing for hereditary breast or ovarian cancer",
+   "type": "eligibility"
+  },
+  {
+   "id": "C10",
+   "text": "Germline: a risk factor for germline breast or ovarian cancer",
+   "span": "a risk factor for germline (inherited) breast or ovarian cancer",
+   "type": "eligibility"
+  },
+  {
+   "id": "C11",
+   "text": "Germline: not previously tested with the same germline NGS test for the same content",
+   "span": "not been previously tested with the same germline test using NGS for the same germline genetic content",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "Section D lets MACs cover NGS tests that lack FDA approval/clearance (somatic) and germline NGS for cancers other than breast/ovarian, provided the patient criteria, CLIA certification and treating-physician order are met. Labels for tests lacking FDA status or for germline testing in other cancers would depend on the MAC, so no case tests those. Denials use patient criteria or CLIA, which both section B and section D require. 'Risk factor' and 'clinical indication' for germline testing are not defined in the NCD, so vignettes state them as documented by the clinician."
+}

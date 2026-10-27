@@ -1,0 +1,57 @@
+{
+ "ncd": "230.10",
+ "title": "Incontinence Control Devices",
+ "service": "Collagen implant injection for stress urinary incontinence due to intrinsic sphincter deficiency",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Skin test for collagen sensitivity administered and evaluated over 4 weeks before therapy",
+   "span": "Prior to collagen implant therapy, a skin test for collagen sensitivity must be administered and evaluated over a 4 week period.",
+   "type": "documentation"
+  },
+  {
+   "id": "C2",
+   "text": "Male evaluation: H&P, simple cystometrogram, standing full-bladder stress leak establishing ISD",
+   "span": "In male patients, the evaluation must include a complete history and physical examination and a simple cystometrogram to determine that the bladder fills and stores properly.",
+   "type": "documentation"
+  },
+  {
+   "id": "C3",
+   "text": "Female evaluation: H&P with pelvic exam and simple cystometrogram, then abdominal leak point pressure",
+   "span": "In female patients, the evaluation must include a complete history and physical examination (including a pelvic exam) and a simple cystometrogram to rule out abnormalities of bladder compliance and abnormalities of urethral support.",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Physician has urology training in cystoscopy and completed a collagen implant training program",
+   "span": "physicians must have urology training in the use of a cystoscope and must complete a collagen implant training program",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "Male patients following trauma, including prostatectomy and/or radiation",
+   "span": "Male patients following trauma, including prostatectomy and/or radiation",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Female patients without urethral hypermobility and with ALPP of 100 cm H2O or less",
+   "span": "Female patients without urethral hypermobility and with abdominal leak point pressures of 100 cm H2O or less.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "No further coverage after 5 injection sessions without improvement (treatment failure)",
+   "span": "Patients whose incontinence does not improve with 5 injection procedures (5 separate treatment sessions) are considered treatment failures, and no further treatment of urinary incontinence by collagen implant is covered.",
+   "type": "frequency"
+  },
+  {
+   "id": "C8",
+   "text": "Additional sessions after recurrence following past successful treatment, with medical justification",
+   "span": "Patients who have a reoccurrence of incontinence following successful treatment with collagen implants in the past (e.g., 6-12 months previously) may benefit from additional treatment sessions. Coverage of additional sessions may be allowed but must be supported by medical justification.",
+   "type": "exception"
+  }
+ ],
+ "notes": "Internal inconsistency: the female evaluation says ISD is established by ALPP 'less than 100 cm H2O', but the coverage list says '100 cm H2O or less'. No case uses ALPP of exactly 100. Mechanical/hydraulic devices (section A) are covered when reasonable and necessary with no stated criteria and are not tested. Section 'Female patients without urethral hypermobility' is applied to female stress incontinence not due to congenital or spinal cord causes."
+}

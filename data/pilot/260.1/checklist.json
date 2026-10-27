@@ -1,0 +1,57 @@
+{
+ "ncd": "260.1",
+ "title": "Adult Liver Transplantation",
+ "service": "Adult liver transplantation",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "End-stage liver disease other than malignancy (hepatitis B no longer excluded since Dec 10, 1999) in a CMS-approved facility",
+   "span": "adult liver transplantation when performed on beneficiaries with end-stage liver disease other than malignancies is covered under Medicare when performed in a facility which is approved by CMS as meeting institutional coverage criteria",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "HCC: patient not a candidate for subtotal liver resection",
+   "span": "The patient is not a candidate for subtotal liver resection",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "HCC: tumor(s) <= 5 cm in diameter",
+   "span": "The patient's tumor(s) is less than or equal to 5 cm in diameter",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "HCC: no macrovascular involvement",
+   "span": "There is no macrovascular involvement",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "HCC: no identifiable extrahepatic spread to lymph nodes, lungs, abdominal organs or bone",
+   "span": "There is no identifiable extrahepatic spread of tumor to surrounding lymph nodes, lungs, abdominal organs or bone",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "HCC: CMS-approved liver transplant facility",
+   "span": "The transplant is furnished in a facility that is approved by CMS as meeting institutional coverage criteria for liver transplants",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Re-transplantation required as a result of a covered liver transplant is covered",
+   "span": "Follow-up care or re-transplantation required as a result of a covered liver transplant is covered",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Other malignancies (not HCC per criteria; CCA/NET/HAE at MAC discretion) excluded",
+   "span": "Adult liver transplantation for other malignancies remains excluded from coverage.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Extrahepatic unresectable cholangiocarcinoma, NET liver metastases and hemangioendothelioma are left to MAC discretion and are not tested. The NCD sets HCC size as 'tumor(s) ... less than or equal to 5 cm' without a tumor-count rule; multi-nodule cases keep every nodule well under 5 cm."
+}

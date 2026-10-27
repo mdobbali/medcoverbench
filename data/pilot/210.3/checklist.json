@@ -1,0 +1,87 @@
+{
+ "ncd": "210.3",
+ "title": "Colorectal Cancer Screening Tests",
+ "service": "Colorectal cancer screening: fecal occult blood test (FOBT) or non-invasive biomarker test",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "FOBT: one per 12 months, i.e., at least 11 months after the month of the last covered screening FOBT",
+   "span": "Medicare will cover one gFOBT or one iFOBT at a frequency of every 12 months; i.e., at least 11 months have passed following the month in which the last covered screening FOBT was performed",
+   "type": "frequency"
+  },
+  {
+   "id": "C2",
+   "text": "FOBT: age 45 or older",
+   "span": "The minimum age for FOBT is reduced to 45 years and older.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "FOBT: written order from the attending physician/PA/NP/CNS",
+   "span": "This screening requires a written order from the beneficiary's attending physician",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Biomarker: once every 3 years",
+   "span": "Non-Invasive Biomarker tests are covered once every 3 years",
+   "type": "frequency"
+  },
+  {
+   "id": "C5",
+   "text": "Biomarker: ordered by physician/PA/NP/CNS who will use results in management",
+   "span": "When ordered by the physician, physician assistant, nurse practitioner, or clinical nurse specialist who will use the results in the management of the patient.",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Biomarker: age 45 to 85",
+   "span": "Age 45 to 85 years",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Biomarker: asymptomatic (no lower GI pain, blood in stool, positive biomarker test, etc.)",
+   "span": "Asymptomatic (no signs or symptoms of colorectal disease including but not limited to lower gastrointestinal pain, blood in stool, positive non-invasive biomarker colorectal cancer screening test)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Biomarker: average risk (no personal history of adenomatous polyps, CRC, IBD; no family history of CRC, adenomatous polyps, FAP, HNPCC)",
+   "span": "At average risk of developing colorectal cancer (no personal history of adenomatous polyps, colorectal cancer, or inflammatory bowel disease, including Crohn's Disease and ulcerative colitis; no family history of colorectal cancers or adenomatous polyps, familial adenomatous polyposis, or hereditary nonpolyposis colorectal cancer)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C9",
+   "text": "Biomarker: patient given information on test performance and need for follow-on colonoscopy if positive",
+   "span": "Provided with information about the test performance and the importance of a follow-on colonoscopy if the test returns a positive result.",
+   "type": "documentation"
+  },
+  {
+   "id": "C10",
+   "text": "Biomarker: FDA market authorized and indicated for CRC screening",
+   "span": "The test must be Food and Drug Administration (FDA) market authorized and indicated for colorectal cancer screening",
+   "type": "device"
+  },
+  {
+   "id": "C11",
+   "text": "Biomarker: processed in a CLIA-certified laboratory",
+   "span": "The test must be processed in a CLIA certified laboratory",
+   "type": "provider"
+  },
+  {
+   "id": "C12",
+   "text": "Biomarker: sensitivity >= 90% and specificity >= 87%, OR sensitivity >= 79% and specificity >= 90%",
+   "span": "a sensitivity of greater than or equal to 90% and a specificity greater than or equal to 87%, OR Criteria 2, a sensitivity of greater than or equal to 79% and a specificity of greater than or equal to 90%",
+   "type": "device"
+  },
+  {
+   "id": "C13",
+   "text": "All other CRC screening indications non-covered",
+   "span": "All other indications for colorectal cancer screening not otherwise specified in the Act and regulations, or otherwise specified above remain nationally non-covered.",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "This NCD version covers only FOBT (gFOBT/iFOBT) and non-invasive biomarker tests; it does not address colonoscopy, sigmoidoscopy, CT colonography or stool DNA tests, so no case uses them. FOBT frequency is counted by month: at least 11 full months must pass after the month of the last covered FOBT (e.g., last test any day in March 2025 -> eligible from March 2026). FOBT has no upper age limit and no average-risk or asymptomatic requirement in this NCD; those patient criteria apply to biomarker tests only. 'Once every 3 years' for biomarker tests is not defined in months, so cases use intervals far from 36 months."
+}

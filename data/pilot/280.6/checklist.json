@@ -1,0 +1,57 @@
+{
+ "ncd": "280.6",
+ "title": "Pneumatic Compression Devices",
+ "service": "Pneumatic compression devices (home use)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Covered only for lymphedema or CVI with venous stasis ulcers",
+   "span": "Pneumatic devices are covered for the treatment of lymphedema or for the treatment of chronic venous insufficiency with venous stasis ulcers.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Lymphedema: four-week conservative trial with no significant improvement or significant remaining symptoms",
+   "span": "Pneumatic compression devices are covered in the home setting for the treatment of lymphedema if the patient has undergone a four-week trial of conservative therapy and the treating physician determines that there has been no significant improvement or if significant symptoms remain after the trial.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Lymphedema trial includes compression bandage/garment, exercise, and limb elevation",
+   "span": "The trial of conservative therapy must include use of an appropriate compression bandage system or compression garment, exercise, and elevation of the limb.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "CVI: venous stasis ulcer(s) failed to heal after a 6-month physician-directed conservative trial",
+   "span": "only if the patient has one or more venous stasis ulcer(s) which have failed to heal after a 6 month trial of conservative therapy directed by the treating physician.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Physician prescription and oversight (evaluation, instruction, treatment plan, monitoring)",
+   "span": "Pneumatic compression devices are covered only when prescribed by a physician and when they are used with appropriate physician oversight",
+   "type": "provider"
+  },
+  {
+   "id": "C6",
+   "text": "Physician determination includes objective findings with measurements of severity",
+   "span": "Symptoms and objective findings, including measurements which establish the severity of the condition;",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Physician determination includes clinical response to an initial treatment with the device",
+   "span": "The clinical response to an initial treatment with the device.",
+   "type": "documentation"
+  },
+  {
+   "id": "C8",
+   "text": "Segmented calibrated gradient device (E0652) only with unique characteristics preventing satisfactory treatment with simpler devices",
+   "span": "The only time that a segmented, calibrated gradient pneumatic compression device (HCPCs code E0652) would be covered is when the individual has unique characteristics that prevent them from receiving satisfactory pneumatic compression treatment using a nonsegmented device in conjunction with a segmented appliance or a segmented compression device without manual control of pressure in each chamber.",
+   "type": "device"
+  }
+ ],
+ "notes": "Lymphedema requires a 4-week conservative trial (compression, exercise, elevation); CVI requires venous stasis ulcer(s) unhealed after a 6-month trial (compression, wound dressings, exercise, elevation). General criteria: physician prescription and oversight, plus a physician determination documenting diagnosis/prognosis, objective measurements, failed treatments, and clinical response to an initial treatment with the device. E0652 needs unique characteristics preventing satisfactory treatment with the simpler devices."
+}

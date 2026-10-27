@@ -1,0 +1,51 @@
+{
+ "ncd": "90.1",
+ "title": "Pharmacogenomic Testing for Warfarin Response",
+ "service": "Pharmacogenomic testing of CYP2C9 or VKORC1 alleles to predict warfarin response",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Candidate for anticoagulation therapy with warfarin",
+   "span": "covered only when provided to Medicare beneficiaries who are candidates for anticoagulation therapy with warfarin",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Not previously tested for CYP2C9 or VKORC1 alleles",
+   "span": "Have not been previously tested for CYP2C9 or VKORC1 alleles",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Fewer than five days of warfarin in the regimen for which testing is ordered",
+   "span": "Have received fewer than five days of warfarin in the anticoagulation regimen for which the testing is ordered",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Enrolled in a prospective, randomized, controlled clinical study meeting the CED standards",
+   "span": "Are enrolled in a prospective, randomized, controlled clinical study when that study meets the following standards.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Study registered on ClinicalTrials.gov before first subject enrolled",
+   "span": "The clinical research study is registered on the www.ClinicalTrials.gov website by the principal sponsor/investigator prior to the enrollment of the first study subject.",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Study has a written protocol addressing the Medicare standards",
+   "span": "The research study has a written protocol that clearly addresses, or incorporates by reference, the Medicare standards.",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Non-covered outside CED",
+   "span": "pharmacogenomic testing of CYP2C9 or VKORC1 alleles to predict warfarin responsiveness improves health outcomes in Medicare beneficiaries outside the context of CED, and is therefore not reasonable and necessary",
+   "type": "exclusion"
+  }
+ ],
+ "notes": "Coverage is CED only. 'Fewer than five days of warfarin' counts days in the current regimen only; warfarin taken in an earlier, separate regimen does not count. Cases avoid other alleles and non-warfarin purposes, which the NCD expressly does not address (section C)."
+}

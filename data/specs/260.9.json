@@ -1,0 +1,122 @@
+{
+ "ncd": "260.9",
+ "service": "Heart transplantation",
+ "notes": "Coverage turns on facility approval (CMS Ruling 87-1), which is not reproduced in the NCD; cases state approval status explicitly. Patient-selection criteria are not in the NCD text and are not tested. Immunosuppressive drugs and artificial hearts are cross-referenced elsewhere and not tested.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Performed in a Medicare-approved heart transplant facility",
+   "span": "Cardiac transplantation is covered under Medicare when performed in a facility which is approved by Medicare as meeting institutional coverage criteria.",
+   "type": "provider"
+  },
+  {
+   "id": "C2",
+   "text": "No exceptions for programs < 2 years old; consortia not approved",
+   "span": "Under no circumstances will exceptions be made for facilities whose transplant programs have been in existence for less than 2 years, and applications from consortia will not be approved.",
+   "type": "exclusion"
+  },
+  {
+   "id": "C3",
+   "text": "Pediatric hospital: covered only if CMS approved its application (joint program with an approved facility, shared surgeons/QA, specialized resources)",
+   "span": "Cardiac transplantation is covered for Medicare beneficiaries when performed in a pediatric hospital that performs pediatric heart transplants if the hospital submits an application which CMS approves",
+   "type": "provider"
+  },
+  {
+   "id": "C4",
+   "text": "Follow-up care covered even after a noncovered transplant",
+   "span": "Follow-up care is also covered for patients who have been discharged from a hospital after receiving a noncovered heart transplant.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Follow-up care after covered transplant, if reasonable and necessary",
+   "span": "Follow-up care required as a result of a covered heart transplant is covered, provided such services are otherwise reasonable and necessary.",
+   "type": "eligibility"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Transplant at a Medicare-approved facility. Age 67 and prior LVAD are not facility criteria.",
+   "vignette": "67-year-old man with end-stage ischemic cardiomyopathy supported by a durable LVAD for 2 years, now matched with a donor heart. The transplant will be performed at a hospital whose heart transplant program is approved by Medicare as meeting the institutional coverage criteria."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Two-hospital university facility that CMS approved as a heart transplant facility (not a consortium).",
+   "vignette": "59-year-old woman with restrictive cardiomyopathy listed for heart transplant. The transplant will be performed at one of two hospitals under common control of a university health system that function as a single heart transplant facility: the same transplant surgeons, cardiologists, and pathologists practice at both, they use the same organ procurement organization and tissue-typing services, and they have operated the program for 12 years. CMS has approved this two-hospital facility as a Medicare heart transplant facility."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Pediatric hospital whose application CMS approved.",
+   "vignette": "15-year-old Medicare beneficiary (entitled through end-stage renal disease) with dilated cardiomyopathy awaiting heart transplant at a pediatric hospital that performs pediatric heart transplants. The pediatric hospital submitted an application, which CMS approved, documenting that its program is operated jointly with an adult center that CMS has found meets the institutional coverage criteria, that the unified program shares the same transplant surgeons and quality assurance program, and that it provides the specialized facilities, services, and personnel pediatric heart transplant patients require."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Follow-up care is covered even though the transplant itself was noncovered.",
+   "vignette": "62-year-old man who received a heart transplant 4 months ago at a hospital that is not Medicare-approved for heart transplantation, so the transplant was not covered. He has since been discharged and now requests coverage for routine post-transplant follow-up: clinic visits with his transplant cardiologist, laboratory monitoring, and echocardiography, which his physicians document as reasonable and necessary."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Facility is not Medicare-approved for heart transplantation.",
+   "vignette": "64-year-old woman with end-stage non-ischemic cardiomyopathy who meets her center's transplant listing criteria. The hospital performing the transplant has run a heart transplant program for 6 years with good outcomes but has not been approved by Medicare as meeting the institutional coverage criteria for heart transplant facilities."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1",
+    "C2"
+   ],
+   "missing": [],
+   "note": "Program only 18 months old and not approved; exceptions are barred for programs under 2 years.",
+   "vignette": "58-year-old man with end-stage heart failure scheduled for heart transplant at a hospital whose heart transplant program began 18 months ago. The hospital is not Medicare-approved and has asked CMS for an exception to the facility criteria, citing strong early outcomes."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Consortium arrangement of independent hospitals; consortia are not approved.",
+   "vignette": "61-year-old woman listed for heart transplant. The transplant will be performed at one of three independent community hospitals that pooled their cases into a heart transplant consortium. The hospitals are not under common control or a formal affiliation, do not share the same transplant team, and applied to Medicare for approval as a consortium."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Pediatric hospital operates alone and has no CMS-approved application.",
+   "vignette": "14-year-old Medicare beneficiary (entitled through end-stage renal disease) with hypertrophic cardiomyopathy and end-stage heart failure, scheduled for heart transplant at a pediatric hospital that performs pediatric heart transplants. The pediatric hospital operates its program independently, without a joint program with any Medicare-approved heart transplant facility, and has not submitted an application to CMS."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C1"
+   ],
+   "note": "Transplant hospital named, but its Medicare approval status is not documented.",
+   "vignette": "66-year-old man with end-stage ischemic cardiomyopathy who has been matched with a donor heart. The request identifies the hospital performing the transplant and includes the patient's clinical evaluation, but contains no information on whether the hospital's heart transplant program is approved by Medicare."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "Pediatric hospital; joint program described, but no record of a CMS-approved application.",
+   "vignette": "16-year-old Medicare beneficiary (entitled through end-stage renal disease) with restrictive cardiomyopathy awaiting heart transplant at a pediatric hospital that performs pediatric heart transplants. The hospital states that its program is run jointly with a Medicare-approved adult heart transplant center and shares its surgeons, but the request contains no documentation of whether the hospital submitted an application to CMS or whether CMS approved it."
+  }
+ ]
+}

@@ -1,0 +1,127 @@
+{
+ "ncd": "200.3",
+ "service": "Anti-amyloid monoclonal antibody for Alzheimer's disease",
+ "notes": "Traditional approval (direct clinical benefit) -> CMS-approved prospective comparative study/registry; accelerated approval (surrogate) -> RCT under IND only; NIH-supported trials also covered.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Clinical diagnosis of MCI due to AD or mild AD dementia",
+   "span": "for patients who have a clinical diagnosis of mild cognitive impairment (MCI) due to AD or mild AD dementia",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Confirmed amyloid beta pathology",
+   "span": "both with confirmed presence of amyloid beta pathology consistent with AD",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Traditional-approval drugs: only in CMS-approved prospective comparative studies (registry allowed)",
+   "span": "Monoclonal antibodies directed against amyloid that are approved by the FDA for the treatment of AD based upon evidence of efficacy from a direct measure of clinical benefit may be covered in CMS-approved prospective comparative studies",
+   "type": "setting"
+  },
+  {
+   "id": "C4",
+   "text": "Accelerated-approval (surrogate endpoint) drugs: only in an RCT under an IND",
+   "span": "based upon evidence of efficacy from a change in a surrogate endpoint (e.g., amyloid reduction) considered as reasonably likely to predict clinical benefit may be covered in a randomized controlled trial conducted under an investigational new drug (IND) application",
+   "type": "setting"
+  },
+  {
+   "id": "C5",
+   "text": "NIH-supported trials, per FDA indication",
+   "span": "Monoclonal antibodies directed against amyloid indicated for the treatment of AD are covered when furnished according to the FDA approved indication in National Institutes of Health (NIH)-supported trials",
+   "type": "setting"
+  },
+  {
+   "id": "C6",
+   "text": "Non-covered outside FDA RCTs, CMS-approved studies, or NIH-supported studies",
+   "span": "provided outside of an FDAapproved randomized controlled trial, CMS-approved studies, or studies supported by the NIH, are nationally non-covered",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "MCI due to AD, amyloid PET positive, traditional-approval drug in a CMS-approved registry study.",
+   "vignette": "74-year-old woman with 2 years of progressive memory loss. Neuropsychological testing shows amnestic mild cognitive impairment (MMSE 26, CDR 0.5) and her neurologist diagnoses MCI due to Alzheimer's disease. Amyloid PET is positive. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "Amyloid PET negative.",
+   "vignette": "71-year-old man with amnestic mild cognitive impairment (MMSE 25, CDR 0.5) clinically attributed to Alzheimer's disease. Amyloid PET was read as negative for amyloid plaques. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C2"
+   ],
+   "note": "Amyloid test reportedly done elsewhere; no result in the record.",
+   "vignette": "76-year-old woman with mild Alzheimer's disease dementia (MMSE 22, CDR 1). The referral letter says amyloid testing was done at another hospital, but no PET report, CSF result or other amyloid result is in the record. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Moderate dementia exceeds MCI/mild dementia.",
+   "vignette": "79-year-old man with Alzheimer's disease dementia of moderate severity (MMSE 14, CDR 2), needing help with dressing and bathing. Amyloid PET is positive. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Traditional-approval drug but not in any CMS-approved study or registry.",
+   "vignette": "73-year-old woman with mild cognitive impairment due to Alzheimer's disease (MMSE 27, CDR 0.5), amyloid confirmed by CSF biomarkers. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit, to be given at a community infusion center per the FDA label. She is not enrolled in any CMS-approved study, registry, or NIH-supported trial."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Accelerated-approval drug requires an RCT under IND; a registry study is not enough.",
+   "vignette": "70-year-old man with mild Alzheimer's disease dementia (MMSE 23, CDR 1), amyloid PET positive. Requesting an anti-amyloid monoclonal antibody that received FDA accelerated approval for Alzheimer's disease based on amyloid reduction (a surrogate endpoint), without a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Accelerated-approval drug given within an RCT under an IND.",
+   "vignette": "72-year-old woman with mild cognitive impairment due to Alzheimer's disease (MMSE 26, CDR 0.5), amyloid PET positive. Requesting an anti-amyloid monoclonal antibody that received FDA accelerated approval for Alzheimer's disease based on amyloid reduction (a surrogate endpoint), without a direct measure of clinical benefit. She is enrolled in a randomized controlled trial of this drug conducted under an investigational new drug (IND) application."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "NIH-supported trial per FDA indication.",
+   "vignette": "68-year-old man with mild Alzheimer's disease dementia (MMSE 24, CDR 1), amyloid PET positive. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. He is enrolled in an NIH-supported trial, and the drug is given according to its FDA-approved indication."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Subjective cognitive decline with normal testing is not MCI.",
+   "vignette": "69-year-old woman with subjective memory complaints. Comprehensive neuropsychological testing is within normal limits for age and education (MMSE 29, CDR 0) and she is fully independent. An amyloid PET done in a screening program was positive. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Amyloid confirmed by CSF rather than PET is acceptable.",
+   "vignette": "75-year-old man with mild cognitive impairment due to Alzheimer's disease (MMSE 25, CDR 0.5). CSF testing shows a low amyloid-beta 42/40 ratio and elevated p-tau consistent with Alzheimer's pathology. Requesting an anti-amyloid monoclonal antibody that received FDA traditional approval for Alzheimer's disease based on a direct measure of clinical benefit. Treatment will be given according to the FDA-approved label by a multidisciplinary dementia team, and the patient is enrolled in a CMS-approved prospective comparative study that collects data in a registry."
+  }
+ ]
+}

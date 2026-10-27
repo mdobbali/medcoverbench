@@ -1,0 +1,81 @@
+{
+ "ncd": "190.14",
+ "service": "Diagnostic HIV testing (antibody immunoassay, Western blot, antigen or viral RNA)",
+ "notes": "Indications are phrased permissively ('may be indicated'), and a limitation adds that serologic testing 'may be medically appropriate in situations where there is a risk of exposure to HIV', so cases do not test 'no indication' denials. HIV-2 testing is not tested because the NCD also allows it based on regional prevalence. Denials rest on the explicit limitations: Western blot only after repeatedly positive/equivocal EIA on a single sample, antigen tests have no defined diagnostic use, no repeat after confirmed infection, and a 3-6 month interval before retesting after a negative EIA when RNA confirmation is not indicated. The modern combination antigen/antibody immunoassay is not addressed; cases name a standalone p24 antigen assay for the antigen limitation.",
+ "criteria": [
+  {"id": "C1", "text": "Strong clinical suspicion supported by one or more listed clinical findings", "span": "Diagnostic testing to establish HIV infection may be indicated when there is a strong clinical suspicion supported by one or more of the following clinical findings", "type": "eligibility"},
+  {"id": "C2", "text": "Western blot only after documentation that initial EIA tests are repeatedly positive or equivocal on a single sample", "span": "The Western Blot test should be performed only after documentation that the initial EIA tests are repeatedly positive or equivocal on a single sample.", "type": "documentation"},
+  {"id": "C3", "text": "HIV antigen tests have no defined diagnostic usage", "span": "The HIV antigen tests currently have no defined diagnostic usage.", "type": "exclusion"},
+  {"id": "C4", "text": "Viral RNA when serology does not establish the diagnosis but strong suspicion persists", "span": "Direct viral RNA detection may be performed in those situations where serologic testing does not establish a diagnosis but strong clinical suspicion persists", "type": "eligibility"},
+  {"id": "C5", "text": "No repeat testing once initial serology confirms HIV infection", "span": "If initial serologic tests confirm an HIV infection, repeat testing is not indicated.", "type": "frequency"},
+  {"id": "C6", "text": "After a negative EIA with no indication for RNA testing, retest interval is 3-6 months", "span": "If initial serologic tests are HIV EIA negative and there is no indication for confirmation of infection by viral RNA detection, the interval prior to retesting is 3-6 months.", "type": "frequency"},
+  {"id": "C7", "text": "Indication: blood/body-fluid exposure with antiviral therapy initiated or anticipated", "span": "The patient has documented exposure to blood or body fluids known to be capable of transmitting HIV (for example, needle sticks and other significant blood exposures) and antiviral therapy is initiated or anticipated to be initiated.", "type": "eligibility"},
+  {"id": "C8", "text": "Indication: documented, otherwise unexplained AIDS-defining or AIDS-associated opportunistic infection", "span": "The patient has a documented, otherwise unexplained, AIDS-defining or AIDS-associated opportunistic infection.", "type": "eligibility"},
+  {"id": "C9", "text": "Indication: signs and symptoms of acute retroviral syndrome", "span": "The patient has signs and symptoms of acute retroviral syndrome with fever, malaise, lymphadenopathy, and skin rash.", "type": "eligibility"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Documented, otherwise unexplained Pneumocystis pneumonia (AIDS-defining opportunistic infection) supports initial HIV-1/2 antibody EIA.",
+   "vignette": "70-year-old man admitted with bilateral pneumonia; bronchoscopy confirms Pneumocystis jirovecii pneumonia. He takes no immunosuppressive drugs, has no cancer or transplant history, and no other explanation for immune compromise has been found. He has never been tested for HIV. The inpatient team orders an HIV-1/HIV-2 combination antibody enzyme immunoassay."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Western blot after documented repeatedly positive EIA on a single sample, in a patient with an indication (chronic hepatitis C).",
+   "vignette": "67-year-old woman with chronic hepatitis C infection documented last year, seen by her hepatologist, who ordered HIV testing. The laboratory report in the chart shows that the HIV-1/2 antibody enzyme immunoassay was reactive, and that repeat testing of the same serum sample in duplicate was reactive both times. A confirmatory Western blot on that sample is now requested."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C2"],
+   "missing": [],
+   "note": "Western blot ordered after a single reactive EIA that was never repeated; the NCD requires documented repeatedly positive or equivocal EIA first.",
+   "vignette": "72-year-old man with newly diagnosed chronic hepatitis B infection; his gastroenterologist orders HIV testing. The laboratory report shows that the initial HIV-1/2 antibody enzyme immunoassay was reactive once. The laboratory notes that the sample was not re-tested by EIA, and no second EIA was run on it. The physician orders a Western blot on the same sample."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C2"],
+   "note": "Western blot requested, but there is no EIA result in the record to show it was repeatedly positive or equivocal; nothing shows it was not.",
+   "vignette": "69-year-old woman with recurrent oral and esophageal candidiasis with no other explanation, seen by an infectious disease physician. The referral letter states that she 'had a positive HIV screen elsewhere' and asks for confirmation. The infectious disease physician orders a Western blot. The chart contains no laboratory report of the prior enzyme immunoassay, and no information on whether it was repeated or on what sample."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C5"],
+   "missing": [],
+   "note": "HIV infection was confirmed by EIA and Western blot 2 years ago; repeat diagnostic testing is not indicated.",
+   "vignette": "66-year-old man who moved to a new city and is establishing care with a new primary care physician. Two years ago his HIV infection was diagnosed by a repeatedly reactive HIV-1/2 antibody enzyme immunoassay and a positive Western blot, and the reports are in his transferred records. He takes antiretroviral therapy. The new physician orders a repeat HIV antibody enzyme immunoassay and Western blot 'to re-establish the diagnosis in our system.'"
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C6"],
+   "missing": [],
+   "note": "Negative EIA 6 weeks ago with no indication for RNA testing; retesting should wait 3-6 months.",
+   "vignette": "68-year-old woman with chronic hepatitis C infection; her HIV-1/2 antibody enzyme immunoassay 6 weeks ago was negative. Since then she has had no new exposures, she has no fever, rash, lymphadenopathy or other symptoms, and her physician documents that there is no indication for viral RNA testing. At today's follow-up the physician orders a repeat HIV-1/2 antibody enzyme immunoassay 'to be sure.'"
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C3"],
+   "missing": [],
+   "note": "Standalone p24 antigen assay ordered to diagnose HIV; the NCD states HIV antigen tests have no defined diagnostic usage.",
+   "vignette": "71-year-old man with otherwise unexplained weight loss of 9 kg over 6 months, chronic diarrhea and generalized lymphadenopathy. His internist orders an HIV-1/2 antibody enzyme immunoassay, and separately orders a standalone HIV-1 p24 antigen assay to diagnose HIV infection. The request under review is the standalone p24 antigen assay."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Exception to serology-first: signs of acute retroviral syndrome with a negative EIA; strong suspicion persists, so viral RNA detection is appropriate.",
+   "vignette": "66-year-old man presents with 10 days of fever, malaise, generalized lymphadenopathy and a diffuse maculopapular skin rash, beginning 3 weeks after unprotected anal intercourse with a new partner. His HIV-1/2 antibody enzyme immunoassay drawn at this visit is negative. The infectious disease physician documents that serology has not established a diagnosis but strong clinical suspicion of acute HIV infection persists, and orders HIV-1 viral RNA detection."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Documented needle-stick exposure with post-exposure antiviral therapy initiated. Unknown source status is a distractor.",
+   "vignette": "65-year-old nurse who sustained a deep needle-stick injury with a hollow-bore needle used on a patient in the emergency department, documented in an occupational health incident report. The source patient's HIV status is unknown and the source left before testing. Post-exposure antiviral prophylaxis was started within 2 hours. The occupational health physician orders a baseline HIV-1/2 antibody enzyme immunoassay."
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "ncd": "20.6",
+ "title": "Transmyocardial Revascularization (TMR)",
+ "service": "Transmyocardial revascularization (TMR)",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Severe angina, CCS class III or IV (stable or unstable)",
+   "span": "patients with severe (Canadian Cardiovascular Society classification Classes III or IV) angina (stable or unstable)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Refractory to standard medical therapy at maximum tolerated or maximum safe doses",
+   "span": "which has been found refractory to standard medical therapy, including drug therapy at the maximum tolerated or maximum safe dosages",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Angina from areas not amenable to PTCA, stenting, atherectomy, or bypass",
+   "span": "the angina symptoms must be caused by areas of the heart not amenable to surgical therapies such as percutaneous transluminal coronary angioplasty, stenting, coronary atherectomy or coronary bypass",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Laser use FDA approved for the purpose",
+   "span": "Coverage is further limited to those uses of the laser used in performing the procedure which have been approved by the Food and Drug Administration for the purpose for which they are being used.",
+   "type": "device"
+  },
+  {
+   "id": "C5",
+   "text": "Ejection fraction >= 25%",
+   "span": "An ejection fraction of 25% or greater",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Viable ischemic myocardium demonstrated by diagnostic study, not revascularizable by direct intervention",
+   "span": "Have areas of viable ischemic myocardium (as demonstrated by diagnostic study) which are not capable of being revascularized by direct coronary intervention",
+   "type": "documentation"
+  },
+  {
+   "id": "C7",
+   "text": "Acute conditions stabilized or maximal efforts made to stabilize",
+   "span": "Have been stabilized, or have had maximal efforts to stabilize acute conditions such as severe ventricular arrhythmias, decompensated congestive heart failure or acute myocardial infarction.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Trained physician; provider documents training of all ancillary personnel",
+   "span": "Providers of this service must also document that all ancillary personnel, including physicians, nurses, operating room personnel and technicians, are trained in the procedure and the proper use of the equipment involved.",
+   "type": "documentation"
+  },
+  {
+   "id": "C9",
+   "text": "Provider has dedicated cardiac care units and meets ANSI laser safety standards",
+   "span": "Coverage is further limited to providers which have dedicated cardiac care units",
+   "type": "provider"
+  }
+ ],
+ "notes": "Spare used in place of 20.8.4. The NCD cites the laser safety standard as 'ANSIZ1363' (ANSI Z136.3); vignettes say ANSI Z136.3."
+}

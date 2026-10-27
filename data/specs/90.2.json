@@ -1,0 +1,90 @@
+{
+ "ncd": "90.2",
+ "service": "Diagnostic laboratory test using next generation sequencing (NGS) for cancer",
+ "notes": "Section D lets MACs cover NGS tests that lack FDA approval/clearance (somatic) and germline NGS for cancers other than breast/ovarian, provided the patient criteria, CLIA certification and treating-physician order are met. Labels for tests lacking FDA status or for germline testing in other cancers would depend on the MAC, so no case tests those. Denials use patient criteria or CLIA, which both section B and section D require. 'Risk factor' and 'clinical indication' for germline testing are not defined in the NCD, so vignettes state them as documented by the clinician.",
+ "criteria": [
+  {"id": "C1", "text": "CLIA-certified laboratory and ordered by the treating physician", "span": "when performed in a Clinical Laboratory Improvement Amendments (CLIA)-certified laboratory, when ordered by a treating physician", "type": "provider"},
+  {"id": "C2", "text": "Somatic: recurrent, relapsed, refractory, metastatic, or advanced stage III or IV cancer", "span": "either recurrent, relapsed, refractory, metastatic, or advanced stage III or IV cancer", "type": "eligibility"},
+  {"id": "C3", "text": "Somatic: not previously tested with the same NGS test for the same cancer genetic content", "span": "not been previously tested with the same test using NGS for the same cancer genetic content", "type": "eligibility"},
+  {"id": "C4", "text": "Somatic: patient has decided to seek further cancer treatment", "span": "decided to seek further cancer treatment (e.g., therapeutic chemotherapy).", "type": "eligibility"},
+  {"id": "C5", "text": "Somatic: FDA-approved/cleared companion diagnostic with an FDA indication for the patient's cancer", "span": "an FDA-approved or -cleared indication for use in that patient's cancer", "type": "device"},
+  {"id": "C6", "text": "Results provided to the treating physician using a report template specifying treatment options", "span": "results provided to the treating physician for management of the patient using a report template to specify treatment options.", "type": "documentation"},
+  {"id": "C7", "text": "Somatic: non-covered if the patient does not meet the B.1 criteria", "span": "NGS as a diagnostic laboratory test for patients with acquired (somatic) cancer are non-covered if the cancer patient does not meet the criteria noted in section B.1., above.", "type": "exclusion"},
+  {"id": "C8", "text": "Germline: ovarian or breast cancer", "span": "ovarian or breast cancer; and,", "type": "eligibility"},
+  {"id": "C9", "text": "Germline: clinical indication for hereditary breast or ovarian cancer testing", "span": "a clinical indication for germline (inherited) testing for hereditary breast or ovarian cancer", "type": "eligibility"},
+  {"id": "C10", "text": "Germline: a risk factor for germline breast or ovarian cancer", "span": "a risk factor for germline (inherited) breast or ovarian cancer", "type": "eligibility"},
+  {"id": "C11", "text": "Germline: not previously tested with the same germline NGS test for the same content", "span": "not been previously tested with the same germline test using NGS for the same germline genetic content", "type": "eligibility"}
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Metastatic NSCLC, never NGS tested, seeking chemotherapy/targeted therapy; FDA companion diagnostic indicated for NSCLC; CLIA lab; treating oncologist; report template.",
+   "vignette": "69-year-old man with newly diagnosed stage IV (metastatic) non-small cell lung adenocarcinoma, with liver and bone metastases. He has decided to pursue systemic cancer treatment. His treating oncologist orders tumor tissue testing with an NGS panel that has FDA approval as a companion in vitro diagnostic with an FDA-approved indication for non-small cell lung cancer. He has never had NGS testing. The test is performed in a CLIA-certified laboratory, which returns results to the oncologist in a report template listing treatment options."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C2", "C7"],
+   "missing": [],
+   "note": "Stage II colon cancer, resected, with no recurrence: not recurrent, relapsed, refractory, metastatic or stage III/IV.",
+   "vignette": "71-year-old woman who underwent resection of a stage II colon adenocarcinoma 3 months ago; surveillance imaging shows no recurrence or metastasis. She wishes to receive any treatment that might help. Her treating oncologist orders tumor NGS testing with an FDA-approved companion diagnostic panel indicated for colorectal cancer, performed in a CLIA-certified laboratory with results returned in a report template listing treatment options. She has never had NGS testing."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C3", "C7"],
+   "missing": [],
+   "note": "The same FDA companion diagnostic NGS test was already run on the same cancer 10 months ago; repeat for the same genetic content is not covered.",
+   "vignette": "64-year-old woman with metastatic breast cancer whose disease has progressed on her current therapy; she has decided to pursue further treatment. Ten months ago her tumor was tested with an FDA-approved companion diagnostic NGS panel indicated for breast cancer. Her treating oncologist now orders the same NGS panel, for the same genetic content, on the same tumor tissue. The CLIA-certified laboratory would return results in a report template listing treatment options."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C4", "C7"],
+   "missing": [],
+   "note": "Patient has chosen hospice and declined further cancer treatment.",
+   "vignette": "78-year-old man with metastatic pancreatic adenocarcinoma who has decided against any further cancer treatment and enrolled in hospice. His daughter asks whether tumor testing could provide information for the family, and his oncologist orders tumor NGS testing with an FDA-approved companion diagnostic panel indicated for pancreatic cancer, in a CLIA-certified laboratory with a report template listing treatment options. He has never had NGS testing."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Advanced stage III melanoma; a prior single-gene PCR test is a distractor because it was not the same NGS test.",
+   "vignette": "66-year-old woman with stage IIIC cutaneous melanoma who has decided to pursue systemic therapy. At diagnosis, a single-gene BRAF test using real-time PCR (not NGS) was performed. Her treating oncologist now orders tumor testing with an NGS panel that has FDA approval as a companion in vitro diagnostic with an FDA-approved indication for melanoma. She has never had NGS testing. The test is performed in a CLIA-certified laboratory, which reports to the oncologist in a template that lists treatment options."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C2"],
+   "note": "Lung adenocarcinoma with staging pending; the record does not show recurrent, metastatic or stage III/IV disease, and nothing shows earlier-stage disease.",
+   "vignette": "73-year-old man with lung adenocarcinoma confirmed on biopsy 1 week ago. Staging imaging has been ordered but not yet performed, and no stage, nodal status or metastatic status is documented anywhere in the record. He has decided to pursue cancer treatment. His treating oncologist orders tumor NGS testing with an FDA-approved companion diagnostic panel indicated for non-small cell lung cancer, in a CLIA-certified laboratory with a report template listing treatment options. He has never had NGS testing."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Germline NGS in breast cancer with a documented clinical indication and risk factor, never previously tested; FDA-approved test, CLIA lab, report template.",
+   "vignette": "58-year-old woman with breast cancer diagnosed this year. Her sister was diagnosed with ovarian cancer at age 48. Her treating oncologist documents that this family history is a risk factor for hereditary breast and ovarian cancer and that she has a clinical indication for germline testing. The oncologist orders an FDA-approved germline NGS hereditary cancer panel. She has never had germline testing. The test is performed in a CLIA-certified laboratory, which returns results to the oncologist in a report template listing treatment options."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C11"],
+   "missing": [],
+   "note": "Germline: the same germline NGS panel for the same content was performed 3 years ago.",
+   "vignette": "67-year-old woman with recurrent high-grade serous ovarian cancer. At her original diagnosis 3 years ago she had germline testing with an FDA-approved germline NGS hereditary cancer panel, which found no pathogenic variants. Her treating oncologist documents a clinical indication and a risk factor (Ashkenazi Jewish ancestry) for hereditary breast and ovarian cancer, and orders the same germline NGS panel, for the same genetic content, again in a CLIA-certified laboratory with a report template listing treatment options."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": ["C10"],
+   "note": "Germline: breast cancer with a documented clinical indication, but no risk factor is documented and the family history was not taken; nothing shows absence of risk factors.",
+   "vignette": "70-year-old woman with newly diagnosed breast cancer. Her treating oncologist's note states 'clinical indication for germline testing' and orders an FDA-approved germline NGS hereditary cancer panel, to be run in a CLIA-certified laboratory that reports in a template listing treatment options. She has never had germline testing. The note's family history section reads 'not obtained,' and the record contains no other information about family history, ancestry, age at diagnosis, tumor features or any other risk factor for inherited breast or ovarian cancer."
+  },
+  {
+   "decision": "not_covered",
+   "violated": ["C1"],
+   "missing": [],
+   "note": "All patient criteria are met, but the test is run in a research laboratory that is not CLIA-certified (required by both sections B and D).",
+   "vignette": "62-year-old man with metastatic colorectal cancer who has decided to pursue further chemotherapy. He has never had NGS testing. His treating oncologist sends tumor tissue for an NGS panel that has FDA approval as a companion diagnostic with an FDA-approved indication for colorectal cancer. However, the sample is sequenced at a university research laboratory that is not CLIA-certified; results would be returned to the oncologist in a report template listing treatment options."
+  }
+ ]
+}

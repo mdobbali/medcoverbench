@@ -1,0 +1,45 @@
+{
+ "ncd": "160.7",
+ "title": "Electrical Nerve Stimulators",
+ "service": "Implanted central nervous system stimulators (dorsal column/spinal cord and deep brain) for chronic intractable pain",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Stimulator used only as a late resort for chronic intractable pain",
+   "span": "The implantation of the stimulator is used only as a late resort (if not a last resort) for patients with chronic intractable pain;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Other modalities (pharmacological, surgical, physical, psychological) tried and unsatisfactory, or unsuitable/contraindicated",
+   "span": "other treatment modalities (pharmacological, surgical, physical, or psychological therapies) have been tried and did not prove satisfactory, or are judged to be unsuitable or contraindicated for the given patient;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Multidisciplinary screening before implant, including psychological and physical evaluation",
+   "span": "Patients have undergone careful screening, evaluation and diagnosis by a multidisciplinary team prior to implantation. (Such screening must include psychological, as well as physical evaluation);",
+   "type": "documentation"
+  },
+  {
+   "id": "C4",
+   "text": "Facilities, equipment, and personnel for diagnosis, training, and follow-up available",
+   "span": "All the facilities, equipment, and professional and support personnel required for the proper diagnosis, treatment training, and follow up of the patient (including that required to satisfy item c) must be available; and",
+   "type": "provider"
+  },
+  {
+   "id": "C5",
+   "text": "Pain relief demonstrated with a temporarily implanted electrode before permanent implantation",
+   "span": "Demonstration of pain relief with a temporarily implanted electrode precedes permanent implantation.",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Covered implantation types: dorsal column (endodural or percutaneous epidural) and stereotactic deep brain",
+   "span": "The stereotactic implantation of electrodes in the deep brain (e.g., thalamus and periaqueductal gray matter) is covered.",
+   "type": "eligibility"
+  }
+ ],
+ "notes": "The NCD lists no conditions for implanted peripheral nerve stimulators, so no case tests them. The NCD sets no numeric pain-relief threshold for the temporary electrode trial (percent-relief thresholds come from LCDs and are not tested); covered cases show substantial relief. Deep brain stimulation for pain is explicitly covered by this NCD when all conditions are met."
+}

@@ -1,0 +1,75 @@
+{
+ "ncd": "280.8",
+ "title": "Air-Fluidized Bed",
+ "service": "Air-fluidized bed for home use",
+ "review_status": "draft_unreviewed",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Stage 3 or stage 4 pressure sore",
+   "span": "The patient has a stage 3 (full thickness tissue loss) or stage 4 (deep tissue destruction) pressure sore;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Bedridden or chair bound from severely limited mobility",
+   "span": "The patient is bedridden or chair bound as a result of severely limited mobility;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Would require institutionalization without the bed",
+   "span": "In the absence of an air-fluidized bed, the patient would require institutionalization;",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Conservative treatment for at least one month without progression toward healing (may include documented institutional time)",
+   "span": "This course of treatment must have been at least one month in duration without progression toward wound healing.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "Conservative treatment included a Group II specialized support surface",
+   "span": "Use of a specialized support surface (Group II) designed to reduce pressure and shear forces on healing ulcers and to prevent new ulcer formation;",
+   "type": "documentation"
+  },
+  {
+   "id": "C6",
+   "text": "Trained adult caregiver available",
+   "span": "A trained adult caregiver is available to assist the patient with activities of daily living",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "Not covered with coexisting pulmonary disease",
+   "span": "The patient has coexisting pulmonary disease",
+   "type": "exclusion"
+  },
+  {
+   "id": "C8",
+   "text": "Not covered if wet soaks or moist dressings are not protected by an occlusive covering",
+   "span": "The patient requires treatment with wet soaks or moist wound dressings that are not protected with an impervious covering such as plastic wrap or other occlusive material;",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Written order from the attending physician furnished to the supplier before delivery",
+   "span": "Payment for this covered item may only be made if the written order from the attending physician is furnished to the supplier prior to the delivery of the equipment.",
+   "type": "documentation"
+  },
+  {
+   "id": "C10",
+   "text": "Exception: institutional time may count toward the conservative month if documented",
+   "span": "This month of prerequisite conservative treatment may include some period in an institution as long as there is documentation available to verify that the necessary conservative treatment has been rendered.",
+   "type": "exception"
+  },
+  {
+   "id": "C11",
+   "text": "Exception: wet-to-dry debridement continuing beyond 30 days does not preclude coverage",
+   "span": "Use of wet-to-dry dressings for wound debridement, begun during the period of conservative treatment and which continue beyond 30 days, will not preclude coverage of air-fluidized bed.",
+   "type": "exception"
+  }
+ ],
+ "notes": "Exceptions tested: part of the prerequisite month of conservative treatment may be in an institution if documented; wet-to-dry debridement continuing beyond 30 days does not preclude coverage (wet-to-dry does not need an occlusive covering), unlike moist dressings/wet soaks without an occlusive covering."
+}

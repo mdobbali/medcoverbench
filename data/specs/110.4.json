@@ -1,0 +1,117 @@
+{
+ "ncd": "110.4",
+ "service": "Extracorporeal photopheresis",
+ "notes": "The BOS-after-lung-transplant CED indication required an approved study by April 30, 2014, and says the NCD would otherwise expire for BOS; its current status cannot be read from the text, so no case tests BOS.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Palliative treatment of skin manifestations of CTCL that has not responded to other therapy",
+   "span": "Palliative treatment of skin manifestations of cutaneous T-cell lymphoma that has not responded to other therapy.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "Acute cardiac allograft rejection refractory to standard immunosuppressive drug treatment",
+   "span": "Patients with acute cardiac allograft rejection whose disease is refractory to standard immunosuppressive drug treatment",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "Chronic GVHD refractory to standard immunosuppressive drug treatment",
+   "span": "Patients with chronic graft versus host disease whose disease is refractory to standard immunosuppressive drug treatment.",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "All other indications non-covered",
+   "span": "All other indications for extracorporeal photopheresis not otherwise indicated above as covered remain non-covered.",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "CTCL skin disease that failed several prior therapies; ECP is palliative.",
+   "vignette": "72-year-old man with mycosis fungoides (cutaneous T-cell lymphoma, ICD-10-CM C84.00), stage IIB, with widespread patches, plaques and two tumors on the trunk and thighs. Over the past 3 years his skin disease did not respond to high-potency topical corticosteroids, narrowband UVB phototherapy, or 6 months of oral bexarotene. His dermatologist requests extracorporeal photopheresis as palliative treatment of the skin lesions and pruritus."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Newly diagnosed CTCL with no prior therapy: coverage requires disease that has not responded to other therapy.",
+   "vignette": "68-year-old woman with Sézary syndrome (ICD-10-CM C84.10) diagnosed 2 weeks ago with erythroderma, intense pruritus and circulating Sézary cells. She has received no treatment of any kind for the lymphoma. Her dermatologist requests extracorporeal photopheresis as the initial (first) treatment for her skin manifestations because of its favorable side-effect profile."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Acute cardiac allograft rejection that persisted despite pulse steroids and antithymocyte globulin.",
+   "vignette": "66-year-old man 4 months after orthotopic heart transplantation, maintained on tacrolimus, mycophenolate and prednisone. Endomyocardial biopsy shows acute cellular rejection grade 2R. He received 3 days of pulse intravenous methylprednisolone, then a 7-day course of antithymocyte globulin; repeat biopsy still shows grade 2R rejection with new mild LV dysfunction. His transplant cardiologist requests extracorporeal photopheresis."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C2"
+   ],
+   "missing": [],
+   "note": "First episode of acute cardiac rejection, no standard treatment tried yet: not refractory.",
+   "vignette": "70-year-old woman 6 weeks after heart transplantation on tacrolimus, mycophenolate and prednisone. A routine surveillance biopsy yesterday shows acute cellular rejection grade 2R, her first rejection episode. No augmented immunosuppression has been given yet. Her team requests extracorporeal photopheresis to begin this week as the initial treatment of the rejection, in place of pulse corticosteroids."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Refractory acute rejection of a kidney (not cardiac) allograft is not a covered indication.",
+   "vignette": "67-year-old man 5 months after deceased-donor kidney transplantation with biopsy-proven acute cellular rejection. The rejection did not respond to pulse methylprednisolone or a full course of antithymocyte globulin, and creatinine continues to rise. His nephrologist requests extracorporeal photopheresis for the steroid- and antibody-refractory renal allograft rejection."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Chronic GVHD refractory to steroids and a calcineurin inhibitor.",
+   "vignette": "65-year-old woman 14 months after allogeneic stem cell transplantation for AML, now with chronic graft-versus-host disease (ICD-10-CM D89.811) involving skin sclerosis, oral lichenoid changes and ocular dryness. Her disease progressed despite 3 months of prednisone 1 mg/kg combined with tacrolimus, and did not improve after adding sirolimus. Her transplant physician requests extracorporeal photopheresis."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Steroid-refractory ACUTE GVHD: only chronic GVHD is covered.",
+   "vignette": "63-year-old man 35 days after allogeneic stem cell transplantation with acute graft-versus-host disease (ICD-10-CM D89.810) grade III of skin and gut. He has not responded to 7 days of methylprednisolone 2 mg/kg/day plus tacrolimus. There are no features of chronic GVHD. His transplant physician requests extracorporeal photopheresis for steroid-refractory acute GVHD."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "Chronic GVHD, but nothing documents what immunosuppression has been tried or that the disease is refractory.",
+   "vignette": "69-year-old woman 2 years after allogeneic stem cell transplantation for myelodysplastic syndrome, referred with chronic graft-versus-host disease (ICD-10-CM D89.811) of the skin and mouth. The referral consists of a one-page consult note describing the skin and oral findings and requesting extracorporeal photopheresis. The note does not state what immunosuppressive treatment, if any, she has received for GVHD, or how the disease responded; no medication list or prior treatment records are included."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Refractory Crohn's disease is not a listed indication; all other indications are non-covered.",
+   "vignette": "66-year-old man with ileocolonic Crohn's disease (ICD-10-CM K50.80) refractory to corticosteroids, azathioprine, infliximab, vedolizumab and ustekinumab. Surgery has been declined. His gastroenterologist requests extracorporeal photopheresis as an immunomodulatory therapy."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C1"
+   ],
+   "note": "CTCL skin disease, but there is no record of prior therapy or response, so 'not responded to other therapy' cannot be confirmed.",
+   "vignette": "74-year-old man with mycosis fungoides (ICD-10-CM C84.00) with plaques covering about 30% of his body surface area, referred by an outside dermatologist. The request for extracorporeal photopheresis as palliative treatment of the skin lesions states 'prior therapies per outside records'; those records were not received, and the submitted documentation contains only the biopsy report and photographs of the lesions."
+  }
+ ]
+}

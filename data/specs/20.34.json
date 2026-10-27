@@ -1,0 +1,147 @@
+{
+ "ncd": "20.34",
+ "service": "Percutaneous left atrial appendage closure (LAAC)",
+ "notes": "CHA2DS2-VASc: CHF 1, HTN 1, age >=75 2, DM 1, stroke/TIA 2, vascular 1, age 65-74 1, female 1. CHADS2: CHF 1, HTN 1, age >75 1, DM 1, stroke/TIA 2.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "Non-valvular atrial fibrillation",
+   "span": "covers percutaneous LAAC for non-valvular atrial fibrillation (NVAF) through Coverage with Evidence Development (CED)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C2",
+   "text": "FDA PMA device used for its approved indication",
+   "span": "LAAC devices are covered when the device has received Food and Drug Administration (FDA) Premarket Approval (PMA) for that device\u2019s FDA-approved indication",
+   "type": "device"
+  },
+  {
+   "id": "C3",
+   "text": "CHADS2 >= 2 or CHA2DS2-VASc >= 3",
+   "span": "A CHADS2 score \u2265 2 (Congestive heart failure, Hypertension, Age > 75, Diabetes, Stroke/transient ischemia attack/thromboembolism) or CHA2DS2-VASc score \u2265 3",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Formal shared decision making with an independent non-interventional physician using an evidence-based tool, documented",
+   "span": "A formal shared decision making interaction with an independent non-interventional physician using an evidence-based decision tool on oral anticoagulation in patients with NVAF prior to LAAC. Additionally, the shared decision making interaction must be documented in the medical record.",
+   "type": "documentation"
+  },
+  {
+   "id": "C5",
+   "text": "Suitable for short-term warfarin but unable to take long-term oral anticoagulation (second-line only)",
+   "span": "A suitability for short-term warfarin but deemed unable to take long-term oral anticoagulation following the conclusion of shared decision making, as LAAC is only covered as a second line therapy to oral anticoagulants",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "Multidisciplinary team; hospital with established SHD and/or EP program",
+   "span": "The procedure must be furnished in a hospital with an established structural heart disease (SHD) and/or electrophysiology (EP) program",
+   "type": "provider"
+  },
+  {
+   "id": "C7",
+   "text": "Operator: manufacturer training; >= 25 transseptal procedures; continuing >= 25 per 2 years incl. >= 12 LAAC",
+   "span": "Has performed \u2265 25 interventional cardiac procedures that involve transeptal puncture through an intact septum",
+   "type": "provider"
+  },
+  {
+   "id": "C8",
+   "text": "Patient enrolled in a CMS-approved prospective national audited registry",
+   "span": "The patient is enrolled in, and the MDT and hospital must participate in, a prospective, national, audited registry",
+   "type": "documentation"
+  },
+  {
+   "id": "C9",
+   "text": "Non-covered outside CED",
+   "span": "LAAC is non-covered for the treatment of NVAF when not furnished under CED according to the above-noted criteria",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "CHA2DS2-VASc 4 (age>=75 2, female 1, HTN 1); recurrent GI bleeding precludes long-term OAC.",
+   "vignette": "78-year-old woman with non-valvular atrial fibrillation and hypertension. She had two hospitalizations for gastrointestinal bleeding on apixaban; her cardiologist and gastroenterologist judge her unable to take long-term oral anticoagulation, though a short course of warfarin after the procedure is acceptable. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "CHA2DS2-VASc 2 (age 65-74 1, HTN 1); CHADS2 1. Below both thresholds.",
+   "vignette": "66-year-old man with non-valvular atrial fibrillation and hypertension; no heart failure, diabetes, stroke/TIA, or vascular disease. He had a major traumatic intracranial hemorrhage on rivaroxaban and is deemed unable to take long-term oral anticoagulation, but could tolerate short-term warfarin. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "Boundary: CHA2DS2-VASc exactly 3 (age 65-74 1, female 1, HTN 1) although CHADS2 is only 1.",
+   "vignette": "68-year-old woman with non-valvular atrial fibrillation and hypertension; no heart failure, diabetes, stroke/TIA, or vascular disease. She has a bleeding disorder that led to a life-threatening hemorrhage on anticoagulation; her hematologist judges her unable to take long-term oral anticoagulation but able to take short-term warfarin. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5"
+   ],
+   "missing": [],
+   "note": "Tolerates apixaban; LAAC requested for convenience. LAAC is second-line only.",
+   "vignette": "74-year-old man with non-valvular atrial fibrillation, hypertension, diabetes, and a prior TIA. He has taken apixaban for 4 years without bleeding or side effects and has no contraindication to continuing it, but would prefer a one-time procedure to avoid daily medication. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C4"
+   ],
+   "missing": [],
+   "note": "Shared decision making was done by the implanting electrophysiologist, not an independent non-interventional physician.",
+   "vignette": "80-year-old woman with non-valvular atrial fibrillation, heart failure, and hypertension, with recurrent subdural hematomas on warfarin; she cannot take long-term oral anticoagulation but could take short-term warfarin. The shared decision-making conversation, using an evidence-based decision tool, was conducted and documented by the electrophysiologist who will implant the device; no other physician was involved. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "No record of any shared decision-making interaction.",
+   "vignette": "76-year-old man with non-valvular atrial fibrillation, hypertension, and prior ischemic stroke, with recurrent major bleeding from angiodysplasia on two different anticoagulants. He is unable to take long-term oral anticoagulation but can take short-term warfarin. The chart contains the referral, imaging, and procedure consent, but no documentation of a shared decision-making interaction about anticoagulation. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C7"
+   ],
+   "missing": [],
+   "note": "Operator has only 15 lifetime transseptal procedures (needs >= 25).",
+   "vignette": "79-year-old woman with non-valvular atrial fibrillation, hypertension, and diabetes, with recurrent GI bleeding on anticoagulation; unable to take long-term oral anticoagulation, able to take short-term warfarin. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed 15 transseptal procedures in total, including 6 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Hospital participates in no registry, so patient cannot be enrolled (CED requirement).",
+   "vignette": "77-year-old man with non-valvular atrial fibrillation, heart failure, and hypertension, with a prior intracerebral hemorrhage on warfarin; unable to take long-term oral anticoagulation, able to take short-term warfarin. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The hospital does not participate in any LAAC registry, and the patient will not be enrolled in one."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C1"
+   ],
+   "missing": [],
+   "note": "Rheumatic moderate-severe mitral stenosis: valvular AF, not NVAF.",
+   "vignette": "72-year-old woman with atrial fibrillation in the setting of rheumatic moderate-to-severe mitral stenosis, plus hypertension and diabetes. She had a major bleed on warfarin and is considered unable to take long-term oral anticoagulation but able to take short-term warfarin. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "CHADS2 >= 3 (age>75, DM, HTN) and CHA2DS2-VASc >= 4 without counting the hemorrhage; amyloid angiopathy-related hemorrhage precludes OAC.",
+   "vignette": "82-year-old man with non-valvular atrial fibrillation, diabetes, and hypertension, with cerebral amyloid angiopathy and a prior lobar intracerebral hemorrhage; neurology advises against long-term oral anticoagulation, though a brief course of warfarin after implant is acceptable. Before the referral, an independent general internist (not involved in the procedure) held a shared decision-making visit using an evidence-based decision tool on oral anticoagulation, documented in the medical record. The planned device is an FDA PMA-approved LAAC device used for its FDA-approved indication. A multidisciplinary heart team manages the patient before and after the procedure at a hospital with an established electrophysiology and structural heart program. The implanting electrophysiologist completed the manufacturer's training, has performed over 100 transseptal procedures, and in the last 2 years performed 60 transseptal procedures including 30 LAACs. The patient will be enrolled in a CMS-approved national LAAC registry in which the hospital and team participate."
+  }
+ ]
+}

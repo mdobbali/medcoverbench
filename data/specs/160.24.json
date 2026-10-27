@@ -1,0 +1,210 @@
+{
+ "ncd": "160.24",
+ "service": "Deep brain stimulation (DBS)",
+ "notes": "VIM criteria (C2-C4) and STN/GPi criteria (C4-C7, C14) differ: VIM does not require L-dopa response or advanced PD staging; STN/GPi is covered only for PD. Pacemakers/other implants and MRI/diathermy appear only as cautions, not exclusions. Psychosis and substance exclusions apply only when current; cognitive/depression exclusion applies only when it would be worsened by or interfere with benefit from DBS.",
+ "criteria": [
+  {
+   "id": "C1",
+   "text": "FDA-approved DBS device (or Category B IDE trial protocol)",
+   "span": "Medicare will only consider DBS devices to be reasonable and necessary if they are Food and Drug Administration (FDA) approved devices for DBS",
+   "type": "device"
+  },
+  {
+   "id": "C2",
+   "text": "VIM: ET (postural/kinetic hand tremor without other neurologic signs) or tremor-dominant idiopathic PD",
+   "span": "Diagnosis of ET based on postural or kinetic tremors of hand(s) without other neurologic signs, or diagnosis of idiopathic PD (presence of at least 2 cardinal PD features (tremor, rigidity or bradykinesia)) which is of a tremor-dominant form",
+   "type": "eligibility"
+  },
+  {
+   "id": "C3",
+   "text": "VIM: disabling tremor at least level 3 or 4 on Fahn-Tolosa-Marin despite optimal medical therapy",
+   "span": "Marked disabling tremor of at least level 3 or 4 on the Fahn-Tolosa-Marin Clinical Tremor Rating Scale (or equivalent scale) in the extremity intended for treatment, causing significant limitation in daily activities despite optimal medical therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C4",
+   "text": "Willing and able to cooperate during awake surgery and post-op adjustments",
+   "span": "Willingness and ability to cooperate during conscious operative procedure, as well as during post-surgical evaluations, adjustments of medications and stimulator settings",
+   "type": "eligibility"
+  },
+  {
+   "id": "C5",
+   "text": "STN/GPi: advanced idiopathic PD by Hoehn and Yahr or UPDRS III",
+   "span": "Advanced idiopathic PD as determined by the use of Hoehn and Yahr stage or Unified Parkinson's Disease Rating Scale (UPDRS) part III motor subscale",
+   "type": "eligibility"
+  },
+  {
+   "id": "C6",
+   "text": "STN/GPi: L-dopa responsive with clearly defined on periods",
+   "span": "L-dopa responsive with clearly defined \"on\" periods",
+   "type": "eligibility"
+  },
+  {
+   "id": "C7",
+   "text": "STN/GPi: persistent disabling symptoms or drug side effects despite optimal medical therapy",
+   "span": "Persistent disabling Parkinson's symptoms or drug side effects (e.g., dyskinesias, motor fluctuations, or disabling \"off\" periods) despite optimal medical therapy",
+   "type": "eligibility"
+  },
+  {
+   "id": "C8",
+   "text": "Exclusion: non-idiopathic PD or Parkinson-plus syndromes",
+   "span": "Non-idiopathic Parkinson's disease or \"Parkinson's Plus\" syndromes",
+   "type": "exclusion"
+  },
+  {
+   "id": "C9",
+   "text": "Exclusion: cognitive impairment, dementia or depression that would worsen or interfere",
+   "span": "Cognitive impairment, dementia or depression, which would be worsened by or would interfere with the patient's ability to benefit from DBS",
+   "type": "exclusion"
+  },
+  {
+   "id": "C10",
+   "text": "Exclusion: current psychosis, alcohol or drug abuse",
+   "span": "Current psychosis, alcohol abuse or other drug abuse",
+   "type": "exclusion"
+  },
+  {
+   "id": "C11",
+   "text": "Exclusion: previous movement disorder surgery in the affected basal ganglion",
+   "span": "Previous movement disorder surgery within the affected basal ganglion",
+   "type": "exclusion"
+  },
+  {
+   "id": "C12",
+   "text": "Movement disorders specialist involved in patient selection and post-procedure care",
+   "span": "Physicians specializing in movement disorders must be involved in both patient selection and post-procedure care",
+   "type": "provider"
+  },
+  {
+   "id": "C13",
+   "text": "Exclusion: structural lesion (basal ganglionic stroke, tumor, vascular malformation) as etiology of the movement disorder",
+   "span": "Structural lesions such as basal ganglionic stroke, tumor or vascular malformation as etiology of the movement disorder",
+   "type": "exclusion"
+  },
+  {
+   "id": "C14",
+   "text": "STN/GPi: diagnosis of PD with at least 2 cardinal features",
+   "span": "Diagnosis of PD based on the presence of at least 2 cardinal PD features (tremor, rigidity or bradykinesia)",
+   "type": "eligibility"
+  },
+  {
+   "id": "C15",
+   "text": "Exclusion: significant co-morbidities contraindicating DBS surgery or stimulation",
+   "span": "Significant medical, surgical, neurologic or orthopedic co-morbidities contraindicating DBS surgery or stimulation",
+   "type": "exclusion"
+  }
+ ],
+ "cases": [
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "VIM for tremor-dominant idiopathic PD at the exact FTM boundary (level 3). Poor L-dopa response of tremor and no H&Y are irrelevant for VIM; pacemaker is a caution only.",
+   "vignette": "70-year-old man with idiopathic Parkinson's disease for 6 years, tremor-dominant form, with rest and postural tremor of the right arm plus mild rigidity of the right wrist. His tremor has responded poorly to levodopa, pramipexole and trihexyphenidyl at optimized doses, and no Hoehn and Yahr stage is recorded. Right-arm tremor is level 3 on the Fahn-Tolosa-Marin scale; he can no longer write, button shirts or use utensils with his right hand. He has a dual-chamber cardiac pacemaker for sick sinus syndrome; cardiology and the DBS team have documented a plan for device interaction precautions. MoCA 27/30, no depression, psychosis or substance use, and no major comorbidities. Requesting left thalamic VIM DBS to treat the right arm. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "STN DBS with distractors: remitted depression judged not to be worsened or interfere; spinal cord stimulator is an 'other electronically controlled implant' caution only; remote surgery outside the brain.",
+   "vignette": "61-year-old woman with idiopathic Parkinson's disease for 11 years (bradykinesia, rigidity and rest tremor). Hoehn and Yahr stage 3 off medication; UPDRS III 47 off and 19 on in a formal levodopa challenge, with clearly defined on periods. On optimized levodopa, rasagiline, a dopamine agonist and amantadine she still has disabling dyskinesias and 4 hours a day of off time. She had major depression 9 years ago, treated and in sustained remission on sertraline; the neuropsychologist documents MoCA 28/30 and concludes her mood history would neither be worsened by DBS nor interfere with benefit. Past surgery: lumbar laminectomy and a thoracic spinal cord stimulator implanted 3 years ago for radicular pain; neurosurgery has documented a plan to manage the stimulator during and after DBS. No psychosis or substance use. Requesting bilateral STN DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "VIM for ET with remote (not current) alcohol use disorder; treated limb FTM 4; age 81 is not a criterion.",
+   "vignette": "81-year-old man with essential tremor for 30 years: postural and kinetic tremor of both hands with no other neurologic signs. Left-hand tremor is level 4 on the Fahn-Tolosa-Marin scale and right-hand tremor level 3; he is left-handed and cannot drink, eat or sign his name despite maximum tolerated propranolol, primidone and topiramate. He had alcohol use disorder in his 50s and has been abstinent for 15 years. MoCA 26/30 with normal neuropsychological testing for age; no depression or psychosis. He has well-controlled hypertension and a right knee replacement; anesthesia and neurosurgery find no contraindication to surgery. Requesting right thalamic VIM DBS, with the left hand as the extremity intended for treatment. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "covered",
+   "violated": [],
+   "missing": [],
+   "note": "GPi DBS; levodopa-induced hallucinations resolved 3 years ago (not current psychosis); incidental cerebellar infarct judged not a contraindication and not the etiology; post-implant MRI/diathermy avoidance is a caution.",
+   "vignette": "68-year-old man with idiopathic Parkinson's disease for 10 years (rigidity, bradykinesia and intermittent rest tremor). Hoehn and Yahr stage 3; UPDRS III 41 off and 17 on with clearly defined on periods. Despite optimized levodopa, entacapone and amantadine he has disabling peak-dose dyskinesias and motor fluctuations. Three years ago he had visual hallucinations after a dopamine agonist was started; they resolved when the agonist was stopped and have not recurred. MoCA 27/30, no depression, no substance use. Brain MRI shows a small chronic right cerebellar infarct that neurology judges unrelated to his parkinsonism and neurosurgery judges no contraindication to surgery or stimulation. Prior surgery: appendectomy and cataract extraction. He has been counseled to avoid diathermy and MRI after implantation. Requesting bilateral GPi DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C5",
+    "C14"
+   ],
+   "missing": [],
+   "note": "Target distinction: ET meets every VIM criterion, but STN DBS is covered only for PD.",
+   "vignette": "72-year-old woman with essential tremor: postural and kinetic tremor of both hands without other neurologic signs, level 4 on the Fahn-Tolosa-Marin scale in the right hand, unable to feed herself or write despite propranolol, primidone and gabapentin. No rigidity, bradykinesia or parkinsonian features; DaT imaging is normal. MoCA 29/30, no depression, psychosis or substance use, and no significant comorbidities. Her surgeon prefers the subthalamic target, and the request is for bilateral STN DBS for her essential tremor. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C6"
+   ],
+   "missing": [],
+   "note": "Target distinction: tremor-dominant PD with FTM 4 would meet VIM criteria, but GPi is requested and GPi requires L-dopa response with clearly defined on periods.",
+   "vignette": "63-year-old man with idiopathic Parkinson's disease for 5 years, tremor-dominant, with rest tremor of the right arm, rigidity and bradykinesia. Hoehn and Yahr stage 3; UPDRS III 38 off. Right-arm tremor is level 4 on the Fahn-Tolosa-Marin scale and keeps him from eating or writing despite optimized medical therapy. In a formal levodopa challenge his UPDRS III improved by 6% and his tremor did not change; he and his wife describe no clearly defined on periods at any dose. MoCA 28/30, no depression, psychosis or substance use, no significant comorbidities. Requesting left GPi DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C3"
+   ],
+   "missing": [],
+   "note": "Boundary in the treated extremity: the left hand (intended for treatment) is only level 2; the level 4 right hand is not the extremity being treated.",
+   "vignette": "69-year-old woman with essential tremor: postural and kinetic tremor of both hands without other neurologic signs, on maximum tolerated propranolol and primidone. Fahn-Tolosa-Marin ratings are level 4 in the right hand and level 2 in the left hand. She asks to have the left hand treated first because she works as a potter and relies on it to steady her work, though she manages all daily activities with it. MoCA 28/30, no depression, psychosis or substance use, and no significant comorbidities. Requesting unilateral right thalamic VIM DBS with the left hand as the extremity intended for treatment. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C8"
+   ],
+   "missing": [],
+   "note": "Parkinson-plus buried in the history: the referral header says PD, but the diagnosis was revised to MSA-P.",
+   "vignette": "60-year-old man referred with a header diagnosis of Parkinson's disease. He has rigidity and bradykinesia for 5 years with a good levodopa response and clearly defined on periods; Hoehn and Yahr stage 3, UPDRS III 40 off and 18 on, with disabling motor fluctuations and dyskinesias despite optimized levodopa, rasagiline and amantadine. He takes midodrine and has an indwelling urinary catheter. Last year's autonomic clinic note, after tilt-table and urodynamic testing, revised his diagnosis to probable multiple system atrophy, parkinsonian type, and the movement disorders neurologist agrees. MoCA 28/30, no depression, psychosis or substance use. Requesting bilateral STN DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C13",
+    "C2"
+   ],
+   "missing": [],
+   "note": "Structural lesion as etiology: right-hand tremor followed a left basal ganglia hemorrhage and is attributed to it; not ET or PD.",
+   "vignette": "57-year-old man with disabling rest, postural and kinetic tremor of the right arm, level 4 on the Fahn-Tolosa-Marin scale, unable to feed himself or write despite trials of levodopa, propranolol, primidone and clonazepam. Two years ago he had a left basal ganglia hemorrhagic stroke from hypertension; his right-sided weakness recovered fully, and the tremor began 5 months after the stroke. His neurologist attributes the tremor to the stroke. He has no rigidity or bradykinesia, no family history of tremor, MoCA 27/30, no depression, psychosis or substance use, and blood pressure is now well controlled. Requesting left thalamic VIM DBS to treat the right arm. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "not_covered",
+   "violated": [
+    "C11"
+   ],
+   "missing": [],
+   "note": "Prior left pallidotomy appears only in the surgical history list; bilateral GPi DBS includes the previously operated left GPi.",
+   "vignette": "66-year-old woman with idiopathic Parkinson's disease for 14 years (rest tremor, rigidity, bradykinesia). Hoehn and Yahr stage 3; UPDRS III 45 off and 20 on during a levodopa challenge, with clearly defined on periods. She has disabling dyskinesias and off periods despite optimized levodopa, opicapone, a dopamine agonist and amantadine. MoCA 27/30, no depression, psychosis or substance use. Surgical history: cholecystectomy (2004), left stereotactic radiofrequency pallidotomy (2017), bilateral cataract extraction (2021). Medical history: osteoporosis and hypothyroidism, both treated. Requesting bilateral GPi DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C3"
+   ],
+   "note": "No tremor rating scale score in the record; severity is only described in words, so the level 3-4 requirement is undocumented.",
+   "vignette": "74-year-old woman with essential tremor: postural and kinetic tremor of both hands without other neurologic signs. The referral letter describes the right-hand tremor as severe and says she has trouble writing and eating despite propranolol and primidone at maximum tolerated doses. No Fahn-Tolosa-Marin or other tremor rating scale score is recorded anywhere in the record. MoCA 28/30, no depression, psychosis or substance use, no significant comorbidities. Requesting left thalamic VIM DBS to treat the right hand. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C5"
+   ],
+   "note": "STN request with no Hoehn and Yahr stage or UPDRS III score, so advanced PD is not documented by the required scales.",
+   "vignette": "64-year-old man with idiopathic Parkinson's disease for 9 years (rest tremor, rigidity, bradykinesia). Clinic notes describe a robust levodopa response with clearly defined on periods and disabling motor fluctuations and dyskinesias despite optimized levodopa, safinamide, a dopamine agonist and amantadine. The notes are narrative; no Hoehn and Yahr stage or UPDRS score has been recorded. MoCA 28/30, no depression, psychosis or substance use, no significant comorbidities. Requesting bilateral STN DBS. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services. The patient is willing and able to cooperate during the awake procedure and with post-operative programming and medication adjustments."
+  },
+  {
+   "decision": "insufficient_documentation",
+   "violated": [],
+   "missing": [
+    "C4"
+   ],
+   "note": "Every criterion is documented except the patient's willingness and ability to cooperate during the conscious procedure and post-surgical adjustments; the record is simply silent.",
+   "vignette": "67-year-old woman with idiopathic Parkinson's disease, tremor-dominant form, with rest tremor and rigidity of the left arm. Left-arm tremor is level 4 on the Fahn-Tolosa-Marin scale and keeps her from dressing and eating with that hand despite optimized levodopa, a dopamine agonist and propranolol. MoCA 29/30, no depression, psychosis or substance use, no significant comorbidities. She has an implanted cardiac loop recorder; cardiology has documented precautions. Requesting right thalamic VIM DBS to treat the left arm. The device is FDA-approved for DBS. A movement disorders neurologist selected the patient and will manage post-procedure care. The neurosurgeon is trained in the procedure and experienced in movement disorder surgery, including DBS, and in stereotactic neurosurgery; the operative team has DBS training, and the hospital has MRI/CT for stereotactic targeting, a stereotactic operating room, and the needed support services."
+  }
+ ]
+}
