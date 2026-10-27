@@ -166,7 +166,7 @@ th { background: var(--accent); color: var(--on-accent); font-weight: 600; white
 tbody tr:nth-child(odd) { background: var(--paper-raised); }
 td { color: var(--ink-soft); }
 td:first-child { color: var(--ink); font-weight: 500; }
-td.n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink); }
+td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--ink); }
 
 /* Byline */
 .byline { border-top: 1px solid var(--rule); padding-top: 1.25rem; display: flex; flex-direction: column; gap: 0.25rem; }
@@ -422,23 +422,31 @@ td.n { text-align: right; font-variant-numeric: tabular-nums; color: var(--ink);
 </div></section>
 
 <section class="slide" id="results"><div class="in">
-  <p class="eyebrow">Smoke test · Qwen 2.5 7B Instruct · 506 of 513 cases</p>
-  <h2 class="title">The pipeline works end to end, and a small model is easy to fool</h2>
-  <div class="stats">
-    <div class="stat"><b>62.8%</b><span>accuracy</span></div>
-    <div class="stat hl"><b>22.0%</b><span>unsafe approval rate</span></div>
-    <div class="stat"><b>27.6%</b><span>over-denial rate</span></div>
-    <div class="stat"><b>70.7%</b><span>citation recall</span></div>
+  <p class="eyebrow">Baselines · 8 models · all 513 cases · temperature 0</p>
+  <h2 class="title">Strong models rarely approve what the policy denies</h2>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>Model</th><th>Accuracy</th><th>Unsafe approval</th><th>Over-denial</th><th>Citation recall</th><th>Missing-doc recall</th></tr></thead>
+    <tbody><tr><td>GPT-5 mini</td><td class="n">94.3%</td><td class="n">0.9%</td><td class="n">9.8%</td><td class="n">99.2%</td><td class="n">91%</td></tr><tr><td>Gemini 3.1 Flash Lite</td><td class="n">93.2%</td><td class="n">0.9%</td><td class="n">12.6%</td><td class="n">92.1%</td><td class="n">92%</td></tr><tr><td>Qwen 3.7 Plus</td><td class="n">92.2%</td><td class="n">0.9%</td><td class="n">12.1%</td><td class="n">96.3%</td><td class="n">84%</td></tr><tr><td>DeepSeek V3.1</td><td class="n">90.4%</td><td class="n">2.7%</td><td class="n">20.1%</td><td class="n">93.0%</td><td class="n">94%</td></tr><tr><td>Llama 3.3 70B</td><td class="n">88.5%</td><td class="n">8.8%</td><td class="n">12.1%</td><td class="n">87.6%</td><td class="n">90%</td></tr><tr><td>Qwen 2.5 72B</td><td class="n">84.6%</td><td class="n warn-t">17.4%</td><td class="n">9.2%</td><td class="n">92.7%</td><td class="n">93%</td></tr><tr><td>Qwen 2.5 7B</td><td class="n">63.0%</td><td class="n warn-t">21.5%</td><td class="n">27.6%</td><td class="n">71.0%</td><td class="n">18%</td></tr><tr><td>Llama 3.1 8B</td><td class="n">59.3%</td><td class="n warn-t">46.3%</td><td class="n">9.2%</td><td class="n">65.6%</td><td class="n">37%</td></tr></tbody>
+  </table></div>
+  <p class="body">Unsafe approval: predicted covered when the policy says otherwise. About $4.30 in total via OpenRouter. Labels are under review.</p>
+</div></section>
+
+<section class="slide deep" id="takeaways"><div class="in">
+  <p class="eyebrow">What the baselines say</p>
+  <h2 class="title">Strong models are close to the ceiling on single-policy cases. Small open models are not safe.</h2>
+  <div class="row">
+    <div class="card warn"><h3>The safety gap is large</h3><div class="c">Llama 3.1 8B approves 46% of cases the policy denies. The four strongest models approve under 3%.</div></div>
+    <div class="card"><h3>Accuracy isn't enough</h3><div class="c">Qwen 2.5 72B reaches 85% accuracy yet still approves 17% of denials: a ranking by accuracy alone would hide that.</div></div>
+    <div class="card accent"><h3>Next: make it harder</h3><div class="c">Seven cases defeat all four strongest models and go to reviewers first. Harder cases and the long-context track are where frontier models should separate.</div></div>
   </div>
   <div class="spacer"></div>
-  <p class="body">Macro-F1 0.55. Parse failures 0.6% (3 replies). One small open model, run only to prove the harness; the paper's baselines will span open and frontier models.</p>
 </div></section>
 
 <section class="slide band" id="errors"><div class="in">
-  <p class="eyebrow">What the model gets wrong</p>
+  <p class="eyebrow">What a small model gets wrong · Qwen 2.5 7B</p>
   <h2 class="title">The errors are the kind a reviewer would catch</h2>
   <div class="grid c2">
-    <div class="card warn"><h3>Missing documentation becomes denial</h3><div class="c">Of 88 missing-documentation cases scored, it called 65 not covered and got only 16 right.</div></div>
+    <div class="card warn"><h3>Missing documentation becomes denial</h3><div class="c">Of 90 missing-documentation cases, Qwen 2.5 7B called 67 not covered and got only 16 right.</div></div>
     <div class="card warn"><h3>Waiting periods ignored</h3><div class="c">Approved a defibrillator 21 days after a heart attack, against the policy's 40-day exclusion.</div></div>
     <div class="card"><h3>Exact boundaries denied</h3><div class="c">Rejected a CHA₂DS₂-VASc score of exactly 3 and an AHI of exactly 15, both of which qualify.</div></div>
     <div class="card"><h3>Exceptions missed</h3><div class="c">Demanded shared decision-making for a cardiac arrest survivor, where the policy waives it.</div></div>

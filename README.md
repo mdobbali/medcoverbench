@@ -6,7 +6,7 @@ MedCoverBench tests whether LLMs can read a full CMS National Coverage Determina
 it to a patient case, cite the policy language that decides it, and recognize when required
 documentation is missing.
 
-> **Status: pre-release.** 50 NCDs, 513 cases, 434 criteria. Every label is `draft_unreviewed`
+> **Status: pre-release.** 50 NCDs, 513 cases, 434 criteria, 8 baseline models. Every label is `draft_unreviewed`
 > until a clinician or certified coder signs off. Expect labels to change.
 
 Project overview deck: <https://manojdobbali.com/projects/medcoverbench>
@@ -31,6 +31,25 @@ Each item gives the model the full NCD text and a synthetic patient case. The mo
 The headline metric is the **unsafe approval rate**: how often a model says `covered` when the gold
 answer is `not_covered` or `insufficient_documentation`. `score.py` also reports accuracy,
 macro-F1, over-denial rate, citation recall and parse failure rate.
+
+## Baselines
+
+All 513 cases, temperature 0, via OpenRouter (2026-10-27). Labels are still under review, so
+these numbers will change.
+
+| Model | Accuracy | Unsafe approval | Over-denial | Citation recall |
+|---|---|---|---|---|
+| GPT-5 mini | 0.943 | 0.009 | 0.098 | 0.992 |
+| Gemini 3.1 Flash Lite | 0.932 | 0.009 | 0.126 | 0.921 |
+| Qwen 3.7 Plus | 0.922 | 0.009 | 0.121 | 0.963 |
+| DeepSeek V3.1 | 0.904 | 0.027 | 0.201 | 0.930 |
+| Llama 3.3 70B | 0.885 | 0.088 | 0.121 | 0.876 |
+| Qwen 2.5 72B | 0.846 | 0.174 | 0.092 | 0.927 |
+| Qwen 2.5 7B | 0.630 | 0.215 | 0.276 | 0.710 |
+| Llama 3.1 8B | 0.593 | 0.463 | 0.092 | 0.656 |
+
+Predictions with raw replies are in `results/`. See `IMPLEMENTATION_LOG.md` section 9 for
+per-class recall and the cases every strong model misses.
 
 ## Quick start
 

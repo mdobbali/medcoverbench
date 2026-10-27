@@ -1,0 +1,722 @@
+<title>MedCoverBench Label Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a reviewer's workbench. Policy and case list on the left, the case and its verdict in
+   the middle, the full NCD text on the right with the cited spans marked. Stacks on phones.
+   Palette follows the MedCoverBench deck (manojdobbali.com): dark-first, blue accent,
+   amber reserved for "needs attention". */
+:root {
+  color-scheme: dark;
+  --paper: #000000;
+  --raised: #0e1114;
+  --sunk: #07090b;
+  --ink: #f1f4f7;
+  --ink-soft: #a7afb8;
+  --ink-faint: #78808a;
+  --rule: #23282e;
+  --accent: #7fb0e8;
+  --accent-soft: #101f2e;
+  --on-accent: #061220;
+  --warn: #e0a458;
+  --warn-soft: #2a1d0c;
+  --good: #7cc4a0;
+  --good-soft: #0f2219;
+  --mark: rgb(224 164 88 / 0.22);
+  --mark-cited: rgb(127 176 232 / 0.18);
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --paper: #ffffff; --raised: #ffffff; --sunk: #f5f7f9; --ink: #111417; --ink-soft: #4b5158;
+    --ink-faint: #7b838b; --rule: #e3e7eb; --accent: #1d4e89; --accent-soft: #eaf0f8;
+    --on-accent: #ffffff; --warn: #8a4f08; --warn-soft: #fbf1e3; --good: #1f6b47; --good-soft: #e6f3ec;
+    --mark: rgb(138 79 8 / 0.16); --mark-cited: rgb(29 78 137 / 0.12);
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --paper: #ffffff; --raised: #ffffff; --sunk: #f5f7f9; --ink: #111417; --ink-soft: #4b5158;
+  --ink-faint: #7b838b; --rule: #e3e7eb; --accent: #1d4e89; --accent-soft: #eaf0f8;
+  --on-accent: #ffffff; --warn: #8a4f08; --warn-soft: #fbf1e3; --good: #1f6b47; --good-soft: #e6f3ec;
+  --mark: rgb(138 79 8 / 0.16); --mark-cited: rgb(29 78 137 / 0.12);
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #000000; --raised: #0e1114; --sunk: #07090b; --ink: #f1f4f7; --ink-soft: #a7afb8;
+  --ink-faint: #78808a; --rule: #23282e; --accent: #7fb0e8; --accent-soft: #101f2e;
+  --on-accent: #061220; --warn: #e0a458; --warn-soft: #2a1d0c; --good: #7cc4a0; --good-soft: #0f2219;
+  --mark: rgb(224 164 88 / 0.22); --mark-cited: rgb(127 176 232 / 0.18);
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body {
+  margin: 0; background: var(--paper); color: var(--ink);
+  font-family: var(--font-sans); font-size: 14px; line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  display: flex; flex-direction: column;
+}
+p, h1, h2, h3, ul, ol { margin: 0; }
+button, select, textarea, input { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.eyebrow { font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.faint { color: var(--ink-faint); }
+.mono { font-family: var(--font-mono); }
+
+/* Header */
+.top { border-bottom: 1px solid var(--rule); padding: 0.6rem 1rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+.top h1 { font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; letter-spacing: -0.01em; }
+.top .grow { flex: 1; }
+.meter { display: flex; align-items: center; gap: 0.6rem; min-width: 12rem; font-size: 0.8rem; color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.meter .track { flex: 1; height: 6px; background: var(--accent-soft); border-radius: 999px; overflow: hidden; min-width: 6rem; }
+.meter .fill { height: 100%; background: var(--accent); width: 0; transition: width 0.25s; }
+.pill-btn { background: transparent; border: 1px solid var(--rule); border-radius: 999px; padding: 0.3rem 0.8rem; cursor: pointer; font-size: 0.8rem; color: var(--ink-soft); }
+.pill-btn:hover { color: var(--accent); border-color: var(--accent); }
+.pill-btn[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+
+.banner { padding: 0.55rem 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--rule); background: var(--warn-soft); color: var(--ink); }
+.banner b { color: var(--warn); }
+
+/* Workbench */
+.bench { flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr; }
+.col { min-width: 0; min-height: 0; }
+.side { border-bottom: 1px solid var(--rule); background: var(--sunk); display: flex; flex-direction: column; }
+.side-head { padding: 0.75rem 1rem 0.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.filters { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+.side select { width: 100%; padding: 0.4rem 0.5rem; background: var(--raised); border: 1px solid var(--rule); border-radius: 6px; }
+.cases { list-style: none; padding: 0 0.5rem 0.75rem; display: flex; flex-direction: column; gap: 2px; max-height: 14rem; overflow: auto; }
+.cases button {
+  width: 100%; text-align: left; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.5rem;
+  background: transparent; border: 0; border-radius: 6px; padding: 0.35rem 0.6rem; cursor: pointer; color: var(--ink-soft);
+}
+.cases button:hover { background: var(--raised); color: var(--ink); }
+.cases button[aria-current="true"] { background: var(--accent-soft); color: var(--ink); }
+.cases .cid { font-family: var(--font-mono); font-size: 0.8rem; }
+.dot { width: 0.6rem; height: 0.6rem; border-radius: 50%; border: 1.5px solid var(--ink-faint); flex: none; }
+.dot.agree { background: var(--good); border-color: var(--good); }
+.dot.disagree { background: var(--warn); border-color: var(--warn); }
+.dot.unsure { background: transparent; border-color: var(--warn); border-style: dashed; }
+.side-foot { padding: 0.75rem 1rem; border-top: 1px solid var(--rule); font-size: 0.8rem; display: flex; flex-direction: column; gap: 0.35rem; }
+.side-foot input { width: 100%; padding: 0.35rem 0.5rem; background: var(--raised); border: 1px solid var(--rule); border-radius: 6px; }
+
+.main { padding: 1.25rem 1rem 2rem; display: flex; flex-direction: column; gap: 1.1rem; }
+.case-head { display: flex; flex-direction: column; gap: 0.35rem; }
+.case-head h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.45rem; line-height: 1.2; letter-spacing: -0.01em; text-wrap: balance; }
+.case-head .sub { color: var(--ink-soft); font-size: 0.85rem; }
+.vignette { background: var(--raised); border: 1px solid var(--rule); border-left: 3px solid var(--accent); border-radius: 0 8px 8px 0; padding: 0.9rem 1rem; font-size: 0.95rem; line-height: 1.6; max-width: 72ch; }
+.gold { display: flex; flex-direction: column; gap: 0.6rem; }
+.label-chip { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.85rem; font-weight: 500; padding: 0.25rem 0.65rem; border-radius: 999px; border: 1px solid currentColor; width: fit-content; }
+.label-chip.covered { color: var(--good); }
+.label-chip.not_covered { color: var(--ink); }
+.label-chip.insufficient_documentation { color: var(--warn); }
+.note { color: var(--ink-soft); max-width: 72ch; }
+.crit-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.crit { border: 1px solid var(--rule); border-radius: 8px; padding: 0.6rem 0.75rem; display: flex; flex-direction: column; gap: 0.3rem; background: var(--raised); }
+.crit .h { display: flex; gap: 0.5rem; align-items: baseline; flex-wrap: wrap; }
+.crit .tag { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--warn); }
+.crit .span { font-size: 0.85rem; color: var(--ink-soft); border-left: 2px solid var(--rule); padding-left: 0.6rem; }
+.crit button.jump { background: none; border: 0; padding: 0; color: var(--accent); cursor: pointer; font-size: 0.78rem; text-decoration: underline; text-underline-offset: 2px; }
+details.all-crit summary { cursor: pointer; color: var(--ink-soft); font-size: 0.85rem; }
+details.all-crit ul { margin-top: 0.5rem; }
+
+/* Verdict form */
+.form { border: 1px solid var(--rule); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.85rem; background: var(--raised); max-width: 72ch; }
+.form h3 { font-size: 0.95rem; font-weight: 600; }
+.verdicts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem; }
+.verdicts button { padding: 0.6rem 0.5rem; border-radius: 8px; border: 1px solid var(--rule); background: var(--paper); cursor: pointer; font-weight: 500; display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+.verdicts button small { font-size: 0.72rem; color: var(--ink-faint); font-weight: 400; font-family: var(--font-mono); }
+.verdicts button:hover { border-color: var(--accent); }
+.verdicts button[aria-pressed="true"][data-v="agree"] { background: var(--good-soft); border-color: var(--good); color: var(--good); }
+.verdicts button[aria-pressed="true"][data-v="disagree"] { background: var(--warn-soft); border-color: var(--warn); color: var(--warn); }
+.verdicts button[aria-pressed="true"][data-v="unsure"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field label, .field .lbl { font-size: 0.8rem; color: var(--ink-soft); }
+.field select, .field textarea { background: var(--paper); border: 1px solid var(--rule); border-radius: 6px; padding: 0.45rem 0.55rem; }
+.field textarea { min-height: 5rem; resize: vertical; }
+.checks { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; font-size: 0.85rem; color: var(--ink-soft); }
+.checks label { display: inline-flex; gap: 0.4rem; align-items: center; cursor: pointer; }
+.actions { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+.btn { border-radius: 999px; padding: 0.45rem 1rem; cursor: pointer; font-weight: 500; border: 1px solid var(--rule); background: transparent; color: var(--ink-soft); }
+.btn:hover { color: var(--accent); border-color: var(--accent); }
+.btn.primary { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
+.btn.primary:hover { filter: brightness(1.1); color: var(--on-accent); }
+.btn:disabled { opacity: 0.4; pointer-events: none; }
+.status { font-size: 0.8rem; color: var(--ink-faint); }
+.status.err { color: var(--warn); }
+.keys { font-size: 0.75rem; color: var(--ink-faint); }
+kbd { font-family: var(--font-mono); font-size: 0.72rem; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 0 0.3rem; }
+
+/* Policy pane */
+.policy { border-top: 1px solid var(--rule); padding: 1rem 1rem 2rem; display: flex; flex-direction: column; gap: 0.85rem; background: var(--sunk); }
+.policy h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.05rem; line-height: 1.3; }
+.policy .sec h4 { margin: 0 0 0.35rem; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); }
+.policy .txt { white-space: pre-wrap; font-size: 0.84rem; line-height: 1.6; color: var(--ink-soft); overflow-wrap: anywhere; }
+.policy mark { background: var(--mark-cited); color: var(--ink); border-radius: 2px; padding: 0 1px; }
+.policy mark.hit { background: var(--mark); box-shadow: inset 0 -2px 0 var(--warn); }
+.policy mark.flash { outline: 2px solid var(--warn); }
+.policy .notes { font-size: 0.82rem; border: 1px dashed var(--warn); border-radius: 8px; padding: 0.6rem 0.75rem; color: var(--ink-soft); }
+.policy a { color: var(--accent); }
+.legend { display: flex; gap: 1rem; flex-wrap: wrap; font-size: 0.75rem; color: var(--ink-faint); }
+.legend span { display: inline-flex; gap: 0.35rem; align-items: center; }
+.legend i { display: inline-block; width: 0.9rem; height: 0.7rem; border-radius: 2px; }
+
+/* Owner summary */
+.summary { padding: 1.25rem 1rem 2rem; display: flex; flex-direction: column; gap: 1rem; max-width: 70rem; }
+.summary h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.4rem; }
+.tbl { overflow-x: auto; border: 1px solid var(--rule); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; }
+th, td { text-align: left; padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { color: var(--ink-faint); font-weight: 600; font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--sunk); }
+td.n { text-align: right; font-variant-numeric: tabular-nums; }
+td a, td button.link { color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; font-family: var(--font-mono); font-size: 0.8rem; }
+.empty { color: var(--ink-faint); padding: 1rem 0; }
+
+@media (min-width: 1000px) {
+  body { overflow: hidden; }
+  .bench { grid-template-columns: 15rem minmax(0, 1fr) minmax(0, 0.9fr); }
+  .side { border-bottom: 0; border-right: 1px solid var(--rule); }
+  .cases { max-height: none; flex: 1; }
+  .main, .policy, .side, .summary { overflow: auto; }
+  .policy { border-top: 0; border-left: 1px solid var(--rule); }
+  .main { padding: 1.5rem 2rem 3rem; }
+  .bench.summary-mode { grid-template-columns: 15rem minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) { .meter .fill { transition: none; } }
+</style>
+
+<header class="top">
+  <h1>MedCoverBench <span class="faint">Label Review</span></h1>
+  <div class="meter" aria-live="polite"><span id="meter-text">0 / 0 reviewed</span><div class="track"><div class="fill" id="meter-fill"></div></div></div>
+  <div class="grow"></div>
+  <button type="button" class="pill-btn" id="tab-summary" aria-pressed="false" hidden>All reviewers</button>
+  <button type="button" class="pill-btn" id="theme">Light</button>
+</header>
+<div class="banner" id="banner" hidden></div>
+
+<div class="bench" id="bench">
+  <aside class="col side" aria-label="Cases">
+    <div class="side-head">
+      <label class="eyebrow" for="policy-select">Policy</label>
+      <select id="policy-select"></select>
+      <div class="filters" role="group" aria-label="Show">
+        <button type="button" class="pill-btn" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="pill-btn" data-filter="todo" aria-pressed="false">To review</button>
+        <button type="button" class="pill-btn" data-filter="flagged" aria-pressed="false">Disagree / unsure</button>
+      </div>
+    </div>
+    <ul class="cases" id="case-list"></ul>
+    <div class="side-foot">
+      <label for="credential" class="faint">Your credential (shown to the project owner)</label>
+      <input id="credential" placeholder="e.g. RN, CPC, MD (internal medicine)" maxlength="80">
+    </div>
+  </aside>
+
+  <main class="col main" id="main">
+    <p class="faint">Loading cases…</p>
+  </main>
+
+  <section class="col policy" id="policy" aria-label="Policy text"></section>
+
+  <section class="col summary" id="summary" hidden></section>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var root = document.documentElement;
+  var $ = function (id) { return document.getElementById(id); };
+  var LABELS = { covered: "covered", not_covered: "not_covered", insufficient_documentation: "insufficient_documentation" };
+  var DECISION_TEXT = {
+    covered: "Every applicable criterion is met and documented.",
+    not_covered: "The facts show at least one applicable criterion is not met.",
+    insufficient_documentation: "Nothing is shown to be violated, but required documentation is missing."
+  };
+
+  /* ---------- theme ---------- */
+  var themeBtn = $("theme");
+  function isDark() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t === "dark";
+    return !window.matchMedia("(prefers-color-scheme: light)").matches;
+  }
+  function themeLabel() { themeBtn.textContent = isDark() ? "Light" : "Dark"; }
+  try { var st = localStorage.getItem("mcb-review-theme"); if (st) root.setAttribute("data-theme", st); } catch (e) {}
+  themeLabel();
+  themeBtn.addEventListener("click", function () {
+    var n = isDark() ? "light" : "dark";
+    root.setAttribute("data-theme", n);
+    try { localStorage.setItem("mcb-review-theme", n); } catch (e) {}
+    themeLabel();
+  });
+
+  /* ---------- state ---------- */
+  var DATA = null;
+  var byNcd = {};
+  var reviews = {};          // caseId -> review body (this viewer's)
+  var current = null;        // case id
+  var policyNcd = null;
+  var filter = "all";
+  var draft = null;          // {verdict, decision, comment, flags}
+  var store = { db: null, uid: null, mode: "local", user: null };
+  var saving = false;
+
+  function banner(html) { var b = $("banner"); b.innerHTML = html; b.hidden = !html; }
+
+  /* ---------- storage: shared db when available, else this browser only ---------- */
+  function localLoad() {
+    try { var s = localStorage.getItem("mcb-review-local"); return s ? JSON.parse(s) : {}; } catch (e) { return {}; }
+  }
+  function localSave() {
+    try { localStorage.setItem("mcb-review-local", JSON.stringify(reviews)); } catch (e) {}
+  }
+  function casesRef() { return store.db.collection("reviews/" + store.uid + "/cases"); }
+
+  function initStore() {
+    var c = window.claude;
+    if (!c || typeof c.use !== "function") { useLocal("This page is open outside Claude, so reviews are kept in this browser only."); return; }
+    Promise.all([c.use("db"), c.use("user")]).then(function (res) {
+      var db = res[0], user = res[1];
+      store.user = user;
+      if (!db || !user) { useLocal("Saving to the shared review store isn't available here. Reviews are kept in this browser only."); return; }
+      return user.id().then(function (uid) {
+        if (!uid) { useLocal("Sign in to claude.ai to save reviews. Until then they are kept in this browser only."); return; }
+        store.db = db; store.uid = uid; store.mode = "shared";
+        banner("");
+        casesRef().onSnapshot(function (snap) {
+          var next = {};
+          snap.docs.forEach(function (d) { if (d.exists) next[d.id] = d.data(); });
+          reviews = next;
+          refreshList(); refreshMeter();
+          if (current && !draftDirty()) loadDraft(current);
+        }, function (err) {
+          banner("<b>Reviews stopped syncing.</b> Reload the page to reconnect. (" + esc(err.code) + ")");
+        });
+        db.doc("reviews/" + uid).get().then(function (s) {
+          if (s.exists && s.data().credential) $("credential").value = s.data().credential;
+        }).catch(function () {});
+        user.isOwner().then(function (own) { if (own) { $("tab-summary").hidden = false; } });
+      });
+    }).catch(function () { useLocal("Saving to the shared review store isn't available here. Reviews are kept in this browser only."); });
+  }
+  function useLocal(msg) {
+    store.mode = "local";
+    reviews = localLoad();
+    banner("<b>Not shared.</b> " + esc(msg));
+    refreshList(); refreshMeter();
+    if (current) loadDraft(current);
+  }
+
+  function saveReview(id, body) {
+    body.updatedAt = new Date().toISOString();
+    body.gold = caseById(id).decision;
+    if (store.mode !== "shared") {
+      reviews[id] = body; localSave();
+      return Promise.resolve();
+    }
+    var meta = store.db.doc("reviews/" + store.uid);
+    var first = Object.keys(reviews).length === 0;
+    return casesRef().doc(id).set(body).then(function () {
+      reviews[id] = body;
+      if (first) return meta.set({ credential: $("credential").value.trim(), started: body.updatedAt });
+    });
+  }
+
+  var credTimer = null;
+  $("credential").addEventListener("input", function () {
+    if (store.mode !== "shared") return;
+    clearTimeout(credTimer);
+    credTimer = setTimeout(function () {
+      store.db.doc("reviews/" + store.uid).set({ credential: $("credential").value.trim(), started: new Date().toISOString() }).catch(function () {});
+    }, 900);
+  });
+
+  /* ---------- helpers ---------- */
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function caseById(id) { return DATA.casesById[id]; }
+  function critMap(ncd) { var m = {}; DATA.criteria[ncd].forEach(function (c) { m[c.id] = c; }); return m; }
+  function ncdKey(n) { return n.split(".").map(Number); }
+
+  /* Build a tolerant regex for a verbatim span: whitespace, hyphens and curly quotes vary. */
+  function spanRegex(span) {
+    var words = span.trim().split(/[\s\u2010-\u2014-]+/).filter(Boolean).map(function (w) {
+      return w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/['\u2018\u2019]/g, "['\u2018\u2019]").replace(/["\u201c\u201d]/g, '["\u201c\u201d]');
+    });
+    return new RegExp(words.join("[\\s\\u2010-\\u2014-]+"), "i");
+  }
+
+  /* ---------- rendering ---------- */
+  function fillPolicySelect() {
+    var sel = $("policy-select");
+    sel.innerHTML = Object.keys(DATA.policies).sort(function (a, b) {
+      var x = ncdKey(a), y = ncdKey(b);
+      for (var i = 0; i < Math.max(x.length, y.length); i++) { var d = (x[i] || 0) - (y[i] || 0); if (d) return d; }
+      return 0;
+    }).map(function (n) {
+      return '<option value="' + esc(n) + '">' + esc(n + " · " + DATA.policies[n].title) + "</option>";
+    }).join("");
+    sel.addEventListener("change", function () { selectPolicy(sel.value, true); });
+  }
+
+  function visibleCases() {
+    return byNcd[policyNcd].filter(function (c) {
+      var r = reviews[c.id];
+      if (filter === "todo") return !r;
+      if (filter === "flagged") return r && r.verdict !== "agree";
+      return true;
+    });
+  }
+
+  function refreshList() {
+    if (!policyNcd) return;
+    var list = $("case-list");
+    var items = visibleCases();
+    if (!items.length) { list.innerHTML = '<li class="faint" style="padding:0.5rem 0.6rem">No cases in this view.</li>'; return; }
+    list.innerHTML = items.map(function (c) {
+      var r = reviews[c.id];
+      return '<li><button type="button" data-id="' + esc(c.id) + '" aria-current="' + (c.id === current) + '">' +
+        '<span class="cid">' + esc(c.id) + '</span><span class="dot ' + (r ? r.verdict : "") + '" title="' + (r ? r.verdict : "not reviewed") + '"></span></button></li>';
+    }).join("");
+  }
+  $("case-list").addEventListener("click", function (e) {
+    var b = e.target.closest("button[data-id]");
+    if (b) openCase(b.getAttribute("data-id"));
+  });
+
+  function refreshMeter() {
+    var total = DATA ? DATA.cases.length : 0;
+    var done = Object.keys(reviews).filter(function (k) { return DATA && DATA.casesById[k]; }).length;
+    $("meter-text").textContent = done + " / " + total + " reviewed";
+    $("meter-fill").style.width = total ? (done / total * 100) + "%" : "0";
+  }
+
+  function selectPolicy(ncd, openFirst) {
+    policyNcd = ncd;
+    $("policy-select").value = ncd;
+    renderPolicy();
+    refreshList();
+    if (openFirst) {
+      var first = visibleCases()[0] || byNcd[ncd][0];
+      openCase(first.id);
+    }
+  }
+
+  function renderPolicy() {
+    var p = DATA.policies[policyNcd];
+    var cm = DATA.criteria[policyNcd];
+    var html = '<p class="eyebrow">NCD ' + esc(policyNcd) + ' · full text the model sees</p>' +
+      '<h3>' + esc(p.title) + '</h3>' +
+      '<div class="legend"><span><i style="background:var(--mark-cited)"></i>Any checklist criterion</span><span><i style="background:var(--mark);box-shadow:inset 0 -2px 0 var(--warn)"></i>Cited by this case</span></div>';
+    if (p.notes) html += '<p class="notes"><b>Author notes for reviewers:</b> ' + esc(p.notes) + "</p>";
+    p.sections.forEach(function (s, i) {
+      html += '<div class="sec"><h4>' + esc(s[0]) + '</h4><div class="txt" id="sec-' + i + '">' + esc(s[1]) + "</div></div>";
+    });
+    html += '<p class="faint" style="font-size:0.8rem">Source: <a href="' + esc(p.url) + '" target="_blank" rel="noopener">CMS Medicare Coverage Database</a>, snapshot ' + esc(DATA.snapshot) + "</p>";
+    $("policy").innerHTML = html;
+
+    /* Wrap each criterion span in a <mark data-c=...>. Done on text nodes, so text stays escaped. */
+    cm.forEach(function (c) {
+      var re = spanRegex(c.span);
+      var nodes = $("policy").querySelectorAll(".txt");
+      for (var i = 0; i < nodes.length; i++) {
+        if (markIn(nodes[i], re, c.id)) break;
+      }
+    });
+  }
+  function markIn(container, re, cid) {
+    var walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT);
+    var n;
+    while ((n = walker.nextNode())) {
+      if (n.parentNode.nodeName === "MARK") continue;
+      var m = re.exec(n.nodeValue);
+      if (m) {
+        var after = n.splitText(m.index);
+        after.splitText(m[0].length);
+        var mark = document.createElement("mark");
+        mark.setAttribute("data-c", cid);
+        mark.title = cid;
+        after.parentNode.replaceChild(mark, after);
+        mark.appendChild(after);
+        return true;
+      }
+    }
+    return false;
+  }
+  function highlightCited(ids) {
+    var marks = $("policy").querySelectorAll("mark[data-c]");
+    for (var i = 0; i < marks.length; i++) marks[i].classList.toggle("hit", ids.indexOf(marks[i].getAttribute("data-c")) >= 0);
+  }
+  function jumpTo(cid) {
+    var m = $("policy").querySelector('mark[data-c="' + cid + '"]');
+    if (!m) return;
+    m.scrollIntoView({ block: "center", behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    m.classList.add("flash");
+    setTimeout(function () { m.classList.remove("flash"); }, 1400);
+  }
+
+  function critItem(c, tag, found) {
+    return '<li class="crit"><div class="h"><span class="mono">' + esc(c.id) + '</span>' +
+      (tag ? '<span class="tag">' + esc(tag) + "</span>" : "") +
+      '<span>' + esc(c.text) + "</span></div>" +
+      '<div class="span">“' + esc(c.span) + "”</div>" +
+      (found ? '<div><button type="button" class="jump" data-jump="' + esc(c.id) + '">Show in policy</button></div>' : "") + "</li>";
+  }
+
+  function openCase(id) {
+    current = id;
+    var c = caseById(id);
+    if (c.ncd !== policyNcd) selectPolicy(c.ncd, false);
+    var cm = critMap(c.ncd);
+    var cited = c.violated.concat(c.missing);
+    var idx = byNcd[c.ncd].indexOf(c);
+
+    var marked = {};
+    var ms = $("policy").querySelectorAll("mark[data-c]");
+    for (var i = 0; i < ms.length; i++) marked[ms[i].getAttribute("data-c")] = true;
+
+    var gold = '<div class="gold"><p class="eyebrow">Proposed label</p>' +
+      '<span class="label-chip ' + c.decision + '">' + esc(LABELS[c.decision]) + "</span>" +
+      '<p class="note">' + esc(c.note) + "</p>";
+    if (cited.length) {
+      gold += '<ul class="crit-list">' +
+        c.violated.map(function (k) { return critItem(cm[k], "violated", marked[k]); }).join("") +
+        c.missing.map(function (k) { return critItem(cm[k], "missing documentation", marked[k]); }).join("") + "</ul>";
+    } else {
+      gold += '<p class="faint">Covered: no criterion is violated or missing.</p>';
+    }
+    var others = DATA.criteria[c.ncd].filter(function (k) { return cited.indexOf(k.id) < 0; });
+    gold += '<details class="all-crit"><summary>Other checklist criteria for this policy (' + others.length + ")</summary>" +
+      '<ul class="crit-list">' + others.map(function (k) { return critItem(k, "", marked[k.id]); }).join("") + "</ul></details></div>";
+
+    $("main").innerHTML =
+      '<div class="case-head"><p class="eyebrow">Case ' + esc(c.id) + " · " + (idx + 1) + " of " + byNcd[c.ncd].length + " in NCD " + esc(c.ncd) + "</p>" +
+      "<h2>" + esc(DATA.policies[c.ncd].service) + "</h2>" +
+      '<p class="sub">' + esc(DATA.policies[c.ncd].title) + "</p></div>" +
+      '<div class="vignette">' + esc(c.vignette) + "</div>" + gold +
+      '<form class="form" id="form" novalidate>' +
+      "<h3>Is the proposed label correct under this NCD's text alone?</h3>" +
+      '<div class="verdicts" role="group" aria-label="Verdict">' +
+      '<button type="button" data-v="agree" aria-pressed="false">Agree<small>A</small></button>' +
+      '<button type="button" data-v="disagree" aria-pressed="false">Disagree<small>D</small></button>' +
+      '<button type="button" data-v="unsure" aria-pressed="false">Unsure<small>U</small></button></div>' +
+      '<div class="field" id="decision-field" hidden><label for="decision">Correct decision</label>' +
+      '<select id="decision"><option value="">Choose…</option>' +
+      Object.keys(LABELS).map(function (k) { return '<option value="' + k + '">' + k + " — " + esc(DECISION_TEXT[k]) + "</option>"; }).join("") +
+      "</select></div>" +
+      '<div class="field"><span class="lbl">Also flag</span><div class="checks">' +
+      '<label><input type="checkbox" id="f-cite"> Wrong criteria cited</label>' +
+      '<label><input type="checkbox" id="f-ambig"> Policy text is ambiguous</label>' +
+      '<label><input type="checkbox" id="f-real"> Vignette is clinically unrealistic</label>' +
+      '<label><input type="checkbox" id="f-lcd"> Depends on an LCD or billing rule</label></div></div>' +
+      '<div class="field"><label for="comment">Comment <span class="faint">(required for disagree or unsure)</span></label>' +
+      '<textarea id="comment" placeholder="What is wrong, and which policy language decides it?"></textarea></div>' +
+      '<div class="actions"><button type="submit" class="btn primary" id="save">Save and next</button>' +
+      '<button type="button" class="btn" id="prev">Previous</button>' +
+      '<span class="status" id="save-status" aria-live="polite"></span></div>' +
+      '<p class="keys"><kbd>A</kbd> <kbd>D</kbd> <kbd>U</kbd> choose · <kbd>Ctrl</kbd>+<kbd>Enter</kbd> save · <kbd>J</kbd> <kbd>K</kbd> next / previous</p>' +
+      "</form>";
+
+    $("main").scrollTop = 0;
+    highlightCited(cited);
+    loadDraft(id);
+    wireForm();
+    refreshList();
+    var cur = $("case-list").querySelector('[aria-current="true"]');
+    if (cur) cur.scrollIntoView({ block: "nearest" });
+    try { history.replaceState(null, "", "#" + id.replace(/[^A-Za-z0-9._~-]/g, "")); } catch (e) {}
+  }
+
+  function loadDraft(id) {
+    var r = reviews[id];
+    draft = r ? { verdict: r.verdict, decision: r.decision || "", comment: r.comment || "", flags: (r.flags || []).slice() } :
+      { verdict: "", decision: "", comment: "", flags: [] };
+    draft._saved = JSON.stringify(cleanDraft());
+    paintForm();
+    var s = $("save-status");
+    if (s) { s.className = "status"; s.textContent = r ? "Saved " + new Date(r.updatedAt).toLocaleString() : ""; }
+  }
+  function cleanDraft() { return { verdict: draft.verdict, decision: draft.decision, comment: draft.comment, flags: draft.flags.slice().sort() }; }
+  function draftDirty() { return draft && $("form") && JSON.stringify(cleanDraft()) !== draft._saved; }
+
+  var FLAGS = { "f-cite": "wrong_criteria", "f-ambig": "ambiguous_policy", "f-real": "unrealistic_vignette", "f-lcd": "lcd_dependency" };
+  function paintForm() {
+    if (!$("form")) return;
+    var vb = $("form").querySelectorAll(".verdicts button");
+    for (var i = 0; i < vb.length; i++) vb[i].setAttribute("aria-pressed", String(vb[i].getAttribute("data-v") === draft.verdict));
+    $("decision-field").hidden = draft.verdict !== "disagree";
+    $("decision").value = draft.decision;
+    $("comment").value = draft.comment;
+    Object.keys(FLAGS).forEach(function (k) { $(k).checked = draft.flags.indexOf(FLAGS[k]) >= 0; });
+  }
+  function setVerdict(v) {
+    draft.verdict = v;
+    if (v !== "disagree") draft.decision = "";
+    paintForm();
+    if (v === "disagree") $("decision").focus();
+    else if (v === "unsure") $("comment").focus();
+  }
+
+  function wireForm() {
+    var form = $("form");
+    form.querySelector(".verdicts").addEventListener("click", function (e) {
+      var b = e.target.closest("button[data-v]"); if (b) setVerdict(b.getAttribute("data-v"));
+    });
+    $("decision").addEventListener("change", function () { draft.decision = this.value; });
+    $("comment").addEventListener("input", function () { draft.comment = this.value; });
+    Object.keys(FLAGS).forEach(function (k) {
+      $(k).addEventListener("change", function () {
+        var f = FLAGS[k];
+        draft.flags = draft.flags.filter(function (x) { return x !== f; });
+        if (this.checked) draft.flags.push(f);
+      });
+    });
+    $("prev").addEventListener("click", function () { step(-1); });
+    form.addEventListener("submit", function (e) { e.preventDefault(); submit(); });
+    $("main").querySelectorAll("button[data-jump]").forEach(function (b) {
+      b.addEventListener("click", function () { jumpTo(b.getAttribute("data-jump")); });
+    });
+  }
+
+  function submit() {
+    if (saving) return;
+    var st = $("save-status");
+    st.className = "status err";
+    if (!draft.verdict) { st.textContent = "Choose Agree, Disagree or Unsure first."; return; }
+    if (draft.verdict === "disagree" && !draft.decision) { st.textContent = "Choose the correct decision."; $("decision").focus(); return; }
+    if (draft.verdict !== "agree" && !draft.comment.trim()) { st.textContent = "Add a comment explaining the problem."; $("comment").focus(); return; }
+    var id = current;
+    var body = cleanDraft();
+    body.comment = body.comment.trim();
+    saving = true; $("save").disabled = true;
+    st.className = "status"; st.textContent = "Saving…";
+    saveReview(id, body).then(function () {
+      saving = false;
+      draft._saved = JSON.stringify(cleanDraft());
+      refreshList(); refreshMeter();
+      step(1, true);
+    }).catch(function (err) {
+      saving = false; $("save").disabled = false;
+      st.className = "status err";
+      st.textContent = err && err.code === "invalid_argument"
+        ? "You don't have permission to save reviews here. Ask the project owner to give you Editor access."
+        : "Couldn't save. Check your connection and press Save again.";
+    });
+  }
+
+  function step(dir, afterSave) {
+    var list = byNcd[policyNcd];
+    var i = list.indexOf(caseById(current));
+    var next = null;
+    if (afterSave && filter === "todo") {
+      next = DATA.cases.filter(function (c) { return !reviews[c.id]; })[0] || null;
+    } else {
+      var j = i + dir;
+      if (j >= 0 && j < list.length) next = list[j];
+      else if (dir > 0) {
+        var all = $("policy-select").options;
+        for (var k = 0; k < all.length; k++) if (all[k].value === policyNcd && k + 1 < all.length) { next = byNcd[all[k + 1].value][0]; break; }
+      }
+    }
+    if (next) openCase(next.id);
+    else if (afterSave) { $("save-status").textContent = "Saved. That was the last case."; $("save").disabled = false; }
+  }
+
+  document.addEventListener("keydown", function (e) {
+    var t = e.target;
+    var typing = t && (t.isContentEditable || /INPUT|TEXTAREA|SELECT/.test(t.tagName));
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter") { if ($("form")) { e.preventDefault(); submit(); } return; }
+    if (typing || e.altKey || e.ctrlKey || e.metaKey || !$("form")) return;
+    var k = e.key.toLowerCase();
+    if (k === "a") setVerdict("agree");
+    else if (k === "d") setVerdict("disagree");
+    else if (k === "u") setVerdict("unsure");
+    else if (k === "j") step(1);
+    else if (k === "k") step(-1);
+  });
+
+  document.querySelectorAll("[data-filter]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      filter = b.getAttribute("data-filter");
+      document.querySelectorAll("[data-filter]").forEach(function (x) { x.setAttribute("aria-pressed", String(x === b)); });
+      refreshList();
+    });
+  });
+
+  /* ---------- owner summary: every reviewer's work ---------- */
+  var summaryOn = false;
+  $("tab-summary").addEventListener("click", function () {
+    summaryOn = !summaryOn;
+    this.setAttribute("aria-pressed", String(summaryOn));
+    $("bench").classList.toggle("summary-mode", summaryOn);
+    $("main").hidden = summaryOn; $("policy").hidden = summaryOn; $("summary").hidden = !summaryOn;
+    if (summaryOn) loadSummary();
+  });
+  function loadSummary() {
+    var el = $("summary");
+    el.innerHTML = '<p class="faint">Loading reviews…</p>';
+    store.db.collection("reviews").get().then(function (snap) {
+      var revs = snap.docs.filter(function (d) { return d.exists; });
+      if (!revs.length) { el.innerHTML = '<h2>All reviewers</h2><p class="empty">No one has saved a review yet.</p>'; return; }
+      return Promise.all(revs.map(function (d) {
+        return store.db.collection("reviews/" + d.id + "/cases").get().then(function (cs) {
+          return { id: d.id, meta: d.data(), items: cs.docs.filter(function (x) { return x.exists; }).map(function (x) { return { cid: x.id, r: x.data() }; }) };
+        });
+      })).then(function (rows) {
+        return store.user.profiles(rows.map(function (r) { return r.id; })).then(function (ps) { renderSummary(rows, ps); });
+      });
+    }).catch(function () { el.innerHTML = '<p class="status err">Couldn\'t load reviews. Try again in a moment.</p>'; });
+  }
+  function renderSummary(rows, ps) {
+    var el = $("summary");
+    var head = "<h2>All reviewers</h2>" +
+      '<div class="tbl"><table><thead><tr><th>Reviewer</th><th>Credential</th><th>Reviewed</th><th>Agree</th><th>Disagree</th><th>Unsure</th></tr></thead><tbody>' +
+      rows.map(function (r) {
+        var c = { agree: 0, disagree: 0, unsure: 0 };
+        r.items.forEach(function (x) { c[x.r.verdict] = (c[x.r.verdict] || 0) + 1; });
+        return "<tr><td></td><td>" + esc(r.meta.credential || "") + '</td><td class="n">' + r.items.length + '</td><td class="n">' + c.agree +
+          '</td><td class="n">' + c.disagree + '</td><td class="n">' + c.unsure + "</td></tr>";
+      }).join("") + "</tbody></table></div>";
+    var flagged = [];
+    rows.forEach(function (r) { r.items.forEach(function (x) { if (x.r.verdict !== "agree" || (x.r.flags || []).length) flagged.push({ who: r.id, cid: x.cid, r: x.r }); }); });
+    flagged.sort(function (a, b) { return a.cid < b.cid ? -1 : a.cid > b.cid ? 1 : 0; });
+    var list = '<h2 style="margin-top:0.5rem">Disagreements and flags <span class="faint">(' + flagged.length + ")</span></h2>" +
+      (flagged.length ? '<div class="tbl"><table><thead><tr><th>Case</th><th>Reviewer</th><th>Verdict</th><th>Proposed</th><th>Suggested</th><th>Flags</th><th>Comment</th></tr></thead><tbody>' +
+        flagged.map(function (f) {
+          return '<tr><td><button type="button" class="link" data-open="' + esc(f.cid) + '">' + esc(f.cid) + '</button></td><td data-who="' + esc(f.who) + '"></td><td>' + esc(f.r.verdict) +
+            "</td><td>" + esc(f.r.gold || "") + "</td><td>" + esc(f.r.decision || "") + "</td><td>" + esc((f.r.flags || []).join(", ")) + "</td><td>" + esc(f.r.comment || "") + "</td></tr>";
+        }).join("") + "</tbody></table></div>" : '<p class="empty">None yet.</p>');
+    el.innerHTML = head + list;
+    /* Names go in with textContent: they are other people's input. */
+    var cells = el.querySelectorAll("tbody tr td:first-child");
+    rows.forEach(function (r, i) { if (cells[i]) cells[i].textContent = (ps[r.id] && ps[r.id].name) || "Reviewer " + (i + 1); });
+    el.querySelectorAll("td[data-who]").forEach(function (td) {
+      var id = td.getAttribute("data-who"); var p = ps[id];
+      td.textContent = (p && p.name) || "Reviewer " + (rows.findIndex(function (r) { return r.id === id; }) + 1);
+    });
+    el.querySelectorAll("button[data-open]").forEach(function (b) {
+      b.addEventListener("click", function () { $("tab-summary").click(); openCase(b.getAttribute("data-open")); });
+    });
+  }
+
+  /* ---------- boot ---------- */
+  fetch("data.json").then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }).then(function (d) {
+    DATA = d;
+    DATA.casesById = {};
+    d.cases.forEach(function (c) { DATA.casesById[c.id] = c; (byNcd[c.ncd] = byNcd[c.ncd] || []).push(c); });
+    fillPolicySelect();
+    refreshMeter();
+    var hash = location.hash.slice(1);
+    var start = DATA.casesById[hash] ? hash : d.cases[0].id;
+    selectPolicy(DATA.casesById[start].ncd, false);
+    openCase(start);
+    initStore();
+  }).catch(function () {
+    $("main").innerHTML = '<p class="status err">The case data didn\'t load. Reload the page to try again.</p>';
+  });
+})();
+</script>

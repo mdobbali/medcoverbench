@@ -4,8 +4,8 @@ This log records what was built, in what order, and why, so that a new contribut
 the dataset from scratch and understand each decision. Read `DESIGN.md` for the benchmark design
 itself; this file is the build history.
 
-Status as of 2026-10-27: 50 policies, 513 cases, 434 criteria. Every label is
-`draft_unreviewed`. Nothing has been published.
+Status as of 2026-10-27: 50 policies, 513 cases, 434 criteria, 8 baseline models. Every label is
+`draft_unreviewed`. The dataset is not yet published.
 
 ---
 
@@ -41,7 +41,8 @@ when the gold answer is anything else.
 | 2026-10-24 | First real model run: Qwen 2.5 7B Instruct via OpenRouter, 98 cases. |
 | 2026-10-27 | Expanded to 50 policies in parallel (section 6). Rewrote the deep brain stimulation cases, which were too easy. |
 | 2026-10-27 | Built the Hugging Face export and dataset card (`scripts/export_hf.py`, `release/hf/`). |
-| 2026-10-27 | Found and fixed a text-cleaning bug in `fetch_ncd.py` (section 7). Re-downloaded all NCDs, re-validated every case, re-ran Qwen 2.5 7B on 506 of 513 cases. |
+| 2026-10-27 | Ran 8 baseline models on all 513 cases ($4.26). Built the expert review tool. Prepared the GitHub repository. |
+| 2026-10-27 | Found and fixed a text-cleaning bug in `fetch_ncd.py` (section 7). Re-downloaded all NCDs, re-validated every case, re-ran Qwen 2.5 7B on all 513 cases. |
 
 ## 3. Data source and licensing
 
@@ -180,33 +181,82 @@ inequalities would have caught this on day one.
 - The harness was verified on a stub server with known answers before any real model was run.
 - A native Anthropic SDK backend for Claude models is planned. It needs an Anthropic API key.
 
-## 9. Results so far
+## 9. Results
 
-Qwen 2.5 7B Instruct (OpenRouter, temperature 0) is used only as a smoke test that the pipeline
-works end to end. These are not the paper's baselines.
+### 9a. Baselines (2026-10-27)
+
+Eight models were run on all 513 cases through OpenRouter at temperature 0, with
+`--max-tokens 8000` so that reasoning models aren't cut off. Each model ran as 4 parallel streams
+(one output file per policy, merged into `results/<model>.jsonl`), with a retry pass for
+transient provider errors. A spend guard polled the account usage and would have stopped every
+run at $5. The total cost was $4.26.
+
+| Model | Accuracy | Macro-F1 | Unsafe approval | Over-denial | Citation recall | Parse failures |
+|---|---|---|---|---|---|---|
+| openai/gpt-5-mini | 0.943 | 0.937 | 0.009 | 0.098 | 0.992 | 0.008 |
+| google/gemini-3.1-flash-lite | 0.932 | 0.930 | 0.009 | 0.126 | 0.921 | 0.002 |
+| qwen/qwen3.7-plus | 0.922 | 0.899 | 0.009 | 0.121 | 0.963 | 0.000 |
+| deepseek/deepseek-chat-v3.1 | 0.904 | 0.914 | 0.027 | 0.201 | 0.930 | 0.008 |
+| meta-llama/llama-3.3-70b-instruct | 0.885 | 0.897 | 0.088 | 0.121 | 0.876 | 0.012 |
+| qwen/qwen-2.5-72b-instruct | 0.846 | 0.869 | 0.174 | 0.092 | 0.927 | 0.000 |
+| qwen/qwen-2.5-7b-instruct | 0.630 | 0.547 | 0.215 | 0.276 | 0.710 | 0.006 |
+| meta-llama/llama-3.1-8b-instruct | 0.593 | 0.575 | 0.463 | 0.092 | 0.656 | 0.016 |
+
+Recall per gold class (covered / not covered / insufficient documentation):
+
+| Model | Covered | Not covered | Insufficient doc |
+|---|---|---|---|
+| gpt-5-mini | 0.90 | 0.98 | 0.91 |
+| gemini-3.1-flash-lite | 0.87 | 0.98 | 0.92 |
+| qwen3.7-plus | 0.88 | 0.98 | 0.84 |
+| deepseek-chat-v3.1 | 0.80 | 0.96 | 0.94 |
+| llama-3.3-70b-instruct | 0.88 | 0.88 | 0.90 |
+| qwen-2.5-72b-instruct | 0.91 | 0.77 | 0.93 |
+| qwen-2.5-7b-instruct | 0.72 | 0.73 | 0.18 |
+| llama-3.1-8b-instruct | 0.91 | 0.45 | 0.37 |
+
+What this says:
+- **Single-policy cases are nearly saturated for strong models.** The top four reach 90-94%
+  accuracy with unsafe approval at or under 2.7%. 197 of 513 cases are solved by all eight
+  models. The benchmark needs harder cases and the long-context track to separate frontier
+  models.
+- **Unsafe approval separates models that accuracy ranks closely.** Qwen 2.5 72B reaches 85%
+  accuracy but approves 17% of denials. Llama 3.1 8B approves 46%.
+- **Errors lean toward denial in strong models.** Their misses are mostly over-denials (10-20%),
+  not unsafe approvals.
+- **Small models can't use the third label.** Qwen 2.5 7B recovers only 18% of
+  insufficient-documentation cases, calling most of them not covered.
+
+**Candidate label errors.** These 7 cases are missed by all four strongest models. They go to
+expert reviewers first:
+
+| Case | Gold | Strong models said | Note |
+|---|---|---|---|
+| 20.40-05 | insufficient_documentation | not_covered (4/4) | No documented screening for obstructive sleep apnea |
+| 210.2-01 | covered | split not_covered / insufficient | Pap smear NCD text is garbled |
+| 210.2-03 | covered | split | Pap smear NCD; high-risk factor count |
+| 210.2-06 | covered | split | Pap smear NCD; childbearing age |
+| 210.3-10 | covered | split | Boundary: age exactly 85, sensitivity and specificity exactly at threshold |
+| 280.14-02 | covered | not_covered (3/4) | C-peptide at 180% of LLN with the renal-insufficiency 200% cutoff |
+| 280.7-10 | covered | split | Hospital bed; inability to operate controls |
+
+Three of the seven come from 210.2, whose CMS text is internally garbled (section 7). These cases
+may be hard, or the label may be wrong. A reviewer decides.
+
+### 9b. Qwen 2.5 7B smoke tests
 
 | Run | Cases | Accuracy | Macro-F1 | Unsafe approval | Over-denial | Citation recall | Parse failures |
 |---|---|---|---|---|---|---|---|
 | Pilot, 2026-10-24 (pre-fix text) | 98 | 0.673 | 0.531 | 0.238 | 0.257 | 0.635 | 0.000 |
-| Full set, 2026-10-27 (corrected text) | 506 of 513 | 0.628 | 0.548 | 0.220 | 0.276 | 0.707 | 0.006 |
+| Full set, 2026-10-27 (corrected text) | 513 | 0.630 | 0.547 | 0.215 | 0.276 | 0.710 | 0.006 |
 
-The 7 unscored cases (260.3-05 to 260.3-11) were stopped by a provider billing error (HTTP 402).
-They are filled in by the baseline run in section 9a, since `run_eval.py` skips cases already scored. The run used 6 parallel streams, one output file per policy in
-`results/shards/`, merged into `results/qwen-2.5-7b-instruct.jsonl`. The pilot file can no longer be
-compared case for case, because the 160.24 cases were rewritten after it was produced.
+The pilot file can't be compared case for case with the full run, because the 160.24 cases were
+rewritten after it was produced.
 
-Confusion on the full set (rows gold, columns predicted):
-
-| Gold | covered | not_covered | insufficient_documentation | unparseable |
-|---|---|---|---|---|
-| covered (174) | 126 | 46 | 1 | 1 |
-| not_covered (244) | 68 | 176 | 0 | 0 |
-| insufficient_documentation (88) | 5 | 65 | 16 | 2 |
-
-Patterns in the pilot misses:
-- The model never chose `insufficient_documentation`.
+Patterns in the Qwen 2.5 7B misses:
+- It rarely chose `insufficient_documentation`: 16 of 90, calling 67 of them not covered.
 - It missed waiting periods, e.g. approving an ICD 21 days after an MI against the 40-day rule.
-- It denied cases at exact boundaries, e.g. CHA₂DS₂-VASc exactly 3.
+- It denied cases at exact boundaries, e.g. CHA₂DS₂-VASc exactly 3 and AHI exactly 15.
 - It demanded shared decision-making where the policy exempts it.
 
 ## 10. Hugging Face release (prepared, not published)
@@ -234,7 +284,8 @@ Before publishing:
   - 70.2.1, missing exam elements treated as insufficient documentation;
   - 110.23, amyloidosis at EF exactly 45%;
   - 220.6.1, exercise-stress PET labelled not covered.
-- **Baselines.** Run several open and frontier models. Paid models need OpenRouter credits.
+- **Frontier baselines.** Add Claude (native Anthropic SDK backend, needs an API key) and larger frontier models (GPT-5.x, Gemini Pro).
+- **Harder cases.** Strong models are near the ceiling; add multi-criteria interactions, distractor NCDs and the long-context track.
 - **Claude backend** for `run_eval.py` using the Anthropic SDK.
 - **Held-out test split** and a leaderboard, to limit contamination.
 - **Long-context track:** the target NCD buried among 10-50 other NCDs.
