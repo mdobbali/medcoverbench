@@ -58,7 +58,8 @@
    "violated": [],
    "missing": [],
    "note": "Low-risk postmenopausal woman whose last Pap smear was 36 months ago: no such test in the preceding two years.",
-   "vignette": "71-year-old postmenopausal woman seen by her nurse practitioner for a preventive visit. Her last Pap smear, 36 months ago, was negative, as were all prior Pap smears. She has had two lifetime sexual partners, began sexual activity at age 20, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear."
+   "vignette": "71-year-old postmenopausal woman seen by her nurse practitioner for a preventive visit. Her last Pap smear, 36 months ago, was negative, as were all prior Pap smears. She has had two lifetime sexual partners, began sexual activity at age 20, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "not_covered",
@@ -67,14 +68,16 @@
    ],
    "missing": [],
    "note": "Last Pap 13 months ago; she is low risk, postmenopausal (not of childbearing age), and no high-risk recommendation exists.",
-   "vignette": "68-year-old postmenopausal woman seen by her family physician for her annual visit. She had a negative Pap smear 13 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had one lifetime sexual partner, began sexual activity at age 22, has no history of sexually transmitted disease, and no DES exposure. The physician documents her as low risk and orders a repeat screening Pap smear as part of a routine annual exam."
+   "vignette": "68-year-old postmenopausal woman seen by her family physician for her annual visit. She had a negative Pap smear 13 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had one lifetime sexual partner, began sexual activity at age 22, has no history of sexually transmitted disease, and no DES exposure. The physician documents her as low risk and orders a repeat screening Pap smear as part of a routine annual exam. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "covered",
    "violated": [],
    "missing": [],
    "note": "Six lifetime partners (five or more) is a listed high-risk factor, and the physician recommends annual testing, so a Pap 12 months after the last is covered.",
-   "vignette": "66-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. Her documented history includes six lifetime sexual partners. She began sexual activity at age 18, has no history of sexually transmitted disease, and no DES exposure. Based on her history, the internist documents that she is at high risk for cervical cancer, recommends Pap smears more frequently than every two years, and orders a screening Pap smear today."
+   "vignette": "66-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. Her documented history includes six lifetime sexual partners. She began sexual activity at age 18, has no history of sexually transmitted disease, and no DES exposure. Based on her history, the internist documents that she is at high risk for cervical cancer, recommends Pap smears more frequently than every two years, and orders a screening Pap smear today. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "not_covered",
@@ -83,7 +86,8 @@
    ],
    "missing": [],
    "note": "Near miss: four lifetime partners is below the five-or-more threshold and no other risk factor applies, so the physician's recommendation of annual testing does not meet the high-risk condition; last Pap 14 months ago.",
-   "vignette": "69-year-old postmenopausal woman seen by her family physician. She had a negative Pap smear 14 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had four lifetime sexual partners, began sexual activity at age 19, has no history of sexually transmitted disease, and no DES exposure. The physician recommends annual Pap smears 'to be safe' and orders a screening Pap smear today."
+   "vignette": "69-year-old postmenopausal woman seen by her family physician. She had a negative Pap smear 14 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She has had four lifetime sexual partners, began sexual activity at age 19, has no history of sexually transmitted disease, and no DES exposure. The physician recommends annual Pap smears 'to be safe' and orders a screening Pap smear today. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "not_covered",
@@ -92,21 +96,24 @@
    ],
    "missing": [],
    "note": "Near miss: onset of sexual activity at 17 is not under 16; no other risk factor applies; last Pap 12 months ago.",
-   "vignette": "73-year-old postmenopausal woman seen by her nurse practitioner. She had a negative Pap smear 12 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She began sexual activity at age 17, has had two lifetime sexual partners, has no history of sexually transmitted disease, and no DES exposure. Citing her early start of sexual activity, the nurse practitioner documents her as high risk, recommends annual testing, and orders a screening Pap smear."
+   "vignette": "73-year-old postmenopausal woman seen by her nurse practitioner. She had a negative Pap smear 12 months ago and four negative Pap smears in the previous seven years, with no abnormal results ever. She began sexual activity at age 17, has had two lifetime sexual partners, has no history of sexually transmitted disease, and no DES exposure. Citing her early start of sexual activity, the nurse practitioner documents her as high risk, recommends annual testing, and orders a screening Pap smear. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "covered",
    "violated": [],
    "missing": [],
    "note": "Premenopausal woman of childbearing age (as determined by her physician) with an abnormal Pap 2 years ago, i.e., within the preceding 3 years; covered despite a Pap 11 months ago.",
-   "vignette": "42-year-old premenopausal woman entitled to Medicare through disability, seen by her gynecologist, who documents from her history that she is of childbearing age. A Pap smear 2 years ago showed a low-grade squamous intraepithelial lesion; her most recent Pap smear, 11 months ago, was negative. The gynecologist orders and collects a screening Pap smear today."
+   "vignette": "42-year-old premenopausal woman entitled to Medicare through disability, seen by her gynecologist, who documents from her history that she is of childbearing age. A Pap smear 2 years ago showed a low-grade squamous intraepithelial lesion; her most recent Pap smear, 11 months ago, was negative. The gynecologist orders and collects a screening Pap smear today. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "covered",
    "violated": [],
    "missing": [],
    "note": "Screening pelvic exam with clinical breast exam including exactly seven of the eleven elements; last pelvic exam and Pap 30 months ago.",
-   "vignette": "75-year-old postmenopausal woman seen by her family physician for a screening Pap smear and pelvic examination. Her last Pap smear and pelvic examination were 30 months ago and were normal. She is low risk, with one lifetime sexual partner and no history of sexually transmitted disease. The physician orders and performs both. The documented examination includes: inspection and palpation of both breasts; external genitalia; urethral meatus; vagina; cervix; uterus; and adnexa/parametria. A digital rectal examination, examination of the urethra, bladder, and anus and perineum were not performed."
+   "vignette": "75-year-old postmenopausal woman seen by her family physician for a screening Pap smear and pelvic examination. Her last Pap smear and pelvic examination were 30 months ago and were normal. She is low risk, with one lifetime sexual partner and no history of sexually transmitted disease. The physician orders and performs both. The documented examination includes: inspection and palpation of both breasts; external genitalia; urethral meatus; vagina; cervix; uterus; and adnexa/parametria. A digital rectal examination, examination of the urethra, bladder, and anus and perineum were not performed. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear and screening pelvic examination"
   },
   {
    "decision": "insufficient_documentation",
@@ -115,7 +122,8 @@
     "C2"
    ],
    "note": "Low-risk postmenopausal woman; the date of her last Pap smear is unknown, so it cannot be confirmed that none occurred in the preceding two years.",
-   "vignette": "70-year-old postmenopausal woman, new to the practice, seen by a nurse practitioner. She cannot recall when she last had a Pap smear and thinks it may have been 'a year or two ago' at a clinic that has since closed; no prior cervical cytology records are available. She has had one lifetime sexual partner, began sexual activity at age 21, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear."
+   "vignette": "70-year-old postmenopausal woman, new to the practice, seen by a nurse practitioner. She cannot recall when she last had a Pap smear and thinks it may have been 'a year or two ago' at a clinic that has since closed; no prior cervical cytology records are available. She has had one lifetime sexual partner, began sexual activity at age 21, has no history of sexually transmitted disease, and no DES exposure. The nurse practitioner orders and collects a screening Pap smear. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   },
   {
    "decision": "insufficient_documentation",
@@ -124,7 +132,8 @@
     "C3"
    ],
    "note": "The physician labels her high risk and recommends annual testing, but the record contains no history or findings supporting high risk; last Pap 12 months ago.",
-   "vignette": "67-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. The note reads 'High risk - annual Pap recommended' and the internist orders a screening Pap smear. The record contains no sexual history, no history of sexually transmitted disease, no prior Pap smear history beyond last year's result, and no information on DES exposure, and gives no reason for the high-risk label."
+   "vignette": "67-year-old postmenopausal woman seen by her internist. She had a negative Pap smear 12 months ago. The note reads 'High risk - annual Pap recommended' and the internist orders a screening Pap smear. The record contains no sexual history, no history of sexually transmitted disease, no prior Pap smear history beyond last year's result, and no information on DES exposure, and gives no reason for the high-risk label. The claim line carries the diagnosis code indicating the beneficiary's low- or high-risk status.",
+   "service": "Screening Pap smear"
   }
  ]
 }

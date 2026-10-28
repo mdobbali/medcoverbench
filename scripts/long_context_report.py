@@ -6,12 +6,14 @@ For each results file from run_eval.py --items, prints:
   - decision accuracy overall, when the named NCD is right, and when it is wrong
   - NCD accuracy, and for wrong NCDs, the share from the target's own chapter
   - decision accuracy at each target depth (0 = first policy in the library, 1 = last)
+  - 95% bootstrap confidence intervals for accuracy and unsafe approval rate
 
 Usage: python3 scripts/long_context_report.py results/long_context/*.jsonl
 """
 import glob
 import json
 import os
+import random
 import re
 import sys
 
@@ -33,6 +35,16 @@ def load():
     return gold, items
 
 
+def bootstrap_ci(values, reps=2000, seed=0):
+    """95% percentile interval for the mean of 0/1 values."""
+    if not values:
+        return float("nan"), float("nan")
+    rng = random.Random(seed)
+    n = len(values)
+    means = sorted(sum(rng.choice(values) for _ in range(n)) / n for _ in range(reps))
+    return means[int(0.025 * reps)], means[int(0.975 * reps) - 1]
+
+
 def pct(a, b):
     return "%5.1f%% (%d/%d)" % (100.0 * a / b, a, b) if b else "    -"
 
@@ -44,11 +56,15 @@ def main():
         right_ncd = wrong_ncd = right_ncd_ok = wrong_ncd_ok = same_chapter = 0
         by_depth = {}
         tokens = []
+        correct, unsafe = [], []
         for r in rows:
             it = items[r["id"]]
             case = gold[it["case_id"]]
             pred = r["prediction"] or {}
             ok = pred.get("decision") == case["gold"]["decision"]
+            correct.append(int(ok))
+            if case["gold"]["decision"] != "covered":
+                unsafe.append(int(pred.get("decision") == "covered"))
             named = re.sub(r"^NCD\s*", "", str(pred.get("ncd", "")).strip(), flags=re.I)
             if named == it["target_ncd"]:
                 right_ncd += 1
@@ -65,7 +81,10 @@ def main():
         n = len(rows)
         print("== %s  (n=%d, mean prompt tokens %s)" % (
             os.path.basename(path), n, "%d" % (sum(tokens) / len(tokens)) if tokens else "?"))
-        print("  accuracy                 %s" % pct(right_ncd_ok + wrong_ncd_ok, n))
+        print("  accuracy                 %s  95%% CI %.3f-%.3f" % (
+            (pct(right_ncd_ok + wrong_ncd_ok, n),) + bootstrap_ci(correct)))
+        print("  unsafe approval          %s  95%% CI %.3f-%.3f" % (
+            (pct(sum(unsafe), len(unsafe)),) + bootstrap_ci(unsafe)))
         print("  NCD accuracy             %s" % pct(right_ncd, n))
         print("  accuracy | right NCD     %s" % pct(right_ncd_ok, right_ncd))
         print("  accuracy | wrong NCD     %s" % pct(wrong_ncd_ok, wrong_ncd))

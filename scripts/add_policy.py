@@ -4,7 +4,8 @@
 Spec format (JSON):
   {"ncd": "20.34", "service": "...", "notes": "...",
    "criteria": [{"id": "C1", "text": "...", "span": "<verbatim from the NCD>", "type": "..."}],
-   "cases": [{"decision": "...", "violated": ["C2"], "missing": [], "note": "...", "vignette": "..."}]}
+   "cases": [{"decision": "...", "violated": ["C2"], "missing": [], "note": "...", "vignette": "...",
+             "service": "optional: what this case requests, when narrower than the policy's service"}]}
 
 Checks every span appears verbatim in the downloaded NCD (whitespace-normalized) and every
 gold criterion id exists, so a typo cannot silently break citation scoring.
@@ -63,7 +64,8 @@ def main():
     with open(os.path.join(out, "cases.jsonl"), "w") as f:
         for i, c in enumerate(spec["cases"], 1):
             f.write(json.dumps({
-                "id": "%s-%02d" % (ncd, i), "ncd": ncd, "service": spec["service"], "vignette": c["vignette"],
+                "id": "%s-%02d" % (ncd, i), "ncd": ncd, "service": c.get("service", spec["service"]),
+                "vignette": c["vignette"],
                 "gold": {"decision": c["decision"], "violated_criteria": c["violated"],
                          "missing_documentation": c["missing"]},
                 "rationale_note": c["note"], "review_status": "draft_unreviewed"}) + "\n")

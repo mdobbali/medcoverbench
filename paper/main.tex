@@ -37,8 +37,8 @@ it; and list what is missing. The benchmark has 513 synthetic cases over 50 NCDs
 derived from an explicit checklist of 434 criteria anchored to verbatim policy spans. We report
 the \emph{unsafe approval rate}, the share of non-coverable cases a model approves, as the
 headline metric, since a ranking by accuracy hides it. Across eight models, the four strongest
-reach 90--94\% accuracy with at most 2.7\% unsafe approvals, but small open models approve up to
-46\% of cases the policy denies, and a 72B model with 85\% accuracy still approves 17\%. A
+reach 91--97\% accuracy with at most 2.7\% unsafe approvals, but small open models approve up to
+46\% of cases the policy denies, and a 72B model with 85\% accuracy still approves 18\%. A
 long-context track hides the governing NCD in a library of 45 to 140 other policies (about 32k
 and 96k tokens), where the model must find the policy before applying it. There, errors shift
 toward approval: Llama 3.3 70B still names the governing NCD in 93--98\% of cases, but its unsafe
@@ -159,7 +159,10 @@ Cases are written by controlled perturbation of the checklist, so each label fol
 \end{itemize}
 Authors were instructed to make cases discriminating: values exactly at a threshold that still
 qualify, a violation buried among many satisfied details, exceptions the policy grants, and
-details that sound disqualifying but are not under this NCD. Each case has a short rationale.
+details that sound disqualifying but are not under this NCD. Each case names the requested
+service, which is narrower than the policy's scope where needed (for example ``manual hospital
+bed'' rather than the NCD's ``hospital beds, including variable height and electric
+features''). Each case has a short rationale.
 Patients are synthetic; no protected health information is involved. Vignettes have a median of
 85 words (29--251).
 
@@ -231,9 +234,9 @@ counted correct on the decision, so NCD accuracy and decision accuracy can be re
 
 \paragraph{Setup.} We evaluate eight models through OpenRouter: GPT-5 mini, Gemini 3.1 Flash Lite,
 Qwen 3.7 Plus, DeepSeek V3.1, Llama 3.3 70B Instruct, Qwen 2.5 72B Instruct, Qwen 2.5 7B Instruct
-and Llama 3.1 8B Instruct. All runs use temperature 0 and a 8,000-token output limit, so reasoning
+and Llama 3.1 8B Instruct. All runs use temperature 0 and an 8,000-token output limit, so reasoning
 models are not truncated. Each model sees each case once. The full single-policy evaluation of all
-eight models cost US\$4.26.
+eight models cost about US\$4.50, and the long-context runs reported here about \tbd.
 
 \begin{table}[t]
 \centering
@@ -245,14 +248,14 @@ better). Labels are drafts; see \S\ref{sec:limits}.}
 \toprule
 Model & Acc. & Macro-F1 & Unsafe appr.\ $\downarrow$ & Over-denial $\downarrow$ & Cite rec. & Parse fail \\
 \midrule
-GPT-5 mini            & 0.943 & 0.937 & 0.009 & 0.098 & 0.992 & 0.008 \\
-Gemini 3.1 Flash Lite & 0.932 & 0.930 & 0.009 & 0.126 & 0.921 & 0.002 \\
-Qwen 3.7 Plus         & 0.922 & 0.899 & 0.009 & 0.121 & 0.963 & 0.000 \\
-DeepSeek V3.1         & 0.904 & 0.914 & 0.027 & 0.201 & 0.930 & 0.008 \\
-Llama 3.3 70B         & 0.885 & 0.897 & 0.088 & 0.121 & 0.876 & 0.012 \\
-Qwen 2.5 72B          & 0.846 & 0.869 & 0.174 & 0.092 & 0.927 & 0.000 \\
-Qwen 2.5 7B           & 0.630 & 0.547 & 0.215 & 0.276 & 0.710 & 0.006 \\
-Llama 3.1 8B          & 0.593 & 0.575 & 0.463 & 0.092 & 0.656 & 0.016 \\
+GPT-5 mini            & 0.967 & 0.966 & 0.009 & 0.023 & 0.992 & 0.008 \\
+Qwen 3.7 Plus         & 0.943 & 0.927 & 0.009 & 0.057 & 0.963 & 0.000 \\
+Gemini 3.1 Flash Lite & 0.934 & 0.930 & 0.015 & 0.115 & 0.927 & 0.000 \\
+DeepSeek V3.1         & 0.910 & 0.922 & 0.027 & 0.172 & 0.932 & 0.012 \\
+Llama 3.3 70B         & 0.893 & 0.908 & 0.086 & 0.109 & 0.870 & 0.014 \\
+Qwen 2.5 72B          & 0.848 & 0.871 & 0.180 & 0.075 & 0.930 & 0.000 \\
+Qwen 2.5 7B           & 0.622 & 0.532 & 0.224 & 0.276 & 0.718 & 0.006 \\
+Llama 3.1 8B          & 0.591 & 0.571 & 0.463 & 0.092 & 0.670 & 0.016 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -266,14 +269,14 @@ Llama 3.1 8B          & 0.593 & 0.575 & 0.463 & 0.092 & 0.656 & 0.016 \\
 \toprule
 Model & \cov{} & \ncov{} & \insuf{} \\
 \midrule
-GPT-5 mini            & 0.90 & 0.98 & 0.91 \\
-Gemini 3.1 Flash Lite & 0.87 & 0.98 & 0.92 \\
-Qwen 3.7 Plus         & 0.88 & 0.98 & 0.84 \\
-DeepSeek V3.1         & 0.80 & 0.96 & 0.94 \\
-Llama 3.3 70B         & 0.88 & 0.88 & 0.90 \\
-Qwen 2.5 72B          & 0.91 & 0.77 & 0.93 \\
-Qwen 2.5 7B           & 0.72 & 0.73 & 0.18 \\
-Llama 3.1 8B          & 0.91 & 0.45 & 0.37 \\
+GPT-5 mini            & 0.98 & 0.98 & 0.90 \\
+Qwen 3.7 Plus         & 0.94 & 0.98 & 0.84 \\
+Gemini 3.1 Flash Lite & 0.89 & 0.98 & 0.91 \\
+DeepSeek V3.1         & 0.83 & 0.96 & 0.94 \\
+Llama 3.3 70B         & 0.89 & 0.89 & 0.91 \\
+Qwen 2.5 72B          & 0.93 & 0.76 & 0.93 \\
+Qwen 2.5 7B           & 0.72 & 0.72 & 0.16 \\
+Llama 3.1 8B          & 0.91 & 0.45 & 0.36 \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -282,35 +285,45 @@ Llama 3.1 8B          & 0.91 & 0.45 & 0.37 \\
 
 Table~\ref{tab:main} gives the main results and Table~\ref{tab:recall} recall per decision.
 
-\paragraph{Unsafe approval separates models that accuracy does not.} Qwen 2.5 72B is within four
-points of Llama 3.3 70B on accuracy, yet approves twice as many non-coverable cases (17.4\% vs
-8.8\%). Llama 3.1 8B approves 46\% of them while recalling 91\% of covered cases: it says
+\paragraph{Unsafe approval separates models that accuracy does not.} Qwen 2.5 72B is within five
+points of Llama 3.3 70B on accuracy, yet approves twice as many non-coverable cases (18.0\% vs
+8.6\%). Llama 3.1 8B approves 46\% of them while recalling 91\% of covered cases: it says
 ``covered'' to most requests. A leaderboard sorted by accuracy would hide the difference that
 matters most to a payer or a patient.
 
 \paragraph{Strong models err toward denial.} The four strongest models keep unsafe approvals at or
-below 2.7\%, and most of their errors are over-denials of covered cases (10--20\%). The two best
-models over-deny for different reasons. Ten of GPT-5 mini's 17 over-denials return \insuf{}
-because the case does not document requirements that apply to the program or the claim rather
-than the patient: the registry behind a coverage-with-evidence-development policy (TAVR and
-mitral TEER), diagnosis coding on the claim form, or a manufacturer's post-approval study. About
-9 of Gemini 3.1 Flash Lite's 22 are arithmetic or boundary errors: a patient aged 85 years and 2
-months judged over a maximum age of 85, a score of exactly 60\% judged to fail a ``60\% or less''
-criterion, ``at least 11 months after the month of the last test'' counted wrongly, and
-percentages of a laboratory limit computed incorrectly. The first pattern is arguably a
-specification gap in our task (\S\ref{sec:limits}); the second is a reasoning error.
+below 2.7\%, and most of their remaining errors are over-denials of covered cases (2--17\%). GPT-5
+mini has only four, three of them malformed JSON. About half of Gemini 3.1 Flash Lite's 20 are
+arithmetic or boundary errors: a patient aged 85 years and 2 months judged over a maximum age of
+85, a score of exactly 60\% judged to fail a ``60\% or less'' criterion, ``at least 11 months after
+the month of the last test'' counted wrongly, and percentages of a laboratory limit computed
+incorrectly.
 
-\paragraph{Small models cannot use the third label.} Qwen 2.5 7B recovers 18\% of
-\insuf{} cases, calling 67 of the 90 not covered. The distinction between ``fails the policy''
+\paragraph{Case construction showed up as model error.} In our first run, GPT-5 mini over-denied
+17 covered cases. Ten asked for documentation of requirements that apply to the program or the
+claim rather than the patient (registry participation for TAVR and mitral TEER, claim diagnosis
+coding for Pap smears, a post-approval study for blood-based colorectal screening), and three
+hospital-bed cases were denied because the requested service, then the NCD's full scope, named
+features the prescription did not order. We revised the 49 cases in those five policies to name
+the specific service requested and to state that the program- and claim-level requirements are
+met, without changing any label, and re-ran them. GPT-5 mini's over-denial fell from 9.8\% to
+2.3\% and its accuracy rose from 94.3\% to 96.7\%; the other strong models moved by up to two
+points, and unsafe approval rates were essentially unchanged. All results in this paper use the
+revised cases. Benchmarks built from policy text should state what the case record is presumed to
+establish, or strong models will reasonably ask for it.
+
+\paragraph{Small models cannot use the third label.} Qwen 2.5 7B recovers 16\% of
+\insuf{} cases, calling 68 of the 90 not covered. The distinction between ``fails the policy''
 and ``does not show that it meets the policy'' appears to require more capacity than the
 two-way decision.
 
-\paragraph{The single-policy track is close to saturation for strong models.} 197 of 513 cases
-are solved by all eight models. Seven cases are missed by all four strongest models; three come
-from the Pap smear NCD (210.2), whose CMS text is internally inconsistent; the others involve a
-value at a threshold, a screening requirement, and a hospital-bed case affected by the
-construction issue described in \S\ref{sec:limits}. We treat these as candidate label errors and route them to expert
-reviewers first; they are excluded from the long-context sample.
+\paragraph{The single-policy track is close to saturation for strong models.} 205 of 513 cases
+are solved by all eight models, and only two are missed by all four strongest: an
+\insuf{} case on renal denervation that all four call \ncov{}, and an insulin pump case at a
+C-peptide threshold. Before the revision above, seven cases were missed by all four; five of
+those were explained by case construction rather than by the label. We treat the remaining two as
+candidate label errors for expert review. The long-context sample, drawn before the revision,
+excludes all seven.
 
 \subsection{Long-context results}
 
@@ -386,14 +399,9 @@ redistributed because of CPT licensing. A model that does well here may still fa
 policy. Several of our policies have LCD rules that a real reviewer would apply (for example CPAP
 adherence thresholds); we record these and keep cases from depending on them.
 
-\paragraph{Construction artifacts found in the baselines.} Each case's ``requested service'' is the
-policy-level service name, not a per-case request. For hospital beds (NCD 280.7) that name
-includes variable-height and electric features, while several vignettes order a manual bed;
-GPT-5 mini reasonably read the request as including the features and denied. Similarly, our task
-does not say whether program- and claim-level requirements (registry participation, claim
-coding) are presumed met; models that require them to be documented over-deny. Both will be fixed
-in the next version, by writing a per-case service request and by stating in the prompt which
-requirements are outside the case record.
+\paragraph{Presumed facts.} Cases now state that program- and claim-level requirements are met
+where a policy has them, but we revised only the five policies where baseline errors exposed the
+gap. Other policies may contain requirements a model could reasonably ask to see documented.
 
 \paragraph{Synthetic cases.} Vignettes are short and clean compared with real medical records.
 Real prior authorization requires finding facts in long, noisy documentation, which this version
