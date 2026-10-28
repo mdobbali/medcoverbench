@@ -82,6 +82,7 @@ python3 scripts/run_eval.py --base-url http://localhost:11434/v1 --model qwen2.5
 | `scripts/run_eval.py` | Runs a model over the cases |
 | `scripts/score.py` | Scores result files |
 | `scripts/export_hf.py` | Builds the Hugging Face release in `release/hf/` |
+| `scripts/export_review_data.py` | Builds the data file for the expert label-review tool |
 | `results/` | Model predictions, with raw replies |
 | `DESIGN.md` | Benchmark design |
 | `IMPLEMENTATION_LOG.md` | Build history: every step, decision and fix |

@@ -118,6 +118,7 @@ hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; width: 100%; 
 .card.accent h3 { color: var(--accent); }
 .card.warn h3 { color: var(--warn); }
 .card .c { font-size: 0.92rem; line-height: 1.5; color: var(--ink-soft); }
+.card .c a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 .num { font-family: var(--font-display); font-size: 1.5rem; line-height: 1; color: var(--accent); }
 .pull { border-left: 4px solid var(--accent); background: var(--paper-raised); padding: 1rem 1rem 1rem 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
 .pull.warn { border-left-color: var(--warn); }
@@ -503,8 +504,8 @@ Now stored:  Cardiac Index (CI) &lt; 2.2 L/min/m2, while not on inotropes, and a
   <h2 class="title">From draft labels to a public leaderboard</h2>
   <div class="grid c3">
     <div class="card accent"><p class="num">1</p><h3>Expert review</h3><div class="c">A clinician or certified coder reviews every label, starting with the logged ambiguities. This gates everything after it.</div></div>
-    <div class="card"><p class="num">2</p><h3>Baselines</h3><div class="c">Open models at several sizes plus frontier APIs, including Claude through a native Anthropic SDK backend.</div></div>
-    <div class="card"><p class="num">3</p><h3>Release</h3><div class="c">Hugging Face dataset and card (already prepared), GitHub harness, arXiv paper.</div></div>
+    <div class="card"><p class="num">2</p><h3>Baselines</h3><div class="c">Eight models run, from 8B open models to frontier APIs. Claude is next, through a native Anthropic SDK backend.</div></div>
+    <div class="card"><p class="num">3</p><h3>Release</h3><div class="c">Code, data and baselines are on GitHub. The Hugging Face dataset (already prepared) and arXiv paper follow review.</div></div>
     <div class="card"><p class="num">4</p><h3>Held-out test set</h3><div class="c">Private labels scored through a leaderboard, to limit training-data contamination.</div></div>
     <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">The target NCD buried among 10 to 50 other policies, from 32k to 200k tokens.</div></div>
     <div class="card"><p class="num">6</p><h3>Domain models</h3><div class="c">Long-context models adapted to coverage policy, evaluated on the same harness.</div></div>
@@ -519,7 +520,7 @@ Now stored:  Cardiac Index (CI) &lt; 2.2 L/min/m2, while not on inotropes, and a
   <div class="row">
     <div class="card"><h3>Reviewers</h3><div class="c">Clinicians and certified coders who can check labels against NCD text.</div></div>
     <div class="card"><h3>Contributors</h3><div class="c">A research engineering internship is open at manojdobbali.com/careers.</div></div>
-    <div class="card"><h3>Model builders</h3><div class="c">The harness runs against any OpenAI-compatible endpoint.</div></div>
+    <div class="card"><h3>Model builders</h3><div class="c">The harness runs against any OpenAI-compatible endpoint: <a href="https://github.com/mdobbali/medcoverbench" target="_blank" rel="noopener">github.com/mdobbali/medcoverbench</a>.</div></div>
   </div>
   <div class="spacer"></div>
 </div></section>
