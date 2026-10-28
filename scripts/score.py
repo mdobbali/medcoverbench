@@ -8,6 +8,7 @@ Metrics:
   citation_recall             gold violated/missing criteria matched by at least one policy quote
                               (token overlap with the criterion's policy span >= 0.5)
   parse_failure_rate          replies with no valid JSON decision (counted as wrong)
+  ncd_accuracy                long-context track only: the reply names the governing NCD
 
 Usage: python3 scripts/score.py results/*.jsonl
 """
@@ -48,12 +49,17 @@ def score(path, cases, spans):
     n = len(preds)
     conf = {(g, p): 0 for g in LABELS for p in LABELS + [None]}
     cite_hit = cite_total = 0
+    ncd_hit = ncd_total = 0
     for row in preds:
-        case = cases[row["id"]]
+        case = cases[row.get("case_id", row["id"])]
         gold = case["gold"]["decision"]
         pred = row["prediction"] or {}
         decision = pred.get("decision")
         conf[(gold, decision if decision in LABELS else None)] += 1
+        if "case_id" in row:
+            ncd_total += 1
+            named = re.sub(r"^(NCD\s*)", "", str(pred.get("ncd", "")).strip(), flags=re.I)
+            ncd_hit += named == case["ncd"]
 
         quotes = [q for q in pred.get("policy_quotes", []) if isinstance(q, str)]
         quotes += [q for q in pred.get("missing_documentation", []) if isinstance(q, str)]
@@ -78,6 +84,7 @@ def score(path, cases, spans):
         "over_denial_rate": sum(conf[("covered", p)] for p in LABELS[1:] + [None]) / positives if positives else 0,
         "citation_recall": cite_hit / cite_total if cite_total else 0,
         "parse_failure_rate": sum(conf[(g, None)] for g in LABELS) / n if n else 0,
+        "ncd_accuracy": ncd_hit / ncd_total if ncd_total else float("nan"),
     }
 
 
@@ -86,6 +93,8 @@ def main():
     rows = [score(p, cases, spans) for p in sys.argv[1:]]
     cols = ["n", "accuracy", "macro_f1", "unsafe_approval_rate", "over_denial_rate", "citation_recall",
             "parse_failure_rate"]
+    if any(r["ncd_accuracy"] == r["ncd_accuracy"] for r in rows):
+        cols.append("ncd_accuracy")
     print("%-32s" % "file" + "".join("%12s" % c[:11] for c in cols))
     for r in rows:
         print("%-32s" % r["file"][:31] + "".join(

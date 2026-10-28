@@ -1,0 +1,524 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage[numbers,sort]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{url}
+
+% Values not yet measured. Every \tbd must be gone before submission.
+\newcommand{\tbd}{\textcolor{red}{\textbf{TBD}}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\cov}{\texttt{covered}}
+\newcommand{\ncov}{\texttt{not\_covered}}
+\newcommand{\insuf}{\texttt{insufficient\_documentation}}
+
+\title{MedCoverBench: Can Language Models Decide Medicare Coverage\\from the Policy Text?}
+\author{Manoj Dobbali\\Independent researcher\\\url{https://manojdobbali.com}}
+\date{Draft, \today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Medicare decides whether to pay for a service by applying written coverage policy to the facts of a
+case, and the program has begun testing artificial intelligence in that review. We introduce
+MedCoverBench, an open benchmark that asks a language model to make this decision from the real
+text of a CMS National Coverage Determination (NCD): decide whether a requested service is
+covered, not covered, or lacks required documentation; quote the policy language that decides
+it; and list what is missing. The benchmark has 513 synthetic cases over 50 NCDs, each label
+derived from an explicit checklist of 434 criteria anchored to verbatim policy spans. We report
+the \emph{unsafe approval rate}, the share of non-coverable cases a model approves, as the
+headline metric, since a ranking by accuracy hides it. Across eight models, the four strongest
+reach 90--94\% accuracy with at most 2.7\% unsafe approvals, but small open models approve up to
+46\% of cases the policy denies, and a 72B model with 85\% accuracy still approves 17\%. A
+long-context track hides the governing NCD in a library of 45 to 140 other policies (about 32k
+and 96k tokens), where the model must find the policy before applying it. There, errors shift
+toward approval: Llama 3.3 70B still names the governing NCD in 93--98\% of cases, but its unsafe
+approval rate rises from 8.7\% with the policy alone to 27.5\% at 32k tokens and 50\% at 96k. All labels are drafts pending review by clinicians and
+certified coders. Data are released under CC BY 4.0 and code under Apache 2.0.
+\end{abstract}
+
+\section{Introduction}
+
+A large share of healthcare administration is reading a policy and deciding whether a case meets
+it. For Original Medicare, the most authoritative of these policies are National Coverage
+Determinations (NCDs): documents published by the Centers for Medicare \& Medicaid Services (CMS)
+that state when an item or service is reasonable and necessary, for whom, under what conditions
+and with what documentation. In 2026 CMS began a six-year model, WISeR, in which technology
+vendors, using artificial intelligence and machine learning alongside clinical review, assess
+prior authorization requests for selected services in six states~\citep{cms2025wiser}. Whether
+language models can apply coverage policy correctly is therefore no longer hypothetical.
+
+Existing benchmarks do not measure this directly. Medical question answering
+benchmarks~\citep{jin2021medqa,arora2025healthbench,warner2026medmarks} test clinical knowledge
+and conversation, not whether a model follows a specific written policy. Recent agent benchmarks
+for healthcare operations~\citep{chen2026chibench,bedi2026healthadminbench} test long workflows
+across simulated applications, so a failure can come from navigation or tool use as easily as
+from misreading the rule, and the most policy-dense of them is grounded in a synthetic handbook
+rather than real coverage policy~\citep{chen2026chibench}. Policy-following benchmarks outside
+healthcare~\citep{yao2024taubench,guha2023legalbench,koreeda2021contractnli} show that following
+written rules is a distinct and unsolved capability, but none uses coverage policy.
+
+MedCoverBench isolates the decision. Each item gives a model the full text of one real NCD and a
+synthetic case, and asks for one of three decisions, the policy quotes that decide it, and any
+missing documentation. The third label, \insuf{}, matters in practice: a reviewer who cannot
+tell ``the patient does not qualify'' from ``the record does not show that the patient
+qualifies'' will deny claims that should be returned for documentation.
+
+Our contributions are:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+  \item \textbf{A benchmark built from real coverage policy.} 513 cases over 50 current NCDs,
+    with labels derived from 434 checklist criteria, each tied to a span copied verbatim from
+    the NCD and checked automatically (\S\ref{sec:data}).
+  \item \textbf{A safety-oriented metric suite.} Unsafe approval rate, over-denial rate,
+    citation recall and macro-F1 over three decisions (\S\ref{sec:task}).
+  \item \textbf{A long-context track} that hides the governing NCD among dozens of other real
+    NCDs at controlled length and depth, separating finding the policy from applying it
+    (\S\ref{sec:long}).
+  \item \textbf{Baselines for eight models} from 7B open models to frontier APIs, showing that
+    unsafe approval separates models that accuracy ranks closely (\S\ref{sec:results}).
+  \item \textbf{An open release} of data, harness, raw model outputs and a label-review tool,
+    with the labels' draft status stated plainly (\S\ref{sec:limits}).
+\end{itemize}
+
+\section{Related work}
+
+\paragraph{Medical benchmarks.} MedQA~\citep{jin2021medqa} and its successors test clinical
+knowledge through exam questions; HealthBench~\citep{arora2025healthbench} grades open-ended
+health conversations against physician-written rubrics; Medmarks~\citep{warner2026medmarks}
+aggregates 30 medical benchmarks into an open evaluation suite. These measure what a model knows
+about medicine, not whether it applies a payer's written rule. MedCoverBench deliberately forbids
+clinical knowledge the policy does not state.
+
+\paragraph{Healthcare administration and agents.} $\chi$-Bench~\citep{chen2026chibench} evaluates
+agents on prior authorization, utilization management and care management workflows grounded in a
+1,279-document managed-care handbook; the handbook is synthetic. HealthAdminBench~\citep{bedi2026healthadminbench}
+evaluates computer-use agents on 135 administrative tasks, including prior authorization, in
+simulated EHR and payer portals. Both report low end-to-end success. MedCoverBench is
+complementary: it removes the workflow and tests the coverage decision alone, on real CMS text,
+so errors can be attributed to policy reasoning.
+
+\paragraph{Following written rules.} $\tau$-bench~\citep{yao2024taubench} shows that agents given
+domain policies in context still violate them, and that removing the policies lowers performance.
+LegalBench~\citep{guha2023legalbench}, ContractNLI~\citep{koreeda2021contractnli} and
+CUAD~\citep{hendrycks2021cuad} test reasoning over legal and contractual text. Coverage policy
+shares their structure (conditions, exceptions, documentation requirements) and adds a safety
+asymmetry: wrongly approving and wrongly denying have different costs.
+
+\paragraph{Long context and attribution.} Retrieval accuracy in long inputs depends on where the
+relevant text sits~\citep{liu2024lost}, and synthetic needle-in-a-haystack tests overstate usable
+context length~\citep{hsieh2024ruler,yen2025helmet}. LongBench~\citep{bai2024longbench} and
+HELMET~\citep{yen2025helmet} evaluate realistic long-context tasks. Our long-context track is a
+realistic variant: the ``haystack'' is other coverage policies, many from the same clinical area,
+and the task after retrieval is a rule application, not extraction. Our citation metric follows
+the spirit of ALCE~\citep{gao2023alce}, checking that quoted policy text supports the decision.
+
+\section{Data}
+\label{sec:data}
+
+\subsection{Source}
+NCD text was downloaded from the CMS Coverage API~\citep{cmscoverageapi} on 2026-10-27: 345
+current NCDs. A model sees three fields of each NCD: the item or service description, the
+indications and limitations of coverage, and reasons for denial. NCD text is a work of the US
+government. We exclude Local Coverage Determinations and billing articles because they contain
+CPT content licensed by the American Medical Association, which cannot be redistributed; no CPT
+codes appear in the cases.
+
+\paragraph{Selection.} We ranked NCDs by how many explicit, checkable conditions their text
+contains (``only if'', ``must'', numbered criteria) and excluded policies that are blanket
+non-coverage, left to contractor discretion, or covered only within an approved study, since
+those cannot support several distinct decisions. Fifty NCDs were selected, spanning 16 chapters
+of the NCD manual; cardiovascular services (chapter 20) are the largest group with 14 policies.
+Their text is 600 to 3,700 tokens long (median about 1,400).\footnote{Token counts in this paper
+are estimated as characters divided by four unless stated otherwise.}
+
+\subsection{Checklists}
+For each NCD we extract a checklist of atomic criteria. Each criterion has an identifier, a
+paraphrase, a type, and a span copied verbatim from the NCD. The 434 criteria are mostly
+eligibility conditions (209), exclusions (69), documentation requirements (61) and provider
+qualifications (47), with smaller numbers of device, frequency, exception, setting and
+continuation criteria. Where the policy text is ambiguous, the ambiguity is recorded in a
+reviewer note and no case may depend on it.
+
+\subsection{Cases}
+Cases are written by controlled perturbation of the checklist, so each label follows from it:
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+  \item every applicable criterion met and documented $\Rightarrow$ \cov{};
+  \item one criterion contradicted by the facts $\Rightarrow$ \ncov{}, with that criterion as the
+    gold citation;
+  \item one criterion's evidence absent, nothing contradicted $\Rightarrow$ \insuf{}, with the
+    missing criterion as the gold citation.
+\end{itemize}
+Authors were instructed to make cases discriminating: values exactly at a threshold that still
+qualify, a violation buried among many satisfied details, exceptions the policy grants, and
+details that sound disqualifying but are not under this NCD. Each case has a short rationale.
+Patients are synthetic; no protected health information is involved. Vignettes have a median of
+85 words (29--251).
+
+The final set has 513 cases: 174 \cov{}, 249 \ncov{} and 90 \insuf{}, with 8 to 13 cases per
+policy. Sixteen cases cite more than one criterion.
+
+\paragraph{Automatic validation.} A validator rejects any policy whose checklist or cases fail
+three checks: every span appears verbatim in the NCD text (normalizing only quotes, whitespace and
+hyphens); every cited criterion exists; and each label is consistent with its citations (a
+\cov{} case cites none, a \ncov{} case cites at least one violated criterion, an \insuf{} case
+cites only missing ones). Every released policy passes.
+
+\paragraph{Provenance.} Checklists and cases were drafted with AI assistance (Claude, in Claude
+Code) under the rules above, in parallel batches of about ten policies, and checked by the
+validator. We state this because it bears on how much to trust the labels before expert review
+(\S\ref{sec:limits}). During construction we found that our HTML cleaning dropped text between
+literal ``<'' and ``>'' characters (for example ``LVEF <35\%''); after the fix, four NCDs gained
+text, and we confirmed that no label changed. We report it as a caution for anyone building on
+CMS API text.
+
+\section{Task and metrics}
+\label{sec:task}
+
+The model receives a fixed system prompt defining the three decisions, the NCD text, the requested
+service and the vignette. It must return JSON with a \texttt{decision}, a list of
+\texttt{policy\_quotes}, a list of \texttt{missing\_documentation} and a short rationale
+(Appendix~\ref{app:prompt}). We take the last valid JSON object in the reply, so reasoning
+models may think before answering; a reply with no valid decision is counted as wrong.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+  \item \textbf{Unsafe approval rate} (headline): of the cases whose gold label is \ncov{} or
+    \insuf{}, the share predicted \cov{}.
+  \item \textbf{Over-denial rate}: of the \cov{} cases, the share predicted anything else.
+  \item \textbf{Accuracy} and \textbf{macro-F1} over the three decisions.
+  \item \textbf{Citation recall}: of the gold criteria in non-covered cases, the share matched by
+    at least one quote, where a quote matches if it contains at least half of the criterion
+    span's word tokens.
+  \item \textbf{Parse failure rate}.
+\end{itemize}
+
+We treat unsafe approval as the headline because its costs are asymmetric in practice: an
+over-denial is usually appealable, while an unsafe approval pays for a service the policy does not
+cover and may expose a patient to an unnecessary procedure.
+
+\section{Long-context track}
+\label{sec:long}
+
+In practice a reviewer is not handed the one relevant policy. The long-context track gives the
+model a library of NCDs, does not say which applies, and asks for the same output plus the number
+of the NCD applied.
+
+\paragraph{Construction.} We sample 120 cases, 40 per decision, spread across all 50 policies, and
+exclude seven cases that every strong baseline missed, since they are the likeliest label errors
+(\S\ref{sec:results}). For each case we build a library from the other current NCDs: about half from
+the target's chapter (for a defibrillator case, other cardiovascular policies) and the rest from
+other chapters. We exclude the target's parent and child NCDs (e.g.\ 20.9 and 20.9.1) and any
+NCD that cross-references the target or that the target cross-references, since these can govern
+the same service. The library is filled to about 32k or 96k tokens; the 32k library for a case
+is a subset of its 96k library, so a change in score between sizes reflects length rather than a
+different set of distractors. The target's position cycles through relative depths 0, 0.25, 0.5,
+0.75 and 1. Libraries hold 45 NCDs on average at 32k and 139 at 96k.
+
+\paragraph{Metric.} In addition to the metrics above we report \textbf{NCD accuracy}: the share of
+replies that name the governing NCD. A model that names the wrong NCD but decides correctly is
+counted correct on the decision, so NCD accuracy and decision accuracy can be read separately.
+
+\section{Experiments}
+\label{sec:results}
+
+\paragraph{Setup.} We evaluate eight models through OpenRouter: GPT-5 mini, Gemini 3.1 Flash Lite,
+Qwen 3.7 Plus, DeepSeek V3.1, Llama 3.3 70B Instruct, Qwen 2.5 72B Instruct, Qwen 2.5 7B Instruct
+and Llama 3.1 8B Instruct. All runs use temperature 0 and a 8,000-token output limit, so reasoning
+models are not truncated. Each model sees each case once. The full single-policy evaluation of all
+eight models cost US\$4.26.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Single-policy track, all 513 cases. Unsafe approval is the headline metric (lower is
+better). Labels are drafts; see \S\ref{sec:limits}.}
+\label{tab:main}
+\begin{tabular}{lcccccc}
+\toprule
+Model & Acc. & Macro-F1 & Unsafe appr.\ $\downarrow$ & Over-denial $\downarrow$ & Cite rec. & Parse fail \\
+\midrule
+GPT-5 mini            & 0.943 & 0.937 & 0.009 & 0.098 & 0.992 & 0.008 \\
+Gemini 3.1 Flash Lite & 0.932 & 0.930 & 0.009 & 0.126 & 0.921 & 0.002 \\
+Qwen 3.7 Plus         & 0.922 & 0.899 & 0.009 & 0.121 & 0.963 & 0.000 \\
+DeepSeek V3.1         & 0.904 & 0.914 & 0.027 & 0.201 & 0.930 & 0.008 \\
+Llama 3.3 70B         & 0.885 & 0.897 & 0.088 & 0.121 & 0.876 & 0.012 \\
+Qwen 2.5 72B          & 0.846 & 0.869 & 0.174 & 0.092 & 0.927 & 0.000 \\
+Qwen 2.5 7B           & 0.630 & 0.547 & 0.215 & 0.276 & 0.710 & 0.006 \\
+Llama 3.1 8B          & 0.593 & 0.575 & 0.463 & 0.092 & 0.656 & 0.016 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Recall per gold decision, single-policy track.}
+\label{tab:recall}
+\begin{tabular}{lccc}
+\toprule
+Model & \cov{} & \ncov{} & \insuf{} \\
+\midrule
+GPT-5 mini            & 0.90 & 0.98 & 0.91 \\
+Gemini 3.1 Flash Lite & 0.87 & 0.98 & 0.92 \\
+Qwen 3.7 Plus         & 0.88 & 0.98 & 0.84 \\
+DeepSeek V3.1         & 0.80 & 0.96 & 0.94 \\
+Llama 3.3 70B         & 0.88 & 0.88 & 0.90 \\
+Qwen 2.5 72B          & 0.91 & 0.77 & 0.93 \\
+Qwen 2.5 7B           & 0.72 & 0.73 & 0.18 \\
+Llama 3.1 8B          & 0.91 & 0.45 & 0.37 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Single-policy results}
+
+Table~\ref{tab:main} gives the main results and Table~\ref{tab:recall} recall per decision.
+
+\paragraph{Unsafe approval separates models that accuracy does not.} Qwen 2.5 72B is within four
+points of Llama 3.3 70B on accuracy, yet approves twice as many non-coverable cases (17.4\% vs
+8.8\%). Llama 3.1 8B approves 46\% of them while recalling 91\% of covered cases: it says
+``covered'' to most requests. A leaderboard sorted by accuracy would hide the difference that
+matters most to a payer or a patient.
+
+\paragraph{Strong models err toward denial.} The four strongest models keep unsafe approvals at or
+below 2.7\%, and most of their errors are over-denials of covered cases (10--20\%). The two best
+models over-deny for different reasons. Ten of GPT-5 mini's 17 over-denials return \insuf{}
+because the case does not document requirements that apply to the program or the claim rather
+than the patient: the registry behind a coverage-with-evidence-development policy (TAVR and
+mitral TEER), diagnosis coding on the claim form, or a manufacturer's post-approval study. About
+9 of Gemini 3.1 Flash Lite's 22 are arithmetic or boundary errors: a patient aged 85 years and 2
+months judged over a maximum age of 85, a score of exactly 60\% judged to fail a ``60\% or less''
+criterion, ``at least 11 months after the month of the last test'' counted wrongly, and
+percentages of a laboratory limit computed incorrectly. The first pattern is arguably a
+specification gap in our task (\S\ref{sec:limits}); the second is a reasoning error.
+
+\paragraph{Small models cannot use the third label.} Qwen 2.5 7B recovers 18\% of
+\insuf{} cases, calling 67 of the 90 not covered. The distinction between ``fails the policy''
+and ``does not show that it meets the policy'' appears to require more capacity than the
+two-way decision.
+
+\paragraph{The single-policy track is close to saturation for strong models.} 197 of 513 cases
+are solved by all eight models. Seven cases are missed by all four strongest models; three come
+from the Pap smear NCD (210.2), whose CMS text is internally inconsistent; the others involve a
+value at a threshold, a screening requirement, and a hospital-bed case affected by the
+construction issue described in \S\ref{sec:limits}. We treat these as candidate label errors and route them to expert
+reviewers first; they are excluded from the long-context sample.
+
+\subsection{Long-context results}
+
+\begin{table}[t]
+\centering
+\small
+\caption{Long-context track, 120 cases. ``1 NCD'' is the single-policy result on the same 120
+cases. Sizes are estimated from characters; mean actual prompt lengths are about 27--28k and 80k
+tokens. $^\dagger$63\% of Llama 3.1 8B's replies at 96k are unparseable, which lowers its unsafe
+approval rate mechanically. \tbd{} entries await runs.}
+\label{tab:long}
+\begin{tabular}{lcccccccc}
+\toprule
+ & \multicolumn{3}{c}{Accuracy} & \multicolumn{3}{c}{Unsafe appr.\ $\downarrow$} & \multicolumn{2}{c}{NCD acc.} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}
+Model & 1 NCD & 32k & 96k & 1 NCD & 32k & 96k & 32k & 96k \\
+\midrule
+GPT-5 mini            & 0.958 & \tbd & \tbd & 0.013 & \tbd & \tbd & \tbd & \tbd \\
+Gemini 3.1 Flash Lite & 0.942 & 0.900 & \tbd & 0.013 & 0.050 & \tbd & 1.000 & \tbd \\
+Qwen 3.7 Plus         & 0.892 & \tbd & \tbd & 0.000 & \tbd & \tbd & \tbd & \tbd \\
+DeepSeek V3.1         & 0.883 & \tbd & \tbd & 0.037 & \tbd & \tbd & \tbd & \tbd \\
+Llama 3.3 70B         & 0.867 & 0.750 & 0.633 & 0.087 & 0.275 & 0.500 & 0.983 & 0.933 \\
+Llama 3.1 8B          & 0.600 & 0.558 & 0.200 & 0.388 & 0.425 & 0.188$^\dagger$ & 0.883 & 0.250 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:long} reports the long-context track for the models run so far; the remaining
+runs are pending. Three patterns are already clear.
+
+\paragraph{Finding the policy is not the bottleneck for capable models.} Gemini 3.1 Flash Lite names
+the governing NCD in all 120 cases at 32k, and Llama 3.3 70B in 98\% at 32k and 93\% at 96k. Yet
+both lose accuracy: Gemini from 94.2\% to 90.0\%, Llama 3.3 70B from 86.7\% to 75.0\% and then
+63.3\%. Among the cases where Llama 3.3 70B names the right NCD, accuracy is 75.4\% at 32k and
+61.6\% at 96k, so most of the loss comes from applying the right policy worse, not from applying
+the wrong one.
+
+\paragraph{Long context shifts errors toward approval.} With the policy alone, Llama 3.3 70B's errors
+on these 120 cases are split between unsafe approvals (8.7\%) and over-denials (12.5\%). In the
+library its unsafe approval rate rises to 27.5\% at 32k and 50\% at 96k, while over-denial falls
+to 7.5\% and then zero. Gemini's
+rises from 1.3\% to 5.0\% at 32k. Accuracy alone would understate this: the model is not just
+noisier, it is more permissive, which is the costly direction for a payer.
+
+\paragraph{Small models break down.} Llama 3.1 8B holds up at 32k (accuracy 55.8\% vs 60.0\% alone)
+but collapses at 96k: 63\% of its replies are not valid JSON, it names the right NCD in 25\% of
+cases, and accuracy is 20\%. Where it does name the right NCD, it is correct 60\% of the time,
+about its single-policy level.
+
+\paragraph{Position.} Llama 3.3 70B at 32k is most accurate when the target is first or last in the
+library (22/24 and 19/24) and least accurate in the middle (15/24 at depths 0.5 and 0.75),
+consistent with prior findings on position~\citep{liu2024lost}. Gemini shows no such effect (21--22
+of 24 at every depth). With 24 cases per depth these differences are suggestive, not conclusive.
+
+\todo{Complete GPT-5 mini, Qwen 3.7 Plus, DeepSeek V3.1 and Gemini at 96k; add confidence intervals.}
+
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{Labels are drafts.} No clinician or certified coder has yet reviewed the labels. They
+are derived mechanically from checklists that pass automatic validation, but the checklists
+themselves and the reading of each vignette are judgments. We release a review tool and will
+report inter-annotator agreement and the share of labels changed. Until then, results should be
+read as provisional.
+
+\paragraph{AI-assisted construction.} Cases were drafted with the help of a language model. This
+risks favoring models that share its phrasing or assumptions, and may make some cases easier for
+models of the same family. We evaluate no model from the drafting family in this version.
+
+\paragraph{Scope.} The benchmark uses NCDs only. Most Medicare coverage in practice is decided
+under Local Coverage Determinations, which add documentation and frequency rules; these cannot be
+redistributed because of CPT licensing. A model that does well here may still fail on local
+policy. Several of our policies have LCD rules that a real reviewer would apply (for example CPAP
+adherence thresholds); we record these and keep cases from depending on them.
+
+\paragraph{Construction artifacts found in the baselines.} Each case's ``requested service'' is the
+policy-level service name, not a per-case request. For hospital beds (NCD 280.7) that name
+includes variable-height and electric features, while several vignettes order a manual bed;
+GPT-5 mini reasonably read the request as including the features and denied. Similarly, our task
+does not say whether program- and claim-level requirements (registry participation, claim
+coding) are presumed met; models that require them to be documented over-deny. Both will be fixed
+in the next version, by writing a per-case service request and by stating in the prompt which
+requirements are outside the case record.
+
+\paragraph{Synthetic cases.} Vignettes are short and clean compared with real medical records.
+Real prior authorization requires finding facts in long, noisy documentation, which this version
+does not test.
+
+\paragraph{Evaluation.} Parse failures are malformed JSON (for example an unescaped quote inside
+a string), which we count as wrong rather than repair. Each model saw each case once, through a single router, at temperature 0;
+provider-side differences and nondeterminism are not measured. Citation recall uses token overlap
+and can credit a quote that shares words with the right span without being it.
+
+\paragraph{Contamination.} All data are public. We plan a held-out test set with private labels.
+
+\section{Ethical considerations}
+
+MedCoverBench measures reasoning over policy text. It is not a coverage determination tool and
+should not be used to decide anyone's coverage. We report unsafe approval as the headline metric
+because our concern is systems that approve what policy denies, but over-denial harms patients as
+well, and we report both. The cases are synthetic and contain no protected health information.
+
+\section{Conclusion}
+
+MedCoverBench tests whether a language model can do the core step of coverage review: apply a
+real written policy to a case, cite the rule, and recognize missing documentation. On single
+policies, strong models are close to the ceiling while small open models approve many cases the
+policy denies; unsafe approval exposes differences that accuracy hides. The long-context track,
+where the policy must first be found among many others, shows that in the models run so far
+the policy is usually found but then applied more permissively, so unsafe approvals rise sharply
+with context length even when retrieval succeeds. The next steps are expert
+review of every label, a held-out test set, and harder cases that combine several criteria and
+exceptions.
+
+\paragraph{Availability.} Code, data, model outputs and the build log:
+\url{https://github.com/mdobbali/medcoverbench}.
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+
+\section{Prompt}
+\label{app:prompt}
+\small
+\begin{verbatim}
+You are a Medicare coverage reviewer. Decide whether the requested service
+is covered under the National Coverage Determination (NCD) provided, using
+only that policy and the case facts.
+
+Decisions:
+- "covered": every applicable coverage criterion is met and documented.
+- "not_covered": the facts show at least one applicable criterion is not met.
+- "insufficient_documentation": no criterion is shown to be violated, but
+  documentation required by the policy is missing.
+
+Respond with only a JSON object:
+{"decision": "covered" | "not_covered" | "insufficient_documentation",
+ "policy_quotes": ["verbatim text from the policy for each criterion that
+                   determines the decision"],
+ "missing_documentation": ["each required item absent from the case"],
+ "rationale": "2-4 sentences"}
+\end{verbatim}
+The user message contains the NCD (title, then each field under a heading), the requested service
+and the vignette. The long-context prompt is the same, except that it describes a library of NCDs,
+asks the model first to find the governing NCD, and adds an \texttt{ncd} field to the output.
+\normalsize
+
+\section{Policies}
+\label{app:policies}
+\small
+\begin{longtable}{llrrrr}
+\toprule
+NCD & Title & Criteria & Cov. & Not cov. & Insuf. \\
+\midrule
+\endhead
+20.4 & Implantable Cardioverter Defibrillators (ICDs) & 13 & 4 & 5 & 1 \\
+20.6 & Transmyocardial Revascularization (TMR) & 9 & 3 & 5 & 2 \\
+20.7 & Percutaneous Transluminal Angioplasty (PTA) & 9 & 4 & 5 & 2 \\
+20.9.1 & Ventricular Assist Devices & 9 & 4 & 5 & 2 \\
+20.29 & Hyperbaric Oxygen Therapy & 9 & 4 & 5 & 2 \\
+20.32 & Transcatheter Aortic Valve Replacement (TAVR) & 10 & 3 & 6 & 1 \\
+20.33 & Transcatheter Edge-to-Edge Repair (TEER) for Mitral Valve\ldots & 11 & 4 & 5 & 1 \\
+20.34 & Percutaneous Left Atrial Appendage Closure (LAAC) & 9 & 3 & 6 & 1 \\
+20.35 & Supervised Exercise Therapy (SET) for Symptomatic\ldots & 8 & 3 & 5 & 2 \\
+20.36 & Implantable Pulmonary Artery Pressure Sensors for Heart\ldots & 10 & 3 & 5 & 2 \\
+20.37 & Transcatheter Tricuspid Valve Replacement (TTVR) & 6 & 3 & 5 & 2 \\
+20.38 & Transcatheter Edge-to-Edge Repair for Tricuspid Valve\ldots & 6 & 3 & 5 & 2 \\
+20.39 & Cardiac Contractility Modulation (CCM) for Heart Failure (HF) & 6 & 3 & 5 & 2 \\
+20.40 & Renal Denervation (RDN) for Uncontrolled Hypertension & 9 & 2 & 7 & 1 \\
+50.3 & Cochlear Implantation & 5 & 3 & 5 & 2 \\
+70.2.1 & Services Provided for the Diagnosis and Treatment of\ldots & 6 & 3 & 4 & 2 \\
+90.1 & Pharmacogenomic Testing for Warfarin Response & 7 & 3 & 5 & 2 \\
+90.2 & Next Generation Sequencing (NGS) & 11 & 3 & 5 & 2 \\
+100.1 & Bariatric Surgery for Treatment of Co-Morbid Conditions\ldots & 9 & 3 & 5 & 2 \\
+110.4 & Extracorporeal Photopheresis & 4 & 3 & 5 & 2 \\
+110.14 & Apheresis (Therapeutic Pheresis) & 9 & 4 & 5 & 2 \\
+110.23 & Stem Cell Transplantation (Formerly 110.8.1) & 14 & 4 & 7 & 2 \\
+150.2 & Osteogenic Stimulators & 9 & 4 & 6 & 2 \\
+160.7 & Electrical Nerve Stimulators & 6 & 3 & 5 & 2 \\
+160.12 & Neuromuscular Electrical Stimulation (NMES) & 9 & 3 & 6 & 2 \\
+160.18 & Vagus Nerve Stimulation (VNS) & 9 & 4 & 5 & 2 \\
+160.24 & Deep Brain Stimulation for Essential Tremor and\ldots & 15 & 4 & 6 & 3 \\
+190.14 & Human Immunodeficiency Virus (HIV) Testing (Diagnosis) & 9 & 4 & 4 & 1 \\
+200.3 & Monoclonal Antibodies Directed Against Amyloid for the\ldots & 6 & 4 & 5 & 1 \\
+210.2 & Screening Pap Smears and Pelvic Examinations for Early\ldots & 8 & 4 & 3 & 2 \\
+210.3 & Colorectal Cancer Screening Tests & 13 & 3 & 5 & 2 \\
+210.7 & Screening for the Human Immunodeficiency Virus (HIV) Infection & 7 & 4 & 4 & 2 \\
+210.12 & Intensive Behavioral Therapy for Obesity & 8 & 3 & 5 & 2 \\
+210.13 & Screening for Hepatitis C Virus (HCV) in Adults & 6 & 3 & 5 & 2 \\
+210.14 & Lung Cancer Screening with Low Dose Computed Tomography (LDCT) & 8 & 3 & 4 & 1 \\
+220.6.1 & PET for Perfusion of the Heart & 7 & 4 & 4 & 2 \\
+220.6.13 & FDG PET for Dementia and Neurodegenerative Diseases & 11 & 3 & 5 & 2 \\
+230.10 & Incontinence Control Devices & 8 & 3 & 5 & 2 \\
+240.1 & Lung Volume Reduction Surgery (Reduction Pneumoplasty) & 12 & 3 & 5 & 2 \\
+240.2 & Home Use of Oxygen & 9 & 4 & 4 & 2 \\
+240.4 & Continuous Positive Airway Pressure (CPAP) Therapy For\ldots & 9 & 4 & 5 & 1 \\
+240.9 & Noninvasive Positive Pressure Ventilation (NIPPV) in the\ldots & 7 & 5 & 5 & 0 \\
+260.1 & Adult Liver Transplantation & 8 & 4 & 5 & 2 \\
+260.3 & Pancreas Transplants & 7 & 4 & 5 & 2 \\
+260.9 & Heart Transplants & 5 & 4 & 4 & 2 \\
+280.3 & Mobility Assistive Equipment (MAE) & 10 & 4 & 5 & 2 \\
+280.6 & Pneumatic Compression Devices & 8 & 3 & 5 & 2 \\
+280.7 & Hospital Beds & 8 & 4 & 4 & 2 \\
+280.8 & Air-Fluidized Bed & 11 & 3 & 5 & 2 \\
+280.14 & Infusion Pumps & 12 & 4 & 5 & 2 \\
+\bottomrule
+\end{longtable}
+\normalsize
+
+\end{document}

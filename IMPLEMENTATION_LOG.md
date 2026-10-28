@@ -259,6 +259,55 @@ Patterns in the Qwen 2.5 7B misses:
 - It denied cases at exact boundaries, e.g. CHA₂DS₂-VASc exactly 3 and AHI exactly 15.
 - It demanded shared decision-making where the policy exempts it.
 
+### 9c. Long-context pilot (2026-10-28)
+
+**Build.** `scripts/build_long_context.py` writes `data/long_context/items-32k.jsonl` and
+`items-96k.jsonl`:
+- 120 cases, 40 per decision, spread across all 50 policies. The 7 candidate label errors above are
+  excluded.
+- Each case's NCD is hidden in a library of other real NCDs, about half from the same chapter.
+- Excluded from each library: the target's parent and child NCDs, and any NCD that cross-references
+  the target or that the target cross-references.
+- The 32k library is a subset of the 96k one, so a change between sizes comes from length.
+- The target's depth cycles through 0, 0.25, 0.5, 0.75 and 1.
+- Libraries average 45 NCDs at 32k and 139 at 96k. Actual prompts are about 27-28k and 80k tokens.
+
+The model isn't told which NCD applies and must also return `"ncd"`. `run_eval.py --items` runs the
+track, `score.py` adds `ncd_accuracy`, and `scripts/long_context_report.py` breaks results down by
+depth and by right or wrong NCD.
+
+**Pilot runs.** Credits allowed only the cheaper models; the pilot cost $3.81.
+
+| Model | Accuracy (1 NCD / 32k / 96k) | Unsafe approval (1 NCD / 32k / 96k) | NCD accuracy (32k / 96k) |
+|---|---|---|---|
+| Gemini 3.1 Flash Lite | 0.942 / 0.900 / - | 0.013 / 0.050 / - | 1.000 / - |
+| Llama 3.3 70B | 0.867 / 0.750 / 0.633 | 0.087 / 0.275 / 0.500 | 0.983 / 0.933 |
+| Llama 3.1 8B | 0.600 / 0.558 / 0.200 | 0.388 / 0.425 / 0.188* | 0.883 / 0.250 |
+
+"1 NCD" is the single-policy result on the same 120 cases. *63% of Llama 8B's replies at 96k are
+invalid JSON.
+
+What this says:
+- **Finding the policy isn't the bottleneck.** Gemini and Llama 70B name the right NCD 93-100% of
+  the time, but still lose accuracy. Among cases where Llama 70B names the right NCD, accuracy is
+  75% at 32k and 62% at 96k.
+- **Long context makes models approve.** Llama 70B's unsafe approval goes 8.7% → 27.5% → 50%,
+  while its over-denial goes 12.5% → 7.5% → 0%.
+- **Position matters for Llama 70B** at 32k (22/24 correct at depth 0, 15/24 at 0.5 and 0.75).
+  Gemini shows no position effect.
+- **Llama 8B collapses at 96k:** mostly invalid JSON, and the right NCD only 25% of the time.
+
+Still to run, once more credit is added: GPT-5 mini, Qwen 3.7 Plus and DeepSeek V3.1 at both sizes,
+and Gemini at 96k. Estimated cost is about $20 on OpenRouter.
+
+**Found while analysing the baselines** (to fix in the next data version):
+- Every case's "requested service" is the policy-level name. For 280.7 that name includes
+  variable-height and electric features, while several vignettes order a manual bed. GPT-5 mini read
+  the request as including the features and denied 280.7-01, -02 and -10.
+- The prompt doesn't say whether program- and claim-level requirements are presumed met: TAVR and
+  TEER registry participation, claim diagnosis coding for Pap smears, and post-approval studies for
+  blood-based colorectal screening. 10 of GPT-5 mini's 17 over-denials ask for these.
+
 ## 10. Hugging Face release (prepared, not published)
 
 `python3 scripts/export_hf.py` writes `release/hf/`:
@@ -288,7 +337,10 @@ Before publishing:
 - **Harder cases.** Strong models are near the ceiling; add multi-criteria interactions, distractor NCDs and the long-context track.
 - **Claude backend** for `run_eval.py` using the Anthropic SDK.
 - **Held-out test split** and a leaderboard, to limit contamination.
-- **Long-context track:** the target NCD buried among 10-50 other NCDs.
+- **Long-context track:** built and piloted (9c). Remaining model runs need about $20 of credit.
+- **Per-case service requests** and a prompt line on program- and claim-level requirements (9c).
+- **Paper:** draft in `paper/main.tex` (LaTeX, not yet compiled). Remaining TBD cells await the
+  long-context runs.
 
 ## 12. Reproducing from scratch
 
@@ -300,6 +352,14 @@ OPENROUTER_API_KEY=... python3 scripts/run_eval.py \
     --api-key-env OPENROUTER_API_KEY --out results/qwen-2.5-7b-instruct.jsonl
 python3 scripts/score.py results/qwen-2.5-7b-instruct.jsonl
 python3 scripts/export_hf.py
+# Long-context track
+python3 scripts/build_long_context.py
+OPENROUTER_API_KEY=... python3 scripts/run_eval.py \
+    --base-url https://openrouter.ai/api/v1 --model meta-llama/llama-3.3-70b-instruct \
+    --api-key-env OPENROUTER_API_KEY --max-tokens 8000 \
+    --items data/long_context/items-32k.jsonl --out results/long_context/llama-3.3-70b-instruct-lc32k.jsonl
+python3 scripts/score.py results/long_context/*.jsonl
+python3 scripts/long_context_report.py results/long_context/*.jsonl
 ```
 
 The two hand-written pilot policies (210.14 and 240.4) live in `data/pilot/` without a spec file.

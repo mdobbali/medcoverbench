@@ -4,6 +4,10 @@
 Works with vLLM, Ollama, LM Studio, OpenRouter, OpenAI, and Anthropic's OpenAI-compatible API.
 Writes one JSON line per case to the output file and skips cases already present (resumable).
 
+With --items, runs the long-context track instead: each item names a library of NCDs (built by
+scripts/build_long_context.py), the model is not told which one applies, and it must also report
+the NCD it applied.
+
 Example:
   python3 scripts/run_eval.py --base-url http://localhost:11434/v1 --model qwen2.5:7b \\
       --out results/qwen2.5-7b.jsonl
@@ -37,6 +41,22 @@ Respond with only a JSON object:
  "missing_documentation": ["each required item absent from the case"],
  "rationale": "2-4 sentences"}"""
 
+LONG_SYSTEM = """You are a Medicare coverage reviewer. You are given a library of National Coverage \
+Determinations (NCDs) and a case. Find the NCD that governs the requested service, then decide whether \
+the service is covered under that NCD, using only that policy and the case facts.
+
+Decisions:
+- "covered": every applicable coverage criterion is met and documented.
+- "not_covered": the facts show at least one applicable criterion is not met.
+- "insufficient_documentation": no criterion is shown to be violated, but documentation required by the policy is missing.
+
+Respond with only a JSON object:
+{"ncd": "the number of the NCD you applied, e.g. 20.4",
+ "decision": "covered" | "not_covered" | "insufficient_documentation",
+ "policy_quotes": ["verbatim text from the policy for each criterion that determines the decision"],
+ "missing_documentation": ["each required item absent from the case"],
+ "rationale": "2-4 sentences"}"""
+
 DECISIONS = {"covered", "not_covered", "insufficient_documentation"}
 
 
@@ -53,6 +73,12 @@ def load_policy(ncd_id):
 def build_messages(case, policy):
     user = "# Policy\n\n%s\n\n# Case\n\nRequested service: %s\n\n%s" % (policy, case["service"], case["vignette"])
     return [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
+
+
+def build_long_messages(case, library_text):
+    user = "# Policy library\n\n%s\n\n# Case\n\nRequested service: %s\n\n%s" % (
+        library_text, case["service"], case["vignette"])
+    return [{"role": "system", "content": LONG_SYSTEM}, {"role": "user", "content": user}]
 
 
 def chat(base_url, api_key, model, messages, max_tokens, retries=4):
@@ -74,6 +100,12 @@ def chat(base_url, api_key, model, messages, max_tokens, retries=4):
             return data["choices"][0]["message"]["content"] or "", data.get("usage", {})
         except urllib.error.HTTPError as e:
             if e.code in (429, 500, 502, 503) and attempt < retries - 1:
+                time.sleep(5 * 2 ** attempt)
+                continue
+            raise
+        except (urllib.error.URLError, TimeoutError, ConnectionError):
+            # Long prompts make dropped connections and read timeouts more likely.
+            if attempt < retries - 1:
                 time.sleep(5 * 2 ** attempt)
                 continue
             raise
@@ -100,10 +132,17 @@ def main():
     ap.add_argument("--cases", default=os.path.join(ROOT, "data", "pilot", "*", "cases.jsonl"))
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-tokens", type=int, default=2048)
+    ap.add_argument("--items", default="", help="long-context items file (data/long_context/items-*.jsonl)")
     args = ap.parse_args()
 
     api_key = os.environ.get(args.api_key_env, "") if args.api_key_env else ""
     cases = [json.loads(l) for p in sorted(glob.glob(args.cases)) for l in open(p) if l.strip()]
+    items = None
+    if args.items:
+        by_id = {c["id"]: c for c in cases}
+        items = [json.loads(l) for l in open(args.items) if l.strip()]
+        cases = [dict(by_id[it["case_id"]], id=it["id"], case_id=it["case_id"], library=it["library"])
+                 for it in items]
     done = set()
     if os.path.exists(args.out):
         done = {json.loads(l)["id"] for l in open(args.out) if l.strip()}
@@ -114,12 +153,19 @@ def main():
         for case in cases:
             if case["id"] in done:
                 continue
-            policy = policies.setdefault(case["ncd"], load_policy(case["ncd"]))
+            if items is None:
+                messages = build_messages(case, policies.setdefault(case["ncd"], load_policy(case["ncd"])))
+            else:
+                library = "\n\n---\n\n".join(policies.setdefault(n, load_policy(n)) for n in case["library"])
+                messages = build_long_messages(case, library)
             start = time.time()
-            text, usage = chat(args.base_url, api_key, args.model, build_messages(case, policy), args.max_tokens)
+            text, usage = chat(args.base_url, api_key, args.model, messages, args.max_tokens)
             pred = parse(text)
-            out.write(json.dumps({"id": case["id"], "model": args.model, "prediction": pred, "raw": text,
-                                  "usage": usage, "seconds": round(time.time() - start, 2)}) + "\n")
+            row = {"id": case["id"], "model": args.model, "prediction": pred, "raw": text,
+                   "usage": usage, "seconds": round(time.time() - start, 2)}
+            if items is not None:
+                row["case_id"] = case["case_id"]
+            out.write(json.dumps(row) + "\n")
             out.flush()
             print("%-12s %-28s gold=%s" % (case["id"], pred["decision"] if pred else "UNPARSEABLE",
                                            case["gold"]["decision"]))

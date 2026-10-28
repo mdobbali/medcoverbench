@@ -9,3 +9,4 @@ release/hf/README.md
 __pycache__/
 .DS_Store
 results/*pilot98*
+results/long_context/shards-*/

@@ -51,6 +51,13 @@ these numbers will change.
 Predictions with raw replies are in `results/`. See `IMPLEMENTATION_LOG.md` section 9 for
 per-class recall and the cases every strong model misses.
 
+### Long-context track (pilot)
+
+The case's NCD is hidden among 45 to 140 other real NCDs (about 32k and 96k tokens), and the
+model must find it before deciding. Early result: Llama 3.3 70B still finds the right policy
+93-98% of the time, but its unsafe approval rate rises from 8.7% with the policy alone to 27.5%
+at 32k and 50% at 96k. See `IMPLEMENTATION_LOG.md` section 9c.
+
 ## Quick start
 
 No dependencies beyond Python 3.9+.
@@ -83,6 +90,9 @@ python3 scripts/run_eval.py --base-url http://localhost:11434/v1 --model qwen2.5
 | `scripts/score.py` | Scores result files |
 | `scripts/export_hf.py` | Builds the Hugging Face release in `release/hf/` |
 | `scripts/export_review_data.py` | Builds the data file for the expert label-review tool |
+| `scripts/build_long_context.py` | Builds the long-context items in `data/long_context/` |
+| `scripts/long_context_report.py` | Breaks long-context results down by depth and retrieval |
+| `paper/` | Paper draft (LaTeX) |
 | `results/` | Model predictions, with raw replies |
 | `DESIGN.md` | Benchmark design |
 | `IMPLEMENTATION_LOG.md` | Build history: every step, decision and fix |
