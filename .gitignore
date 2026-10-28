@@ -10,3 +10,6 @@ __pycache__/
 .DS_Store
 results/*pilot98*
 results/long_context/shards-*/
+
+# Private notes (owner links, reviewer admin); never committed
+*.local.md
