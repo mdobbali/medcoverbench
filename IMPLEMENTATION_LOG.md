@@ -276,37 +276,63 @@ The model isn't told which NCD applies and must also return `"ncd"`. `run_eval.p
 track, `score.py` adds `ncd_accuracy`, and `scripts/long_context_report.py` breaks results down by
 depth and by right or wrong NCD.
 
-**Pilot runs.** Credits allowed only the cheaper models; the pilot cost $3.81.
+**Pilot runs.** Credits allowed only the cheaper models at first; the pilot cost $3.81. Numbers
+below are after the case revision in 9d (the affected 55 items were re-run).
 
 | Model | Accuracy (1 NCD / 32k / 96k) | Unsafe approval (1 NCD / 32k / 96k) | NCD accuracy (32k / 96k) |
 |---|---|---|---|
-| Gemini 3.1 Flash Lite | 0.942 / 0.900 / - | 0.013 / 0.050 / - | 1.000 / - |
-| Llama 3.3 70B | 0.867 / 0.750 / 0.633 | 0.087 / 0.275 / 0.500 | 0.983 / 0.933 |
-| Llama 3.1 8B | 0.600 / 0.558 / 0.200 | 0.388 / 0.425 / 0.188* | 0.883 / 0.250 |
+| Gemini 3.1 Flash Lite | 0.933 / 0.900 / - | 0.037 / 0.050 / - | 1.000 / - |
+| Llama 3.3 70B | 0.883 / 0.750 / 0.633 | 0.087 / 0.288 / 0.500 | 0.983 / 0.933 |
+| Llama 3.1 8B | 0.600 / 0.558 / 0.175 | 0.388 / 0.412 / 0.175* | 0.875 / 0.225 |
 
-"1 NCD" is the single-policy result on the same 120 cases. *63% of Llama 8B's replies at 96k are
-invalid JSON.
+"1 NCD" is the single-policy result on the same 120 cases. *66% of Llama 8B's replies at 96k are
+invalid JSON. 95% bootstrap intervals for Llama 70B's unsafe approval: 18.8-38.8% at 32k and
+38.8-60.0% at 96k, both above its 8.7% single-policy rate.
 
 What this says:
 - **Finding the policy isn't the bottleneck.** Gemini and Llama 70B name the right NCD 93-100% of
   the time, but still lose accuracy. Among cases where Llama 70B names the right NCD, accuracy is
   75% at 32k and 62% at 96k.
-- **Long context makes models approve.** Llama 70B's unsafe approval goes 8.7% → 27.5% → 50%,
-  while its over-denial goes 12.5% → 7.5% → 0%.
-- **Position matters for Llama 70B** at 32k (22/24 correct at depth 0, 15/24 at 0.5 and 0.75).
-  Gemini shows no position effect.
-- **Llama 8B collapses at 96k:** mostly invalid JSON, and the right NCD only 25% of the time.
+- **Long context makes models approve.** Llama 70B's unsafe approval goes 8.7% → 28.8% → 50%,
+  while its over-denial goes 10% → 7.5% → 0%.
+- **Position matters for Llama 70B** at 32k (23/24 correct at depth 0, 14/24 at 0.5). Gemini
+  shows no position effect.
+- **Llama 8B collapses at 96k:** mostly invalid JSON, and the right NCD only 22.5% of the time.
 
-Still to run, once more credit is added: GPT-5 mini, Qwen 3.7 Plus and DeepSeek V3.1 at both sizes,
-and Gemini at 96k. Estimated cost is about $20 on OpenRouter.
+Chosen for the paper (2026-10-28): GPT-5 mini at both sizes and Gemini at 96k (about $8). Qwen 3.7
+Plus and DeepSeek V3.1 are not run on this track. The runs stopped part-way when the API key hit
+its own $10 limit (separate from the account balance); they resume from where they stopped.
 
-**Found while analysing the baselines** (to fix in the next data version):
-- Every case's "requested service" is the policy-level name. For 280.7 that name includes
+### 9d. Case revision after the baselines (2026-10-28)
+
+Strong models' over-denials exposed two construction gaps:
+- Every case's "requested service" was the policy-level name. For 280.7 that name includes
   variable-height and electric features, while several vignettes order a manual bed. GPT-5 mini read
   the request as including the features and denied 280.7-01, -02 and -10.
-- The prompt doesn't say whether program- and claim-level requirements are presumed met: TAVR and
-  TEER registry participation, claim diagnosis coding for Pap smears, and post-approval studies for
-  blood-based colorectal screening. 10 of GPT-5 mini's 17 over-denials ask for these.
+- Cases didn't say whether program- and claim-level requirements are met: TAVR and TEER registry
+  requirements, claim diagnosis coding for Pap smears, and the post-approval study for blood-based
+  colorectal screening. 10 of GPT-5 mini's 17 over-denials asked for these.
+
+Fix, with no label changed:
+- `add_policy.py` accepts an optional per-case `service`.
+- 280.7, 210.2 and 210.3 cases name the specific service requested.
+- 20.32 and 20.33 vignettes state that the registry meets the NCD's registry requirements. The
+  20.32 case where the hospital has no registry is unchanged.
+- 210.2 cases state that the claim carries the risk-status diagnosis code.
+- 210.3 biomarker cases state that the test meets its post-approval study requirement.
+
+The 49 cases were re-run on all 8 models; the old outputs aren't kept in the repo.
+
+| Model | Accuracy before → after | Over-denial before → after | Unsafe approval before → after |
+|---|---|---|---|
+| GPT-5 mini | 0.943 → 0.967 | 0.098 → 0.023 | 0.009 → 0.009 |
+| Qwen 3.7 Plus | 0.922 → 0.943 | 0.121 → 0.057 | 0.009 → 0.009 |
+| Gemini 3.1 Flash Lite | 0.932 → 0.934 | 0.126 → 0.115 | 0.009 → 0.015 |
+| DeepSeek V3.1 | 0.904 → 0.910 | 0.201 → 0.172 | 0.027 → 0.027 |
+
+Cases missed by all four strongest models fell from 7 to 2 (20.40-05 and 280.14-02). Five of the
+seven were explained by construction rather than by a wrong label. The review tool's "Start here"
+list and the long-context sample still use the original seven, so the long-context items are unchanged.
 
 ## 10. Hugging Face release (prepared, not published)
 

@@ -42,7 +42,7 @@ reach 91--97\% accuracy with at most 2.7\% unsafe approvals, but small open mode
 long-context track hides the governing NCD in a library of 45 to 140 other policies (about 32k
 and 96k tokens), where the model must find the policy before applying it. There, errors shift
 toward approval: Llama 3.3 70B still names the governing NCD in 93--98\% of cases, but its unsafe
-approval rate rises from 8.7\% with the policy alone to 27.5\% at 32k tokens and 50\% at 96k. All labels are drafts pending review by clinicians and
+approval rate rises from 8.7\% with the policy alone to 28.8\% at 32k tokens and 50\% at 96k. All labels are drafts pending review by clinicians and
 certified coders. Data are released under CC BY 4.0 and code under Apache 2.0.
 \end{abstract}
 
@@ -332,7 +332,7 @@ excludes all seven.
 \small
 \caption{Long-context track, 120 cases. ``1 NCD'' is the single-policy result on the same 120
 cases. Sizes are estimated from characters; mean actual prompt lengths are about 27--28k and 80k
-tokens. $^\dagger$63\% of Llama 3.1 8B's replies at 96k are unparseable, which lowers its unsafe
+tokens. $^\dagger$66\% of Llama 3.1 8B's replies at 96k are unparseable, which lowers its unsafe
 approval rate mechanically. \tbd{} entries await runs.}
 \label{tab:long}
 \begin{tabular}{lcccccccc}
@@ -342,43 +342,41 @@ approval rate mechanically. \tbd{} entries await runs.}
 Model & 1 NCD & 32k & 96k & 1 NCD & 32k & 96k & 32k & 96k \\
 \midrule
 GPT-5 mini            & 0.958 & \tbd & \tbd & 0.013 & \tbd & \tbd & \tbd & \tbd \\
-Gemini 3.1 Flash Lite & 0.942 & 0.900 & \tbd & 0.013 & 0.050 & \tbd & 1.000 & \tbd \\
-Qwen 3.7 Plus         & 0.892 & \tbd & \tbd & 0.000 & \tbd & \tbd & \tbd & \tbd \\
-DeepSeek V3.1         & 0.883 & \tbd & \tbd & 0.037 & \tbd & \tbd & \tbd & \tbd \\
-Llama 3.3 70B         & 0.867 & 0.750 & 0.633 & 0.087 & 0.275 & 0.500 & 0.983 & 0.933 \\
-Llama 3.1 8B          & 0.600 & 0.558 & 0.200 & 0.388 & 0.425 & 0.188$^\dagger$ & 0.883 & 0.250 \\
+Gemini 3.1 Flash Lite & 0.933 & 0.900 & \tbd & 0.037 & 0.050 & \tbd & 1.000 & \tbd \\
+Llama 3.3 70B         & 0.883 & 0.750 & 0.633 & 0.087 & 0.288 & 0.500 & 0.983 & 0.933 \\
+Llama 3.1 8B          & 0.600 & 0.558 & 0.175 & 0.388 & 0.412 & 0.175$^\dagger$ & 0.875 & 0.225 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Table~\ref{tab:long} reports the long-context track for the models run so far; the remaining
-runs are pending. Three patterns are already clear.
+Table~\ref{tab:long} reports the long-context track. Intervals below are 95\% bootstrap
+intervals over the 120 cases (80 for unsafe approval).
 
 \paragraph{Finding the policy is not the bottleneck for capable models.} Gemini 3.1 Flash Lite names
 the governing NCD in all 120 cases at 32k, and Llama 3.3 70B in 98\% at 32k and 93\% at 96k. Yet
-both lose accuracy: Gemini from 94.2\% to 90.0\%, Llama 3.3 70B from 86.7\% to 75.0\% and then
-63.3\%. Among the cases where Llama 3.3 70B names the right NCD, accuracy is 75.4\% at 32k and
-61.6\% at 96k, so most of the loss comes from applying the right policy worse, not from applying
-the wrong one.
+both lose accuracy: Gemini from 93.3\% to 90.0\%, Llama 3.3 70B from 88.3\% to 75.0\% (66.7--82.5)
+and then 63.3\% (55.0--71.7). Among the cases where Llama 3.3 70B names the right NCD, accuracy is
+75.4\% at 32k and 61.6\% at 96k, so the loss comes from applying the right policy worse, not from
+applying the wrong one.
 
 \paragraph{Long context shifts errors toward approval.} With the policy alone, Llama 3.3 70B's errors
-on these 120 cases are split between unsafe approvals (8.7\%) and over-denials (12.5\%). In the
-library its unsafe approval rate rises to 27.5\% at 32k and 50\% at 96k, while over-denial falls
-to 7.5\% and then zero. Gemini's
-rises from 1.3\% to 5.0\% at 32k. Accuracy alone would understate this: the model is not just
-noisier, it is more permissive, which is the costly direction for a payer.
+on these cases are split between unsafe approvals (8.7\%) and over-denials (10.0\%). In the library
+its unsafe approval rate rises to 28.8\% (18.8--38.8) at 32k and 50.0\% (38.8--60.0) at 96k, while
+over-denial falls to 7.5\% and then zero. Both intervals exclude the single-policy rate. Gemini's
+rises from 3.7\% to 5.0\% at 32k, within noise. Accuracy alone would understate the Llama result:
+the model is not just noisier, it is more permissive, which is the costly direction for a payer.
 
 \paragraph{Small models break down.} Llama 3.1 8B holds up at 32k (accuracy 55.8\% vs 60.0\% alone)
-but collapses at 96k: 63\% of its replies are not valid JSON, it names the right NCD in 25\% of
-cases, and accuracy is 20\%. Where it does name the right NCD, it is correct 60\% of the time,
-about its single-policy level.
+but collapses at 96k: 66\% of its replies are not valid JSON, it names the right NCD in 22.5\% of
+cases, and accuracy is 17.5\%. Where it does name the right NCD, it is correct 56\% of the time,
+close to its single-policy level.
 
-\paragraph{Position.} Llama 3.3 70B at 32k is most accurate when the target is first or last in the
-library (22/24 and 19/24) and least accurate in the middle (15/24 at depths 0.5 and 0.75),
-consistent with prior findings on position~\citep{liu2024lost}. Gemini shows no such effect (21--22
-of 24 at every depth). With 24 cases per depth these differences are suggestive, not conclusive.
+\paragraph{Position.} Llama 3.3 70B at 32k is most accurate when the target is first (23/24) and
+least accurate in the middle (14/24 at depth 0.5, 15/24 at 0.75), consistent with prior findings on
+position~\citep{liu2024lost}. Gemini shows no such effect (21--22 of 24 at every depth). With 24
+cases per depth these differences are suggestive, not conclusive.
 
-\todo{Complete GPT-5 mini, Qwen 3.7 Plus, DeepSeek V3.1 and Gemini at 96k; add confidence intervals.}
+\todo{Add GPT-5 mini (32k, 96k) and Gemini (96k) once runs complete.}
 
 \section{Limitations}
 \label{sec:limits}

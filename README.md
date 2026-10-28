@@ -34,19 +34,20 @@ macro-F1, over-denial rate, citation recall and parse failure rate.
 
 ## Baselines
 
-All 513 cases, temperature 0, via OpenRouter (2026-10-27). Labels are still under review, so
+All 513 cases, temperature 0, via OpenRouter (2026-10-28, after the case revision in
+`IMPLEMENTATION_LOG.md` section 9d). Labels are still under review, so
 these numbers will change.
 
 | Model | Accuracy | Unsafe approval | Over-denial | Citation recall |
 |---|---|---|---|---|
-| GPT-5 mini | 0.943 | 0.009 | 0.098 | 0.992 |
-| Gemini 3.1 Flash Lite | 0.932 | 0.009 | 0.126 | 0.921 |
-| Qwen 3.7 Plus | 0.922 | 0.009 | 0.121 | 0.963 |
-| DeepSeek V3.1 | 0.904 | 0.027 | 0.201 | 0.930 |
-| Llama 3.3 70B | 0.885 | 0.088 | 0.121 | 0.876 |
-| Qwen 2.5 72B | 0.846 | 0.174 | 0.092 | 0.927 |
-| Qwen 2.5 7B | 0.630 | 0.215 | 0.276 | 0.710 |
-| Llama 3.1 8B | 0.593 | 0.463 | 0.092 | 0.656 |
+| GPT-5 mini | 0.967 | 0.009 | 0.023 | 0.992 |
+| Qwen 3.7 Plus | 0.943 | 0.009 | 0.057 | 0.963 |
+| Gemini 3.1 Flash Lite | 0.934 | 0.015 | 0.115 | 0.927 |
+| DeepSeek V3.1 | 0.910 | 0.027 | 0.172 | 0.932 |
+| Llama 3.3 70B | 0.893 | 0.086 | 0.109 | 0.870 |
+| Qwen 2.5 72B | 0.848 | 0.180 | 0.075 | 0.930 |
+| Qwen 2.5 7B | 0.622 | 0.224 | 0.276 | 0.718 |
+| Llama 3.1 8B | 0.591 | 0.463 | 0.092 | 0.670 |
 
 Predictions with raw replies are in `results/`. See `IMPLEMENTATION_LOG.md` section 9 for
 per-class recall and the cases every strong model misses.
@@ -55,7 +56,7 @@ per-class recall and the cases every strong model misses.
 
 The case's NCD is hidden among 45 to 140 other real NCDs (about 32k and 96k tokens), and the
 model must find it before deciding. Early result: Llama 3.3 70B still finds the right policy
-93-98% of the time, but its unsafe approval rate rises from 8.7% with the policy alone to 27.5%
+93-98% of the time, but its unsafe approval rate rises from 8.7% with the policy alone to 28.8%
 at 32k and 50% at 96k. See `IMPLEMENTATION_LOG.md` section 9c.
 
 ## Quick start

@@ -150,6 +150,13 @@ hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 0; width: 100%; 
 .bar .track { height: 0.7rem; background: var(--accent-soft); border-radius: 999px; overflow: hidden; }
 .bar .fill { height: 100%; background: var(--accent); border-radius: 999px; }
 .bar b { font-weight: 600; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.bar.pct { grid-template-columns: minmax(0, 8rem) minmax(0, 1fr) 3.2rem; }
+.bar .fill.w { background: var(--warn); }
+.bar .pending { color: var(--ink-faint); }
+.lc { display: flex; flex-direction: column; gap: 0.45rem; }
+.lc-h { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0.2rem 1rem; }
+.lc-h h3 { font-size: 0.95rem; font-weight: 600; margin: 0; }
+.lc-h span { font-size: 0.8rem; color: var(--ink-faint); }
 
 /* Case example */
 .case { font-size: 0.92rem; line-height: 1.55; color: var(--ink); }
@@ -237,6 +244,10 @@ td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-num
   .bars { gap: 0.75cqw; }
   .bar { grid-template-columns: 24cqw 1fr 3cqw; gap: 1.2cqw; font-size: 1.3cqw; }
   .bar .track { height: 1.1cqw; }
+  .bar.pct { grid-template-columns: 12cqw 1fr 5cqw; }
+  .lc { gap: 0.6cqw; }
+  .lc-h h3 { font-size: 1.45cqw; }
+  .lc-h span { font-size: 1.15cqw; }
   .case { font-size: 1.35cqw; }
   .json { font-size: 1.15cqw; }
   .tag { font-size: 0.95cqw; padding: 0.3cqw 0.7cqw; }
@@ -427,9 +438,9 @@ td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-num
   <h2 class="title">Strong models rarely approve what the policy denies</h2>
   <div class="tbl-wrap"><table>
     <thead><tr><th>Model</th><th>Accuracy</th><th>Unsafe approval</th><th>Over-denial</th><th>Citation recall</th><th>Missing-doc recall</th></tr></thead>
-    <tbody><tr><td>GPT-5 mini</td><td class="n">94.3%</td><td class="n">0.9%</td><td class="n">9.8%</td><td class="n">99.2%</td><td class="n">91%</td></tr><tr><td>Gemini 3.1 Flash Lite</td><td class="n">93.2%</td><td class="n">0.9%</td><td class="n">12.6%</td><td class="n">92.1%</td><td class="n">92%</td></tr><tr><td>Qwen 3.7 Plus</td><td class="n">92.2%</td><td class="n">0.9%</td><td class="n">12.1%</td><td class="n">96.3%</td><td class="n">84%</td></tr><tr><td>DeepSeek V3.1</td><td class="n">90.4%</td><td class="n">2.7%</td><td class="n">20.1%</td><td class="n">93.0%</td><td class="n">94%</td></tr><tr><td>Llama 3.3 70B</td><td class="n">88.5%</td><td class="n">8.8%</td><td class="n">12.1%</td><td class="n">87.6%</td><td class="n">90%</td></tr><tr><td>Qwen 2.5 72B</td><td class="n">84.6%</td><td class="n warn-t">17.4%</td><td class="n">9.2%</td><td class="n">92.7%</td><td class="n">93%</td></tr><tr><td>Qwen 2.5 7B</td><td class="n">63.0%</td><td class="n warn-t">21.5%</td><td class="n">27.6%</td><td class="n">71.0%</td><td class="n">18%</td></tr><tr><td>Llama 3.1 8B</td><td class="n">59.3%</td><td class="n warn-t">46.3%</td><td class="n">9.2%</td><td class="n">65.6%</td><td class="n">37%</td></tr></tbody>
+    <tbody><tr><td>GPT-5 mini</td><td class="n">96.7%</td><td class="n">0.9%</td><td class="n">2.3%</td><td class="n">99.2%</td><td class="n">90%</td></tr><tr><td>Qwen 3.7 Plus</td><td class="n">94.3%</td><td class="n">0.9%</td><td class="n">5.7%</td><td class="n">96.3%</td><td class="n">84%</td></tr><tr><td>Gemini 3.1 Flash Lite</td><td class="n">93.4%</td><td class="n">1.5%</td><td class="n">11.5%</td><td class="n">92.7%</td><td class="n">91%</td></tr><tr><td>DeepSeek V3.1</td><td class="n">91.0%</td><td class="n">2.7%</td><td class="n">17.2%</td><td class="n">93.2%</td><td class="n">94%</td></tr><tr><td>Llama 3.3 70B</td><td class="n">89.3%</td><td class="n">8.6%</td><td class="n">10.9%</td><td class="n">87.0%</td><td class="n">91%</td></tr><tr><td>Qwen 2.5 72B</td><td class="n">84.8%</td><td class="n warn-t">18.0%</td><td class="n">7.5%</td><td class="n">93.0%</td><td class="n">93%</td></tr><tr><td>Qwen 2.5 7B</td><td class="n">62.2%</td><td class="n warn-t">22.4%</td><td class="n">27.6%</td><td class="n">71.8%</td><td class="n">16%</td></tr><tr><td>Llama 3.1 8B</td><td class="n">59.1%</td><td class="n warn-t">46.3%</td><td class="n">9.2%</td><td class="n">67.0%</td><td class="n">36%</td></tr></tbody>
   </table></div>
-  <p class="body">Unsafe approval: predicted covered when the policy says otherwise. About $4.30 in total via OpenRouter. Labels are under review.</p>
+  <p class="body">Unsafe approval: predicted covered when the policy says otherwise. About $4.50 in total via OpenRouter. Labels are under review.</p>
 </div></section>
 
 <section class="slide deep" id="takeaways"><div class="in">
@@ -437,17 +448,25 @@ td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-num
   <h2 class="title">Strong models are close to the ceiling on single-policy cases. Small open models are not safe.</h2>
   <div class="row">
     <div class="card warn"><h3>The safety gap is large</h3><div class="c">Llama 3.1 8B approves 46% of cases the policy denies. The four strongest models approve under 3%.</div></div>
-    <div class="card"><h3>Accuracy isn't enough</h3><div class="c">Qwen 2.5 72B reaches 85% accuracy yet still approves 17% of denials: a ranking by accuracy alone would hide that.</div></div>
-    <div class="card accent"><h3>Next: make it harder</h3><div class="c">Seven cases defeat all four strongest models and go to reviewers first. Harder cases and the long-context track are where frontier models should separate.</div></div>
+    <div class="card"><h3>Accuracy isn't enough</h3><div class="c">Qwen 2.5 72B reaches 85% accuracy yet still approves 18% of denials: a ranking by accuracy alone would hide that.</div></div>
+    <div class="card accent"><h3>Long context changes the picture</h3><div class="c">Hidden among 140 other policies, the same cases go from a 9% to a 50% unsafe approval rate for Llama 3.3 70B. Next slide.</div></div>
   </div>
   <div class="spacer"></div>
+</div></section>
+
+<section class="slide" id="long-context"><div class="in">
+  <p class="eyebrow">Long-context track · 120 cases · unsafe approval rate</p>
+  <h2 class="title">Hidden among other policies, models still find the rule, then approve more</h2>
+  <div class="lc"><div class="lc-h"><h3>Llama 3.3 70B</h3><span>Found the right policy in 98% / 93% of cases</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:13.9%"></div></div><b class="">8.7%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill w" style="width:46.1%"></div></div><b class="warn-t">28.8%</b></div><div class="bar pct"><span>~96k tokens</span><div class="track"><div class="fill w" style="width:80.0%"></div></div><b class="warn-t">50.0%</b></div></div></div>
+  <div class="lc"><div class="lc-h"><h3>Gemini 3.1 Flash Lite</h3><span>Found the right policy in 100% of cases at 32k</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:5.9%"></div></div><b class="">3.7%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill" style="width:8.0%"></div></div><b class="">5.0%</b></div><div class="bar pct"><span>~96k tokens</span><div class="pending">running</div><b></b></div></div></div>
+  <p class="body">The model gets 45 to 140 real NCDs, isn't told which applies, and must name the one it used. It almost always names the right one; the errors come from applying it. For Llama 3.3 70B, over-denial falls to zero as unsafe approval rises: long context makes it more permissive, not just noisier.</p>
 </div></section>
 
 <section class="slide band" id="errors"><div class="in">
   <p class="eyebrow">What a small model gets wrong · Qwen 2.5 7B</p>
   <h2 class="title">The errors are the kind a reviewer would catch</h2>
   <div class="grid c2">
-    <div class="card warn"><h3>Missing documentation becomes denial</h3><div class="c">Of 90 missing-documentation cases, Qwen 2.5 7B called 67 not covered and got only 16 right.</div></div>
+    <div class="card warn"><h3>Missing documentation becomes denial</h3><div class="c">Of 90 missing-documentation cases, Qwen 2.5 7B called 68 not covered and got only 14 right.</div></div>
     <div class="card warn"><h3>Waiting periods ignored</h3><div class="c">Approved a defibrillator 21 days after a heart attack, against the policy's 40-day exclusion.</div></div>
     <div class="card"><h3>Exact boundaries denied</h3><div class="c">Rejected a CHA₂DS₂-VASc score of exactly 3 and an AHI of exactly 15, both of which qualify.</div></div>
     <div class="card"><h3>Exceptions missed</h3><div class="c">Demanded shared decision-making for a cardiac arrest survivor, where the policy waives it.</div></div>
@@ -507,7 +526,7 @@ Now stored:  Cardiac Index (CI) &lt; 2.2 L/min/m2, while not on inotropes, and a
     <div class="card"><p class="num">2</p><h3>Baselines</h3><div class="c">Eight models run, from 8B open models to frontier APIs. Claude is next, through a native Anthropic SDK backend.</div></div>
     <div class="card"><p class="num">3</p><h3>Release</h3><div class="c">Code, data and baselines are on GitHub. The Hugging Face dataset (already prepared) and arXiv paper follow review.</div></div>
     <div class="card"><p class="num">4</p><h3>Held-out test set</h3><div class="c">Private labels scored through a leaderboard, to limit training-data contamination.</div></div>
-    <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">The target NCD buried among 10 to 50 other policies, from 32k to 200k tokens.</div></div>
+    <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">Built and piloted: the target NCD among 45 to 140 other policies, at about 32k and 96k tokens. Frontier runs in progress.</div></div>
     <div class="card"><p class="num">6</p><h3>Domain models</h3><div class="c">Long-context models adapted to coverage policy, evaluated on the same harness.</div></div>
   </div>
 </div></section>
