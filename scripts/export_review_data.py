@@ -15,7 +15,12 @@ revision (section 9d), then two cases from each of the 50 policies, chosen with 
 different decisions where the policy allows. Changing the seed changes the assignment; don't change
 it once reviews have started.
 
+With --model-calls PATH, also writes the four strongest baselines' decision on every case
+({case_id: {model: decision}}). The review tool's owner summary uses it to flag reviewers whose
+answers track the models' mistakes. It must not be served to reviewers.
+
 Usage: python3 scripts/export_review_data.py [--out docs/review/data.json] [--snapshot-date YYYY-MM-DD]
+       [--model-calls PATH]
 Stdlib only, Python 3.9+.
 """
 import argparse
@@ -31,6 +36,7 @@ SECTIONS = [("Item/Service Description", "item_service_description"),
             ("Reasons for Denial", "reasons_for_denial")]
 PRIORITY = ["20.40-05", "210.2-01", "210.2-03", "210.2-06", "210.3-10", "280.14-02", "280.7-10"]
 UNRESOLVED = ["20.40-05", "280.14-02"]
+STRONG = ["gpt-5-mini", "qwen3.7-plus", "gemini-3.1-flash-lite", "deepseek-chat-v3.1"]
 
 
 def assignment(cases, seed):
@@ -55,6 +61,7 @@ def main():
     ap.add_argument("--out", default=os.path.join(ROOT, "docs", "review", "data.json"))
     ap.add_argument("--snapshot-date", default=None)
     ap.add_argument("--seed", type=int, default=2026)
+    ap.add_argument("--model-calls", default=None)
     args = ap.parse_args()
 
     policies, criteria, cases = {}, {}, []
@@ -104,6 +111,19 @@ def main():
         json.dump(out, f, ensure_ascii=False, separators=(",", ":"))
     print("wrote %s: %d policies, %d cases, %d assigned" % (
         args.out, len(policies), len(cases), len(out["assignment"])))
+
+    if args.model_calls:
+        calls = {c["id"]: {} for c in cases}
+        for m in STRONG:
+            with open(os.path.join(ROOT, "results", m + ".jsonl")) as f:
+                for line in f:
+                    if line.strip():
+                        row = json.loads(line)
+                        if row["id"] in calls:
+                            calls[row["id"]][m] = (row["prediction"] or {}).get("decision")
+        with open(args.model_calls, "w", encoding="utf-8") as f:
+            json.dump(calls, f, separators=(",", ":"))
+        print("wrote %s: %d models x %d cases" % (args.model_calls, len(STRONG), len(calls)))
 
 
 if __name__ == "__main__":
