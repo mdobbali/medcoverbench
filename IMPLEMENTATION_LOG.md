@@ -363,8 +363,10 @@ Before publishing:
 - **Harder cases.** Strong models are near the ceiling; add multi-criteria interactions, distractor NCDs and the long-context track.
 - **Claude backend** for `run_eval.py` using the Anthropic SDK.
 - **Held-out test split** and a leaderboard, to limit contamination.
-- **Long-context track:** built and piloted (9c). Remaining model runs need about $20 of credit.
-- **Per-case service requests** and a prompt line on program- and claim-level requirements (9c).
+- **Long-context track:** built and piloted (9c). GPT-5 mini (both sizes) and Gemini (96k) resume
+  once the API key's own spending limit is raised.
+- **Presumed facts in other policies.** 9d fixed the five policies where baselines exposed gaps;
+  others may have program- or claim-level requirements that cases don't state.
 - **Paper:** draft in `paper/main.tex` (LaTeX, not yet compiled). Remaining TBD cells await the
   long-context runs.
 
