@@ -281,27 +281,32 @@ below are after the case revision in 9d (the affected 55 items were re-run).
 
 | Model | Accuracy (1 NCD / 32k / 96k) | Unsafe approval (1 NCD / 32k / 96k) | NCD accuracy (32k / 96k) |
 |---|---|---|---|
-| Gemini 3.1 Flash Lite | 0.933 / 0.900 / - | 0.037 / 0.050 / - | 1.000 / - |
+| GPT-5 mini | 0.958 / 0.967 / 0.967 | 0.013 / 0.025 / 0.025 | 0.983 / 0.983 |
+| Gemini 3.1 Flash Lite | 0.933 / 0.900 / 0.883 | 0.037 / 0.050 / 0.075 | 1.000 / 1.000 |
 | Llama 3.3 70B | 0.883 / 0.750 / 0.633 | 0.087 / 0.288 / 0.500 | 0.983 / 0.933 |
 | Llama 3.1 8B | 0.600 / 0.558 / 0.175 | 0.388 / 0.412 / 0.175* | 0.875 / 0.225 |
 
 "1 NCD" is the single-policy result on the same 120 cases. *66% of Llama 8B's replies at 96k are
-invalid JSON. 95% bootstrap intervals for Llama 70B's unsafe approval: 18.8-38.8% at 32k and
-38.8-60.0% at 96k, both above its 8.7% single-policy rate.
+invalid JSON. 95% bootstrap intervals for unsafe approval: Llama 70B 18.8-38.8% at 32k and
+38.8-60.0% at 96k (both above its 8.7% single-policy rate); GPT-5 mini 0-6.2% at both sizes; Gemini
+2.5-13.8% at 96k.
 
 What this says:
-- **Finding the policy isn't the bottleneck.** Gemini and Llama 70B name the right NCD 93-100% of
-  the time, but still lose accuracy. Among cases where Llama 70B names the right NCD, accuracy is
-  75% at 32k and 62% at 96k.
-- **Long context makes models approve.** Llama 70B's unsafe approval goes 8.7% → 28.8% → 50%,
-  while its over-denial goes 10% → 7.5% → 0%.
-- **Position matters for Llama 70B** at 32k (23/24 correct at depth 0, 14/24 at 0.5). Gemini
-  shows no position effect.
+- **Long context separates models that single policies don't.** GPT-5 mini is unaffected. Gemini
+  drifts in the same direction as Llama, within noise. Llama 70B degrades sharply.
+- **Finding the policy isn't the bottleneck.** All three larger models name the right NCD in at
+  least 93% of cases. Among cases where Llama 70B names the right NCD, accuracy is 75% at 32k and
+  62% at 96k.
+- **When a model degrades, it degrades toward approval.** Llama 70B's unsafe approval goes
+  8.7% → 28.8% → 50%, while its over-denial goes 10% → 7.5% → 0%.
+- **Position matters for Llama 70B** at 32k (23/24 correct at depth 0, 14/24 at 0.5). GPT-5 mini
+  and Gemini show no position effect.
 - **Llama 8B collapses at 96k:** mostly invalid JSON, and the right NCD only 22.5% of the time.
 
-Chosen for the paper (2026-10-28): GPT-5 mini at both sizes and Gemini at 96k (about $8). Qwen 3.7
-Plus and DeepSeek V3.1 are not run on this track. The runs stopped part-way when the API key hit
-its own $10 limit (separate from the account balance); they resume from where they stopped.
+Runs: the Gemini 32k and Llama runs were the pilot ($3.81). GPT-5 mini at both sizes and Gemini at
+96k were added for the paper. Qwen 3.7 Plus, DeepSeek V3.1 and the Qwen 2.5 models were not run on
+this track. Long-context spend in total was about $10; total OpenRouter usage for the project is
+$14.48.
 
 ### 9d. Case revision after the baselines (2026-10-28)
 
@@ -363,8 +368,7 @@ Before publishing:
 - **Harder cases.** Strong models are near the ceiling; add multi-criteria interactions, distractor NCDs and the long-context track.
 - **Claude backend** for `run_eval.py` using the Anthropic SDK.
 - **Held-out test split** and a leaderboard, to limit contamination.
-- **Long-context track:** built and piloted (9c). GPT-5 mini (both sizes) and Gemini (96k) resume
-  once the API key's own spending limit is raised.
+- **Long-context track:** done for four models (9c). Optional: Qwen 3.7 Plus and DeepSeek V3.1.
 - **Presumed facts in other policies.** 9d fixed the five policies where baselines exposed gaps;
   others may have program- or claim-level requirements that cases don't state.
 - **Paper:** draft in `paper/main.tex` (LaTeX, not yet compiled). Remaining TBD cells await the

@@ -449,17 +449,18 @@ td.n { text-align: right; white-space: nowrap; font-variant-numeric: tabular-num
   <div class="row">
     <div class="card warn"><h3>The safety gap is large</h3><div class="c">Llama 3.1 8B approves 46% of cases the policy denies. The four strongest models approve under 3%.</div></div>
     <div class="card"><h3>Accuracy isn't enough</h3><div class="c">Qwen 2.5 72B reaches 85% accuracy yet still approves 18% of denials: a ranking by accuracy alone would hide that.</div></div>
-    <div class="card accent"><h3>Long context changes the picture</h3><div class="c">Hidden among 140 other policies, the same cases go from a 9% to a 50% unsafe approval rate for Llama 3.3 70B. Next slide.</div></div>
+    <div class="card accent"><h3>Long context separates them</h3><div class="c">Hidden among 140 other policies, GPT-5 mini holds steady while Llama 3.3 70B goes from 9% to 50% unsafe approval. Next slide.</div></div>
   </div>
   <div class="spacer"></div>
 </div></section>
 
 <section class="slide" id="long-context"><div class="in">
   <p class="eyebrow">Long-context track · 120 cases · unsafe approval rate</p>
-  <h2 class="title">Hidden among other policies, models still find the rule, then approve more</h2>
+  <h2 class="title">Hidden among other policies, models that looked alike come apart</h2>
+  <div class="lc"><div class="lc-h"><h3>GPT-5 mini</h3><span>Found the right policy in 98% of cases</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:2.1%"></div></div><b class="">1.3%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill" style="width:4.0%"></div></div><b class="">2.5%</b></div><div class="bar pct"><span>~96k tokens</span><div class="track"><div class="fill" style="width:4.0%"></div></div><b class="">2.5%</b></div></div></div>
+  <div class="lc"><div class="lc-h"><h3>Gemini 3.1 Flash Lite</h3><span>Found the right policy in every case</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:5.9%"></div></div><b class="">3.7%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill" style="width:8.0%"></div></div><b class="">5.0%</b></div><div class="bar pct"><span>~96k tokens</span><div class="track"><div class="fill" style="width:12.0%"></div></div><b class="">7.5%</b></div></div></div>
   <div class="lc"><div class="lc-h"><h3>Llama 3.3 70B</h3><span>Found the right policy in 98% / 93% of cases</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:13.9%"></div></div><b class="">8.7%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill w" style="width:46.1%"></div></div><b class="warn-t">28.8%</b></div><div class="bar pct"><span>~96k tokens</span><div class="track"><div class="fill w" style="width:80.0%"></div></div><b class="warn-t">50.0%</b></div></div></div>
-  <div class="lc"><div class="lc-h"><h3>Gemini 3.1 Flash Lite</h3><span>Found the right policy in 100% of cases at 32k</span></div><div class="bars"><div class="bar pct"><span>Policy alone</span><div class="track"><div class="fill" style="width:5.9%"></div></div><b class="">3.7%</b></div><div class="bar pct"><span>~32k tokens</span><div class="track"><div class="fill" style="width:8.0%"></div></div><b class="">5.0%</b></div><div class="bar pct"><span>~96k tokens</span><div class="pending">running</div><b></b></div></div></div>
-  <p class="body">The model gets 45 to 140 real NCDs, isn't told which applies, and must name the one it used. It almost always names the right one; the errors come from applying it. For Llama 3.3 70B, over-denial falls to zero as unsafe approval rises: long context makes it more permissive, not just noisier.</p>
+  <p class="body">45 to 140 real NCDs, none marked as the one that applies. Llama 3.3 70B's over-denials fall to zero: it turns permissive, not noisy.</p>
 </div></section>
 
 <section class="slide band" id="errors"><div class="in">
@@ -526,7 +527,7 @@ Now stored:  Cardiac Index (CI) &lt; 2.2 L/min/m2, while not on inotropes, and a
     <div class="card"><p class="num">2</p><h3>Baselines</h3><div class="c">Eight models run, from 8B open models to frontier APIs. Claude is next, through a native Anthropic SDK backend.</div></div>
     <div class="card"><p class="num">3</p><h3>Release</h3><div class="c">Code, data and baselines are on GitHub. The Hugging Face dataset (already prepared) and arXiv paper follow review.</div></div>
     <div class="card"><p class="num">4</p><h3>Held-out test set</h3><div class="c">Private labels scored through a leaderboard, to limit training-data contamination.</div></div>
-    <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">Built and piloted: the target NCD among 45 to 140 other policies, at about 32k and 96k tokens. Frontier runs in progress.</div></div>
+    <div class="card"><p class="num">5</p><h3>Long-context track</h3><div class="c">Built and run on four models: the target NCD among 45 to 140 other policies, at about 32k and 96k tokens.</div></div>
     <div class="card"><p class="num">6</p><h3>Domain models</h3><div class="c">Long-context models adapted to coverage policy, evaluated on the same harness.</div></div>
   </div>
 </div></section>

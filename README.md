@@ -55,9 +55,18 @@ per-class recall and the cases every strong model misses.
 ### Long-context track (pilot)
 
 The case's NCD is hidden among 45 to 140 other real NCDs (about 32k and 96k tokens), and the
-model must find it before deciding. Early result: Llama 3.3 70B still finds the right policy
-93-98% of the time, but its unsafe approval rate rises from 8.7% with the policy alone to 28.8%
-at 32k and 50% at 96k. See `IMPLEMENTATION_LOG.md` section 9c.
+model must find it before deciding. It separates models that look alike on single policies:
+
+| Model | Accuracy (alone / 32k / 96k) | Unsafe approval (alone / 32k / 96k) |
+|---|---|---|
+| GPT-5 mini | 0.958 / 0.967 / 0.967 | 0.013 / 0.025 / 0.025 |
+| Gemini 3.1 Flash Lite | 0.933 / 0.900 / 0.883 | 0.037 / 0.050 / 0.075 |
+| Llama 3.3 70B | 0.883 / 0.750 / 0.633 | 0.087 / 0.288 / 0.500 |
+| Llama 3.1 8B | 0.600 / 0.558 / 0.175 | 0.388 / 0.412 / 0.175* |
+
+All three larger models name the right NCD in at least 93% of cases. Llama 3.3 70B finds it and then
+approves half of what the policy denies. *Llama 3.1 8B's replies at 96k are mostly invalid JSON.
+See `IMPLEMENTATION_LOG.md` section 9c.
 
 ## Quick start
 
